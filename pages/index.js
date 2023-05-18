@@ -1,12 +1,7 @@
-import { rubik } from '../utils/fonts';
-import styles from '@/styles/Home.module.css'
-
-export default function Home() {
+const Home = () => {
   return (
-    <>
-      <main className={`${rubik.className}`}>
-        <p>hi</p>
-      </main>
-    </>
+    <p>Serking de Orayom</p>
   )
 }
+
+export default Home
