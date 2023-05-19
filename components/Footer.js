@@ -1,9 +1,9 @@
-import { useRubik } from "@/utils/fonts"
+import { Typography } from "@mui/material"
 
 const Footer = () => {
     return (
-        <footer className={`${useRubik.className}`}>
-            <h4>Footer</h4>
+        <footer>
+            <Typography>Footer</Typography>
         </footer>
     )
 }
