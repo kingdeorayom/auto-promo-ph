@@ -1,0 +1,15 @@
+.appbar {
+    background-color: white;
+    padding: 3px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.toolbar {
+    justify-content: space-between;
+}
+
+.navbar {
+    padding: 20px;
+    background-color: "#ffffff";
+    border-bottom: 1px solid #d3d3d3;
+}

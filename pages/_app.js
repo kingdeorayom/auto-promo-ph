@@ -1,4 +1,3 @@
-import Layout from '@/layouts/Layout'
 import '@/styles/globals.css'
 import theme from '@/utils/theme'
 import { ThemeProvider } from '@mui/material'
@@ -15,9 +14,7 @@ const App = ({ Component, pageProps }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   )

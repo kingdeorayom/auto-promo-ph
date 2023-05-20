@@ -1,8 +1,11 @@
+import Layout from '@/layouts/Layout'
 import { Typography } from '@mui/material'
 
 const Contact = () => {
     return (
-        <Typography>Contact</Typography>
+        <Layout>
+            <Typography>Contact</Typography>
+        </Layout>
     )
 }
 
