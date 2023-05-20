@@ -1,8 +1,11 @@
+import Layout from '@/layouts/Layout'
 import React from 'react'
 
 const Search = () => {
     return (
-        <div></div>
+        <Layout>
+
+        </Layout>
     )
 }
 

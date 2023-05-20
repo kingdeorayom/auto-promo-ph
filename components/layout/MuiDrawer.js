@@ -22,6 +22,9 @@ const MuiDrawer = ({ isDrawerOpen, setIsDrawerOpen }) => {
                     <Link href='/application'>
                         <Typography color='black'>Application</Typography>
                     </Link>
+                    <Link href='/about'>
+                        <Typography color='black'>About</Typography>
+                    </Link>
                     <Link href='/contact'>
                         <Typography color='black'>Contact</Typography>
                     </Link>

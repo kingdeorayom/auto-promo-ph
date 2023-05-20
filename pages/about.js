@@ -1,8 +1,37 @@
-import React from 'react'
+import Layout from '@/layouts/Layout'
+import { Box, Button, Grid, Typography } from '@mui/material'
+import Image from 'next/image'
+import Link from 'next/link'
+import dhang_casten from '../public/dhang_casten.jpg'
+import PhoneIcon from '@mui/icons-material/Phone';
 
 const About = () => {
     return (
-        <div>About</div>
+        <Layout>
+            <Typography fontSize='2rem' variant="h2" fontWeight='600'>About Me</Typography>
+            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Typography>
+
+            <Grid
+                container
+                mt={2}
+                mb={4}
+                rowSpacing={3}
+                columnSpacing={3}
+            >
+
+                <Grid item xs={12} md={6}>
+                    <Box sx={{ marginBottom: '30px' }}>
+                        <Typography fontWeight='500' variant='h1' fontSize='3rem' color='primary' mb={1}>Hi, I&#39;m Dhang &#58;&#41;</Typography>
+                        <Typography variant='h3' fontSize='1.2rem' color='secondary' fontWeight='500' mb={2}>Lorem ipsum dolor sit amet</Typography>
+                        <Typography variant='h3' fontSize='1.2rem' color='secondary' fontWeight='300'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio dolores temporibus quo perferendis sequi ratione rerum eligendi veritatis omnis, adipisci eaque accusamus, veniam, illum cupiditate voluptatibus inventore tempora expedita officiis!</Typography>
+                    </Box>
+                    <Link href='/contact'>
+                        <Button variant="contained" startIcon={<PhoneIcon />} disableElevation>Contact Me</Button>
+                    </Link>
+                </Grid>
+
+            </Grid >
+        </Layout>
     )
 }
 

@@ -10,6 +10,7 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import logo from '../../public/auto-promo-ph-logo.svg'
 
 import styles from '../../styles/Header.module.css'
+
 import Navbar from "./Navbar";
 import MuiDrawer from "./MuiDrawer";
 
@@ -64,7 +65,7 @@ const Header = () => {
                             </IconButton>
                         </Link>
                         <IconButton onClick={() => setIsDrawerOpen(true)}>
-                            <MenuIcon />
+                            <MenuIcon color="primary" />
                         </IconButton>
                     </Stack>
                 </Toolbar>
