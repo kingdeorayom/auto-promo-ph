@@ -34,7 +34,7 @@ const Header = () => {
                             <Image
                                 src={logo}
                                 alt="Auto Promo PH"
-                            // height={30}
+                                height={30}
                             />
                         </Link>
                     </Stack>

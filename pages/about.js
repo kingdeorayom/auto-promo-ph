@@ -16,13 +16,13 @@ const About = () => {
                 mt={2}
                 mb={4}
                 rowSpacing={3}
-                columnSpacing={3}
+                columnSpacing={2}
             >
 
                 <Grid item xs={12} md={6}>
                     <Box sx={{ marginBottom: '30px' }}>
-                        <Typography fontWeight='500' variant='h1' fontSize='3rem' color='primary' mb={1}>Hi, I&#39;m Dhang &#58;&#41;</Typography>
-                        <Typography variant='h3' fontSize='1.2rem' color='secondary' fontWeight='500' mb={2}>Lorem ipsum dolor sit amet</Typography>
+                        <Typography fontWeight='500' variant='h1' fontSize='3rem' color='primary' mb={1}>Dhang Casten</Typography>
+                        <Typography variant='h3' fontSize='1.2rem' fontWeight='500' mb={2}>Marketing Consultant</Typography>
                         <Typography variant='h3' fontSize='1.2rem' color='secondary' fontWeight='300'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio dolores temporibus quo perferendis sequi ratione rerum eligendi veritatis omnis, adipisci eaque accusamus, veniam, illum cupiditate voluptatibus inventore tempora expedita officiis!</Typography>
                     </Box>
                     <Link href='/contact'>
