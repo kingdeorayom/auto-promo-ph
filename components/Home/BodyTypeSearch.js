@@ -2,10 +2,10 @@ import { Box, Grid, Typography } from '@mui/material'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import sedan from '../../public/vehicles/mitsubishi-g4.webp'
-import suv from '../../public/vehicles/mitsubishi-g4.webp'
-import hatchback from '../../public/vehicles/mitsubishi-g4.webp'
-import van from '../../public/vehicles/mitsubishi-g4.webp'
+import sedan from '../../public/sedan.jpg'
+import suv from '../../public/suv.jpg'
+import hatchback from '../../public/hatchback.jpg'
+import van from '../../public/van.jpg'
 
 import styles from '../../styles/Home.module.css'
 

@@ -2,7 +2,7 @@ import { Box, Grid, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
-import mitsubishi from '../../public/vehicles/mitsubishi-g4.webp'
+import mitsubishi from '../../public/mitsubishi-g4.webp'
 import EastIcon from '@mui/icons-material/East';
 
 const FeaturedVehicles = () => {
