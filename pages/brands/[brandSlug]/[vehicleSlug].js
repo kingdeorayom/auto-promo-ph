@@ -3,14 +3,28 @@ import { Typography } from '@mui/material';
 import { useRouter } from 'next/router'
 
 export async function getStaticPaths() {
+
+    const response = await fetch('http://localhost:3001/vehicles')
+    const vehicles = await response.json()
+
+    const paths = vehicles.map(vehicle => {
+        return {
+            params: {
+                brandSlug: vehicle.brand_slug,
+                vehicleSlug: vehicle.vehicle_slug
+            }
+        }
+    })
+
     return {
-        paths: [
-            { params: { brandSlug: 'toyota', vehicleSlug: 'toyota-innova' } },
-            { params: { brandSlug: 'toyota', vehicleSlug: 'toyota-corolla' } },
-            { params: { brandSlug: 'mitsubishi', vehicleSlug: 'mitsubishi-mirage-g4' } },
-            { params: { brandSlug: 'suzuki', vehicleSlug: 'suzuki-swift' } },
-            { params: { brandSlug: 'geely', vehicleSlug: 'geely-coolray' } },
-        ],
+        paths: paths,
+        // paths: [
+        //     { params: { brandSlug: 'toyota', vehicleSlug: 'toyota-innova' } },
+        //     { params: { brandSlug: 'toyota', vehicleSlug: 'toyota-corolla' } },
+        //     { params: { brandSlug: 'mitsubishi', vehicleSlug: 'mitsubishi-mirage-g4' } },
+        //     { params: { brandSlug: 'suzuki', vehicleSlug: 'suzuki-swift' } },
+        //     { params: { brandSlug: 'geely', vehicleSlug: 'geely-coolray' } },
+        // ],
         fallback: false,
     };
 }
