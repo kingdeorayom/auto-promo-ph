@@ -15,7 +15,7 @@ const Banner = () => {
                 backgroundColor: '#E6F2FF',
                 borderRadius: 5,
                 px: 5,
-                py: 2
+                py: 2,
             }}
         >
             <Grid item xs={12} md={9}>

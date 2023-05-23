@@ -82,7 +82,7 @@ const Footer = () => {
                 <Typography>
                     Copyright &copy; 2023. All rights reserved.
                 </Typography>
-                <Stack direction='row'>
+                <Stack direction='row' spacing={2}>
                     <Link href='https://www.facebook.com/kingdeorayom' target="_blank">
                         <IconButton>
                             <FacebookRoundedIcon color="primary" />
