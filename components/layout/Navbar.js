@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { Box, Stack, Typography } from '@mui/material'
 import styles from '../../styles/Header.module.css'
 
-const Navbar = ({ fromMediumDisplay }) => {
+const Navbar = ({ router, fromMediumDisplay }) => {
 
-    const router = useRouter()
+    // const router = useRouter()
 
     const navigation_item_override = {
         px: 2,

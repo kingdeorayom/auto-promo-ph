@@ -13,3 +13,8 @@
     background-color: "#ffffff";
     border-bottom: 1px solid #d3d3d3;
 }
+
+.logo {
+    max-width: 100%;
+    margin-bottom: 10px;
+}

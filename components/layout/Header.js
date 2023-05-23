@@ -14,7 +14,11 @@ import styles from '../../styles/Header.module.css'
 import Navbar from "./Navbar";
 import MuiDrawer from "./MuiDrawer";
 
+import { useRouter } from "next/router";
+
 const Header = () => {
+
+    const router = useRouter()
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
@@ -71,11 +75,12 @@ const Header = () => {
                 </Toolbar>
             </AppBar>
 
-            <Navbar fromMediumDisplay={fromMediumDisplay} />
+            <Navbar router={router} fromMediumDisplay={fromMediumDisplay} />
 
             <MuiDrawer
                 isDrawerOpen={isDrawerOpen}
                 setIsDrawerOpen={setIsDrawerOpen}
+                router={router}
             />
 
         </>
