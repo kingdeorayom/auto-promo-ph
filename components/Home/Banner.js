@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Button, Grid, Typography } from '@mui/material'
 import EastIcon from '@mui/icons-material/East';
 import man_working from '../../public/man_working.svg'
+import styles from '../../styles/Home.module.css'
 
 const Banner = () => {
     return (
@@ -31,6 +32,7 @@ const Banner = () => {
                     height={250}
                     width={250}
                     alt="Man working"
+                    className={styles.bannerImage}
                 />
             </Grid>
         </Grid >

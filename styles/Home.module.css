@@ -33,3 +33,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.bannerImage {
+    max-width: 100%;
+}
