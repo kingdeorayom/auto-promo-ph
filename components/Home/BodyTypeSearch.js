@@ -26,11 +26,11 @@ const BodyTypeSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={3}>
                     <Link href='/'>
-                        <Box className={styles.imageBox}>
+                        <Box className={styles.categoryImageBox}>
                             <Image
                                 src={sedan}
                                 alt="Mitsubishi Mirage G4"
-                                className={styles.vehicleImage}
+                                className={styles.backgroundImage}
                                 priority
                             />
                             <Typography fontSize='1.2rem' fontWeight='400' color='white' className={styles.categoryLabel}>Sedan</Typography>
@@ -40,11 +40,11 @@ const BodyTypeSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={3}>
                     <Link href='/'>
-                        <Box className={styles.imageBox}>
+                        <Box className={styles.categoryImageBox}>
                             <Image
                                 src={suv}
                                 alt="Mitsubishi Mirage G4"
-                                className={styles.vehicleImage}
+                                className={styles.backgroundImage}
                                 priority
                             />
                             <Typography fontSize='1.2rem' fontWeight='400' color='white' className={styles.categoryLabel}>SUV</Typography>
@@ -54,11 +54,11 @@ const BodyTypeSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={3}>
                     <Link href='/'>
-                        <Box className={styles.imageBox}>
+                        <Box className={styles.categoryImageBox}>
                             <Image
                                 src={hatchback}
                                 alt="Mitsubishi Mirage G4"
-                                className={styles.vehicleImage}
+                                className={styles.backgroundImage}
                                 priority
                             />
                             <Typography fontSize='1.2rem' fontWeight='400' color='white' className={styles.categoryLabel}>Hatchback</Typography>
@@ -68,11 +68,11 @@ const BodyTypeSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={3}>
                     <Link href='/'>
-                        <Box className={styles.imageBox}>
+                        <Box className={styles.categoryImageBox}>
                             <Image
                                 src={van}
                                 alt="Mitsubishi Mirage G4"
-                                className={styles.vehicleImage}
+                                className={styles.backgroundImage}
                                 priority
                             />
                             <Typography fontSize='1.2rem' fontWeight='400' color='white' className={styles.categoryLabel}>Van</Typography>
