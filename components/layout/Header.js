@@ -5,9 +5,11 @@ import { AppBar, IconButton, Stack, Toolbar } from "@mui/material"
 
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 
-import logo from '../../public/auto-promo-ph-logo.svg'
+import logo from '../../public/logotosvg.png'
+import gmail_icon from '../../public/gmail_icon.svg'
+import viber_icon from '../../public/viber_icon.svg'
+import facebook_icon from '../../public/facebook_icon.svg'
 
 import styles from '../../styles/Header.module.css'
 
@@ -38,7 +40,7 @@ const Header = () => {
                             <Image
                                 src={logo}
                                 alt="Auto Promo PH"
-                                height={30}
+                                height={40}
                             />
                         </Link>
                     </Stack>
@@ -52,19 +54,34 @@ const Header = () => {
                                 <SearchIcon />
                             </IconButton>
                         </Link>
-                        <Link href='https://www.facebook.com/kingdeorayom' target="_blank">
+                        <Link href='https://www.facebook.com/dhang.casten' target="_blank">
                             <IconButton>
-                                <FacebookRoundedIcon color="primary" />
+                                <Image
+                                    src={facebook_icon}
+                                    alt="Facebook Icon"
+                                    width={20}
+                                    height={20}
+                                />
                             </IconButton>
                         </Link>
-                        <Link href='https://www.facebook.com/kingdeorayom' target="_blank">
+                        <Link href='https://www.viber.com/' target="_blank">
                             <IconButton>
-                                <FacebookRoundedIcon color="primary" />
+                                <Image
+                                    src={viber_icon}
+                                    alt="Viber Icon"
+                                    width={20}
+                                    height={20}
+                                />
                             </IconButton>
                         </Link>
-                        <Link href='https://www.facebook.com/kingdeorayom' target="_blank">
+                        <Link href='mailto:kingdeorayom@gmail.com' target="_blank">
                             <IconButton>
-                                <FacebookRoundedIcon color="primary" />
+                                <Image
+                                    src={gmail_icon}
+                                    alt="Gmail Icon"
+                                    width={20}
+                                    height={20}
+                                />
                             </IconButton>
                         </Link>
                     </Stack>
