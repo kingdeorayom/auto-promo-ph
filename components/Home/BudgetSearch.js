@@ -2,6 +2,18 @@ import { Box, Grid, Typography } from '@mui/material'
 import Link from 'next/link'
 
 const BudgetSearch = () => {
+
+    const boxStyle = {
+        backgroundColor: '#f5f5f5',
+        borderRadius: 5,
+        padding: 5,
+        textAlign: 'center',
+        boxShadow: '1px 1px 1px #d3d3d3',
+        '&:hover': {
+            boxShadow: '1px 2px 1px #d3d3d3',
+        }
+    }
+
     return (
         <>
             <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>Browse cars by budget</Typography>
@@ -17,7 +29,7 @@ const BudgetSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
-                        <Box sx={{ backgroundColor: '#f5f5f5', borderRadius: 5, padding: 5, textAlign: 'center' }}>
+                        <Box sx={boxStyle}>
                             <Typography fontSize='1.2rem' fontWeight='400' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
@@ -25,7 +37,7 @@ const BudgetSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
-                        <Box sx={{ backgroundColor: '#f5f5f5', borderRadius: 5, padding: 5, textAlign: 'center' }}>
+                        <Box sx={boxStyle}>
                             <Typography fontSize='1.2rem' fontWeight='400' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
@@ -33,7 +45,7 @@ const BudgetSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
-                        <Box sx={{ backgroundColor: '#f5f5f5', borderRadius: 5, padding: 5, textAlign: 'center' }}>
+                        <Box sx={boxStyle}>
                             <Typography fontSize='1.2rem' fontWeight='400' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
@@ -41,7 +53,7 @@ const BudgetSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
-                        <Box sx={{ backgroundColor: '#f5f5f5', borderRadius: 5, padding: 5, textAlign: 'center' }}>
+                        <Box sx={boxStyle}>
                             <Typography fontSize='1.2rem' fontWeight='400' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
@@ -49,7 +61,7 @@ const BudgetSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
-                        <Box sx={{ backgroundColor: '#f5f5f5', borderRadius: 5, padding: 5, textAlign: 'center' }}>
+                        <Box sx={boxStyle}>
                             <Typography fontSize='1.2rem' fontWeight='400' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
@@ -57,7 +69,7 @@ const BudgetSearch = () => {
 
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
-                        <Box sx={{ backgroundColor: '#f5f5f5', borderRadius: 5, padding: 5, textAlign: 'center' }}>
+                        <Box sx={boxStyle}>
                             <Typography fontSize='1.2rem' fontWeight='400' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
