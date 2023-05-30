@@ -1,7 +1,7 @@
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Vehicles.module.css'
 import mitsubishi from '../../public/mitsubishi-g4.webp'
 import EastIcon from '@mui/icons-material/East';
 
@@ -25,30 +25,30 @@ const FeaturedVehicles = () => {
                 {featured_vehicles.map((item) => {
                     return (
                         <Grid key={item.id} item xs={12} sm={6} lg={3}>
-                            <Link href='/'>
-                                <Box>
+                            <Link href='/brands/toyota/toyota-corolla'>
+                                <Box className={styles.imageBox}>
                                     <Image
                                         src={mitsubishi}
                                         alt="Mitsubishi Mirage G4"
                                         className={styles.vehicleImage}
                                         priority
                                     />
-                                    <Typography fontWeight='500' variant='h4' fontSize='1rem'>Mitsubishi Mirage G4</Typography>
-                                    <Typography color='secondary'>PHP 768,000.00</Typography>
-                                    <Typography color='secondary'>DP starts @ PHP 23,829.00</Typography>
-                                    <Stack direction='row' spacing={1}>
-                                        <Typography variant="button" fontWeight='500' color='primary.main'>
-                                            VIEW MORE INFORMATION
-                                        </Typography>
-                                        <EastIcon color='primary' />
-                                    </Stack>
                                 </Box>
+                                <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>Mitsubishi Mirage G4</Typography>
+                                <Typography color='secondary'>PHP 768,000.00</Typography>
+                                <Typography color='secondary'>DP starts @ PHP 23,829.00</Typography>
+                                <Stack direction='row' spacing={1}>
+                                    <Typography variant="button" fontWeight='500' color='primary.main'>
+                                        VIEW MORE INFORMATION
+                                    </Typography>
+                                    <EastIcon color='primary' />
+                                </Stack>
                             </Link>
                         </Grid>
                     )
                 })}
 
-            </Grid >
+            </Grid>
         </>
     )
 }
