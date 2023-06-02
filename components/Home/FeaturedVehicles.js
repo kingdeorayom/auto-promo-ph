@@ -7,8 +7,6 @@ import EastIcon from '@mui/icons-material/East';
 
 const FeaturedVehicles = () => {
 
-    const featured_vehicles = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
-
     return (
         <>
             <Typography fontSize='2rem' variant="h1" fontWeight='600' mb={1}>Featured Vehicles</Typography>
@@ -22,7 +20,7 @@ const FeaturedVehicles = () => {
                 columnSpacing={2}
             >
 
-                {featured_vehicles.map((item) => {
+                {Array(4).fill("").map((item) => {
                     return (
                         <Grid key={item.id} item xs={12} sm={6} lg={3}>
                             <Link href='/brands/toyota/toyota-corolla'>
