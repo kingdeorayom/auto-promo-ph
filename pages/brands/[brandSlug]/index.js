@@ -68,7 +68,7 @@ const Brand = ({ vehicles }) => {
                                     />
                                 </Box>
                                 <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>
-                                <Typography color='secondary'>PHP 768,000.00</Typography>
+                                <Typography color='secondary'>PHP {vehicle.price}</Typography>
                                 <Typography color='secondary'>DP starts @ PHP 23,829.00</Typography>
                                 <Stack direction='row' spacing={1}>
                                     <Typography variant="button" fontWeight='500' color='primary.main'>
