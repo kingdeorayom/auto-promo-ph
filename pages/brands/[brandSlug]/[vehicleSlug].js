@@ -9,6 +9,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { useState } from "react"
 import Link from 'next/link';
 import Suggestions from '@/components/Vehicles/Suggestions';
+import useNumberFormatter from '@/hooks/useNumberFormatter';
 
 export async function getStaticPaths() {
 
@@ -77,7 +78,7 @@ const VehicleDetails = ({ vehicle }) => {
                 <Grid item xs={12} md={6}>
                     <Box mt={1}>
                         <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>{vehicle.name}</Typography>
-                        <Typography fontSize='1rem' variant="subtitle1" color='secondary'>PHP 768,000.00</Typography>
+                        <Typography fontSize='1rem' variant="subtitle1" color='secondary'>PHP {useNumberFormatter(vehicle.price)}</Typography>
                         <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>DP starts @ PHP 23,829.00</Typography>
                         <Link href='#inquire'>
                             <Button variant="contained" disableElevation>Inquire Now</Button>
