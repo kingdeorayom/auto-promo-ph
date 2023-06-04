@@ -41,11 +41,11 @@ const Navbar = ({ router, fromMediumDisplay }) => {
                     <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
                 </Box>
             </Link>
-            <Link href='/application'>
+            {/* <Link href='/application'>
                 <Box sx={navigation_item_override}>
                     <Typography fontWeight={router.pathname == '/application' ? "700" : "400"} color={router.pathname == '/application' ? "primary" : "black"}>Application</Typography>
                 </Box>
-            </Link>
+            </Link> */}
             <Link href='/about'>
                 <Box sx={navigation_item_override}>
                     <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>

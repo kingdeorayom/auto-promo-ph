@@ -49,7 +49,7 @@ const BudgetSearch = () => {
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
                         <Box sx={boxStyle}>
-                            <Typography fontSize='1.2rem' fontWeight='300' color='primary'>Under PHP 750,000.00</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='300' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
                 </Grid>
@@ -57,7 +57,7 @@ const BudgetSearch = () => {
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
                         <Box sx={boxStyle}>
-                            <Typography fontSize='1.2rem' fontWeight='300' color='primary'>Under PHP 750,000.00</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='300' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
                 </Grid>
@@ -65,7 +65,7 @@ const BudgetSearch = () => {
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
                         <Box sx={boxStyle}>
-                            <Typography fontSize='1.2rem' fontWeight='300' color='primary'>Under PHP 750,000.00</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='300' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
                 </Grid>
@@ -73,7 +73,7 @@ const BudgetSearch = () => {
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
                         <Box sx={boxStyle}>
-                            <Typography fontSize='1.2rem' fontWeight='300' color='primary'>Under PHP 750,000.00</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='300' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
                 </Grid>
@@ -81,7 +81,7 @@ const BudgetSearch = () => {
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
                         <Box sx={boxStyle}>
-                            <Typography fontSize='1.2rem' fontWeight='300' color='primary'>Under PHP 750,000.00</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='300' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
                 </Grid>
@@ -89,7 +89,7 @@ const BudgetSearch = () => {
                 <Grid item xs={12} sm={6} lg={4}>
                     <Link href='/'>
                         <Box sx={boxStyle}>
-                            <Typography fontSize='1.2rem' fontWeight='300' color='primary'>Under PHP 750,000.00</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='300' color='black'>Under PHP 750,000.00</Typography>
                         </Box>
                     </Link>
                 </Grid>

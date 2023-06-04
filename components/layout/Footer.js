@@ -44,7 +44,7 @@ const Footer = () => {
 
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' mb={3}>CORPORATE</Typography>
+                            <Typography fontWeight='500' mb={3}>AUTO PROMO PH</Typography>
                             <Typography mb={1}>Home</Typography>
                             <Typography mb={1}>About Me</Typography>
                             <Typography mb={1}>Application</Typography>
@@ -73,7 +73,7 @@ const Footer = () => {
             </Box>
             <Box component='footer'
                 sx={{
-                    // backgroundColor: '#f5f5f5',
+                    backgroundColor: '#fafafa',
                     paddingX: 5,
                     paddingY: 3,
                     borderBottom: '1px solid #d3d3d3',

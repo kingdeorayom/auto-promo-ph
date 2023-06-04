@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Box, Divider, Drawer, IconButton, Stack, Typography } from '@mui/material'
+import { Box, Divider, Drawer as MuiDrawer, IconButton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import logo from '../../public/logotosvg.png'
 import styles from '../../styles/Header.module.css'
@@ -8,7 +8,7 @@ import gmail_icon from '../../public/gmail_icon.svg'
 import viber_icon from '../../public/viber_icon.svg'
 import facebook_icon from '../../public/facebook_icon.svg'
 
-const MuiDrawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
+const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
 
     const navigation_item_override = {
         px: 2,
@@ -22,7 +22,7 @@ const MuiDrawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
     }
 
     return (
-        <Drawer
+        <MuiDrawer
             anchor='right'
             open={isDrawerOpen}
             onClose={() => setIsDrawerOpen(false)}
@@ -53,11 +53,11 @@ const MuiDrawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
                             <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
                         </Box>
                     </Link>
-                    <Link href='/application'>
+                    {/* <Link href='/application'>
                         <Box sx={navigation_item_override}>
                             <Typography fontWeight={router.pathname == '/application' ? "700" : "400"} color={router.pathname == '/application' ? "primary" : "black"}>Application</Typography>
                         </Box>
-                    </Link>
+                    </Link> */}
                     <Link href='/about'>
                         <Box sx={navigation_item_override}>
                             <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>
@@ -103,8 +103,8 @@ const MuiDrawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
                     </Link>
                 </Stack>
             </Box>
-        </Drawer>
+        </MuiDrawer>
     )
 }
 
-export default MuiDrawer
+export default Drawer

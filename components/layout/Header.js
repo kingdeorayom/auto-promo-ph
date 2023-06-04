@@ -14,7 +14,7 @@ import facebook_icon from '../../public/facebook_icon.svg'
 import styles from '../../styles/Header.module.css'
 
 import Navbar from "./Navbar";
-import MuiDrawer from "./MuiDrawer";
+import Drawer from "./Drawer";
 
 import { useRouter } from "next/router";
 
@@ -104,7 +104,7 @@ const Header = () => {
 
             <Navbar router={router} fromMediumDisplay={fromMediumDisplay} />
 
-            <MuiDrawer
+            <Drawer
                 isDrawerOpen={isDrawerOpen}
                 setIsDrawerOpen={setIsDrawerOpen}
                 router={router}
