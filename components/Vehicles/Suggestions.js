@@ -10,7 +10,7 @@ const Suggestions = () => {
     return (
         <>
             <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mt={5} mb={1}>You may also like</Typography>
-            <Typography fontSize='1rem' variant="h3" color='secondary'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sint dolores ad neque exercitationem maiores id quam qui eveniet, ullam quis accusamus eaque nulla velit! Placeat mollitia nostrum tempora tempore!</Typography>
+            <Typography fontSize='1rem' variant="h3" color='secondary'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</Typography>
 
             <Grid
                 container
@@ -20,9 +20,9 @@ const Suggestions = () => {
                 columnSpacing={2}
             >
 
-                {Array(4).fill("").map((item) => {
+                {Array(4).fill("").map((item, index) => {
                     return (
-                        <Grid key={item.id} item xs={12} sm={6} lg={3}>
+                        <Grid key={index} item xs={12} sm={6} lg={3}>
                             <Link href='/brands/toyota/toyota-corolla'>
                                 <Box className={styles.imageBox}>
                                     <Image
