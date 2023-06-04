@@ -21,7 +21,7 @@ const Banner = () => {
         >
             <Grid item xs={12} md={9}>
                 <Typography fontWeight='500' variant='h4' fontSize='2rem' marginBottom={2}>Drive your dream car home today</Typography>
-                <Typography variant='h4' fontSize='1rem' marginBottom={3} color='secondary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nisi molestias iure corrupti quam deserunt odit, obcaecati accusantium quasi tenetur ipsam repellat quibusdam aut soluta, ratione architecto fuga ullam asperiores? Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus neque qui totam asperiores aliquam aperiam enim animi incidunt suscipit, dignissimos, non modi. Nobis quasi libero maiores atque. Error, voluptatem deleniti!</Typography>
+                <Typography variant='h4' fontSize='1rem' marginBottom={3} color='secondary' lineHeight={1.5}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nisi molestias iure corrupti quam deserunt odit, obcaecati accusantium quasi tenetur ipsam repellat quibusdam aut soluta, ratione architecto fuga ullam asperiores? Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus neque qui totam asperiores aliquam aperiam enim animi incidunt suscipit, dignissimos, non modi. Nobis quasi libero maiores atque. Error, voluptatem deleniti!</Typography>
                 <Link href='/contact'>
                     <Button variant="contained" endIcon={<EastIcon />} disableElevation size="large">Apply Now</Button>
                 </Link>

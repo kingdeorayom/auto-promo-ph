@@ -9,7 +9,7 @@ import styles from '../../../styles/Vehicles.module.css'
 
 export async function getStaticPaths() {
 
-    const response = await fetch('http://localhost:3001/brands');
+    const response = await fetch('http://192.168.1.4:3001/brands');
     const brands = await response.json();
 
     const paths = brands.map(brand => {
@@ -26,7 +26,7 @@ export async function getStaticProps(context) {
 
     const brandSlug = context.params.brandSlug
 
-    const response = await fetch(`http://localhost:3001/brands/vehicle/${brandSlug}`);
+    const response = await fetch(`http://192.168.1.4:3001/brands/vehicle/${brandSlug}`);
     const vehicles = await response.json();
 
     return {

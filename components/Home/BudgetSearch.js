@@ -36,7 +36,7 @@ const BudgetSearch = () => {
     return (
         <>
             <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>Browse cars by budget</Typography>
-            <Typography fontSize='1rem' variant="h3" color='secondary'>Tight on budget? We have lorem ipsum dolor sit amet for that</Typography>
+            <Typography fontSize='1rem' variant="h3" color='secondary' lineHeight={1.5}>Tight on budget? We have lorem ipsum dolor sit amet for that</Typography>
 
             <Grid
                 container

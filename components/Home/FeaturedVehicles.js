@@ -20,9 +20,9 @@ const FeaturedVehicles = () => {
                 columnSpacing={2}
             >
 
-                {Array(4).fill("").map((item) => {
+                {Array(4).fill("").map((item, index) => {
                     return (
-                        <Grid key={item.id} item xs={12} sm={6} lg={3}>
+                        <Grid key={index} item xs={12} sm={6} lg={3}>
                             <Link href='/brands/toyota/toyota-corolla'>
                                 <Box className={styles.imageBox}>
                                     <Image

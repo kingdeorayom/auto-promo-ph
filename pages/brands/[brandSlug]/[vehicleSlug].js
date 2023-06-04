@@ -13,7 +13,7 @@ import useNumberFormatter from '@/hooks/useNumberFormatter';
 
 export async function getStaticPaths() {
 
-    const response = await fetch('http://localhost:3001/vehicles')
+    const response = await fetch('http://192.168.1.4:3001/vehicles')
     const vehicles = await response.json()
 
     const paths = vehicles.map(vehicle => {
@@ -35,7 +35,7 @@ export async function getStaticProps(context) {
 
     const vehicle_slug = context.params.vehicleSlug
 
-    const response = await fetch(`http://localhost:3001/vehicles/detail/${vehicle_slug}`);
+    const response = await fetch(`http://192.168.1.4:3001/vehicles/detail/${vehicle_slug}`);
     const vehicle = await response.json();
 
     return {
