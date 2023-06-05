@@ -4,7 +4,11 @@ import Image from 'next/image';
 import styles from '../../../styles/Details.module.css'
 import mitsubishi from '../../../public/mitsubishi-g4.webp'
 import GasMeterIcon from '@mui/icons-material/GasMeter';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 import SettingsIcon from '@mui/icons-material/Settings';
+import CategoryIcon from '@mui/icons-material/Category';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { useState } from "react"
 import Link from 'next/link';
@@ -41,7 +45,8 @@ export async function getStaticProps(context) {
     return {
         props: {
             vehicle: vehicle,
-        }
+        },
+        revalidate: 10
     };
 }
 
@@ -118,21 +123,21 @@ const VehicleDetails = ({ vehicle }) => {
                         >
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
-                                    <SettingsIcon color='primary' />
+                                    <SpaceDashboardIcon color='primary' />
                                     <Typography fontWeight='500'>VEHICLE MODEL</Typography>
                                 </Stack>
                                 <Typography color='secondary'>{vehicle.model}</Typography>
                             </Box>
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
-                                    <GasMeterIcon color='primary' />
+                                    <WidgetsIcon color='primary' />
                                     <Typography fontWeight='500'>VEHICLE TYPE</Typography>
                                 </Stack>
                                 <Typography color='secondary'>{vehicle.type}</Typography>
                             </Box>
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
-                                    <GasMeterIcon color='primary' />
+                                    <CalendarMonthIcon color='primary' />
                                     <Typography fontWeight='500'>PRODUCTION YEAR</Typography>
                                 </Stack>
                                 <Typography color='secondary'>
@@ -179,7 +184,7 @@ const VehicleDetails = ({ vehicle }) => {
                             </Box>
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
-                                    <GasMeterIcon color='primary' />
+                                    <CategoryIcon color='primary' />
                                     <Typography fontWeight='500'>KEY FEATURES</Typography>
                                 </Stack>
                                 <Typography color='secondary'>
