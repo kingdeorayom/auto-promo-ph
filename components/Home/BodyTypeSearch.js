@@ -25,7 +25,7 @@ const BodyTypeSearch = () => {
             >
 
                 <Grid item xs={12} sm={6} lg={3}>
-                    <Link href='/'>
+                    <Link href='/results?q=sedan'>
                         <Box className={styles.categoryImageBox}>
                             <Image
                                 src={sedan}
@@ -39,7 +39,7 @@ const BodyTypeSearch = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={6} lg={3}>
-                    <Link href='/'>
+                    <Link href='/results?q=suv'>
                         <Box className={styles.categoryImageBox}>
                             <Image
                                 src={suv}
@@ -53,7 +53,7 @@ const BodyTypeSearch = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={6} lg={3}>
-                    <Link href='/'>
+                    <Link href='/results?q=hatchback'>
                         <Box className={styles.categoryImageBox}>
                             <Image
                                 src={hatchback}
@@ -67,7 +67,7 @@ const BodyTypeSearch = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={6} lg={3}>
-                    <Link href='/'>
+                    <Link href='/results?q=van'>
                         <Box className={styles.categoryImageBox}>
                             <Image
                                 src={van}
