@@ -1,11 +1,9 @@
 import Layout from '@/layouts/Layout'
-import { Box, Button, InputAdornment, TextField, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import { InputAdornment, TextField, Typography } from '@mui/material'
+import { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import FeaturedVehicles from '@/components/Home/FeaturedVehicles';
-import Suggestions from '@/components/Vehicles/Suggestions';
+import SearchSuggestions from '@/components/Search/SearchSuggestions';
 
 const SearchBox = () => {
 
@@ -46,7 +44,7 @@ const Search = () => {
 
             <SearchBox />
 
-            <Suggestions />
+            <SearchSuggestions />
 
         </Layout>
     )

@@ -47,6 +47,8 @@ const Brand = ({ vehicles }) => {
         brandName = "MG"
     }
 
+    const baseURL = 'http://192.168.1.2:3001'
+
     return (
 
         <Layout>
@@ -67,10 +69,27 @@ const Brand = ({ vehicles }) => {
                             <Link href={`${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                 <Box className={styles.imageBox}>
                                     <Image
-                                        src={mitsubishi}
+                                        // src={mitsubishi}
+                                        // alt="Mitsubishi Mirage G4"
+                                        // className={styles.vehicleImage}
+                                        // priority
+
+                                        // loader={() => `${baseURL}${vehicle.image}`}
+                                        src={`${baseURL}${vehicle.image}`}
                                         alt="Mitsubishi Mirage G4"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        // width={565}
+                                        // height={50}
+                                        // style={{
+                                        //     width: '565',
+                                        //     height: '100%',
+                                        //     maxWidth: '100%',
+                                        //     borderRadius: 5
+                                        // }}
                                         className={styles.vehicleImage}
                                         priority
+
                                     />
                                 </Box>
                                 <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>

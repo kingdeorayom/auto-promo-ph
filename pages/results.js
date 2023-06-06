@@ -24,6 +24,8 @@ const SearchResults = () => {
         fetchSearchResults()
     })
 
+    const baseURL = 'http://192.168.1.2:3001'
+
     return (
         <Layout>
             <Typography fontSize='2rem' variant="h1" fontWeight='600' mb={1}>{`Showing search results for '${router.query.q}'`}</Typography>
@@ -42,10 +44,32 @@ const SearchResults = () => {
                                 <Link href={`/brands/${result.brand_slug}/${result.vehicle_slug}`}>
                                     <Box className={styles.imageBox}>
                                         <Image
-                                            src={mitsubishi}
+                                            // src={mitsubishi}
+                                            // alt="Mitsubishi Mirage G4"
+                                            // className={styles.vehicleImage}
+                                            // priority
+
+                                            // loader={() => `${baseURL}${result.image}`}
+                                            // src={`${baseURL}${result.image}`}
+                                            // alt="Mitsubishi Mirage G4"
+                                            // width={565}
+                                            // height={50}
+                                            // // style={{
+                                            // //     width: '565',
+                                            // //     height: '100%',
+                                            // //     maxWidth: '100%',
+                                            // //     borderRadius: 5
+                                            // // }}
+                                            // className={styles.vehicleImage}
+                                            // priority
+
+                                            src={`${baseURL}${result.image}`}
                                             alt="Mitsubishi Mirage G4"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             className={styles.vehicleImage}
                                             priority
+
                                         />
                                     </Box>
                                     <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{result.name}</Typography>

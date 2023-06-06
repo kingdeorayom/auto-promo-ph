@@ -55,12 +55,12 @@ const Brands = ({ brands }) => {
                                         }
                                     }}>
                                         <Image
-                                            loader={() => `${baseURL}${brand.logo}`}
                                             src={`${baseURL}${brand.logo}`}
                                             width={90}
                                             height={50}
                                             unoptimized={true}
-                                            alt='' style={{ marginLeft: 15 }}
+                                            alt=''
+                                            style={{ marginLeft: 15 }}
                                         />
                                         <Box mx={2}>
                                             <Typography

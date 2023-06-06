@@ -63,21 +63,29 @@ const VehicleDetails = ({ vehicle }) => {
     const stackDirectionBreakpoint = { xs: 'column', md: 'row' }
     const stackSpacingBreakpoint = { xs: 3, md: 4 }
 
+    const baseURL = 'http://192.168.1.2:3001'
+
     return (
         <Layout>
 
             <Grid container spacing={3} mb={3}>
                 <Grid item xs={12} md={4} className={styles.gridWrapper}>
                     <Image
-                        src={mitsubishi}
-                        alt='car'
+                        // loader={() => `${baseURL}${vehicle.image}`}
+                        src={`${baseURL}${vehicle.image}`}
+                        alt="Mitsubishi Mirage G4"
+                        width={565}
+                        height={50}
                         style={{
                             width: '565',
                             height: '100%',
                             maxWidth: '100%',
                             borderRadius: 5
                         }}
-                    // className={styles.image}
+                        // className={styles.vehicleImage}
+                        priority
+                        unoptimized={true}
+
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
