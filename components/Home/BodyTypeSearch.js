@@ -33,7 +33,7 @@ const BodyTypeSearch = () => {
                                 className={styles.backgroundImage}
                                 priority
                             />
-                            <Typography fontSize='1.2rem' fontWeight='400' color='white' className={styles.categoryLabel}>Sedan</Typography>
+                            <Typography fontSize='1.4rem' fontWeight='500' color='white' className={styles.categoryLabel}>Sedan</Typography>
                         </Box>
                     </Link>
                 </Grid>
@@ -47,7 +47,7 @@ const BodyTypeSearch = () => {
                                 className={styles.backgroundImage}
                                 priority
                             />
-                            <Typography fontSize='1.2rem' fontWeight='400' color='white' className={styles.categoryLabel}>SUV</Typography>
+                            <Typography fontSize='1.4rem' fontWeight='500' color='white' className={styles.categoryLabel}>SUV</Typography>
                         </Box>
                     </Link>
                 </Grid>
@@ -61,7 +61,7 @@ const BodyTypeSearch = () => {
                                 className={styles.backgroundImage}
                                 priority
                             />
-                            <Typography fontSize='1.2rem' fontWeight='400' color='white' className={styles.categoryLabel}>Hatchback</Typography>
+                            <Typography fontSize='1.4rem' fontWeight='500' color='white' className={styles.categoryLabel}>Hatchback</Typography>
                         </Box>
                     </Link>
                 </Grid>
@@ -75,7 +75,7 @@ const BodyTypeSearch = () => {
                                 className={styles.backgroundImage}
                                 priority
                             />
-                            <Typography fontSize='1.2rem' fontWeight='400' color='white' className={styles.categoryLabel}>Van</Typography>
+                            <Typography fontSize='1.4rem' fontWeight='500' color='white' className={styles.categoryLabel}>Van</Typography>
                         </Box>
                     </Link>
                 </Grid>
