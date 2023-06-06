@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import FeaturedVehicles from '@/components/Home/FeaturedVehicles';
+import Suggestions from '@/components/Vehicles/Suggestions';
 
 const SearchBox = () => {
 
@@ -16,7 +18,7 @@ const SearchBox = () => {
             placeholder='Search for brand, name, model or type'
             sx={{ width: '100%', marginY: 3 }}
             InputProps={{
-                sx: { borderRadius: 10 },
+                sx: { borderRadius: 10, marginBottom: 2 },
                 startAdornment: <InputAdornment position='start'><SearchIcon /></InputAdornment>
             }}
             value={keyword}
@@ -43,6 +45,8 @@ const Search = () => {
             <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>Easily search for vehicles using our search box below</Typography>
 
             <SearchBox />
+
+            <Suggestions />
 
         </Layout>
     )

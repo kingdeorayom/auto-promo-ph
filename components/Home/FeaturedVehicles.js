@@ -4,8 +4,23 @@ import Link from 'next/link'
 import styles from '../../styles/Vehicles.module.css'
 import mitsubishi from '../../public/mitsubishi-g4.jpg'
 import EastIcon from '@mui/icons-material/East';
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 const FeaturedVehicles = () => {
+
+    const [featuredVehicles, setFeaturedVehicles] = useState([])
+
+    const fetchFeaturedVehicles = async () => {
+        const response = await fetch(`http://192.168.1.2:3001/vehicles/featured`);
+        const vehicles = await response.json();
+        console.log(vehicles)
+        setFeaturedVehicles(vehicles)
+    }
+
+    useEffect(() => {
+        fetchFeaturedVehicles()
+    }, [])
 
     return (
         <>
@@ -20,10 +35,10 @@ const FeaturedVehicles = () => {
                 columnSpacing={2}
             >
 
-                {Array(4).fill("").map((item, index) => {
+                {featuredVehicles.map(vehicle => {
                     return (
-                        <Grid key={index} item xs={12} sm={6} lg={3}>
-                            <Link href='/brands/toyota/toyota-corolla'>
+                        <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
+                            <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                 <Box className={styles.imageBox}>
                                     <Image
                                         src={mitsubishi}
@@ -32,8 +47,8 @@ const FeaturedVehicles = () => {
                                         priority
                                     />
                                 </Box>
-                                <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>Mitsubishi Mirage G4</Typography>
-                                <Typography color='secondary'>PHP 768,000.00</Typography>
+                                <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>
+                                <Typography color='secondary'>PHP {vehicle.price}</Typography>
                                 <Typography color='secondary'>DP starts @ PHP 23,829.00</Typography>
                                 <Stack direction='row' spacing={1}>
                                     <Typography variant="button" fontWeight='500' color='primary.main'>
