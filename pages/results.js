@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import mitsubishi from '../public/mitsubishi-g4.webp'
+import mitsubishi from '../public/mitsubishi-g4.jpg'
 import EastIcon from '@mui/icons-material/East';
 import styles from '../styles/Vehicles.module.css'
 

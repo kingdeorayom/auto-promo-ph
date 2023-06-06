@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'
 import EastIcon from '@mui/icons-material/East';
 import Image from 'next/image';
-import mitsubishi from '../../../public/mitsubishi-g4.webp'
+import mitsubishi from '../../../public/mitsubishi-g4.jpg'
 import styles from '../../../styles/Vehicles.module.css'
 
 export async function getStaticPaths() {
@@ -39,12 +39,18 @@ export async function getStaticProps(context) {
 const Brand = ({ vehicles }) => {
 
     const router = useRouter()
-    console.log(vehicles)
+
+    const temporaryBrandName = router.query.brandSlug
+    var brandName = temporaryBrandName.charAt(0).toUpperCase() + temporaryBrandName.slice(1)
+
+    if (brandName === "Mg") {
+        brandName = "MG"
+    }
 
     return (
 
         <Layout>
-            <Typography fontSize='2rem' variant="h2" fontWeight='600'>Showing all vehicles of {router.query.brandSlug}</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='600'>{`Showing all vehicles of ${brandName}`}</Typography>
             <Typography fontSize='1rem' variant="subtitle1" color='secondary'>There are currently {vehicles.length} vehicles in this brand</Typography>
 
             <Grid

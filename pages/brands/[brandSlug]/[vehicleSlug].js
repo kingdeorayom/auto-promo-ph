@@ -2,7 +2,7 @@ import Layout from '@/layouts/Layout';
 import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 import styles from '../../../styles/Details.module.css'
-import mitsubishi from '../../../public/mitsubishi-g4.webp'
+import mitsubishi from '../../../public/mitsubishi-g4.jpg'
 import GasMeterIcon from '@mui/icons-material/GasMeter';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import SettingsIcon from '@mui/icons-material/Settings';
