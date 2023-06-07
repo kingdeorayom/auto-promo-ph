@@ -32,7 +32,7 @@ const Banner = () => {
                     height={250}
                     width={250}
                     alt="Man working"
-                    className={styles.bannerImage}
+                // className={styles.bannerImage}
                 />
             </Grid>
         </Grid >

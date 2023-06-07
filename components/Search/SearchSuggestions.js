@@ -41,22 +41,13 @@ const SearchSuggestions = () => {
                             <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                 <Box className={styles.imageBox}>
                                     <Image
-                                        // src={mitsubishi}
-                                        // loader={() => `${baseURL}${vehicle.image}`}
-                                        // src={`${baseURL}${vehicle.image}`}
-                                        // alt="Mitsubishi Mirage G4"
-                                        // width={90}
-                                        // height={50}
-                                        // className={styles.vehicleImage}
-                                        // priority
-
                                         src={`${baseURL}${vehicle.image}`}
-                                        alt="Mitsubishi Mirage G4"
+                                        alt={vehicle.name}
                                         fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                         className={styles.vehicleImage}
-                                        priority
-
+                                        placeholder='blur'
+                                        blurDataURL={`${baseURL}${vehicle.image}`}
                                     />
                                 </Box>
                                 <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>

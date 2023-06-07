@@ -30,7 +30,7 @@ const Header = () => {
     return (
         <>
             <AppBar
-                position='static'
+                position='sticky'
                 elevation={0}
                 className={styles.appbar}
             >

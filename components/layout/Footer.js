@@ -44,28 +44,36 @@ const Footer = () => {
 
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' mb={3}>AUTO PROMO PH</Typography>
-                            <Typography mb={1}>Home</Typography>
-                            <Typography mb={1}>About Me</Typography>
-                            <Typography mb={1}>Application</Typography>
+                            <Typography fontWeight='500' mb={3}>OVERVIEW</Typography>
+                            <Link href='/'>
+                                <Typography mb={1} color='secondary'>Explore</Typography>
+                            </Link>
+                            <Link href='/brands'>
+                                <Typography mb={1} color='secondary'>Brands</Typography>
+                            </Link>
+                            <Link href='/promos'>
+                                <Typography mb={1} color='secondary'>Promos</Typography>
+                            </Link>
                         </Box>
                     </Grid>
 
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' mb={3}>OVERVIEW</Typography>
-                            <Typography mb={1}>Lorem Ipsum</Typography>
-                            <Typography mb={1}>Lorem Ipsum</Typography>
-                            <Typography mb={1}>Lorem Ipsum</Typography>
+                            <Typography fontWeight='500' mb={3}>OTHERS</Typography>
+                            <Link href='/about'>
+                                <Typography mb={1} color='secondary'>About</Typography>
+                            </Link>
+                            <Link href='/contact'>
+                                <Typography mb={1} color='secondary'>Contact</Typography>
+                            </Link>
                         </Box>
                     </Grid>
 
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' mb={3}>OVERVIEW</Typography>
-                            <Typography mb={1}>Lorem Ipsum</Typography>
-                            <Typography mb={1}>Lorem Ipsum</Typography>
-                            <Typography mb={1}>Lorem Ipsum</Typography>
+                            <Typography fontWeight='500' mb={3}>CONNECT WITH ME</Typography>
+                            <Typography mb={1} color='secondary'>+63 956 475 0051</Typography>
+                            <Typography mb={1} color='secondary'>Dhang Casten</Typography>
                         </Box>
                     </Grid>
 

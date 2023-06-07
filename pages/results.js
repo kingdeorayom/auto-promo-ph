@@ -29,7 +29,7 @@ const SearchResults = () => {
     return (
         <Layout>
             <Typography fontSize='2rem' variant="h1" fontWeight='600' mb={1}>{`Showing search results for '${router.query.q}'`}</Typography>
-            <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>Easily search for vehicles using our search box below</Typography>
+            <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>Lorem ipsum dolor sit amet consectetur adipisicing elit</Typography>
             <Grid
                 container
                 mt={2}
@@ -44,32 +44,13 @@ const SearchResults = () => {
                                 <Link href={`/brands/${result.brand_slug}/${result.vehicle_slug}`}>
                                     <Box className={styles.imageBox}>
                                         <Image
-                                            // src={mitsubishi}
-                                            // alt="Mitsubishi Mirage G4"
-                                            // className={styles.vehicleImage}
-                                            // priority
-
-                                            // loader={() => `${baseURL}${result.image}`}
-                                            // src={`${baseURL}${result.image}`}
-                                            // alt="Mitsubishi Mirage G4"
-                                            // width={565}
-                                            // height={50}
-                                            // // style={{
-                                            // //     width: '565',
-                                            // //     height: '100%',
-                                            // //     maxWidth: '100%',
-                                            // //     borderRadius: 5
-                                            // // }}
-                                            // className={styles.vehicleImage}
-                                            // priority
-
                                             src={`${baseURL}${result.image}`}
-                                            alt="Mitsubishi Mirage G4"
+                                            alt={result.name}
                                             fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                             className={styles.vehicleImage}
-                                            priority
-
+                                            placeholder='blur'
+                                            blurDataURL={`${baseURL}${result.image}`}
                                         />
                                     </Box>
                                     <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{result.name}</Typography>

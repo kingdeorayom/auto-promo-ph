@@ -25,7 +25,7 @@ const FeaturedVehicles = () => {
 
     return (
         <>
-            <Typography fontSize='2rem' variant="h1" fontWeight='600' mb={1}>Featured Vehicles</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>Featured Vehicles</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary'>Featured vehicles curated just for you</Typography>
 
             <Grid
@@ -43,11 +43,12 @@ const FeaturedVehicles = () => {
                                 <Box className={styles.imageBox}>
                                     <Image
                                         src={`${baseURL}${vehicle.image}`}
-                                        alt="Mitsubishi Mirage G4"
+                                        alt={vehicle.name}
                                         fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                         className={styles.vehicleImage}
-                                        priority
+                                        placeholder='blur'
+                                        blurDataURL={`${baseURL}${vehicle.image}`}
                                     />
                                 </Box>
                                 <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>

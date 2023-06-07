@@ -71,9 +71,8 @@ const VehicleDetails = ({ vehicle }) => {
             <Grid container spacing={3} mb={3}>
                 <Grid item xs={12} md={4} className={styles.gridWrapper}>
                     <Image
-                        // loader={() => `${baseURL}${vehicle.image}`}
                         src={`${baseURL}${vehicle.image}`}
-                        alt="Mitsubishi Mirage G4"
+                        alt={vehicle.name}
                         width={565}
                         height={50}
                         style={{
@@ -82,10 +81,10 @@ const VehicleDetails = ({ vehicle }) => {
                             maxWidth: '100%',
                             borderRadius: 5
                         }}
-                        // className={styles.vehicleImage}
-                        priority
-                        unoptimized={true}
-
+                        // className={styles.image}
+                        // priority
+                        placeholder='blur'
+                        blurDataURL={`${baseURL}${vehicle.image}`}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>

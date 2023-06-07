@@ -83,8 +83,6 @@ const Brands = ({ brands }) => {
 
             </Grid >
 
-
-
         </Layout>
     )
 }
