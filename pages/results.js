@@ -15,7 +15,7 @@ const SearchResults = () => {
     const [results, setResults] = useState([])
 
     const fetchSearchResults = async () => {
-        const response = await fetch(`http://192.168.1.2:3001/search/${router.query.q}`);
+        const response = await fetch(`http://192.168.1.3:3001/search/${router.query.q}`);
         const vehicle = await response.json();
         setResults(vehicle)
     }
@@ -24,7 +24,7 @@ const SearchResults = () => {
         fetchSearchResults()
     })
 
-    const baseURL = 'http://192.168.1.2:3001'
+    const baseURL = 'http://192.168.1.3:3001'
 
     return (
         <Layout>

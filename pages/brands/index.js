@@ -6,7 +6,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export async function getStaticProps() {
 
-    const response = await fetch('http://192.168.1.2:3001/brands');
+    const response = await fetch('http://192.168.1.3:3001/brands');
     const brands = await response.json();
 
     return {
@@ -20,7 +20,7 @@ const Brands = ({ brands }) => {
 
     // console.log(brands)
 
-    const baseURL = 'http://192.168.1.2:3001'
+    const baseURL = 'http://192.168.1.3:3001'
 
     return (
         <Layout>
