@@ -2,16 +2,15 @@ import { Box, Grid, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../../styles/Vehicles.module.css'
-import mitsubishi from '../../public/mitsubishi-g4.jpg'
 import EastIcon from '@mui/icons-material/East';
 import { useState, useEffect } from 'react'
 
-const Suggestions = () => {
+const Suggestions = ({ brand_slug }) => {
 
     const [suggestions, setSuggestions] = useState([])
 
     const fetchSuggestions = async () => {
-        const response = await fetch(`http://192.168.1.3:3001/vehicles/featured`);
+        const response = await fetch(`http://192.168.1.3:3001/vehicles/suggested/${brand_slug}`);
         const vehicles = await response.json();
         setSuggestions(vehicles)
     }

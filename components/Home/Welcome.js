@@ -24,7 +24,7 @@ const Welcome = () => {
             </Typography>
 
             <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>
-                Explore, or easily search for vehicles using our search box below
+                Explore, or easily search for vehicles using our search field below
             </Typography>
         </>
     )

@@ -44,36 +44,36 @@ const Footer = () => {
 
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' mb={3}>OVERVIEW</Typography>
+                            <Typography fontWeight='500' fontSize='.9rem' mb={3}>OVERVIEW</Typography>
                             <Link href='/'>
-                                <Typography mb={1} color='secondary'>Explore</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.8rem'>Explore</Typography>
                             </Link>
                             <Link href='/brands'>
-                                <Typography mb={1} color='secondary'>Brands</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.8rem'>Brands</Typography>
                             </Link>
                             <Link href='/promos'>
-                                <Typography mb={1} color='secondary'>Promos</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.8rem'>Promos</Typography>
                             </Link>
                         </Box>
                     </Grid>
 
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' mb={3}>OTHERS</Typography>
+                            <Typography fontWeight='500' fontSize='.9rem' mb={3}>OTHERS</Typography>
                             <Link href='/about'>
-                                <Typography mb={1} color='secondary'>About</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.8rem'>About</Typography>
                             </Link>
                             <Link href='/contact'>
-                                <Typography mb={1} color='secondary'>Contact</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.8rem'>Contact</Typography>
                             </Link>
                         </Box>
                     </Grid>
 
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' mb={3}>CONNECT WITH ME</Typography>
-                            <Typography mb={1} color='secondary'>+63 956 475 0051</Typography>
-                            <Typography mb={1} color='secondary'>Dhang Casten</Typography>
+                            <Typography fontWeight='500' fontSize='.9rem' mb={3}>CONNECT WITH ME</Typography>
+                            <Typography mb={1} color='secondary' fontSize='.8rem'>+63 956 475 0051</Typography>
+                            <Typography mb={1} color='secondary' fontSize='.8rem'>Dhang Casten</Typography>
                         </Box>
                     </Grid>
 
