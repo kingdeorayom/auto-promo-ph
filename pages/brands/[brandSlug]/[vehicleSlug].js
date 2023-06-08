@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout';
-import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle } from '@mui/material';
 import Image from 'next/image';
 import styles from '../../../styles/Details.module.css'
 import GasMeterIcon from '@mui/icons-material/GasMeter';
@@ -91,7 +91,7 @@ const VehicleDetails = ({ vehicle }) => {
                         <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>{vehicle.name}</Typography>
                         <Typography fontSize='1rem' variant="subtitle1" color='secondary'>PHP {useNumberFormatter(vehicle.price)}</Typography>
                         <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>DP starts @ PHP 23,829.00</Typography>
-                        <Link href='#inquire'>
+                        <Link href='/inquire'>
                             <Button variant="contained" disableElevation>Inquire Now</Button>
                         </Link>
                     </Box>
@@ -112,9 +112,13 @@ const VehicleDetails = ({ vehicle }) => {
 
                 <TabPanel value='1' className={styles.tabPanel}>
                     <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={2}>About this vehicle</Typography>
+
+                    {/* <Alert severity="info" sx={{ mb: 2, fontSize: '1rem' }}>{vehicle.description}</Alert> */}
+
                     <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2} className={styles.description}>{vehicle.description}</Typography>
 
                     <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mt={3} mb={2}>Vehicle Details</Typography>
+
                     <Box className={styles.stackWrapper}>
 
                         <Stack
@@ -242,8 +246,13 @@ const VehicleDetails = ({ vehicle }) => {
                 </TabPanel>
 
                 <TabPanel value='3' className={styles.tabPanel}>
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={1}>Mitsubishi Mirage G4 Price List</Typography>
-                    <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis corrupti perferendis nobis dolore necessitatibus, quos totam excepturi sint eligendi id vel in! Modi praesentium voluptate repellendus similique illum aliquam laborum.</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={1}>{vehicle.name} Price List</Typography>
+                    <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis corrupti perferendis nobis dolore necessitatibus, quos totam excepturi sint eligendi id vel in! Modi praesentium voluptate repellendus similique illum aliquam laborum.</Typography>
+
+                    <Alert severity="info">
+                        <AlertTitle>Lorem Ipsum</AlertTitle>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, corporis quos ipsum porro unde doloremque numquam enim quasi alias tempore dolores illo at consectetur repellendus libero vero atque quisquam iusto.
+                    </Alert>
                 </TabPanel>
 
             </TabContext>
