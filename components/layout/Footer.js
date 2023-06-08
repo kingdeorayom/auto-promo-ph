@@ -46,13 +46,13 @@ const Footer = () => {
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={3}>OVERVIEW</Typography>
                             <Link href='/'>
-                                <Typography mb={1} color='secondary' fontSize='.8rem'>Explore</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.9rem'>Explore</Typography>
                             </Link>
                             <Link href='/brands'>
-                                <Typography mb={1} color='secondary' fontSize='.8rem'>Brands</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.9rem'>Brands</Typography>
                             </Link>
                             <Link href='/promos'>
-                                <Typography mb={1} color='secondary' fontSize='.8rem'>Promos</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.9rem'>Promos</Typography>
                             </Link>
                         </Box>
                     </Grid>
@@ -61,10 +61,13 @@ const Footer = () => {
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={3}>OTHERS</Typography>
                             <Link href='/about'>
-                                <Typography mb={1} color='secondary' fontSize='.8rem'>About</Typography>
+                                <Typography mb={1} color='secondary' fontSize='.9rem'>About</Typography>
                             </Link>
-                            <Link href='/contact'>
-                                <Typography mb={1} color='secondary' fontSize='.8rem'>Contact</Typography>
+                            <Link href='/terms-and-condition'>
+                                <Typography mb={1} color='secondary' fontSize='.9rem'>Terms and Condition</Typography>
+                            </Link>
+                            <Link href='/privacy-policy'>
+                                <Typography mb={1} color='secondary' fontSize='.9rem'>Privacy Policy</Typography>
                             </Link>
                         </Box>
                     </Grid>
@@ -81,7 +84,8 @@ const Footer = () => {
             </Box>
             <Box component='footer'
                 sx={{
-                    backgroundColor: '#fafafa',
+                    // backgroundColor: '#fafafa',
+                    backgroundColor: '#ffffff',
                     paddingX: 5,
                     paddingY: 3,
                     borderBottom: '1px solid #d3d3d3',
@@ -90,7 +94,7 @@ const Footer = () => {
                     alignItems: "center"
                 }}
             >
-                <Typography>
+                <Typography fontSize='.9rem'>
                     Copyright &copy; 2023. All rights reserved.
                 </Typography>
                 <Stack direction='row' spacing={2}>
