@@ -1,15 +1,20 @@
-import { inquiry_validation } from '@/data/validation/inquiry'
 import Layout from '@/layouts/Layout'
-import { Box, Button, TextField, Typography } from '@mui/material'
-import { useFormik } from 'formik'
-import Swal from 'sweetalert2'
+import { Box } from '@mui/material'
+import Profile from '@/components/Inquire/Profile'
+import InquiryForm from '@/components/Form/InquiryForm'
+import styles from '../styles/Inquire.module.css'
 
 const Inquire = () => {
 
     return (
         <Layout>
-            <Typography fontSize='2rem' variant="h1" fontWeight='600' mb={1}>Inquire</Typography>
-            <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>Lorem ipsum dolor sit amet consectetur adipisicing elit</Typography>
+            <Box className={styles.wrapper}>
+
+                <Profile />
+
+                <InquiryForm />
+
+            </Box>
 
         </Layout>
     )

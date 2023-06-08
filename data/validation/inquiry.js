@@ -10,7 +10,7 @@ export const inquiry_validation = Yup.object().shape({
             .string()
             .required()
             .email()
-            .matches(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, "Please enter a valid email")
+            .matches(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, "Please enter a valid email")
             .label("Email"),
     mobileNumber:
         Yup.string()
