@@ -9,13 +9,9 @@ const Inquire = () => {
     return (
         <Layout>
             <Box className={styles.wrapper}>
-
                 <Profile />
-
                 <InquiryForm />
-
             </Box>
-
         </Layout>
     )
 }

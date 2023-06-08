@@ -9,11 +9,13 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { DevTool } from '@hookform/devtools';
 
-let renderCount = 0
+// let renderCount = 0
 
 const InquiryForm = () => {
 
-    const form = useForm()
+    const form = useForm({
+        mode: 'onBlur'
+    })
     const { register, control, handleSubmit, formState, reset } = form
     const { errors } = formState
 
@@ -33,11 +35,12 @@ const InquiryForm = () => {
             });
     }
 
-    renderCount++
+    // renderCount++
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={3}>Inquiry Form {renderCount / 2}</Typography>
+            <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={3}>Inquiry Form</Typography>
+            {/* <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={3}>Render count: {renderCount / 2}</Typography> */}
 
             <Divider />
 
@@ -58,6 +61,7 @@ const InquiryForm = () => {
                             }}
                             {...register('name', { required: 'Name is required' })}
                             helperText={errors.name?.message}
+                            error={errors.name?.message}
                         />
                     </Box>
 
@@ -73,6 +77,7 @@ const InquiryForm = () => {
                             }}
                             {...register('email', { required: 'Email is required' })}
                             helperText={errors.email?.message}
+                            error={errors.email?.message}
                         />
                     </Box>
 
@@ -88,6 +93,7 @@ const InquiryForm = () => {
                             }}
                             {...register('mobileNumber', { required: 'Mobile Number is required' })}
                             helperText={errors.mobileNumber?.message}
+                            error={errors.mobileNumber?.message}
                         />
                     </Box>
 
@@ -102,6 +108,7 @@ const InquiryForm = () => {
                             rows={5}
                             {...register('message', { required: 'Message is required' })}
                             helperText={errors.message?.message}
+                            error={errors.message?.message}
                         />
                     </Box>
 
@@ -116,7 +123,7 @@ const InquiryForm = () => {
                         Submit
                     </Button>
                 </form>
-                <DevTool control={control} />
+                {/* <DevTool control={control} /> */}
             </Box>
         </>
     )
