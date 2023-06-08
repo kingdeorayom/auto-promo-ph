@@ -7,6 +7,7 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { DevTool } from '@hookform/devtools';
 
 let renderCount = 0
 
@@ -32,9 +33,11 @@ const InquiryForm = () => {
             });
     }
 
+    renderCount++
+
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={3}>Inquiry Form</Typography>
+            <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={3}>Inquiry Form {renderCount / 2}</Typography>
 
             <Divider />
 
@@ -53,21 +56,23 @@ const InquiryForm = () => {
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
                             }}
-                            {...register('name')}
+                            {...register('name', { required: 'Name is required' })}
+                            helperText={errors.name?.message}
                         />
                     </Box>
 
                     <Box my={2}>
                         <Typography mb={1} fontWeight='500'>Email*</Typography>
                         <TextField
-                            type='text'
-                            id='name'
+                            type='email'
+                            id='email'
                             fullWidth
                             placeholder='juandelacruz@example.com'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
                             }}
-                            {...register('email')}
+                            {...register('email', { required: 'Email is required' })}
+                            helperText={errors.email?.message}
                         />
                     </Box>
 
@@ -75,13 +80,14 @@ const InquiryForm = () => {
                         <Typography mb={1} fontWeight='500'>Mobile Number*</Typography>
                         <TextField
                             type='text'
-                            id='name'
+                            id='mobileNumber'
                             fullWidth
                             placeholder='Enter your mobile number'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><LocalPhoneOutlinedIcon sx={{ marginRight: .5 }} /></InputAdornment>
                             }}
-                            {...register('mobileNumber')}
+                            {...register('mobileNumber', { required: 'Mobile Number is required' })}
+                            helperText={errors.mobileNumber?.message}
                         />
                     </Box>
 
@@ -89,12 +95,13 @@ const InquiryForm = () => {
                         <Typography mb={1} fontWeight='500'>Message*</Typography>
                         <TextField
                             type='text'
-                            id='name'
+                            id='message'
                             fullWidth
                             placeholder='Provide a brief yet concise message'
                             multiline
                             rows={5}
-                            {...register('message')}
+                            {...register('message', { required: 'Message is required' })}
+                            helperText={errors.message?.message}
                         />
                     </Box>
 
@@ -109,6 +116,7 @@ const InquiryForm = () => {
                         Submit
                     </Button>
                 </form>
+                <DevTool control={control} />
             </Box>
         </>
     )
