@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import mitsubishi from '../public/mitsubishi-g4.jpg'
 import EastIcon from '@mui/icons-material/East';
 import styles from '../styles/Vehicles.module.css'
+import setCurrency from '@/utils/setCurrency'
 
 const SearchResults = () => {
 
@@ -54,7 +55,7 @@ const SearchResults = () => {
                                         />
                                     </Box>
                                     <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{result.name}</Typography>
-                                    <Typography color='secondary'>PHP {result.price}</Typography>
+                                    <Typography color='secondary'>PHP {setCurrency(result.price)}</Typography>
                                     <Typography color='secondary'>DP starts @ PHP 23,829.00</Typography>
                                     <Stack direction='row' spacing={1}>
                                         <Typography variant="button" fontWeight='500' color='primary.main'>

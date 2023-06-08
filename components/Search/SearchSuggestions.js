@@ -5,6 +5,7 @@ import styles from '../../styles/Vehicles.module.css'
 import mitsubishi from '../../public/mitsubishi-g4.jpg'
 import EastIcon from '@mui/icons-material/East';
 import { useState, useEffect } from 'react'
+import setCurrency from '@/utils/setCurrency'
 
 const SearchSuggestions = () => {
 
@@ -51,7 +52,7 @@ const SearchSuggestions = () => {
                                     />
                                 </Box>
                                 <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>
-                                <Typography color='secondary'>PHP {vehicle.price}</Typography>
+                                <Typography color='secondary'>PHP {setCurrency(vehicle.price)}</Typography>
                                 <Typography color='secondary'>DP starts @ PHP 23,829.00</Typography>
                                 <Stack direction='row' spacing={1}>
                                     <Typography variant="button" fontWeight='500' color='primary.main'>
