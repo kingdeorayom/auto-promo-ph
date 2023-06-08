@@ -1,21 +1,23 @@
 import { Alert, Box, Button, Divider, InputAdornment, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
-// import { DevTool } from '@hookform/devtools'
-// import { inquiry_validation } from '@/data/validation/inquiry'
+import { inquiry_validation } from '@/data/validation/inquiry'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { DevTool } from '@hookform/devtools';
+// import { DevTool } from '@hookform/devtools';
+import { yupResolver } from '@hookform/resolvers/yup'
 
 // let renderCount = 0
 
 const InquiryForm = () => {
 
     const form = useForm({
-        mode: 'onBlur'
+        mode: 'onChange',
+        resolver: yupResolver(inquiry_validation)
     })
+
     const { register, control, handleSubmit, formState, reset } = form
     const { errors } = formState
 
@@ -59,7 +61,7 @@ const InquiryForm = () => {
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
                             }}
-                            {...register('name', { required: 'Name is required' })}
+                            {...register('name')}
                             helperText={errors.name?.message}
                             error={errors.name?.message}
                         />
@@ -75,7 +77,7 @@ const InquiryForm = () => {
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
                             }}
-                            {...register('email', { required: 'Email is required' })}
+                            {...register('email')}
                             helperText={errors.email?.message}
                             error={errors.email?.message}
                         />
@@ -84,14 +86,14 @@ const InquiryForm = () => {
                     <Box my={2}>
                         <Typography mb={1} fontWeight='500'>Mobile Number*</Typography>
                         <TextField
-                            type='text'
+                            type='number'
                             id='mobileNumber'
                             fullWidth
                             placeholder='Enter your mobile number'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><LocalPhoneOutlinedIcon sx={{ marginRight: .5 }} /></InputAdornment>
                             }}
-                            {...register('mobileNumber', { required: 'Mobile Number is required' })}
+                            {...register('mobileNumber')}
                             helperText={errors.mobileNumber?.message}
                             error={errors.mobileNumber?.message}
                         />
@@ -106,13 +108,13 @@ const InquiryForm = () => {
                             placeholder='Provide a brief yet concise message'
                             multiline
                             rows={5}
-                            {...register('message', { required: 'Message is required' })}
+                            {...register('message')}
                             helperText={errors.message?.message}
                             error={errors.message?.message}
                         />
                     </Box>
 
-                    <Alert severity="warning" sx={{ my: 3, }}>By clicking the submit button below, you agree to send your <strong>name</strong>, <strong>email address</strong> and <strong>mobile number</strong>.</Alert>
+                    <Alert severity="warning" sx={{ my: 3, }}>By clicking the submit button below, you agree to send your <strong>name</strong>, <strong>email address</strong> and <strong>mobile number</strong>. Also, please make sure that the information you provided above are accurate.</Alert>
 
                     <Button
                         type='submit'
