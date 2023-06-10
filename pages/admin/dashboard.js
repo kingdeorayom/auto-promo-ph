@@ -11,11 +11,19 @@ import Image from 'next/image'
 import notifications_image from '../../public/notifications.svg'
 import car_image from '../../public/car.svg'
 import dhang_casten from '../../public/dhang_casten.jpg'
+import { useLogout } from '@/hooks/useLogout'
 
 const Dashboard = () => {
 
     const router = useRouter()
     const { user } = useContext(AuthContext)
+
+    const { logout } = useLogout()
+
+    const handleClick = () => {
+        logout()
+        router.replace('/admin')
+    }
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -165,6 +173,10 @@ const Dashboard = () => {
                     </Grid>
 
                 </Grid>
+
+                <Box display='flex' alignItems='flex-end' justifyContent='flex-end'>
+                    <Button onClick={handleClick} color='error'>Log out</Button>
+                </Box>
 
             </Box>
 
