@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import theme from '@/utils/theme'
 import { ThemeProvider } from '@mui/material'
+import { AuthContextProvider } from '@/context/AuthContext'
 import Head from 'next/head'
 
 const App = ({ Component, pageProps }) => {
@@ -13,9 +14,11 @@ const App = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <AuthContextProvider>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </AuthContextProvider>
     </>
   )
 }
