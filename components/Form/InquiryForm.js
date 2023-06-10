@@ -8,6 +8,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 // import { DevTool } from '@hookform/devtools';
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useState } from 'react';
+import Image from 'next/image';
 
 // let renderCount = 0
 
@@ -21,20 +23,36 @@ const InquiryForm = () => {
     const { register, control, handleSubmit, formState, reset } = form
     const { errors } = formState
 
+    const [image, setImage] = useState('')
+
+    const convertToBase64 = (file) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImage(reader.result.toString())
+        }
+        reader.readAsDataURL(file)
+    }
+
     const onSubmit = (data) => {
+
         console.log(data)
-        axios.post('http://192.168.1.3:3001/inquiries', data)
-            .then((response) => {
-                reset()
-                Swal.fire(
-                    'Your message has been sent successfully.',
-                    'I will get back to you as soon as possible.',
-                    'success'
-                )
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+
+        if (data.file.length > 0) {
+            convertToBase64(data.file[0])
+        }
+
+        // axios.post('http://192.168.1.3:3001/inquiries', data)
+        //     .then((response) => {
+        //         reset()
+        //         Swal.fire(
+        //             'Your message has been sent successfully.',
+        //             'I will get back to you as soon as possible.',
+        //             'success'
+        //         )
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
     }
 
     // renderCount++
@@ -45,6 +63,14 @@ const InquiryForm = () => {
             {/* <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={3}>Render count: {renderCount / 2}</Typography> */}
 
             <Divider />
+
+            {/* <img src={image} alt="" /> */}
+            <Image
+                src={image}
+                alt='Hello'
+                width={200}
+                height={200}
+            />
 
             <Box mb={3}>
                 <form
@@ -63,7 +89,7 @@ const InquiryForm = () => {
                             }}
                             {...register('name')}
                             helperText={errors.name?.message}
-                            error={errors.name?.message}
+                        // error={errors.name?.message}
                         />
                     </Box>
 
@@ -79,7 +105,7 @@ const InquiryForm = () => {
                             }}
                             {...register('email')}
                             helperText={errors.email?.message}
-                            error={errors.email?.message}
+                        // error={errors.email?.message}
                         />
                     </Box>
 
@@ -95,7 +121,7 @@ const InquiryForm = () => {
                             }}
                             {...register('mobileNumber')}
                             helperText={errors.mobileNumber?.message}
-                            error={errors.mobileNumber?.message}
+                        // error={errors.mobileNumber?.message}
                         />
                     </Box>
 
@@ -110,7 +136,17 @@ const InquiryForm = () => {
                             rows={5}
                             {...register('message')}
                             helperText={errors.message?.message}
-                            error={errors.message?.message}
+                        // error={errors.message?.message}
+                        />
+                    </Box>
+
+                    <Box my={2}>
+                        <Typography mb={1} fontWeight='500'>Image*</Typography>
+                        <input
+                            type='file'
+                            accept="image/*"
+                            {...register('file')}
+                            name='file'
                         />
                     </Box>
 
