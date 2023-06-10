@@ -1,0 +1,28 @@
+.container {
+    background-color: #f1f5f9;
+    height: 100vh;
+    padding: 1rem 1rem;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.name {
+    color: #1976d2;
+}
+
+.formContainer {
+    background-color: #ffffff;
+    padding: 2rem 2rem 3rem 2rem;
+    margin-top: 16px;
+    border-radius: 10px;
+}
+
+.buttonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

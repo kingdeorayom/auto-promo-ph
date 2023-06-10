@@ -1,6 +1,6 @@
 import { Alert, Box, Button, Divider, InputAdornment, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
-import { inquiry_validation } from '@/data/validation/inquiry'
+import { inquiry } from '@/data/validation/inquiry'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -17,7 +17,7 @@ const InquiryForm = () => {
 
     const form = useForm({
         mode: 'onChange',
-        resolver: yupResolver(inquiry_validation)
+        resolver: yupResolver(inquiry)
     })
 
     const { register, control, handleSubmit, formState, reset } = form

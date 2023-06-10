@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 
-export const inquiry_validation = Yup.object().shape({
+export const inquiry = Yup.object().shape({
     name:
         Yup.string()
             .required()
