@@ -38,6 +38,8 @@ const AddVehicle = () => {
     const { register, control, handleSubmit, formState, reset, getValues } = form
     const { errors } = formState
 
+    const [errorMessage, setErrorMessage] = useState(null)
+
     // const [image, setImage] = useState('')
 
     // const convertToBase64 = (file) => {
@@ -59,18 +61,20 @@ const AddVehicle = () => {
 
         console.log(data)
 
-        // axios.post('http://192.168.1.3:3001/vehicles', data)
-        //     .then((response) => {
-        //         reset()
-        //         Swal.fire(
-        //             'Vehicle added successfully.',
-        //             'Lorem ipsum',
-        //             'success'
-        //         )
-        //     })
-        //     .catch((error) => {
-        //         console.log(error.response.data.message);
-        //     });
+        axios.post('http://192.168.1.3:3001/vehicles', data)
+            .then((response) => {
+                reset()
+                setErrorMessage(null)
+                Swal.fire(
+                    'Vehicle added successfully.',
+                    'Lorem ipsum',
+                    'success'
+                )
+            })
+            .catch((error) => {
+                console.log(error.response.data.message);
+                setErrorMessage(error.response.data.message)
+            });
     }
 
     return (
@@ -102,7 +106,10 @@ const AddVehicle = () => {
                     <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit</Typography>
                 </Box>
 
-                <Divider />
+                {/* <Divider /> */}
+
+                <Alert severity="warning" sx={{ my: 3 }}>Review the data you will input before clicking the save button below. In case of error in details, you may edit through <strong>Vehicle Management</strong> section under <strong>Dashboard</strong>.</Alert>
+
 
                 <Box mb={3}>
                     <form
@@ -271,7 +278,7 @@ const AddVehicle = () => {
                             />
                         </Box>
 
-                        <Alert severity="warning" sx={{ my: 3 }}>Review the data you input before clicking the button below. In case of any errors in details, you may edit through <strong>Vehicle Management</strong> section under <strong>Dashboard</strong>.</Alert>
+                        {errorMessage !== null ? <Alert severity="error" sx={{ my: 3 }}>{errorMessage}</Alert> : null}
 
                         <Button
                             type='submit'
