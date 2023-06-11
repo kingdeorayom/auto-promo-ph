@@ -71,7 +71,7 @@ const VehicleManagement = ({ vehicles }) => {
                     columnSpacing={2}
                 >
                     {
-                        vehicles.map(vehicle => {
+                        vehicles.reverse().map(vehicle => {
                             return (
                                 <Grid key={vehicle._id} item xs={12} sm={6} lg={6}>
                                     <Box className={styles.box}>
