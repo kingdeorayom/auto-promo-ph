@@ -1,10 +1,14 @@
 import * as Yup from 'yup'
 
 export const inquiry = Yup.object().shape({
-    name:
+    firstName:
         Yup.string()
             .required()
-            .label("Name"),
+            .label("First Name"),
+    lastName:
+        Yup.string()
+            .required()
+            .label("Last Name"),
     email:
         Yup
             .string()

@@ -1,0 +1,41 @@
+.wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    /* border: 1px solid #d3d3d3; */
+    /* border-radius: 10px; */
+    /* padding: 1rem; */
+}
+
+.box {
+    border: 1px solid #d3d3d3;
+    padding: 20px 20px 30px 20px;
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+.inquiryCard {
+    display: flex;
+    border-bottom: 1px solid #d3d3d3;
+    padding: 20px 10px;
+    margin-top: 10px;
+}
+
+.inquiryCard:hover {
+    background-color: #fafafa;
+}
+
+.avatar {
+    /* width: 48, height: 48, bgcolor: '#1976D2', marginRight: '18px' */
+    width: 40px;
+    height: 40px;
+    background-color: #1976d2;
+    margin-right: 18px;
+}
+
+.truncate {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}

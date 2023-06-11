@@ -37,22 +37,22 @@ const InquiryForm = () => {
 
         console.log(data)
 
-        if (data.file.length > 0) {
-            convertToBase64(data.file[0])
-        }
+        // if (data.file.length > 0) {
+        //     convertToBase64(data.file[0])
+        // }
 
-        // axios.post('http://192.168.1.3:3001/inquiries', data)
-        //     .then((response) => {
-        //         reset()
-        //         Swal.fire(
-        //             'Your message has been sent successfully.',
-        //             'I will get back to you as soon as possible.',
-        //             'success'
-        //         )
-        //     })
-        //     .catch((error) => {
-        //         console.log(error);
-        //     });
+        axios.post('http://192.168.1.3:3001/inquiries', data)
+            .then((response) => {
+                reset()
+                Swal.fire(
+                    'Your message has been sent successfully.',
+                    'I will get back to you as soon as possible.',
+                    'success'
+                )
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     // renderCount++
@@ -65,12 +65,12 @@ const InquiryForm = () => {
             <Divider />
 
             {/* <img src={image} alt="" /> */}
-            <Image
+            {/* <Image
                 src={image}
                 alt='Hello'
                 width={200}
                 height={200}
-            />
+            /> */}
 
             <Box mb={3}>
                 <form
@@ -78,18 +78,34 @@ const InquiryForm = () => {
                     noValidate
                 >
                     <Box my={2}>
-                        <Typography mb={1} fontWeight='500'>Name*</Typography>
+                        <Typography mb={1} fontWeight='500'>First Name*</Typography>
                         <TextField
                             type='text'
-                            id='name'
+                            id='firstName'
                             fullWidth
-                            placeholder='e.g, Juan de la Cruz'
+                            placeholder='Enter your first name'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
                             }}
-                            {...register('name')}
-                            helperText={errors.name?.message}
-                        // error={errors.name?.message}
+                            {...register('firstName')}
+                            helperText={errors.firstName?.message}
+                        // error={errors.firstName?.message}
+                        />
+                    </Box>
+
+                    <Box my={2}>
+                        <Typography mb={1} fontWeight='500'>Last Name*</Typography>
+                        <TextField
+                            type='text'
+                            id='lastName'
+                            fullWidth
+                            placeholder='Enter your last name'
+                            InputProps={{
+                                startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                            }}
+                            {...register('lastName')}
+                            helperText={errors.lastName?.message}
+                        // error={errors.lastName?.message}
                         />
                     </Box>
 
@@ -99,7 +115,8 @@ const InquiryForm = () => {
                             type='email'
                             id='email'
                             fullWidth
-                            placeholder='juandelacruz@example.com'
+                            // placeholder='juandelacruz@example.com'
+                            placeholder='Enter your email'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
                             }}

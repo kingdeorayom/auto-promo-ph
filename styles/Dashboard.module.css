@@ -18,3 +18,8 @@
     border-radius: 50%;
     margin-left: 20px;
 }
+
+.gridItem:hover {
+    /* transform: translate(0, -7px); */
+    /* transition: all 0.1s linear; */
+}

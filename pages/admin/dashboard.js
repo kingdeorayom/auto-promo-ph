@@ -13,7 +13,25 @@ import car_image from '../../public/car.svg'
 import dhang_casten from '../../public/dhang_casten.jpg'
 import { useLogout } from '@/hooks/useLogout'
 
-const Dashboard = () => {
+export async function getStaticProps() {
+
+    const vehiclesResponse = await fetch(`http://192.168.1.3:3001/vehicles`);
+    const vehicles = await vehiclesResponse.json();
+
+    const inquiriesResponse = await fetch(`http://192.168.1.3:3001/inquiries`);
+    const inquiries = await inquiriesResponse.json();
+
+    return {
+        props: {
+            vehicles: vehicles,
+            inquiries: inquiries
+        },
+        revalidate: 10
+    };
+}
+
+
+const Dashboard = ({ vehicles, inquiries }) => {
 
     const router = useRouter()
     const { user } = useContext(AuthContext)
@@ -77,8 +95,8 @@ const Dashboard = () => {
                 </Alert> */}
 
                 <Box className={styles.box}>
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' >Overview</Typography>
-                    <Typography color='#808080' fontWeight='300' mb={3}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record.</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' color='#1976D2' >Overview</Typography>
+                    <Typography color='#808080' fontWeight='300' mb={3}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
 
                     <Stack
                         direction={stackDirectionBreakpoint}
@@ -95,14 +113,14 @@ const Dashboard = () => {
                                 {/* <SpaceDashboardIcon color='primary' /> */}
                                 <Typography fontWeight='500'>INQUIRIES</Typography>
                             </Stack>
-                            <Typography color='secondary' fontWeight='300'>Total inquiries: 3</Typography>
+                            <Typography color='secondary' fontWeight='300'>{`Total inquiries: ${inquiries.length}`}</Typography>
                         </Box>
                         <Box>
                             <Stack direction='row' spacing={1} mb={1}>
                                 {/* <WidgetsIcon color='primary' /> */}
-                                <Typography fontWeight='500'>LISTED VEHICLES</Typography>
+                                <Typography fontWeight='500'>VEHICLES</Typography>
                             </Stack>
-                            <Typography color='secondary' fontWeight='300'>Total listed: 10</Typography>
+                            <Typography color='secondary' fontWeight='300'>{`Total listed: ${vehicles.length} vehicles`}</Typography>
                         </Box>
                     </Stack>
 
@@ -115,11 +133,11 @@ const Dashboard = () => {
                     rowSpacing={3}
                     columnSpacing={2}
                 >
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid item xs={12} sm={12} md={6} className={styles.gridItem}>
                         <Box className={styles.box}>
                             <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
                                 <Box>
-                                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5}>Manage your vehicles</Typography>
+                                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>Manage your vehicles</Typography>
                                     <Box my={2} display={{ xs: 'block', sm: 'none' }} sx={{ textAlign: 'center' }}>
                                         <Image
                                             src={car_image}
@@ -127,7 +145,7 @@ const Dashboard = () => {
                                             height={120}
                                         />
                                     </Box>
-                                    <Typography color='#808080' mb={2} fontWeight='300'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record.</Typography>
+                                    <Typography color='#808080' mb={2} fontWeight='300'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
                                     <Link href='/admin/vehicles'>
                                         <Button variant="contained" disableElevation endIcon={<ArrowForwardIcon />}>Manage Listing</Button>
                                     </Link>
@@ -143,12 +161,12 @@ const Dashboard = () => {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid item xs={12} sm={12} md={6} className={styles.gridItem}>
                         <Box className={styles.box}>
                             <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
                                 <Box>
 
-                                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5}>Inquiries</Typography>
+                                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>Inquiries</Typography>
                                     <Box my={2} display={{ xs: 'block', sm: 'none' }} sx={{ textAlign: 'center' }}>
                                         <Image
                                             src={notifications_image}
@@ -156,7 +174,7 @@ const Dashboard = () => {
                                             height={120}
                                         />
                                     </Box>
-                                    <Typography color='#808080' mb={2} fontWeight='300'>View and manage inquiries of clients or customers, their name, and contact information.</Typography>
+                                    <Typography color='#808080' mb={2} fontWeight='300'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
                                     <Link href='/admin/inquiries'>
                                         <Button variant="contained" disableElevation endIcon={<ArrowForwardIcon />}>View Inquiries</Button>
                                     </Link>
