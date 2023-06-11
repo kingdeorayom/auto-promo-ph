@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout'
-import { Alert, Autocomplete, Box, Breadcrumbs, Button, Divider, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { Alert, AlertTitle, Autocomplete, Box, Breadcrumbs, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, FormControl, InputAdornment, InputLabel, List, ListItem, ListItemText, MenuItem, Select, TextField, Typography } from '@mui/material'
 import styles from '../../../styles/AddEditVehicle.module.css'
 import Link from 'next/link'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -13,7 +13,20 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form'
 
-const AddVehicle = () => {
+export async function getStaticProps() {
+
+    const response = await fetch(`http://192.168.1.3:3001/vehicles`);
+    const vehicles = await response.json();
+
+    return {
+        props: {
+            vehicles: vehicles,
+        },
+        revalidate: 10
+    };
+}
+
+const AddVehicle = ({ vehicles }) => {
 
     const router = useRouter()
 
@@ -39,6 +52,7 @@ const AddVehicle = () => {
     const { errors } = formState
 
     const [errorMessage, setErrorMessage] = useState(null)
+    const [vehicleSlug, setVehicleSlug] = useState('')
 
     // const [image, setImage] = useState('')
 
@@ -76,6 +90,16 @@ const AddVehicle = () => {
                 setErrorMessage(error.response.data.message)
             });
     }
+
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+    const handleDialogOpen = () => {
+        setIsDialogOpen(true);
+    };
+
+    const handleDialogClose = () => {
+        setIsDialogOpen(false);
+    };
 
     return (
         <Layout>
@@ -128,6 +152,9 @@ const AddVehicle = () => {
                                 {...register('name')}
                                 helperText={errors.name?.message}
                             />
+                            <Box onClick={handleDialogOpen} sx={{ cursor: 'pointer' }}>
+                                <Typography mt={1} fontSize='13px' color='primary' fontWeight='300'>Learn more about vehicle name and vehicle slug</Typography>
+                            </Box>
                         </Box>
 
                         <Box my={2}>
@@ -278,22 +305,67 @@ const AddVehicle = () => {
                             />
                         </Box>
 
-                        {errorMessage !== null ? <Alert severity="error" sx={{ my: 3 }}>{errorMessage}</Alert> : null}
+                        {errorMessage !== null ?
+                            <Alert severity="error" sx={{ my: 3 }}>
+                                <AlertTitle>Oops!</AlertTitle>
+                                {errorMessage}
+                            </Alert> : null
+                        }
 
                         <Button
                             type='submit'
                             variant="contained"
                             disableElevation
                             size="large"
+                            sx={{ mt: 2.5 }}
                         >
                             Save
                         </Button>
                     </form>
                 </Box>
 
+                <Dialog
+                    open={isDialogOpen}
+                    onClose={handleDialogClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title" color='primary' fontSize='1.6rem'>
+                        What are URL slugs and why is it important?
+                    </DialogTitle>
+                    <DialogContent>
+                        <Typography mb={1} fontSize='.9rem' lineHeight={1.6}>In web, a URL slug refers to the end part of a URL after the backslash {'("/")'} that identifies a specific page or post. Each slug on your web page needs to be unique, and they provide readers and search engines alike with information about the contents of a web page or post. Having posts with same slug could result in unprecedented errors.</Typography>
+
+                        <Typography fontSize='.9rem' lineHeight={1.6}>In this website, each currently listed vehicle corresponds to a unique slug that belongs only to that record. For example, the <strong>Mitsubishi Mirage G4</strong> has a <span className={styles.slug}>URL slug</span> of:</Typography>
+
+                        <Box sx={{ border: '1px solid #d3d3d3', borderRadius: '5px', paddingX: '10px', paddingY: '7px', my: '20px' }}>
+                            <Typography fontSize='.9rem'>https://autopromo.ph/brands/mitsubishi/<span className={styles.slug}>mitsubishi-mirage-g4</span></Typography>
+                        </Box>
+
+                        <Typography mb={1} fontSize='.9rem' lineHeight={1.6}>To make it short, the URL slug for the vehicle {"you're"} going to add <strong>must be unique.</strong></Typography>
+
+                        <Typography mb={1} fontSize='.9rem' lineHeight={1.6}><strong>The system will automatically generate a slug as you submit the form</strong>, and will prevent you from adding a record if a duplicate slug is found before the system actually adds it to the database.</Typography>
+
+                        <Typography mb={1} fontSize='.9rem' lineHeight={1.6}>It is also important to note that if a record <strong>was deleted</strong>, then the corresponding URL slug that it used will be <strong>available for use again</strong> for a new record.</Typography>
+
+                        <Typography mb={1} fontSize='.9rem' lineHeight={1.6}>Below is the list of vehicle slugs used by the system and are <strong>not available</strong> for new records:</Typography>
+
+                        <Box sx={{ border: '1px solid #d3d3d3', borderRadius: '5px', paddingX: '10px', paddingY: '10px', my: '20px' }}>
+                            {vehicles.map(vehicle => {
+                                return (<Typography key={vehicle._id} fontSize='.9rem'>{vehicle.vehicle_slug}</Typography>)
+                            })}
+                        </Box>
+
+
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleDialogClose}>OK</Button>
+                    </DialogActions>
+                </Dialog>
+
             </Box>
 
-        </Layout>
+        </Layout >
     )
 }
 
