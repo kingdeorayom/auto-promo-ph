@@ -8,6 +8,7 @@ import Image from 'next/image'
 import setCurrency from '@/utils/setCurrency'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import mitsubishi from '../../../public/mitsubishi-g4.jpg'
+import AddIcon from '@mui/icons-material/Add';
 
 export async function getStaticProps() {
 
@@ -42,10 +43,25 @@ const VehicleManagement = ({ vehicles }) => {
                     </Breadcrumbs>
                 </Box>
 
-                <Box>
-                    <Typography fontSize='2.5rem' variant="h2" fontWeight='600' mb={1}>All vehicles</Typography>
-                    <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
+                <Box display='flex' justifyContent='space-between' alignItems='center'>
+                    <Box>
+                        <Typography fontSize='2.5rem' variant="h2" fontWeight='600' mb={1}>All vehicles</Typography>
+                        <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={2}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
+                    </Box>
+                    <Box display={{ xs: 'none', lg: 'block' }}>
+                        <Link href='/admin/vehicles/add'>
+                            <Button variant="outlined" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
+                        </Link>
+                    </Box>
                 </Box>
+
+                <Box display={{ xs: 'block', lg: 'none' }}>
+                    <Link href='/admin/vehicles/add'>
+                        <Button variant="outlined" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
+                    </Link>
+                </Box>
+
+                <Divider sx={{ my: 3 }} />
 
                 <Grid
                     container
