@@ -53,7 +53,7 @@ const InquiryForm = () => {
 
         axios.post('http://192.168.1.3:3001/inquiries', data)
             .then((response) => {
-                // reset()
+                reset()
                 Swal.fire(
                     'Your message has been sent successfully.',
                     'I will get back to you as soon as possible.',

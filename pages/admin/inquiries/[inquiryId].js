@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout'
-import { Avatar, Box, Breadcrumbs, Button, Divider, Grid, IconButton, Stack, Tooltip, Typography } from '@mui/material'
+import { Alert, AlertTitle, Avatar, Box, Breadcrumbs, Button, Divider, Grid, IconButton, Stack, Tooltip, Typography } from '@mui/material'
 import styles from '../../../styles/Inquiries.module.css'
 import Link from 'next/link'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
@@ -9,6 +9,17 @@ import Image from 'next/image';
 import EastIcon from '@mui/icons-material/East';
 import setCurrency from '@/utils/setCurrency';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
 
 export async function getStaticPaths() {
 
@@ -48,11 +59,43 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
 
     const baseURL = 'http://192.168.1.3:3001'
 
+    const router = useRouter()
+
+    let vehicleNotFound = Object.keys(vehicle).length === 1
+
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+
+    const handleDeleteDialogOpen = () => {
+        setIsDeleteDialogOpen(true);
+    };
+
+    const handleDeleteDialogClose = () => {
+        setIsDeleteDialogOpen(false);
+    };
+
+    const handleDeleteInquiry = () => {
+
+        setIsDeleteDialogOpen(false);
+
+        axios.delete(`http://192.168.1.3:3001/inquiries/${inquiry._id}`)
+            .then((response) => {
+                Swal.fire(
+                    response.data.message,
+                    'Lorem ipsum',
+                    'success'
+                ).then(() => router.push('/admin/inquiries'))
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
+
     return (
         <Layout>
             <Box className={styles.wrapper}>
 
-                <Box mb={4}>
+                <Box mb={5}>
                     <Breadcrumbs separator=">" aria-label="breadcrumb">
                         <Link underline="hover" color="inherit" href="/admin/dashboard">
                             Dashboard
@@ -105,18 +148,55 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
 
                 <Typography fontSize='1.3rem' variant="h2" fontWeight='400' my={5}>Inquires about:</Typography>
 
-                <Box className={styles.box}>
-                    <Box display='flex' alignItems='center'>
-                        <Box>
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>{vehicle.name}</Typography>
-                            <Typography color='#808080' mb={1} fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
-                            <Typography color='#808080' mb={2} fontWeight='300' className={styles.truncate}>{vehicle.description}</Typography>
-                            <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`} >
-                                <Button variant="outlined" disableElevation color='primary' endIcon={<ArrowOutwardOutlinedIcon />}>View Details</Button>
-                            </Link>
+                {
+                    vehicleNotFound ?
+                        <Alert severity="error">
+                            <AlertTitle>Error</AlertTitle>
+                            {vehicle.message}
+                            {/* {errorMessage} */}
+                        </Alert> :
+                        <Box className={styles.box}>
+                            <Box display='flex' alignItems='center'>
+                                <Box>
+                                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>{vehicle.name}</Typography>
+                                    <Typography color='#808080' mb={1} fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
+                                    <Typography color='#808080' mb={2} fontWeight='300' className={styles.truncate}>{vehicle.description}</Typography>
+                                    <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`} >
+                                        <Button variant="outlined" disableElevation color='primary' endIcon={<ArrowOutwardOutlinedIcon />}>View Details</Button>
+                                    </Link>
+                                </Box>
+                            </Box>
                         </Box>
-                    </Box>
+                }
+
+                <Divider sx={{ mt: 5 }} />
+
+                <Box mt={5} display='flex' justifyContent='flex-start'>
+                    <Button variant='text' color='error' startIcon={<DeleteOutlineIcon />} onClick={handleDeleteDialogOpen}>Delete this message</Button>
                 </Box>
+
+                <Dialog
+                    open={isDeleteDialogOpen}
+                    onClose={handleDeleteDialogClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title" color='error'>
+                        {"Are you sure you want to delete this message?"}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            This action is irreversible.
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleDeleteDialogClose}>Cancel</Button>
+                        <Button onClick={handleDeleteInquiry} autoFocus color='error'>
+                            Delete
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+
             </Box>
         </Layout>
     )
