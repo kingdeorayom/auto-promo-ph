@@ -8,34 +8,44 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 // import { DevTool } from '@hookform/devtools';
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 // let renderCount = 0
 
 const InquiryForm = () => {
 
+    const router = useRouter()
+
     const form = useForm({
         mode: 'onChange',
-        resolver: yupResolver(inquiry)
+        resolver: yupResolver(inquiry),
+        // defaultValues: {
+        //     firstName: 'Serking',
+        //     lastName: 'de Orayom',
+        //     email: 'kingdeorayom@gmail.com',
+        //     mobileNumber: '09564750051',
+        //     message: 'Hello'
+        // }
     })
 
-    const { register, control, handleSubmit, formState, reset } = form
+    const { register, control, handleSubmit, formState, reset, getValues } = form
     const { errors } = formState
 
-    const [image, setImage] = useState('')
+    // const [image, setImage] = useState('')
 
-    const convertToBase64 = (file) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setImage(reader.result.toString())
-        }
-        reader.readAsDataURL(file)
-    }
+    // const convertToBase64 = (file) => {
+    //     const reader = new FileReader();
+    //     reader.onloadend = () => {
+    //         setImage(reader.result.toString())
+    //     }
+    //     reader.readAsDataURL(file)
+    // }
 
     const onSubmit = (data) => {
 
-        console.log(data)
+        data['vehicleSlug'] = router.query.q
 
         // if (data.file.length > 0) {
         //     convertToBase64(data.file[0])
@@ -43,7 +53,7 @@ const InquiryForm = () => {
 
         axios.post('http://192.168.1.3:3001/inquiries', data)
             .then((response) => {
-                reset()
+                // reset()
                 Swal.fire(
                     'Your message has been sent successfully.',
                     'I will get back to you as soon as possible.',
@@ -51,7 +61,7 @@ const InquiryForm = () => {
                 )
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error.response.data.message);
             });
     }
 
@@ -157,7 +167,7 @@ const InquiryForm = () => {
                         />
                     </Box>
 
-                    <Box my={2}>
+                    {/* <Box my={2}>
                         <Typography mb={1} fontWeight='500'>Image*</Typography>
                         <input
                             type='file'
@@ -165,7 +175,7 @@ const InquiryForm = () => {
                             {...register('file')}
                             name='file'
                         />
-                    </Box>
+                    </Box> */}
 
                     <Alert severity="warning" sx={{ my: 3, }}>By clicking the submit button below, you agree to send your <strong>name</strong>, <strong>email address</strong> and <strong>mobile number</strong>. Also, please make sure that the information you provided above are accurate.</Alert>
 
