@@ -50,27 +50,27 @@ const AddVehicle = () => {
 
     const onSubmit = (data) => {
 
-        console.log(data)
-
-        data['vehicle_slug'] = 'geely-magic'
-        data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
-
         // if (data.file.length > 0) {
         //     convertToBase64(data.file[0])
         // }
 
-        axios.post('http://192.168.1.3:3001/vehicles', data)
-            .then((response) => {
-                reset()
-                Swal.fire(
-                    'Vehicle added successfully.',
-                    'Lorem ipsum',
-                    'success'
-                )
-            })
-            .catch((error) => {
-                console.log(error.response.data.message);
-            });
+        data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
+        data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
+
+        console.log(data)
+
+        // axios.post('http://192.168.1.3:3001/vehicles', data)
+        //     .then((response) => {
+        //         reset()
+        //         Swal.fire(
+        //             'Vehicle added successfully.',
+        //             'Lorem ipsum',
+        //             'success'
+        //         )
+        //     })
+        //     .catch((error) => {
+        //         console.log(error.response.data.message);
+        //     });
     }
 
     return (
