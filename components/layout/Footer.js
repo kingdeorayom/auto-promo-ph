@@ -75,8 +75,8 @@ const Footer = () => {
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={3}>CONNECT WITH ME</Typography>
-                            <Typography mb={1} color='secondary' fontSize='.8rem'>+63 956 475 0051</Typography>
-                            <Typography mb={1} color='secondary' fontSize='.8rem'>Dhang Casten</Typography>
+                            <Typography mb={1} color='secondary' fontSize='.9rem'>+63 956 475 0051</Typography>
+                            <Typography mb={1} color='secondary' fontSize='.9rem'>Dhang Casten</Typography>
                         </Box>
                     </Grid>
 
