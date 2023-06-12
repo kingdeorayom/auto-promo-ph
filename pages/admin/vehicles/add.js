@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout'
-import { Alert, AlertTitle, Box, Breadcrumbs, Button, Dialog, DialogActions, DialogContent, DialogTitle, InputAdornment, MenuItem, TextField, Typography } from '@mui/material'
+import { Alert, AlertTitle, Box, Breadcrumbs, Button, Chip, Dialog, DialogActions, DialogContent, DialogTitle, Divider, InputAdornment, MenuItem, TextField, Typography } from '@mui/material'
 import styles from '../../../styles/AddEditVehicle.module.css'
 import Link from 'next/link'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form'
+import AddIcon from '@mui/icons-material/Add';
 
 export async function getStaticProps() {
 
@@ -36,8 +37,8 @@ const AddVehicle = ({ vehicles }) => {
     const { errors } = formState
 
     const [errorMessage, setErrorMessage] = useState(null)
-
     const [imagePreview, setImagePreview] = useState(null)
+    const [variants, setVariants] = useState([])
 
     const convertToBase64 = (image) => {
         const reader = new FileReader();
@@ -52,6 +53,24 @@ const AddVehicle = ({ vehicles }) => {
         }
     }
 
+    const addToVariants = (value) => {
+        let data = {
+            name: value.name,
+            price: value.price,
+            discount: value.price,
+            cash_promo: value.price,
+            brand_slug: value.brand_slug,
+            vehicle_slug: value.vehicle_slug,
+            image: value.image
+        }
+        console.log(data)
+        setVariants(current => [...current, data])
+    }
+
+    const removeVariant = (index) => {
+        setVariants(oldValues => oldValues.filter((_, i) => i !== index))
+    }
+
     const onSubmit = (data) => {
 
         if (data.image.length !== 0) {
@@ -64,6 +83,7 @@ const AddVehicle = ({ vehicles }) => {
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
         data['image'] = data.image[0]
         data['colors'] = ['blue', 'red', 'green']
+        data['variants'] = variants
 
         console.log(data)
 
@@ -88,10 +108,12 @@ const AddVehicle = ({ vehicles }) => {
     }
 
     const [isSlugDialogOpen, setIsSlugDialogOpen] = useState(false);
-
     const handleSlugDialogOpen = () => setIsSlugDialogOpen(true)
-
     const handleSlugDialogClose = () => setIsSlugDialogOpen(false)
+
+    const [isVariantDialogOpen, setIsVariantDialogOpen] = useState(false);
+    const handleVariantDialogOpen = () => setIsVariantDialogOpen(true)
+    const handleVariantDialogClose = () => setIsVariantDialogOpen(false)
 
     return (
         <Layout>
@@ -290,6 +312,29 @@ const AddVehicle = ({ vehicles }) => {
                             />
                         </Box>
 
+                        <Box my={2}>
+                            <Typography mb={1} fontWeight='500'>Variants</Typography>
+                            <Typography mb={1} fontSize='14px' fontWeight='300'>Added variants:</Typography>
+                            {
+                                variants.map((item, index) => {
+                                    return (
+                                        <Chip
+                                            key={index}
+                                            label={item.name}
+                                            variant='contained'
+                                            color='primary'
+                                            sx={{ mx: .5, my: .5 }}
+                                            onDelete={() => removeVariant(index)}
+                                        />
+                                    )
+                                })
+                            }
+                        </Box>
+
+                        <Box>
+                            <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
+                        </Box>
+
                         {/* <Box my={2}>
                             <Typography mb={1} fontWeight='500'>Available Colors*</Typography>
                             <TextField
@@ -304,7 +349,7 @@ const AddVehicle = ({ vehicles }) => {
                             />
                         </Box> */}
 
-                        <Typography mb={1} fontWeight='500'>Vehicle Image*</Typography>
+                        <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image*</Typography>
                         <input
                             type='file'
                             // accept="image/*"
@@ -388,9 +433,56 @@ const AddVehicle = ({ vehicles }) => {
                     </DialogActions>
                 </Dialog>
 
+                <Dialog
+                    open={isVariantDialogOpen}
+                    onClose={handleVariantDialogClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title" color='primary' fontSize='1.6rem'>
+                        Add a variant for this vehicle
+                    </DialogTitle>
+                    <DialogContent>
+                        <Typography mb={1} fontSize='14px' fontWeight='300'>Added variants:</Typography>
+                        {
+                            variants.map((item, index) => {
+                                return (
+                                    <Chip
+                                        key={index}
+                                        label={item.name}
+                                        // variant='outlined'
+                                        color='primary'
+                                        sx={{ mx: .5, my: .5 }}
+                                        onDelete={() => removeVariant(index)}
+                                    />
+                                )
+                            })
+                        }
+                        <Divider sx={{ my: 2 }} />
+                        <Typography my={2} fontSize='14px' fontWeight='300'>Choose from the vehicle below to add as a variant:</Typography>
+                        <Box sx={{ border: '1px solid #d3d3d3', borderRadius: '5px', paddingX: '10px', paddingY: '10px', my: '20px' }}>
+                            {vehicles.map(item => {
+                                return (<Chip
+                                    key={item._id}
+                                    label={item.name}
+                                    icon={<AddIcon />}
+                                    variant='outlined'
+                                    sx={{ mx: .5, my: .5 }}
+                                    onClick={() => addToVariants(item)}
+                                />)
+                            })}
+                        </Box>
+
+
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleVariantDialogClose}>OK</Button>
+                    </DialogActions>
+                </Dialog>
+
             </Box>
 
-        </Layout >
+        </Layout>
     )
 }
 

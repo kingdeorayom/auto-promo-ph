@@ -56,7 +56,9 @@ export async function getStaticProps(context) {
 }
 
 const VehicleDetails = ({ vehicle }) => {
-    console.log(vehicle.colors)
+
+    console.log(vehicle.variants)
+
     const [value, setValue] = useState('1')
 
     const handleChange = (event, newValue) => {
@@ -250,45 +252,6 @@ const VehicleDetails = ({ vehicle }) => {
                         </Box>
                     </Box>
 
-                    {/* 
-                    <Grid
-                        container
-                        rowSpacing={3}
-                        mt={2}
-                        mb={3}
-                        sx={{ backgroundColor: '#fff', border: '1px solid #d3d3d3', borderRadius: 2, paddingX: '25px', paddingBottom: 3 }}
-                    >
-                        <Grid item xs={12} md={4}>
-                            <Box>
-                                <Stack direction='row' spacing={1} mb={1}>
-                                    <SettingsIcon color='primary' />
-                                    <Typography fontWeight='500'>TRANSMISSION</Typography>
-                                </Stack>
-                                <Typography color='secondary'>Automatic</Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <Box>
-                                <Stack direction='row' spacing={1} mb={1}>
-                                    <GasMeterIcon color='primary' />
-                                    <Typography fontWeight='500'>FUEL TYPE</Typography>
-                                </Stack>
-                                <Typography color='secondary'>Gasoline</Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <Box>
-                                <Stack direction='row' spacing={1} mb={1}>
-                                    <GasMeterIcon color='primary' />
-                                    <Typography fontWeight='500'>KEY FEATURES</Typography>
-                                </Stack>
-                                <Typography color='secondary'>
-                                    Anti-Lock Braking System, Child Safety Locks, Driver Airbag, Passenger Airbag, Rear Seat Belts
-                                </Typography>
-                            </Box>
-                        </Grid>
-                    </Grid> */}
-
                 </TabPanel>
 
                 <TabPanel value='3' className={styles.tabPanel}>
@@ -313,12 +276,12 @@ const VehicleDetails = ({ vehicle }) => {
                             </TableHead>
                             <TableBody>
                                 {
-                                    variants.map((item, index) => {
+                                    vehicle.variants.map((item, index) => {
                                         return (
                                             <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                                 <TableCell align='center' component="th" scope="row">
                                                     <Image
-                                                        src={`${baseURL}${item.imagePath}`}
+                                                        src={`${baseURL}${item.image}`}
                                                         alt={vehicle.name}
                                                         width={200}
                                                         height={100}
@@ -326,7 +289,7 @@ const VehicleDetails = ({ vehicle }) => {
                                                     />
                                                 </TableCell>
                                                 <TableCell align='center'>
-                                                    <Link href={`/brands/${item.brand_slug}/${item.variant_slug}`} target='_blank'>
+                                                    <Link href={`/brands/${item.brand_slug}/${item.vehicle_slug}`} target='_blank'>
                                                         <Typography fontSize='14px' color='primary'>{item.name}</Typography>
                                                     </Link>
                                                 </TableCell>
@@ -337,44 +300,6 @@ const VehicleDetails = ({ vehicle }) => {
                                         )
                                     })
                                 }
-                                {/* <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                    <TableCell align='center' component="th" scope="row">
-                                        <Image
-                                            src={`${baseURL}${vehicle.image}`}
-                                            alt={vehicle.name}
-                                            width={200}
-                                            height={100}
-                                            style={{ objectFit: 'contain' }}
-                                        />
-                                    </TableCell>
-                                    <TableCell align='center'>
-                                        <Link href='/brands/suzuki/suzuki-celerio-gl-ags' target='_blank'>
-                                            <Typography fontSize='14px' color='primary'>Suzuki Celerio GL AGS</Typography>
-                                        </Link>
-                                    </TableCell>
-                                    <TableCell align='center'>PHP 1,000,000.00</TableCell>
-                                    <TableCell align='center'>30%</TableCell>
-                                    <TableCell align='center'>PHP 768,000.00</TableCell>
-                                </TableRow>
-                                <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                    <TableCell align='center' component="th" scope="row">
-                                        <Image
-                                            src={`${baseURL}${vehicle.image}`}
-                                            alt={vehicle.name}
-                                            width={200}
-                                            height={100}
-                                            style={{ objectFit: 'contain' }}
-                                        />
-                                    </TableCell>
-                                    <TableCell align='center'>
-                                        <Link href='/brands/suzuki/suzuki-celerio-gl-mt' target='_blank'>
-                                            <Typography fontSize='14px' color='primary'>Suzuki Celerio GL MT</Typography>
-                                        </Link>
-                                    </TableCell>
-                                    <TableCell align='center'>PHP 1,000,000.00</TableCell>
-                                    <TableCell align='center'>30%</TableCell>
-                                    <TableCell align='center'>PHP 768,000.00</TableCell>
-                                </TableRow> */}
                             </TableBody>
                         </Table>
                     </TableContainer>
