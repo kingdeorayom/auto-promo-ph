@@ -18,13 +18,14 @@ const Suggestions = ({ brand_slug }) => {
 
     useEffect(() => {
         fetchSuggestions()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const baseURL = 'http://192.168.1.3:3001'
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={1}>You may also like</Typography>
+            <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mt={5} mb={1}>You may also like</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</Typography>
 
             <Grid

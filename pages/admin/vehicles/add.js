@@ -63,6 +63,7 @@ const AddVehicle = ({ vehicles }) => {
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
         data['image'] = data.image[0]
+        data['colors'] = ['blue', 'red', 'green']
 
         console.log(data)
 
@@ -222,6 +223,7 @@ const AddVehicle = ({ vehicles }) => {
                                 <MenuItem value='SUV'>SUV</MenuItem>
                                 <MenuItem value='Hatchback'>Hatchback</MenuItem>
                                 <MenuItem value='Van'>Van</MenuItem>
+                                <MenuItem value='Utility'>Utility</MenuItem>
                             </TextField>
                         </Box>
 
@@ -234,7 +236,13 @@ const AddVehicle = ({ vehicles }) => {
                                 defaultValue=''
                                 inputProps={register('transmission')}
                             >
-                                <MenuItem value='Automatic'>Automatic</MenuItem>
+                                {/* <MenuItem value='Automatic'>Automatic</MenuItem>
+                                <MenuItem value='Manual'>Manual</MenuItem> */}
+                                <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
+                                <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
+                                <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
+                                <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
+                                <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
                                 <MenuItem value='Manual'>Manual</MenuItem>
                             </TextField>
                         </Box>
@@ -281,6 +289,20 @@ const AddVehicle = ({ vehicles }) => {
                                 helperText={errors.keyFeatures?.message}
                             />
                         </Box>
+
+                        {/* <Box my={2}>
+                            <Typography mb={1} fontWeight='500'>Available Colors*</Typography>
+                            <TextField
+                                type='text'
+                                fullWidth
+                                placeholder="Provide this vehicle's available colors"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                }}
+                                {...register('colors')}
+                                helperText={errors.colors?.message}
+                            />
+                        </Box> */}
 
                         <Typography mb={1} fontWeight='500'>Vehicle Image*</Typography>
                         <input

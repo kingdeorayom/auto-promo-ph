@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout';
-import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle } from '@mui/material';
+import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle, Chip } from '@mui/material';
 import Image from 'next/image';
 import styles from '../../../styles/Details.module.css'
 import GasMeterIcon from '@mui/icons-material/GasMeter';
@@ -50,7 +50,7 @@ export async function getStaticProps(context) {
 }
 
 const VehicleDetails = ({ vehicle }) => {
-
+    console.log(vehicle.colors)
     const [value, setValue] = useState('1')
 
     const handleChange = (event, newValue) => {
@@ -207,6 +207,20 @@ const VehicleDetails = ({ vehicle }) => {
                         </Stack>
 
                     </Box>
+
+                    <Box mt={3}>
+
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={1}>Available colors</Typography>
+                        <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes in {vehicle.colors.length} available colors
+                        </Typography>
+
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '768px', maxWidth: '100%' }}>
+                            {
+                                vehicle.colors.map((item, index) => <Chip key={index} label={item} variant="outlined" sx={{ mx: '3px', my: '5px' }} />)
+                            }
+                        </Box>
+                    </Box>
+
                     {/* 
                     <Grid
                         container
