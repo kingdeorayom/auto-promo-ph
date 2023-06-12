@@ -87,11 +87,11 @@ const AddVehicle = ({ vehicles }) => {
         convertToBase64(e.target.files[0])
     }
 
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [isSlugDialogOpen, setIsSlugDialogOpen] = useState(false);
 
-    const handleDialogOpen = () => setIsDialogOpen(true)
+    const handleSlugDialogOpen = () => setIsSlugDialogOpen(true)
 
-    const handleDialogClose = () => setIsDialogOpen(false)
+    const handleSlugDialogClose = () => setIsSlugDialogOpen(false)
 
     return (
         <Layout>
@@ -144,7 +144,7 @@ const AddVehicle = ({ vehicles }) => {
                                 {...register('name')}
                                 helperText={errors.name?.message}
                             />
-                            <Box onClick={handleDialogOpen} sx={{ cursor: 'pointer' }}>
+                            <Box onClick={handleSlugDialogOpen} sx={{ cursor: 'pointer' }}>
                                 <Typography mt={1} fontSize='13px' color='primary' fontWeight='300'>Learn more about vehicle name and vehicle slug</Typography>
                             </Box>
                         </Box>
@@ -350,8 +350,8 @@ const AddVehicle = ({ vehicles }) => {
                 </Box>
 
                 <Dialog
-                    open={isDialogOpen}
-                    onClose={handleDialogClose}
+                    open={isSlugDialogOpen}
+                    onClose={handleSlugDialogClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                 >
@@ -384,7 +384,7 @@ const AddVehicle = ({ vehicles }) => {
 
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleDialogClose}>OK</Button>
+                        <Button onClick={handleSlugDialogClose}>OK</Button>
                     </DialogActions>
                 </Dialog>
 

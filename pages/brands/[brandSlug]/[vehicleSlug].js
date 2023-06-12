@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout';
-import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle, Chip } from '@mui/material';
+import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle, Chip, Paper } from '@mui/material';
 import Image from 'next/image';
 import styles from '../../../styles/Details.module.css'
 import GasMeterIcon from '@mui/icons-material/GasMeter';
@@ -13,6 +13,12 @@ import { useState } from "react"
 import Link from 'next/link';
 import Suggestions from '@/components/Vehicles/Suggestions';
 import setCurrency from '@/utils/setCurrency';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 export async function getStaticPaths() {
 
@@ -63,6 +69,29 @@ const VehicleDetails = ({ vehicle }) => {
     const stackSpacingBreakpoint = { xs: 3, md: 4 }
 
     const baseURL = 'http://192.168.1.3:3001'
+
+    const variants = [
+        {
+            name: "Suzuki Celerio GL MT",
+            price: 1200000,
+            discount: "30%",
+            cash_promo: 800000,
+            brand_slug: "suzuki",
+            variant_slug: "suzuki-celerio-gl-mt",
+            vehicle_slug: "suzuki-celerio",
+            imagePath: "/images/vehicles/mitsubishi-g4.jpg"
+        },
+        {
+            name: "Suzuki Celerio GL AGS",
+            price: 1000000,
+            discount: "10%",
+            cash_promo: 768000,
+            brand_slug: "suzuki",
+            variant_slug: "suzuki-celerio-gl-ags",
+            vehicle_slug: "suzuki-celerio",
+            imagePath: "/images/vehicles/honda-city.jpg"
+        }
+    ]
 
     return (
         <Layout>
@@ -266,10 +295,90 @@ const VehicleDetails = ({ vehicle }) => {
                     <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={1}>{vehicle.name} Price List</Typography>
                     <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis corrupti perferendis nobis dolore necessitatibus, quos totam excepturi sint eligendi id vel in! Modi praesentium voluptate repellendus similique illum aliquam laborum.</Typography>
 
-                    <Alert severity="info">
+                    <Alert severity="info" sx={{ mb: 3 }}>
                         <AlertTitle>Lorem Ipsum</AlertTitle>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, corporis quos ipsum porro unde doloremque numquam enim quasi alias tempore dolores illo at consectetur repellendus libero vero atque quisquam iusto.
                     </Alert>
+
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell align='center'>Image</TableCell>
+                                    <TableCell align='center'>Name</TableCell>
+                                    <TableCell align='center'>Unit Price</TableCell>
+                                    <TableCell align='center'>Discount</TableCell>
+                                    <TableCell align='center'>Cash Promo</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {
+                                    variants.map((item, index) => {
+                                        return (
+                                            <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                                <TableCell align='center' component="th" scope="row">
+                                                    <Image
+                                                        src={`${baseURL}${item.imagePath}`}
+                                                        alt={vehicle.name}
+                                                        width={200}
+                                                        height={100}
+                                                        style={{ objectFit: 'contain' }}
+                                                    />
+                                                </TableCell>
+                                                <TableCell align='center'>
+                                                    <Link href={`/brands/${item.brand_slug}/${item.variant_slug}`} target='_blank'>
+                                                        <Typography fontSize='14px' color='primary'>{item.name}</Typography>
+                                                    </Link>
+                                                </TableCell>
+                                                <TableCell align='center'>PHP {item.price}.00</TableCell>
+                                                <TableCell align='center'>{item.discount}</TableCell>
+                                                <TableCell align='center'>PHP {item.cash_promo}</TableCell>
+                                            </TableRow>
+                                        )
+                                    })
+                                }
+                                {/* <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                    <TableCell align='center' component="th" scope="row">
+                                        <Image
+                                            src={`${baseURL}${vehicle.image}`}
+                                            alt={vehicle.name}
+                                            width={200}
+                                            height={100}
+                                            style={{ objectFit: 'contain' }}
+                                        />
+                                    </TableCell>
+                                    <TableCell align='center'>
+                                        <Link href='/brands/suzuki/suzuki-celerio-gl-ags' target='_blank'>
+                                            <Typography fontSize='14px' color='primary'>Suzuki Celerio GL AGS</Typography>
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell align='center'>PHP 1,000,000.00</TableCell>
+                                    <TableCell align='center'>30%</TableCell>
+                                    <TableCell align='center'>PHP 768,000.00</TableCell>
+                                </TableRow>
+                                <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                    <TableCell align='center' component="th" scope="row">
+                                        <Image
+                                            src={`${baseURL}${vehicle.image}`}
+                                            alt={vehicle.name}
+                                            width={200}
+                                            height={100}
+                                            style={{ objectFit: 'contain' }}
+                                        />
+                                    </TableCell>
+                                    <TableCell align='center'>
+                                        <Link href='/brands/suzuki/suzuki-celerio-gl-mt' target='_blank'>
+                                            <Typography fontSize='14px' color='primary'>Suzuki Celerio GL MT</Typography>
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell align='center'>PHP 1,000,000.00</TableCell>
+                                    <TableCell align='center'>30%</TableCell>
+                                    <TableCell align='center'>PHP 768,000.00</TableCell>
+                                </TableRow> */}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+
                 </TabPanel>
 
             </TabContext>
