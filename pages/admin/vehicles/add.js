@@ -1,14 +1,12 @@
 import Layout from '@/layouts/Layout'
-import { Alert, AlertTitle, Autocomplete, Box, Breadcrumbs, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, FormControl, InputAdornment, InputLabel, List, ListItem, ListItemText, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { Alert, AlertTitle, Box, Breadcrumbs, Button, Dialog, DialogActions, DialogContent, DialogTitle, InputAdornment, MenuItem, TextField, Typography } from '@mui/material'
 import styles from '../../../styles/AddEditVehicle.module.css'
 import Link from 'next/link'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form'
@@ -32,58 +30,51 @@ const AddVehicle = ({ vehicles }) => {
 
     const form = useForm({
         mode: 'onChange',
-        // resolver: yupResolver(inquiry),
-        defaultValues: {
-            name: "Mitsubishi Mirage G4",
-            price: "768000",
-            description: "Lorem ipsum dolor sit amet",
-            image: "/images/vehicles/mitsubishi-g4.jpg",
-            brand: "Mitsubishi",
-            model: "Mirage G4",
-            type: "Sedan",
-            transmission: "Automatic",
-            fuelType: "Diesel",
-            year: "2022",
-            keyFeatures: "Marami",
-        }
     })
 
-    const { register, control, handleSubmit, formState, reset, getValues } = form
+    const { register, handleSubmit, formState, reset } = form
     const { errors } = formState
 
     const [errorMessage, setErrorMessage] = useState(null)
-    const [vehicleSlug, setVehicleSlug] = useState('')
 
-    // const [image, setImage] = useState('')
+    const [imagePreview, setImagePreview] = useState(null)
 
-    // const convertToBase64 = (file) => {
-    //     const reader = new FileReader();
-    //     reader.onloadend = () => {
-    //         setImage(reader.result.toString())
-    //     }
-    //     reader.readAsDataURL(file)
-    // }
+    const convertToBase64 = (image) => {
+        const reader = new FileReader();
+        try {
+            reader.onloadend = () => {
+                setImagePreview(reader.result.toString())
+            }
+            reader.readAsDataURL(image)
+        } catch (error) {
+            console.log("Cancelled")
+            setImagePreview(null)
+        }
+    }
 
     const onSubmit = (data) => {
 
-        // if (data.file.length > 0) {
-        //     convertToBase64(data.file[0])
-        // }
+        if (data.image.length !== 0) {
+            setErrorMessage(null)
+        } else {
+            return setErrorMessage('Image is required. Please attach an image and try submitting again.')
+        }
 
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
+        data['image'] = data.image[0]
 
         console.log(data)
 
-        axios.post('http://192.168.1.3:3001/vehicles', data)
+        axios.post('http://192.168.1.3:3001/vehicles', data, { headers: { "Content-Type": "multipart/form-data" } })
             .then((response) => {
-                reset()
+                // reset()
                 setErrorMessage(null)
                 Swal.fire(
                     'Vehicle added successfully.',
                     'Lorem ipsum',
                     'success'
-                )
+                ).then(() => router.reload())
             })
             .catch((error) => {
                 console.log(error.response.data.message);
@@ -91,15 +82,15 @@ const AddVehicle = ({ vehicles }) => {
             });
     }
 
+    const handleImageChange = (e) => {
+        convertToBase64(e.target.files[0])
+    }
+
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-    const handleDialogOpen = () => {
-        setIsDialogOpen(true);
-    };
+    const handleDialogOpen = () => setIsDialogOpen(true)
 
-    const handleDialogClose = () => {
-        setIsDialogOpen(false);
-    };
+    const handleDialogClose = () => setIsDialogOpen(false)
 
     return (
         <Layout>
@@ -134,11 +125,11 @@ const AddVehicle = ({ vehicles }) => {
 
                 <Alert severity="warning" sx={{ my: 3 }}>Review the data you will input before clicking the save button below. In case of error in details, you may edit through <strong>Vehicle Management</strong> section under <strong>Dashboard</strong>.</Alert>
 
-
                 <Box mb={3}>
                     <form
                         onSubmit={handleSubmit(onSubmit)}
                         noValidate
+                        encType='multipart/form-data'
                     >
                         <Box my={2}>
                             <Typography mb={1} fontWeight='500'>Name*</Typography>
@@ -159,7 +150,7 @@ const AddVehicle = ({ vehicles }) => {
 
                         <Box my={2}>
                             <Typography fontWeight='500'>Price*</Typography>
-                            <Typography mb={1} fontSize='13px' fontWeight='300'>No need to add any special character such as comma, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 100000.</Typography>
+                            <Typography mb={1} fontSize='13px' fontWeight='300'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 768000.</Typography>
                             <TextField
                                 type='number'
                                 fullWidth
@@ -182,20 +173,6 @@ const AddVehicle = ({ vehicles }) => {
                                 helperText={errors.description?.message}
                                 multiline
                                 rows={5}
-                            />
-                        </Box>
-
-                        <Box my={2}>
-                            <Typography mb={1} fontWeight='500'>Image*</Typography>
-                            <TextField
-                                type='text'
-                                fullWidth
-                                placeholder='Test'
-                                InputProps={{
-                                    startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
-                                }}
-                                {...register('image')}
-                                helperText={errors.image?.message}
                             />
                         </Box>
 
@@ -233,11 +210,11 @@ const AddVehicle = ({ vehicles }) => {
                         </Box>
 
                         <Box my={2}>
-                            <Typography mb={2} fontWeight='500'>Type*</Typography>
+                            <Typography mb={2} fontWeight='500'>Body Type*</Typography>
                             <TextField
                                 select
                                 fullWidth
-                                label="Select Type"
+                                label="Select Body Type"
                                 defaultValue=''
                                 inputProps={register('type')}
                             >
@@ -304,6 +281,32 @@ const AddVehicle = ({ vehicles }) => {
                                 helperText={errors.keyFeatures?.message}
                             />
                         </Box>
+
+                        <Typography mb={1} fontWeight='500'>Vehicle Image*</Typography>
+                        <input
+                            type='file'
+                            // accept="image/*"
+                            accept="image/png, image/jpeg, image/jpg"
+                            {...register('image', {
+                                onChange: handleImageChange
+                            })}
+                            name='image'
+                            required
+                        />
+
+                        <Box sx={{ mt: 2, border: '1px solid #d3d3d3', width: '275px', height: '125px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                            {
+                                imagePreview !== null ?
+                                    <Image
+                                        src={imagePreview}
+                                        alt='Preview image'
+                                        width={250}
+                                        height={100}
+                                    /> :
+                                    <Typography color='#808080' fontSize='12px' mx={2}>The image you will attach will be previewed here. To change, simple choose another file using the file picker above.</Typography>
+                            }
+                        </Box>
+                        <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image you will upload.</Typography>
 
                         {errorMessage !== null ?
                             <Alert severity="error" sx={{ my: 3 }}>

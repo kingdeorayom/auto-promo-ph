@@ -50,14 +50,14 @@ const VehicleManagement = ({ vehicles }) => {
                     </Box>
                     <Box display={{ xs: 'none', lg: 'block' }}>
                         <Link href='/admin/vehicles/add'>
-                            <Button variant="outlined" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
+                            <Button variant="contained" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
                         </Link>
                     </Box>
                 </Box>
 
                 <Box display={{ xs: 'block', lg: 'none' }}>
                     <Link href='/admin/vehicles/add'>
-                        <Button variant="outlined" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
+                        <Button variant="contained" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
                     </Link>
                 </Box>
 
@@ -93,7 +93,7 @@ const VehicleManagement = ({ vehicles }) => {
                                         </Box>
                                         <Divider sx={{ mb: 2 }} />
                                         <Link href={`/admin/vehicles/edit`} >
-                                            <Button variant="text" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
+                                            <Button variant="contained" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
                                         </Link>
                                     </Box>
                                 </Grid>

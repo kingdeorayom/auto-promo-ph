@@ -137,21 +137,21 @@ const VehicleDetails = ({ vehicle }) => {
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
                                     <SpaceDashboardIcon color='primary' />
-                                    <Typography fontWeight='500'>VEHICLE MODEL</Typography>
+                                    <Typography fontWeight='500'>MODEL</Typography>
                                 </Stack>
                                 <Typography color='secondary'>{vehicle.model}</Typography>
                             </Box>
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
                                     <WidgetsIcon color='primary' />
-                                    <Typography fontWeight='500'>VEHICLE TYPE</Typography>
+                                    <Typography fontWeight='500'>BODY TYPE</Typography>
                                 </Stack>
                                 <Typography color='secondary'>{vehicle.type}</Typography>
                             </Box>
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
                                     <CalendarMonthIcon color='primary' />
-                                    <Typography fontWeight='500'>PRODUCTION YEAR</Typography>
+                                    <Typography fontWeight='500'>YEAR</Typography>
                                 </Stack>
                                 <Typography color='secondary'>
                                     {vehicle.year}
