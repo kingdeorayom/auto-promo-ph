@@ -13,7 +13,7 @@ export const useRegister = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('http://192.168.1.3:3001/users/register', {
+        const response = await fetch('https://auto-promo-ph-api.onrender.com/users/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })

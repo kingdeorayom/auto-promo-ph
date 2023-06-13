@@ -11,7 +11,7 @@ const Suggestions = ({ brand_slug }) => {
     const [suggestions, setSuggestions] = useState([])
 
     const fetchSuggestions = async () => {
-        const response = await fetch(`http://192.168.1.3:3001/vehicles/suggested/${brand_slug}`);
+        const response = await fetch(`https://auto-promo-ph-api.onrender.com/vehicles/suggested/${brand_slug}`);
         const vehicles = await response.json();
         setSuggestions(vehicles)
     }
@@ -21,7 +21,7 @@ const Suggestions = ({ brand_slug }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const baseURL = 'http://192.168.1.3:3001'
+    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     return (
         <>

@@ -15,10 +15,10 @@ import { useLogout } from '@/hooks/useLogout'
 
 export async function getStaticProps() {
 
-    const vehiclesResponse = await fetch(`http://192.168.1.3:3001/vehicles`);
+    const vehiclesResponse = await fetch(`https://auto-promo-ph-api.onrender.com/vehicles`);
     const vehicles = await vehiclesResponse.json();
 
-    const inquiriesResponse = await fetch(`http://192.168.1.3:3001/inquiries`);
+    const inquiriesResponse = await fetch(`https://auto-promo-ph-api.onrender.com/inquiries`);
     const inquiries = await inquiriesResponse.json();
 
     return {

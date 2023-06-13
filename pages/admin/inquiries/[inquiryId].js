@@ -23,7 +23,7 @@ import Swal from 'sweetalert2';
 
 export async function getStaticPaths() {
 
-    const response = await fetch('http://192.168.1.3:3001/inquiries')
+    const response = await fetch('https://auto-promo-ph-api.onrender.com/inquiries')
     const inquiries = await response.json()
 
     const paths = inquiries.map(inquiry => {
@@ -40,10 +40,10 @@ export async function getStaticProps(context) {
 
     const inquiry_id = context.params.inquiryId
 
-    const inquiryResponse = await fetch(`http://192.168.1.3:3001/inquiries/${inquiry_id}`);
+    const inquiryResponse = await fetch(`https://auto-promo-ph-api.onrender.com/inquiries/${inquiry_id}`);
     const inquiry = await inquiryResponse.json();
 
-    const vehicleResponse = await fetch(`http://192.168.1.3:3001/vehicles/detail/${inquiry.vehicleSlug}`);
+    const vehicleResponse = await fetch(`https://auto-promo-ph-api.onrender.com/vehicles/detail/${inquiry.vehicleSlug}`);
     const vehicle = await vehicleResponse.json();
 
     return {
@@ -57,7 +57,7 @@ export async function getStaticProps(context) {
 
 const ViewInquiry = ({ inquiry, vehicle }) => {
 
-    const baseURL = 'http://192.168.1.3:3001'
+    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     const router = useRouter()
 
@@ -77,7 +77,7 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
 
         setIsDeleteDialogOpen(false);
 
-        axios.delete(`http://192.168.1.3:3001/inquiries/${inquiry._id}`)
+        axios.delete(`https://auto-promo-ph-api.onrender.com/inquiries/${inquiry._id}`)
             .then((response) => {
                 Swal.fire(
                     response.data.message,

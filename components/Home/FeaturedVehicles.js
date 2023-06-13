@@ -13,7 +13,7 @@ const FeaturedVehicles = () => {
     const [featuredVehicles, setFeaturedVehicles] = useState([])
 
     const fetchFeaturedVehicles = async () => {
-        const response = await fetch(`http://192.168.1.3:3001/vehicles/featured`);
+        const response = await fetch(`https://auto-promo-ph-api.onrender.com/vehicles/featured`);
         const vehicles = await response.json();
         setFeaturedVehicles(vehicles)
     }
@@ -22,7 +22,7 @@ const FeaturedVehicles = () => {
         fetchFeaturedVehicles()
     }, [])
 
-    const baseURL = 'http://192.168.1.3:3001'
+    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     return (
         <>

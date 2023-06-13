@@ -10,7 +10,7 @@ import setCurrency from '@/utils/setCurrency';
 
 export async function getStaticPaths() {
 
-    const response = await fetch('http://192.168.1.3:3001/brands');
+    const response = await fetch('https://auto-promo-ph-api.onrender.com/brands');
     const brands = await response.json();
 
     const paths = brands.map(brand => {
@@ -27,7 +27,7 @@ export async function getStaticProps(context) {
 
     const brandSlug = context.params.brandSlug
 
-    const response = await fetch(`http://192.168.1.3:3001/brands/vehicle/${brandSlug}`);
+    const response = await fetch(`https://auto-promo-ph-api.onrender.com/brands/vehicle/${brandSlug}`);
     const vehicles = await response.json();
 
     return {
@@ -48,7 +48,7 @@ const Brand = ({ vehicles }) => {
         brandName = "MG"
     }
 
-    const baseURL = 'http://192.168.1.3:3001'
+    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     return (
 

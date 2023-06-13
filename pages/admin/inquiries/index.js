@@ -24,7 +24,7 @@ import Swal from 'sweetalert2';
 
 export async function getStaticProps() {
 
-    const response = await fetch(`http://192.168.1.3:3001/inquiries`);
+    const response = await fetch(`https://auto-promo-ph-api.onrender.com/inquiries`);
     const inquiries = await response.json();
 
     return {
@@ -56,7 +56,7 @@ const InquiriesPage = ({ inquiries }) => {
 
         setIsDeleteDialogOpen(false);
 
-        axios.delete(`http://192.168.1.3:3001/inquiries`)
+        axios.delete(`https://auto-promo-ph-api.onrender.com/inquiries`)
             .then((response) => {
                 Swal.fire(
                     'Successfully deleted all inquiries.',

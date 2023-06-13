@@ -42,7 +42,7 @@ const InquiryForm = () => {
                 console.log("error => " + error.text);
             });
 
-        // axios.post('http://192.168.1.3:3001/inquiries', data)
+        // axios.post('https://auto-promo-ph-api.onrender.com/inquiries', data)
         //     .then((response) => {
         //         reset()
         //         Swal.fire(
