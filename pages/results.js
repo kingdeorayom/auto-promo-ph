@@ -16,7 +16,7 @@ const SearchResults = () => {
     const [results, setResults] = useState([])
 
     const fetchSearchResults = async () => {
-        const response = await fetch(`https://auto-promo-ph-api.onrender.com/search/${router.query.q}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/search/${router.query.q}`);
         const vehicle = await response.json();
         setResults(vehicle)
     }
@@ -24,8 +24,6 @@ const SearchResults = () => {
     useEffect(() => {
         fetchSearchResults()
     })
-
-    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     return (
         <Layout>
@@ -45,13 +43,13 @@ const SearchResults = () => {
                                 <Link href={`/brands/${result.brand_slug}/${result.vehicle_slug}`}>
                                     <Box className={styles.imageBox}>
                                         <Image
-                                            src={`${baseURL}${result.image}`}
+                                            src={`${process.env.NEXT_PUBLIC_API_URL}${result.image}`}
                                             alt={result.name}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                             className={styles.vehicleImage}
                                             placeholder='blur'
-                                            blurDataURL={`${baseURL}${result.image}`}
+                                            blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${result.image}`}
                                         />
                                     </Box>
                                     <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{result.name}</Typography>

@@ -42,18 +42,18 @@ const InquiryForm = () => {
                 console.log("error => " + error.text);
             });
 
-        // axios.post('https://auto-promo-ph-api.onrender.com/inquiries', data)
-        //     .then((response) => {
-        //         reset()
-        //         Swal.fire(
-        //             'Your message has been sent successfully.',
-        //             'I will get back to you as soon as possible.',
-        //             'success'
-        //         )
-        //     })
-        //     .catch((error) => {
-        //         console.log(error.response.data.message);
-        //     });
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`, data)
+            .then((response) => {
+                reset()
+                Swal.fire(
+                    'Your message has been sent successfully.',
+                    'I will get back to you as soon as possible.',
+                    'success'
+                )
+            })
+            .catch((error) => {
+                console.log(error.response.data.message);
+            });
     }
 
     return (

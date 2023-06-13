@@ -13,7 +13,7 @@ export const useLogin = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('https://auto-promo-ph-api.onrender.com/users/login', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })

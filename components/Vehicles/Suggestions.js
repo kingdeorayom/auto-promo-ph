@@ -11,7 +11,7 @@ const Suggestions = ({ brand_slug }) => {
     const [suggestions, setSuggestions] = useState([])
 
     const fetchSuggestions = async () => {
-        const response = await fetch(`https://auto-promo-ph-api.onrender.com/vehicles/suggested/${brand_slug}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/suggested/${brand_slug}`);
         const vehicles = await response.json();
         setSuggestions(vehicles)
     }
@@ -20,8 +20,6 @@ const Suggestions = ({ brand_slug }) => {
         fetchSuggestions()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     return (
         <>
@@ -42,13 +40,13 @@ const Suggestions = ({ brand_slug }) => {
                             <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                 <Box className={styles.imageBox}>
                                     <Image
-                                        src={`${baseURL}${vehicle.image}`}
+                                        src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
                                         alt={vehicle.name}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                         className={styles.vehicleImage}
                                         placeholder='blur'
-                                        blurDataURL={`${baseURL}${vehicle.image}`}
+                                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
                                     />
                                 </Box>
                                 <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>

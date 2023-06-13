@@ -6,7 +6,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export async function getStaticProps() {
 
-    const response = await fetch('https://auto-promo-ph-api.onrender.com/brands');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`);
     const brands = await response.json();
 
     return {
@@ -17,10 +17,6 @@ export async function getStaticProps() {
 }
 
 const Brands = ({ brands }) => {
-
-    // console.log(brands)
-
-    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     return (
         <Layout>
@@ -55,7 +51,7 @@ const Brands = ({ brands }) => {
                                         }
                                     }}>
                                         <Image
-                                            src={`${baseURL}${brand.logo}`}
+                                            src={`${process.env.NEXT_PUBLIC_API_URL}${brand.logo}`}
                                             width={90}
                                             height={50}
                                             unoptimized={true}

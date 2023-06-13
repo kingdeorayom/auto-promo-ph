@@ -22,7 +22,7 @@ import TableRow from '@mui/material/TableRow';
 
 export async function getStaticPaths() {
 
-    const response = await fetch('https://auto-promo-ph-api.onrender.com/vehicles')
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`)
     const vehicles = await response.json()
 
     const paths = vehicles.map(vehicle => {
@@ -44,7 +44,7 @@ export async function getStaticProps(context) {
 
     const vehicle_slug = context.params.vehicleSlug
 
-    const response = await fetch(`https://auto-promo-ph-api.onrender.com/vehicles/detail/${vehicle_slug}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/detail/${vehicle_slug}`);
     const vehicle = await response.json();
 
     return {
@@ -69,8 +69,6 @@ const VehicleDetails = ({ vehicle }) => {
 
     const stackDirectionBreakpoint = { xs: 'column', md: 'row' }
     const stackSpacingBreakpoint = { xs: 3, md: 4 }
-
-    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     const variants = [
         {
@@ -101,7 +99,7 @@ const VehicleDetails = ({ vehicle }) => {
             <Grid container spacing={3} mb={3}>
                 <Grid item xs={12} md={4} className={styles.gridWrapper}>
                     <Image
-                        src={`${baseURL}${vehicle.image}`}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
                         alt={vehicle.name}
                         width={565}
                         height={50}
@@ -114,7 +112,7 @@ const VehicleDetails = ({ vehicle }) => {
                         // className={styles.image}
                         // priority
                         placeholder='blur'
-                        blurDataURL={`${baseURL}${vehicle.image}`}
+                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -281,7 +279,7 @@ const VehicleDetails = ({ vehicle }) => {
                                             <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                                 <TableCell align='center' component="th" scope="row">
                                                     <Image
-                                                        src={`${baseURL}${item.image}`}
+                                                        src={`${process.env.NEXT_PUBLIC_API_URL}${item.image}`}
                                                         alt={vehicle.name}
                                                         width={200}
                                                         height={100}

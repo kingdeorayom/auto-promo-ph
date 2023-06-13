@@ -14,7 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 export async function getStaticProps() {
 
-    const response = await fetch(`https://auto-promo-ph-api.onrender.com/vehicles`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`);
     const vehicles = await response.json();
 
     return {
@@ -87,7 +87,7 @@ const AddVehicle = ({ vehicles }) => {
 
         console.log(data)
 
-        axios.post('https://auto-promo-ph-api.onrender.com/vehicles', data, { headers: { "Content-Type": "multipart/form-data" } })
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`, data, { headers: { "Content-Type": "multipart/form-data" } })
             .then((response) => {
                 // reset()
                 setErrorMessage(null)

@@ -10,7 +10,7 @@ import setCurrency from '@/utils/setCurrency';
 
 export async function getStaticPaths() {
 
-    const response = await fetch('https://auto-promo-ph-api.onrender.com/brands');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`);
     const brands = await response.json();
 
     const paths = brands.map(brand => {
@@ -27,7 +27,7 @@ export async function getStaticProps(context) {
 
     const brandSlug = context.params.brandSlug
 
-    const response = await fetch(`https://auto-promo-ph-api.onrender.com/brands/vehicle/${brandSlug}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands/vehicle/${brandSlug}`);
     const vehicles = await response.json();
 
     return {
@@ -47,8 +47,6 @@ const Brand = ({ vehicles }) => {
     if (brandName === "Mg") {
         brandName = "MG"
     }
-
-    const baseURL = 'https://auto-promo-ph-api.onrender.com'
 
     return (
 
@@ -70,13 +68,13 @@ const Brand = ({ vehicles }) => {
                             <Link href={`${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                 <Box className={styles.imageBox}>
                                     <Image
-                                        src={`${baseURL}${vehicle.image}`}
+                                        src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
                                         alt={vehicle.name}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                         className={styles.vehicleImage}
                                         placeholder='blur'
-                                        blurDataURL={`${baseURL}${vehicle.image}`}
+                                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
                                     />
                                 </Box>
                                 <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>
