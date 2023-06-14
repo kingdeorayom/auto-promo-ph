@@ -7,17 +7,24 @@ import styles from '../../styles/Header.module.css'
 import gmail_icon from '../../public/gmail_icon.svg'
 import viber_icon from '../../public/viber_icon.svg'
 import facebook_icon from '../../public/facebook_icon.svg'
+import CloseIcon from '@mui/icons-material/Close';
+import { useEffect } from 'react'
+import SearchIcon from '@mui/icons-material/Search';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
 
+
     const navigation_item_override = {
-        px: 2,
-        py: 1,
+        mx: 1,
+        my: .9,
+        borderRadius: 2.5,
+        py: 1.4,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         '&:hover': {
-            borderRadius: 2.5,
-            backgroundColor: '#f5f5f5',
-            // borderBottom: 'none',
-            // borderBottom: router.pathname == '/' ? '2px solid #1976d2' : 'none'
+            backgroundColor: '#E6F7FF',
         }
     }
 
@@ -26,83 +33,94 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
             anchor='right'
             open={isDrawerOpen}
             onClose={() => setIsDrawerOpen(false)}
+            transitionDuration={0}
+            PaperProps={{
+                sx: {
+                    width: '100%',
+                }
+            }}
         >
-            <Box component='nav' paddingX={7} paddingY={5}>
-                <Stack spacing={2}>
-                    <Link href='/'>
-                        <Image
-                            src={logo}
-                            alt="Auto Promo PH"
-                            height={40}
-                            className={styles.logo}
-                        />
-                    </Link>
-                    <Divider />
-                    <Link href='/'>
-                        <Box sx={navigation_item_override}>
-                            <Typography fontWeight={router.pathname == '/' ? "700" : "400"} color={router.pathname == '/' ? "primary" : "black"}>Explore</Typography>
-                        </Box>
-                    </Link>
-                    <Link href='/brands'>
-                        <Box sx={navigation_item_override}>
-                            <Typography fontWeight={router.pathname == '/brands' ? "700" : "400"} color={router.pathname == '/brands' ? "primary" : "black"}>Brands</Typography>
-                        </Box>
-                    </Link>
-                    <Link href='/promos'>
-                        <Box sx={navigation_item_override}>
-                            <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
-                        </Box>
-                    </Link>
-                    {/* <Link href='/application'>
-                        <Box sx={navigation_item_override}>
-                            <Typography fontWeight={router.pathname == '/application' ? "700" : "400"} color={router.pathname == '/application' ? "primary" : "black"}>Application</Typography>
-                        </Box>
-                    </Link> */}
-                    <Link href='/about'>
-                        <Box sx={navigation_item_override}>
-                            <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>
-                        </Box>
-                    </Link>
-                    <Link href='/contact'>
-                        <Box sx={navigation_item_override}>
-                            <Typography fontWeight={router.pathname == '/contact' ? "700" : "400"} color={router.pathname == '/contact' ? "primary" : "black"}>Contact</Typography>
-                        </Box>
-                    </Link>
-                </Stack>
-                <Divider sx={{ mt: 1.5 }} />
-                <Stack direction='row' my={3.5} spacing={2.5}>
-                    <Link href='https://www.facebook.com/dhang.casten' target="_blank">
+            <Box component='nav'
+                sx={{
+                    py: '9px', px: '13px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    // boxShadow: '0 2px 6px 0 rgba(36, 39, 44, 0.15)'
+                }}
+            >
+                {/* <Typography color='primary' fontWeight='500' fontSize='1.2rem'>Auto Promo PH</Typography> */}
+                <Link href='/'>
+                    <Image
+                        src={logo}
+                        alt="Auto Promo PH"
+                        height={40}
+                    // className={styles.logo}
+                    />
+                </Link>
+                <Stack direction='row' spacing={2}>
+                    <Link href='/search'>
                         <IconButton>
-                            <Image
-                                src={facebook_icon}
-                                alt="Facebook Icon"
-                                width={20}
-                                height={20}
-                            />
+                            <SearchIcon />
                         </IconButton>
                     </Link>
-                    <Link href='https://www.viber.com/' target="_blank">
-                        <IconButton>
-                            <Image
-                                src={viber_icon}
-                                alt="Viber Icon"
-                                width={20}
-                                height={20}
-                            />
-                        </IconButton>
-                    </Link>
-                    <Link href='mailto:kingdeorayom@gmail.com' target="_blank">
-                        <IconButton>
-                            <Image
-                                src={gmail_icon}
-                                alt="Gmail Icon"
-                                width={20}
-                                height={20}
-                            />
-                        </IconButton>
-                    </Link>
+                    <IconButton onClick={() => setIsDrawerOpen(false)}>
+                        <CloseIcon color='primary' />
+                    </IconButton>
                 </Stack>
             </Box>
+
+            <Divider sx={{ mb: 2 }} />
+
+            <Link href='/'>
+                <Box sx={navigation_item_override}>
+                    <Box marginLeft={2.5}>
+                        <Typography fontWeight={router.pathname == '/' ? "700" : "400"} fontSize='16px' color={router.pathname == '/' ? "primary" : "black"}>Explore</Typography>
+                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
+                    </Box>
+                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                </Box>
+            </Link>
+
+            <Link href='/brands'>
+                <Box sx={navigation_item_override}>
+                    <Box marginLeft={2.5}>
+                        <Typography fontWeight={router.pathname == '/brands' ? "700" : "400"} fontSize='16px' color={router.pathname == '/brands' ? "primary" : "black"}>Brands</Typography>
+                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
+                    </Box>
+                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                </Box>
+            </Link>
+
+            <Link href='/promos'>
+                <Box sx={navigation_item_override}>
+                    <Box marginLeft={2.5}>
+                        <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} fontSize='16px' color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
+                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
+                    </Box>
+                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                </Box>
+            </Link>
+
+            <Link href='/about'>
+                <Box sx={navigation_item_override}>
+                    <Box marginLeft={2.5}>
+                        <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} fontSize='16px' color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>
+                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
+                    </Box>
+                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                </Box>
+            </Link>
+
+            <Link href='/contact'>
+                <Box sx={navigation_item_override}>
+                    <Box marginLeft={2.5}>
+                        <Typography fontWeight={router.pathname == '/contact' ? "700" : "400"} fontSize='16px' color={router.pathname == '/contact' ? "primary" : "black"}>Contact</Typography>
+                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
+                    </Box>
+                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                </Box>
+            </Link>
+
+            <Divider sx={{ my: 2 }} />
+
         </MuiDrawer>
     )
 }
