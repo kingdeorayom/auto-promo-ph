@@ -12,7 +12,7 @@ const SearchBox = () => {
         <TextField
             color='primary'
             placeholder='Search for brand, name, model or type'
-            sx={{ width: '100%', marginY: 3 }}
+            sx={{ width: '100%', marginY: 3, maxWidth: '750px' }}
             InputProps={{
                 sx: { borderRadius: 10, marginBottom: 2 },
                 startAdornment: <InputAdornment position='start'><SearchIcon /></InputAdornment>
