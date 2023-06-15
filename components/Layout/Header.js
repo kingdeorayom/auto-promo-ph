@@ -27,7 +27,8 @@ const Header = () => {
             <AppBar
                 position='sticky'
                 elevation={0}
-                className={styles.appbar}
+                // className={styles.appbar}
+                sx={{ backgroundColor: '#ffffff', padding: '3px', borderBottom: '1px solid #d3d3d3' }}
             >
                 <Toolbar className={styles.toolbar}>
                     <Stack>
