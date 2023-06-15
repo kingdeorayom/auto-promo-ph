@@ -1,8 +1,8 @@
-import { Alert, AlertTitle, Box, Typography } from '@mui/material'
 import Image from 'next/image'
-import dhang_casten from '../../public/dhang_casten.jpg'
 import { useRouter } from 'next/router'
-import styles from '../../styles/Inquire.module.css'
+import { Alert, AlertTitle, Box, Typography } from '@mui/material'
+import styles from '@/styles/Inquire.module.css'
+import dhang_casten from '@/public/dhang_casten.jpg'
 
 const Profile = () => {
 

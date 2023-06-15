@@ -1,24 +1,12 @@
-import Layout from '@/layouts/Layout'
-import { Avatar, Box, Breadcrumbs, Button, Grid, IconButton, Stack, Typography } from '@mui/material'
-import Image from 'next/image'
-import Link from 'next/link'
-import React, { useContext, useEffect, useState } from 'react'
-import styles from '../../../styles/Inquiries.module.css'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import PersonIcon from '@mui/icons-material/Person';
-import moment from 'moment/moment'
-import { AuthContext } from '@/context/AuthContext'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
-import AppLoader from '@/components/Utility/AppLoader'
-import no_inquiries from '../../../public/no_inquiries.svg'
+import Link from 'next/link'
+import Image from 'next/image'
+import Layout from '@/layouts/Layout'
+import styles from '@/styles/Inquiries.module.css'
+import { Avatar, Box, Breadcrumbs, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@mui/material'
+import no_inquiries from '@/public/no_inquiries.svg'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-
 import axios from 'axios';
 import Swal from 'sweetalert2';
 

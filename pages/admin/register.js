@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, Box, Button, Divider, IconButton, InputAdornment, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import styles from '../../styles/Login.module.css'
+import styles from '@/styles/Login.module.css'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { yupResolver } from '@hookform/resolvers/yup'

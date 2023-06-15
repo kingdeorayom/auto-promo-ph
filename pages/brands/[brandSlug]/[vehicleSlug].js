@@ -1,7 +1,7 @@
 import Layout from '@/layouts/Layout';
-import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle, Chip, Paper } from '@mui/material';
+import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle, Chip, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import Image from 'next/image';
-import styles from '../../../styles/Details.module.css'
+import styles from '@/styles/Details.module.css'
 import GasMeterIcon from '@mui/icons-material/GasMeter';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -13,12 +13,6 @@ import { useState } from "react"
 import Link from 'next/link';
 import Suggestions from '@/components/Vehicles/Suggestions';
 import setCurrency from '@/utils/setCurrency';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 
 export async function getStaticPaths() {
 

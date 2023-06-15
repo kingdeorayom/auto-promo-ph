@@ -1,13 +1,12 @@
 import Layout from '@/layouts/Layout'
-import { Box, Breadcrumbs, Button, Divider, Grid, Stack, Typography, Fab } from '@mui/material'
-import React from 'react'
-import styles from '../../../styles/Management.module.css'
+import { Box, Breadcrumbs, Button, Divider, Grid, Typography } from '@mui/material'
+import styles from '@/styles/Management.module.css'
 import Link from 'next/link'
-import FeaturedVehicles from '@/components/Home/FeaturedVehicles'
-import Image from 'next/image'
+// import FeaturedVehicles from '@/components/Home/FeaturedVehicles'
+// import Image from 'next/image'
 import setCurrency from '@/utils/setCurrency'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import mitsubishi from '../../../public/mitsubishi-g4.jpg'
+// import mitsubishi from '../../../public/mitsubishi-g4.jpg'
 import AddIcon from '@mui/icons-material/Add';
 
 export async function getStaticProps() {

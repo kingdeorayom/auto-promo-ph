@@ -1,8 +1,5 @@
 import Layout from '@/layouts/Layout'
-import { Box, Grid, Typography } from '@mui/material'
-import Image from 'next/image'
-import Link from 'next/link'
-import dhang_casten from '../public/dhang_casten.jpg'
+import { Typography } from '@mui/material'
 
 const Contact = () => {
     return (

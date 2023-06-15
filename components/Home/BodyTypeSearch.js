@@ -1,13 +1,11 @@
-import { Box, Grid, Typography } from '@mui/material'
 import Link from 'next/link'
 import Image from 'next/image'
-
-import sedan from '../../public/sedan.jpg'
-import suv from '../../public/suv.jpg'
-import hatchback from '../../public/hatchback.jpg'
-import van from '../../public/van.jpg'
-
-import styles from '../../styles/Home.module.css'
+import { Box, Grid, Typography } from '@mui/material'
+import sedan from '@/public/sedan.jpg'
+import suv from '@/public/suv.jpg'
+import hatchback from '@/public/hatchback.jpg'
+import van from '@/public/van.jpg'
+import styles from '@/styles/Home.module.css'
 
 const BodyTypeSearch = () => {
 

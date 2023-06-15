@@ -1,25 +1,16 @@
-import Layout from '@/layouts/Layout'
-import { Alert, AlertTitle, Avatar, Box, Breadcrumbs, Button, Divider, Grid, IconButton, Stack, Tooltip, Typography } from '@mui/material'
-import styles from '../../../styles/Inquiries.module.css'
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link'
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import ContactPhoneOutlinedIcon from '@mui/icons-material/ContactPhoneOutlined';
-import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
-import Image from 'next/image';
-import EastIcon from '@mui/icons-material/East';
+import Layout from '@/layouts/Layout'
+import styles from '@/styles/Inquiries.module.css'
 import setCurrency from '@/utils/setCurrency';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { Alert, AlertTitle, Avatar, Box, Breadcrumbs, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, IconButton, Tooltip, Typography } from '@mui/material'
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import { useState } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import Swal from 'sweetalert2';
 
 export async function getStaticPaths() {
 

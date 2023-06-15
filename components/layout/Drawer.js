@@ -1,19 +1,17 @@
-import Link from 'next/link'
-import { Box, Divider, Drawer as MuiDrawer, IconButton, Stack, Typography } from '@mui/material'
-import Image from 'next/image'
-import logo from '../../public/logotosvg.png'
-import styles from '../../styles/Header.module.css'
-
-import gmail_icon from '../../public/gmail_icon.svg'
-import viber_icon from '../../public/viber_icon.svg'
-import facebook_icon from '../../public/facebook_icon.svg'
-import CloseIcon from '@mui/icons-material/Close';
 import { useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Box, Divider, Drawer as MuiDrawer, IconButton, Stack, Typography } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import gmail_icon from '@/public/gmail_icon.svg'
+import viber_icon from '@/public/viber_icon.svg'
+import facebook_icon from '@/public/facebook_icon.svg'
+import logo from '@/public/logotosvg.png'
+import styles from '@/styles/Header.module.css'
 
 const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
-
 
     const navigation_item_override = {
         mx: 1,
@@ -43,10 +41,8 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
             <Box component='nav'
                 sx={{
                     py: '9px', px: '13px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    // boxShadow: '0 2px 6px 0 rgba(36, 39, 44, 0.15)'
                 }}
             >
-                {/* <Typography color='primary' fontWeight='500' fontSize='1.2rem'>Auto Promo PH</Typography> */}
                 <Link href='/'>
                     <Image
                         src={logo}

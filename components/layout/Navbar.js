@@ -1,12 +1,9 @@
 import Link from 'next/link'
-import { useRouter } from "next/router";
 import { Box, Stack, Typography } from '@mui/material'
-import styles from '../../styles/Header.module.css'
+import styles from '@/styles/Header.module.css'
 import { useAuthContext } from '@/hooks/useAuthContext';
 
 const Navbar = ({ router, fromMediumDisplay }) => {
-
-    // const router = useRouter()
 
     const { user } = useAuthContext()
 
@@ -16,8 +13,6 @@ const Navbar = ({ router, fromMediumDisplay }) => {
         '&:hover': {
             borderRadius: 2.5,
             backgroundColor: '#f5f5f5',
-            // borderBottom: 'none',
-            // borderBottom: router.pathname == '/' ? '2px solid #1976d2' : 'none'
         }
     }
 
@@ -52,11 +47,6 @@ const Navbar = ({ router, fromMediumDisplay }) => {
                     <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
                 </Box>
             </Link>
-            {/* <Link href='/application'>
-                <Box sx={navigation_item_override}>
-                    <Typography fontWeight={router.pathname == '/application' ? "700" : "400"} color={router.pathname == '/application' ? "primary" : "black"}>Application</Typography>
-                </Box>
-            </Link> */}
             <Link href='/about'>
                 <Box sx={navigation_item_override}>
                     <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>

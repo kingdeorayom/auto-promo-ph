@@ -2,8 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image';
 import { Button, Grid, Typography } from '@mui/material'
 import EastIcon from '@mui/icons-material/East';
-import man_working from '../../public/man_working.svg'
-import styles from '../../styles/Home.module.css'
+import man_working from '@/public/man_working.svg'
+// import styles from '@/styles/Home.module.css'
 
 const Banner = () => {
     return (

@@ -1,7 +1,7 @@
 import { Box, Grid, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../../styles/Vehicles.module.css'
+import styles from '@/styles/Vehicles.module.css'
 import EastIcon from '@mui/icons-material/East';
 import { useState, useEffect } from 'react'
 import setCurrency from '@/utils/setCurrency';

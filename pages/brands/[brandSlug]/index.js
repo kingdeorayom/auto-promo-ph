@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'
 import EastIcon from '@mui/icons-material/East';
 import Image from 'next/image';
-import mitsubishi from '../../../public/mitsubishi-g4.jpg'
-import styles from '../../../styles/Vehicles.module.css'
+import styles from '@/styles/Vehicles.module.css'
 import setCurrency from '@/utils/setCurrency';
 
 export async function getStaticPaths() {

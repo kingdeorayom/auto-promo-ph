@@ -1,38 +1,17 @@
-import { Box, Grid, Typography } from '@mui/material'
 import Link from 'next/link'
+import { Box, Grid, Typography } from '@mui/material'
 
 const BudgetSearch = () => {
 
     const boxStyle = {
-        // backgroundColor: '#f5f5f5',
-        // borderRadius: 5,
-        // padding: 5,
-        // textAlign: 'center',
-        // boxShadow: '1px 1px 1px #d3d3d3',
-        // '&:hover': {
-        //     boxShadow: '1px 2px 1px #d3d3d3',
-        // }
-
         border: '1px solid #d3d3d3',
         borderRadius: 2,
         padding: 5,
         textAlign: 'center',
         backgroundColor: '#f5f5f5',
-
-        // boxShadow: ' -2px 4px 8px 0 rgba(36,39,44,0.1), 0 2px 2px 0 rgba(36,39,44,0.1), 0 -2px 6px 0 rgba(36,39,44,0.06)',
-
-        // paddingX: 3,
-        // paddingY: 2.5,
-        // display: 'flex',
-        // justifyContent: 'flex-start',
-        // alignItems: 'center',
-        // height: 250,
-        // overflow: 'hidden'
         '&:hover': {
             backgroundColor: '#fff',
             border: '1px solid #1976d2',
-            // boxShadow: '1px 1px 1px #808080'
-            // color: 'primary.main'
         }
     }
 

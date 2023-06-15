@@ -1,16 +1,16 @@
 import AppLoader from '@/components/Utility/AppLoader'
 import { AuthContext } from '@/context/AuthContext'
 import Layout from '@/layouts/Layout'
-import { Alert, AlertTitle, Box, Button, CircularProgress, useMediaQuery, useTheme, Divider, Grid, Stack, Typography } from '@mui/material'
+import { Box, Button, useMediaQuery, useTheme, Divider, Grid, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
-import styles from '../../styles/Dashboard.module.css'
+import styles from '@/styles/Dashboard.module.css'
 import Link from 'next/link'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Image from 'next/image'
-import notifications_image from '../../public/notifications.svg'
-import car_image from '../../public/car.svg'
-import dhang_casten from '../../public/dhang_casten.jpg'
+import notifications_image from '@/public/notifications.svg'
+import car_image from '@/public/car.svg'
+import dhang_casten from '@/public/dhang_casten.jpg'
 import { useLogout } from '@/hooks/useLogout'
 
 export async function getStaticProps() {
@@ -110,14 +110,12 @@ const Dashboard = ({ vehicles, inquiries }) => {
                     >
                         <Box>
                             <Stack direction='row' spacing={1} mb={1}>
-                                {/* <SpaceDashboardIcon color='primary' /> */}
                                 <Typography fontWeight='500'>INQUIRIES</Typography>
                             </Stack>
                             <Typography color='secondary' fontWeight='300'>{`Total inquiries: ${inquiries.length}`}</Typography>
                         </Box>
                         <Box>
                             <Stack direction='row' spacing={1} mb={1}>
-                                {/* <WidgetsIcon color='primary' /> */}
                                 <Typography fontWeight='500'>VEHICLES</Typography>
                             </Stack>
                             <Typography color='secondary' fontWeight='300'>{`Total listed: ${vehicles.length} vehicles`}</Typography>

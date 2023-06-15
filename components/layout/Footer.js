@@ -1,23 +1,19 @@
-import { Box, Grid, IconButton, Stack, Typography } from "@mui/material"
-import styles from '../../styles/Footer.module.css'
 import Link from "next/link"
 import Image from "next/image"
-import logo from '../../public/logotosvg.png'
-
-import gmail_icon from '../../public/gmail_icon.svg'
-import viber_icon from '../../public/viber_icon.svg'
-import facebook_icon from '../../public/facebook_icon.svg'
+import { Box, Grid, IconButton, Stack, Typography } from "@mui/material"
+import gmail_icon from '@/public/gmail_icon.svg'
+import viber_icon from '@/public/viber_icon.svg'
+import facebook_icon from '@/public/facebook_icon.svg'
+import styles from '@/styles/Footer.module.css'
+import logo from '@/public/logotosvg.png'
 
 const Footer = () => {
     return (
         <Box component='footer' className={styles.footer}>
             <Box
                 sx={{
-                    // backgroundColor: '#f5f5f5',
                     borderTop: '1px solid #d3d3d3',
-                    // padding: 1,
                     paddingX: 5,
-                    // paddingY: 5,
                     borderBottom: '1px solid #d3d3d3',
                 }}
             >

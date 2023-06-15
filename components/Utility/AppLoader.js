@@ -1,4 +1,3 @@
-import Layout from '@/layouts/Layout'
 import { Box, CircularProgress, Typography } from '@mui/material'
 
 const AppLoader = () => {

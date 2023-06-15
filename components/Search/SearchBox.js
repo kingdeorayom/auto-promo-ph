@@ -1,7 +1,7 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { InputAdornment, TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 const SearchBox = () => {
 

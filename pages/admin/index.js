@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, Box, Button, Divider, IconButton, InputAdornment, TextField, Typography } from '@mui/material'
 import { useContext, useEffect, useState } from 'react'
-import styles from '../../styles/Login.module.css'
+import styles from '@/styles/Login.module.css'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -13,7 +13,7 @@ import Link from 'next/link';
 import { useLogin } from '@/hooks/useLogin';
 import { AuthContext } from '@/context/AuthContext';
 import Image from 'next/image';
-import logo from '../../public/logotosvg.png'
+import logo from '@/public/logotosvg.png'
 
 const LoginPage = () => {
 

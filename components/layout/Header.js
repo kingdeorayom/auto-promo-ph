@@ -1,22 +1,17 @@
 import { useState } from "react";
 import Link from "next/link"
 import Image from "next/image"
+import { useRouter } from "next/router";
 import { AppBar, IconButton, Stack, Toolbar } from "@mui/material"
-import DragHandleIcon from '@mui/icons-material/DragHandle';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
-
-import logo from '../../public/logotosvg.png'
-import gmail_icon from '../../public/gmail_icon.svg'
-import viber_icon from '../../public/viber_icon.svg'
-import facebook_icon from '../../public/facebook_icon.svg'
-
-import styles from '../../styles/Header.module.css'
-
+import logo from '@/public/logotosvg.png'
+import gmail_icon from '@/public/gmail_icon.svg'
+import viber_icon from '@/public/viber_icon.svg'
+import facebook_icon from '@/public/facebook_icon.svg'
+import styles from '@/styles/Header.module.css'
 import Navbar from "./Navbar";
 import Drawer from "./Drawer";
-
-import { useRouter } from "next/router";
 
 const Header = () => {
 

@@ -1,12 +1,10 @@
-import { Box, Grid, Stack, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../../styles/Vehicles.module.css'
-import mitsubishi from '../../public/mitsubishi-g4.jpg'
+import { Box, Grid, Stack, Typography } from '@mui/material'
 import EastIcon from '@mui/icons-material/East';
-import { useEffect } from 'react'
-import { useState } from 'react'
 import setCurrency from '@/utils/setCurrency'
+import styles from '@/styles/Vehicles.module.css'
 
 const FeaturedVehicles = () => {
 

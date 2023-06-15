@@ -1,6 +1,6 @@
 import Layout from '@/layouts/Layout'
 import { Alert, AlertTitle, Box, Breadcrumbs, Button, Chip, Dialog, DialogActions, DialogContent, DialogTitle, Divider, InputAdornment, MenuItem, TextField, Typography } from '@mui/material'
-import styles from '../../../styles/AddEditVehicle.module.css'
+import styles from '@/styles/AddEditVehicle.module.css'
 import Link from 'next/link'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import axios from 'axios';
