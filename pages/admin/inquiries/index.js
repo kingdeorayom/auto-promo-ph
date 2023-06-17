@@ -10,7 +10,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`);
     const inquiries = await response.json();
