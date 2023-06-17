@@ -83,7 +83,7 @@ const AddVehicle = ({ vehicles }) => {
             return setErrorMessage('At least one available color is required.')
         }
 
-        let availableColors = data.colors.split("\\n").map((color) => color.split(","))
+        let availableColors = data.colors.split(/[ ,]+/)
 
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()

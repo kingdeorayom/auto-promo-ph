@@ -51,8 +51,6 @@ export async function getStaticProps(context) {
 
 const VehicleDetails = ({ vehicle }) => {
 
-    console.log(vehicle.variants)
-
     const [value, setValue] = useState('1')
 
     const handleChange = (event, newValue) => {
@@ -206,12 +204,12 @@ const VehicleDetails = ({ vehicle }) => {
                     <Box mt={3}>
 
                         <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1}>Available colors</Typography>
-                        <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes in {vehicle.colors[0].length} available colors
+                        <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes in {vehicle.colors.length} available colors
                         </Typography>
 
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '768px', maxWidth: '100%' }}>
                             {
-                                vehicle.colors[0].map((item, index) => <Chip key={index} label={item} variant="outlined" sx={{ mx: '3px', my: '5px' }} />)
+                                vehicle.colors.map((item, index) => <Chip key={index} label={item} variant="outlined" sx={{ mx: '3px', my: '5px' }} />)
                             }
                         </Box>
                     </Box>
