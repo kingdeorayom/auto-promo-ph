@@ -25,7 +25,7 @@ const About = () => {
                             className={styles.image}
                         />
                         <Box>
-                            <Typography fontSize='2rem' variant="h2" fontWeight='500' mb={.5}>Dhang Casten</Typography>
+                            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={.5}>Dhang Casten</Typography>
                             <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>Marketing Consultant</Typography>
                         </Box>
                     </Box>
@@ -42,7 +42,7 @@ const About = () => {
                     </Link>
                 </Box>
 
-                <Typography fontSize='2.5rem' variant="h1" fontWeight='500' mb={1}><span className={styles.brand}>Auto Promo PH</span></Typography>
+                <Typography fontSize='2.5rem' variant="h1" fontWeight='700' mb={1}><span className={styles.brand}>Auto Promo PH</span></Typography>
                 <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Thank you for considering Auto Promo PH. I believe that my experience, skills and dedication set me apart and make me the ideal choice for your journey.</Typography>
 
                 <Grid
@@ -61,7 +61,7 @@ const About = () => {
                                 height={48}
                                 alt='Hello'
                             />
-                            <Typography fontSize='1.2rem' fontWeight='500' mt={2} mb={1}>Expertise</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1}>Expertise</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary'>We have extensive experience in designing and developing websites for clients across various industries.</Typography>
                         </Box>
                     </Grid>
@@ -73,7 +73,7 @@ const About = () => {
                                 height={48}
                                 alt='Hello'
                             />
-                            <Typography fontSize='1.2rem' fontWeight='500' mt={2} mb={1}>Attention to Detail</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1}>Attention to Detail</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary'>We have extensive experience in designing and developing websites for clients across various industries.</Typography>
                         </Box>
                     </Grid>
@@ -85,7 +85,7 @@ const About = () => {
                                 height={48}
                                 alt='Hello'
                             />
-                            <Typography fontSize='1.2rem' fontWeight='500' mt={2} mb={1}>Communication</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1}>Communication</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary'>We have extensive experience in designing and developing websites for clients across various industries.</Typography>
                         </Box>
                     </Grid>
@@ -97,7 +97,7 @@ const About = () => {
                                 height={48}
                                 alt='Hello'
                             />
-                            <Typography fontSize='1.2rem' fontWeight='500' mt={2} mb={1}>Customer Service</Typography>
+                            <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1}>Customer Service</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary'>We have extensive experience in designing and developing websites for clients across various industries.</Typography>
                         </Box>
                     </Grid>
@@ -121,8 +121,8 @@ const About = () => {
                             alt='Dhang Casten'
                             style={{ borderRadius: '50%', marginBottom: 10 }}
                         />
-                        <Typography fontWeight='500' variant='h1' fontSize='3rem' color='primary' mb={1}>Dhang Casten</Typography>
-                        <Typography variant='h3' fontSize='1.2rem' fontWeight='500' mb={2}>Marketing Consultant</Typography>
+                        <Typography fontWeight='700' variant='h1' fontSize='3rem' color='primary' mb={1}>Dhang Casten</Typography>
+                        <Typography variant='h3' fontSize='1.2rem' fontWeight='700' mb={2}>Marketing Consultant</Typography>
                         <Typography variant='h3' fontSize='1.2rem' color='secondary' fontWeight='400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio dolores temporibus quo perferendis sequi ratione rerum eligendi veritatis omnis, adipisci eaque accusamus, veniam, illum cupiditate voluptatibus inventore tempora expedita officiis!</Typography>
                     </Box>
                     <Link href='/contact'>

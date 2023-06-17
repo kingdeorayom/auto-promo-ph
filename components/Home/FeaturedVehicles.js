@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Box, Grid, Stack, Typography } from '@mui/material'
-import EastIcon from '@mui/icons-material/East';
-import setCurrency from '@/utils/setCurrency'
-import styles from '@/styles/Vehicles.module.css'
+import { Grid, Typography } from '@mui/material'
+import VehicleCard from '@/components/Vehicles/VehicleCard'
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 const FeaturedVehicles = () => {
 
     const [featuredVehicles, setFeaturedVehicles] = useState([])
 
     const fetchFeaturedVehicles = async () => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/featured`);
+        const response = await fetch(`${API_URL}/vehicles/featured`);
         const vehicles = await response.json();
         setFeaturedVehicles(vehicles)
     }
@@ -22,9 +21,8 @@ const FeaturedVehicles = () => {
 
     return (
         <>
-            <Typography fontSize='2rem' variant="h2" fontWeight='500' mb={1}>Featured Vehicles</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>Featured Vehicles</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary'>Featured vehicles curated just for you</Typography>
-
             <Grid
                 container
                 mt={2}
@@ -32,36 +30,22 @@ const FeaturedVehicles = () => {
                 rowSpacing={3}
                 columnSpacing={2}
             >
-
-                {featuredVehicles.map(vehicle => {
-                    return (
-                        <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
-                            <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
-                                <Box className={styles.imageBox}>
-                                    <Image
-                                        src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                                        alt={vehicle.name}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                        className={styles.vehicleImage}
-                                        placeholder='blur'
-                                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                {
+                    featuredVehicles.map(vehicle => {
+                        return (
+                            <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
+                                <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
+                                    <VehicleCard
+                                        image={`${API_URL}${vehicle.image}`}
+                                        name={vehicle.name}
+                                        price={vehicle.price}
+                                        downpayment={vehicle.price}
                                     />
-                                </Box>
-                                <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>
-                                <Typography color='secondary'>PHP {setCurrency(vehicle.price)}</Typography>
-                                <Typography color='secondary'>DP starts @ PHP 23,829.00</Typography>
-                                <Stack direction='row' spacing={1}>
-                                    <Typography variant="button" fontWeight='500' color='primary.main'>
-                                        VIEW MORE INFORMATION
-                                    </Typography>
-                                    <EastIcon color='primary' />
-                                </Stack>
-                            </Link>
-                        </Grid>
-                    )
-                })}
-
+                                </Link>
+                            </Grid>
+                        )
+                    })
+                }
             </Grid>
         </>
     )

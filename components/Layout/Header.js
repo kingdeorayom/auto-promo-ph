@@ -10,7 +10,6 @@ import gmail_icon from '@/public/gmail_icon.svg'
 import viber_icon from '@/public/viber_icon.svg'
 import facebook_icon from '@/public/facebook_icon.svg'
 import styles from '@/styles/Header.module.css'
-import Navbar from "./Navbar";
 import Drawer from "./Drawer";
 import { useAuthContext } from "@/hooks/useAuthContext";
 

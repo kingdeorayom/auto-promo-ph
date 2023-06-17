@@ -1,9 +1,9 @@
-import { createTheme, colors } from "@mui/material";
-import { useRubik } from "./fonts";
+import { createTheme } from "@mui/material";
+import { useDMSans } from "./fonts";
 
 const theme = createTheme({
     typography: {
-        fontFamily: useRubik.style.fontFamily
+        fontFamily: useDMSans.style.fontFamily
     },
     palette: {
         secondary: {

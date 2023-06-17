@@ -17,7 +17,7 @@ const BudgetSearch = () => {
 
     return (
         <>
-            <Typography fontSize='2rem' variant="h2" fontWeight='500' mb={1}>Browse cars by budget</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>Browse cars by budget</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary' lineHeight={1.5}>Tight on budget? Use our Budget Search below</Typography>
 
             <Grid
