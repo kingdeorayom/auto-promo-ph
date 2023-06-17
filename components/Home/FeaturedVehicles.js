@@ -22,7 +22,7 @@ const FeaturedVehicles = () => {
 
     return (
         <>
-            <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>Featured Vehicles</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='500' mb={1}>Featured Vehicles</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary'>Featured vehicles curated just for you</Typography>
 
             <Grid

@@ -76,7 +76,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
 
                 <Box mb={5} display='flex' alignItems='center' justifyContent='space-between'>
                     <Box>
-                        <Typography fontSize='2.5rem' variant="h2" fontWeight='600' mb={1}>Dashboard</Typography>
+                        <Typography fontSize='2.5rem' variant="h2" fontWeight='500' mb={1}>Dashboard</Typography>
                         <Typography fontSize='1rem' variant="h3" color='secondary'>Manage the content of your website and view customer or client inquiries</Typography>
                     </Box>
                     <Image
@@ -96,7 +96,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
 
                 <Box className={styles.box}>
                     <Typography fontSize='1.5rem' variant="h2" fontWeight='500' color='#1976D2' >Overview</Typography>
-                    <Typography color='#808080' fontWeight='300' mb={3}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
+                    <Typography color='#808080' fontWeight='400' mb={3}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
 
                     <Stack
                         direction={stackDirectionBreakpoint}
@@ -112,13 +112,13 @@ const Dashboard = ({ vehicles, inquiries }) => {
                             <Stack direction='row' spacing={1} mb={1}>
                                 <Typography fontWeight='500'>INQUIRIES</Typography>
                             </Stack>
-                            <Typography color='secondary' fontWeight='300'>{`Total inquiries: ${inquiries.length}`}</Typography>
+                            <Typography color='secondary' fontWeight='400'>{`Total inquiries: ${inquiries.length}`}</Typography>
                         </Box>
                         <Box>
                             <Stack direction='row' spacing={1} mb={1}>
                                 <Typography fontWeight='500'>VEHICLES</Typography>
                             </Stack>
-                            <Typography color='secondary' fontWeight='300'>{`Total listed: ${vehicles.length} vehicles`}</Typography>
+                            <Typography color='secondary' fontWeight='400'>{`Total listed: ${vehicles.length} vehicles`}</Typography>
                         </Box>
                     </Stack>
 
@@ -143,7 +143,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                                             height={120}
                                         />
                                     </Box>
-                                    <Typography color='#808080' mb={2} fontWeight='300'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
+                                    <Typography color='#808080' mb={2} fontWeight='400'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
                                     <Link href='/admin/vehicles'>
                                         <Button variant="contained" disableElevation endIcon={<ArrowForwardIcon />}>Manage Listing</Button>
                                     </Link>
@@ -172,7 +172,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                                             height={120}
                                         />
                                     </Box>
-                                    <Typography color='#808080' mb={2} fontWeight='300'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
+                                    <Typography color='#808080' mb={2} fontWeight='400'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
                                     <Link href='/admin/inquiries'>
                                         <Button variant="contained" disableElevation endIcon={<ArrowForwardIcon />}>View Inquiries</Button>
                                     </Link>

@@ -22,7 +22,7 @@ const SearchSuggestions = () => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={1}>You may also like</Typography>
+            <Typography fontSize='1.5rem' variant="h1" fontWeight='500' mb={1}>You may also like</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</Typography>
 
             <Grid

@@ -50,7 +50,7 @@ const Brand = ({ vehicles }) => {
     return (
 
         <Layout>
-            <Typography fontSize='2rem' variant="h2" fontWeight='600'>{`Showing all vehicles of ${brandName}`}</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='500'>{`Showing all vehicles of ${brandName}`}</Typography>
             <Typography fontSize='1rem' variant="subtitle1" color='secondary'>There are currently {vehicles.length} vehicles in this brand</Typography>
 
             <Grid

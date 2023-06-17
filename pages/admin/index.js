@@ -64,7 +64,7 @@ const LoginPage = () => {
                         </Link>
                     </Box>
 
-                    <Typography fontSize='2rem' variant="h2" fontWeight='600' mt={4} mb={1}>Hi <span className={styles.name}>Dhang</span>, welcome back! &#128075;</Typography>
+                    <Typography fontSize='2rem' variant="h2" fontWeight='500' mt={4} mb={1}>Hi <span className={styles.name}>Dhang</span>, welcome back! &#128075;</Typography>
                     <Typography fontSize='1rem' variant="h3" color='secondary'>Log in to your account</Typography>
 
                     {/* <Divider sx={{ my: 3 }} /> */}

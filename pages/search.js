@@ -7,7 +7,7 @@ const Search = () => {
 
     return (
         <Layout>
-            <Typography fontSize='2rem' variant="h1" fontWeight='600' mb={1}>
+            <Typography fontSize='2rem' variant="h1" fontWeight='500' mb={1}>
                 Search for vehicles
             </Typography>
             <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>

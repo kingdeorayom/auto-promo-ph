@@ -58,7 +58,7 @@ const InquiryForm = () => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h1" fontWeight='600' mb={3}>Inquiry Form</Typography>
+            <Typography fontSize='1.5rem' variant="h1" fontWeight='500' mb={3}>Inquiry Form</Typography>
 
             <Divider />
 

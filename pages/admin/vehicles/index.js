@@ -42,7 +42,7 @@ const VehicleManagement = ({ vehicles }) => {
 
                 <Box display='flex' justifyContent='space-between' alignItems='center'>
                     <Box>
-                        <Typography fontSize='2.5rem' variant="h2" fontWeight='600' mb={1}>All vehicles</Typography>
+                        <Typography fontSize='2.5rem' variant="h2" fontWeight='500' mb={1}>All vehicles</Typography>
                         <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={2}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
                     </Box>
                     <Box display={{ xs: 'none', lg: 'block' }}>
@@ -86,7 +86,7 @@ const VehicleManagement = ({ vehicles }) => {
                                             </Box>
                                         </Box>
                                         <Box>
-                                            <Typography color='#808080' mb={2} fontWeight='300' className={styles.truncate}>{vehicle.description}</Typography>
+                                            <Typography color='#808080' mb={2} fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
                                         </Box>
                                         <Divider sx={{ mb: 2 }} />
                                         <Link href={`/admin/vehicles/edit`} >

@@ -6,7 +6,7 @@ const Welcome = () => {
             <Typography
                 fontSize='2.5rem'
                 component='div'
-                fontWeight='600'
+                fontWeight='700'
                 mt={.8}
                 mb={1}
                 lineHeight={1}
@@ -16,7 +16,7 @@ const Welcome = () => {
                     fontSize='2.5rem'
                     display='inline'
                     variant="h1"
-                    fontWeight='600'
+                    fontWeight='700'
                     color='primary'
                 >
                     Auto Promo PH

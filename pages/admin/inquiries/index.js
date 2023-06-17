@@ -76,7 +76,7 @@ const InquiriesPage = ({ inquiries }) => {
                 </Box>
 
                 <Box>
-                    <Typography fontSize='2.5rem' variant="h2" fontWeight='600' mb={1}>Inquiries</Typography>
+                    <Typography fontSize='2.5rem' variant="h2" fontWeight='500' mb={1}>Inquiries</Typography>
                     <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
                 </Box>
 
@@ -97,7 +97,7 @@ const InquiriesPage = ({ inquiries }) => {
                                                         {inquiry.message}
                                                     </Typography>
                                                 </Box>
-                                                <Typography fontSize='14px' fontWeight='300'>
+                                                <Typography fontSize='14px' fontWeight='400'>
                                                     {inquiry.date}
                                                 </Typography>
                                             </Box>
@@ -113,8 +113,8 @@ const InquiriesPage = ({ inquiries }) => {
                                 height={250}
                                 alt='No inquiries'
                             />
-                            <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>No inquiries yet</Typography>
-                            <Typography fontSize='1.2rem' variant="h2" fontWeight='300' color='#808080' mb={1}>But {"don't worry! You'll"} see all your inquiries here once someone has messaged you.</Typography>
+                            <Typography fontSize='2rem' variant="h2" fontWeight='500' mb={1}>No inquiries yet</Typography>
+                            <Typography fontSize='1.2rem' variant="h2" fontWeight='400' color='#808080' mb={1}>But {"don't worry! You'll"} see all your inquiries here once someone has messaged you.</Typography>
                         </Box>
                 }
                 {

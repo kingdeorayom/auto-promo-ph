@@ -21,7 +21,7 @@ const Brands = ({ brands }) => {
 
     return (
         <Layout>
-            <Typography fontSize='2rem' variant="h2" fontWeight='600'>All Brands</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='500'>All Brands</Typography>
             <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Choose vehicle from the most popular brands</Typography>
 
             <Grid
@@ -64,12 +64,12 @@ const Brands = ({ brands }) => {
                                             <Typography
                                                 fontSize='1.5rem'
                                                 variant="h3"
-                                                fontWeight='600'
+                                                fontWeight='500'
                                                 mb={1}
                                             >
                                                 {brand.name}
                                             </Typography>
-                                            <Typography fontWeight='300' color='secondary' className={styles.truncate}>{brand.description}</Typography>
+                                            <Typography fontWeight='400' color='secondary' className={styles.truncate}>{brand.description}</Typography>
                                         </Box>
                                         <ChevronRightIcon color='secondary' sx={{ marginRight: 3 }} />
                                     </Box>

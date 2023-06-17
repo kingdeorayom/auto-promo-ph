@@ -26,7 +26,7 @@ const SearchResults = () => {
 
     return (
         <Layout>
-            <Typography fontSize='2rem' variant="h1" fontWeight='600' mb={1}>{`Showing search results for '${router.query.q}'`}</Typography>
+            <Typography fontSize='2rem' variant="h1" fontWeight='500' mb={1}>{`Showing search results for '${router.query.q}'`}</Typography>
             <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>Lorem ipsum dolor sit amet consectetur adipisicing elit</Typography>
             <Grid
                 container

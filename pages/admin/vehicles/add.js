@@ -140,7 +140,7 @@ const AddVehicle = ({ vehicles }) => {
                 </Box>
 
                 <Box>
-                    <Typography fontSize='2.5rem' variant="h2" fontWeight='600' mb={1}>Add a new vehicle</Typography>
+                    <Typography fontSize='2.5rem' variant="h2" fontWeight='500' mb={1}>Add a new vehicle</Typography>
                     <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit</Typography>
                 </Box>
 
@@ -167,13 +167,13 @@ const AddVehicle = ({ vehicles }) => {
                                 helperText={errors.name?.message}
                             />
                             <Box onClick={handleSlugDialogOpen} sx={{ cursor: 'pointer' }}>
-                                <Typography mt={1} fontSize='13px' color='primary' fontWeight='300'>Learn more about vehicle name and vehicle slug</Typography>
+                                <Typography mt={1} fontSize='13px' color='primary' fontWeight='400'>Learn more about vehicle name and vehicle slug</Typography>
                             </Box>
                         </Box>
 
                         <Box my={2}>
                             <Typography fontWeight='500'>Price*</Typography>
-                            <Typography mb={1} fontSize='13px' fontWeight='300'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 768000.</Typography>
+                            <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 768000.</Typography>
                             <TextField
                                 type='number'
                                 fullWidth
@@ -314,7 +314,7 @@ const AddVehicle = ({ vehicles }) => {
 
                         <Box my={2}>
                             <Typography mb={1} fontWeight='500'>Variants</Typography>
-                            <Typography mb={1} fontSize='14px' fontWeight='300'>Added variants:</Typography>
+                            <Typography mb={1} fontSize='14px' fontWeight='400'>Added variants:</Typography>
                             {
                                 variants.map((item, index) => {
                                     return (
@@ -443,7 +443,7 @@ const AddVehicle = ({ vehicles }) => {
                         Add a variant for this vehicle
                     </DialogTitle>
                     <DialogContent>
-                        <Typography mb={1} fontSize='14px' fontWeight='300'>Added variants:</Typography>
+                        <Typography mb={1} fontSize='14px' fontWeight='400'>Added variants:</Typography>
                         {
                             variants.map((item, index) => {
                                 return (
@@ -459,7 +459,7 @@ const AddVehicle = ({ vehicles }) => {
                             })
                         }
                         <Divider sx={{ my: 2 }} />
-                        <Typography my={2} fontSize='14px' fontWeight='300'>Choose from the vehicle below to add as a variant:</Typography>
+                        <Typography my={2} fontSize='14px' fontWeight='400'>Choose from the vehicle below to add as a variant:</Typography>
                         <Box sx={{ border: '1px solid #d3d3d3', borderRadius: '5px', paddingX: '10px', paddingY: '10px', my: '20px' }}>
                             {vehicles.map(item => {
                                 return (<Chip

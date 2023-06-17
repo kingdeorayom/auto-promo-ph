@@ -111,7 +111,7 @@ const VehicleDetails = ({ vehicle }) => {
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Box mt={1}>
-                        <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>{vehicle.name}</Typography>
+                        <Typography fontSize='2rem' variant="h2" fontWeight='500' mb={1}>{vehicle.name}</Typography>
                         <Typography fontSize='1rem' variant="subtitle1" color='secondary'>PHP {setCurrency(vehicle.price)}</Typography>
                         <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>DP starts @ PHP 23,829.00</Typography>
                         <Link
@@ -137,13 +137,13 @@ const VehicleDetails = ({ vehicle }) => {
                 </Box>
 
                 <TabPanel value='1' className={styles.tabPanel}>
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={2}>About this vehicle</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={2}>About this vehicle</Typography>
 
                     {/* <Alert severity="info" sx={{ mb: 2, fontSize: '1rem' }}>{vehicle.description}</Alert> */}
 
                     <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2} className={styles.description}>{vehicle.description}</Typography>
 
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mt={3} mb={2}>Vehicle Details</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mt={3} mb={2}>Vehicle Details</Typography>
 
                     <Box className={styles.stackWrapper}>
 
@@ -188,7 +188,7 @@ const VehicleDetails = ({ vehicle }) => {
 
                 <TabPanel value='2' className={styles.tabPanel}>
 
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={1}>Specs & Features</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1}>Specs & Features</Typography>
                     <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>Key specifications & features of the Mitsubishi Mirage. View engine specs, dimensions, safety and technology features in detail below.
                     </Typography>
 
@@ -233,7 +233,7 @@ const VehicleDetails = ({ vehicle }) => {
 
                     <Box mt={3}>
 
-                        <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={1}>Available colors</Typography>
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1}>Available colors</Typography>
                         <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes in {vehicle.colors.length} available colors
                         </Typography>
 
@@ -247,7 +247,7 @@ const VehicleDetails = ({ vehicle }) => {
                 </TabPanel>
 
                 <TabPanel value='3' className={styles.tabPanel}>
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='600' mb={1}>{vehicle.name} Price List</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1}>{vehicle.name} Price List</Typography>
                     <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis corrupti perferendis nobis dolore necessitatibus, quos totam excepturi sint eligendi id vel in! Modi praesentium voluptate repellendus similique illum aliquam laborum.</Typography>
 
                     <Alert severity="info" sx={{ mb: 3 }}>

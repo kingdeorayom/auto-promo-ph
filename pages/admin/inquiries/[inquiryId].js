@@ -101,10 +101,10 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
                 </Box>
 
                 <Box>
-                    <Typography fontSize='14px' fontWeight='300' mb={2} sx={{ textAlign: 'start' }}>
+                    <Typography fontSize='14px' fontWeight='400' mb={2} sx={{ textAlign: 'start' }}>
                         {inquiry.date}
                     </Typography>
-                    <Typography fontSize='2.5rem' variant="h2" fontWeight='600' mb={1} color='primary'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
+                    <Typography fontSize='2.5rem' variant="h2" fontWeight='500' mb={1} color='primary'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
                     <Box mt={2} mb={4}>
                         <Tooltip title={inquiry.mobileNumber}>
                             <IconButton onClick={() => { navigator.clipboard.writeText(inquiry.mobileNumber) }}>
@@ -116,7 +116,7 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
                                 <EmailOutlinedIcon />
                             </IconButton>
                         </Tooltip>
-                        <Typography fontSize='13px' color='#808080' fontWeight='300'>Hover on icon to view information. Click to copy.</Typography>
+                        <Typography fontSize='13px' color='#808080' fontWeight='400'>Hover on icon to view information. Click to copy.</Typography>
                     </Box>
                 </Box>
 
@@ -149,7 +149,7 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
                                 <Box>
                                     <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>{vehicle.name}</Typography>
                                     <Typography color='#808080' mb={1} fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
-                                    <Typography color='#808080' mb={2} fontWeight='300' className={styles.truncate}>{vehicle.description}</Typography>
+                                    <Typography color='#808080' mb={2} fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
                                     <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`} >
                                         <Button variant="outlined" disableElevation color='primary' endIcon={<ArrowOutwardOutlinedIcon />}>View Details</Button>
                                     </Link>

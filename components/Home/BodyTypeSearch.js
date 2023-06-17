@@ -11,7 +11,7 @@ const BodyTypeSearch = () => {
 
     return (
         <>
-            <Typography fontSize='2rem' variant="h2" fontWeight='600' mb={1}>Browse cars by body type</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='500' mb={1}>Browse cars by body type</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary' lineHeight={1.5}>Whether you&#39;re looking for a sedan for personal use or an SUV for that long-awaited family trip, you can find it all here</Typography>
 
             <Grid

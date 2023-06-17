@@ -41,7 +41,7 @@ const RegistrationPage = () => {
             <Box className={styles.wrapper}>
                 <Box className={styles.formContainer}>
 
-                    <Typography fontSize='2rem' variant="h2" fontWeight='600' mt={2} mb={1}>Register for an account</Typography>
+                    <Typography fontSize='2rem' variant="h2" fontWeight='500' mt={2} mb={1}>Register for an account</Typography>
                     <Typography fontSize='1rem' variant="h3" color='secondary'>Fill out the form below to create your account</Typography>
 
                     {/* <Divider sx={{ my: 3 }} /> */}

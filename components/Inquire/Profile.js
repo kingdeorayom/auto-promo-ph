@@ -20,7 +20,7 @@ const Profile = () => {
                     className={styles.image}
                 />
                 <Box>
-                    <Typography fontSize='2rem' variant="h1" fontWeight='600' mb={1}>Hi, {"I'm"} Dhang &#128075;</Typography>
+                    <Typography fontSize='2rem' variant="h1" fontWeight='500' mb={1}>Hi, {"I'm"} Dhang &#128075;</Typography>
                     <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>Ask me anything you need to know about this vehicle.</Typography>
                 </Box>
             </Box>
