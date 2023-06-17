@@ -32,3 +32,9 @@
     max-width: 100%;
     border-radius: 5px;
 }
+
+.link:hover {
+    text-decoration: underline;
+    text-decoration-color: #1976d2;
+    text-decoration-thickness: 1px;
+}

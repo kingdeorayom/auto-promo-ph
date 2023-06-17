@@ -65,30 +65,6 @@ const VehicleManagement = ({ vehicles }) => {
                     vehicles.reverse().map(vehicle => {
                         return (
                             <Grid key={vehicle._id} item xs={12} sm={12} lg={12}>
-                                {/* <Box className={styles.box}>
-                                    <Box sx={{ display: 'flex', flex: 1, marginRight: 10 }}>
-                                        <Box>
-                                            <Image
-                                                src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                                                alt={vehicle.name}
-                                                width={200}
-                                                height={100}
-                                                style={{ objectFit: 'contain', marginRight: '30px' }}
-                                            />
-                                        </Box>
-                                        <Box>
-                                            <Typography fontSize='1.1rem' variant="h2" fontWeight='700' mb={1} color='primary'>{vehicle.name}</Typography>
-                                            <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
-                                            <Typography color='#808080' mb={2} fontSize='14px' fontWeight='300' className={styles.truncate}>{vehicle.description}</Typography>
-                                        </Box>
-                                    </Box>
-                                    <Box display={{ xs: 'none', md: 'block' }}>
-                                        <Link href={`/admin/vehicles/edit`} >
-                                            <Button size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
-                                        </Link>
-                                    </Box>
-                                </Box> */}
-
                                 <Stack direction={{ xs: 'column', md: 'row' }}>
                                     <Stack direction={{ xs: 'column', md: 'row' }} className={styles.box}>
                                         <Box display={{ xs: 'block', md: 'none' }}>
@@ -110,7 +86,9 @@ const VehicleManagement = ({ vehicles }) => {
                                             />
                                         </Box>
                                         <Box sx={{ flex: 1, mt: 2 }}>
-                                            <Typography fontSize='1.1rem' variant="h2" fontWeight='700' mb={1} color='primary'>{vehicle.name}</Typography>
+                                            <Link className={styles.link} href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`} target='_blank'>
+                                                <Typography fontSize='1.1rem' variant="h2" fontWeight='700' mb={1} color='primary'>{vehicle.name}</Typography>
+                                            </Link>
                                             <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
                                             <Typography color='#808080' mb={2} fontSize='14px' fontWeight='300' className={styles.truncate}>{vehicle.description}</Typography>
                                             <Link href={`/admin/vehicles/edit`} >

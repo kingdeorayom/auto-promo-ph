@@ -251,13 +251,13 @@ const VehicleDetails = ({ vehicle }) => {
                                                     />
                                                 </TableCell>
                                                 <TableCell align='center'>
-                                                    <Link href={`/brands/${item.brand_slug}/${item.vehicle_slug}`} target='_blank'>
+                                                    <Link className={styles.link} href={`/brands/${item.brand_slug}/${item.vehicle_slug}`} target='_blank'>
                                                         <Typography fontSize='14px' color='primary'>{item.name}</Typography>
                                                     </Link>
                                                 </TableCell>
-                                                <TableCell align='center'>PHP {item.price}.00</TableCell>
-                                                <TableCell align='center'>{item.discount}</TableCell>
-                                                <TableCell align='center'>PHP {item.cash_promo}</TableCell>
+                                                <TableCell align='center'>₱ {setCurrency(item.price)}</TableCell>
+                                                <TableCell align='center'>₱ {setCurrency(item.discount)}</TableCell>
+                                                <TableCell align='center'>₱ {setCurrency(item.cash_promo)}</TableCell>
                                             </TableRow>
                                         )
                                     })
