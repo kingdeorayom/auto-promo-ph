@@ -42,7 +42,7 @@ const About = () => {
                     </Link>
                 </Box>
 
-                <Typography fontSize='2.5rem' variant="h1" fontWeight='700' mb={1}><span className={styles.brand}>Auto Promo PH</span></Typography>
+                <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1}>Why choose <span className={styles.brand}>Auto Promo PH?</span></Typography>
                 <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Thank you for considering Auto Promo PH. I believe that my experience, skills and dedication set me apart and make me the ideal choice for your journey.</Typography>
 
                 <Grid
@@ -62,7 +62,7 @@ const About = () => {
                                 alt='Hello'
                             />
                             <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1}>Expertise</Typography>
-                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>We have extensive experience in designing and developing websites for clients across various industries.</Typography>
+                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis dolorem vero quidem culpa distinctio numquam quia quo possimus nesciunt pariatur assumenda provident aliquid fuga sequi, ad sed hic commodi cupiditate.</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -74,7 +74,7 @@ const About = () => {
                                 alt='Hello'
                             />
                             <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1}>Attention to Detail</Typography>
-                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>We have extensive experience in designing and developing websites for clients across various industries.</Typography>
+                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis dolorem vero quidem culpa distinctio numquam quia quo possimus nesciunt pariatur assumenda provident aliquid fuga sequi, ad sed hic commodi cupiditate.</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -86,7 +86,7 @@ const About = () => {
                                 alt='Hello'
                             />
                             <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1}>Communication</Typography>
-                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>We have extensive experience in designing and developing websites for clients across various industries.</Typography>
+                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis dolorem vero quidem culpa distinctio numquam quia quo possimus nesciunt pariatur assumenda provident aliquid fuga sequi, ad sed hic commodi cupiditate.</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -98,7 +98,7 @@ const About = () => {
                                 alt='Hello'
                             />
                             <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1}>Customer Service</Typography>
-                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>We have extensive experience in designing and developing websites for clients across various industries.</Typography>
+                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis dolorem vero quidem culpa distinctio numquam quia quo possimus nesciunt pariatur assumenda provident aliquid fuga sequi, ad sed hic commodi cupiditate.</Typography>
                         </Box>
                     </Grid>
                 </Grid>

@@ -1,15 +1,14 @@
 import Layout from '@/layouts/Layout';
-import { Box, Grid, Stack, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import EastIcon from '@mui/icons-material/East';
-import Image from 'next/image';
-import styles from '@/styles/Vehicles.module.css'
-import setCurrency from '@/utils/setCurrency';
+import VehicleCard from '@/components/Vehicles/VehicleCard';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 export async function getStaticPaths() {
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`);
+    const response = await fetch(`${API_URL}/brands`);
     const brands = await response.json();
 
     const paths = brands.map(brand => {
@@ -26,13 +25,14 @@ export async function getStaticProps(context) {
 
     const brandSlug = context.params.brandSlug
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands/vehicle/${brandSlug}`);
+    const response = await fetch(`${API_URL}/brands/vehicle/${brandSlug}`);
     const vehicles = await response.json();
 
     return {
         props: {
             vehicles: vehicles,
-        }
+        },
+        revalidate: 10
     };
 }
 
@@ -50,7 +50,7 @@ const Brand = ({ vehicles }) => {
     return (
 
         <Layout>
-            <Typography fontSize='2rem' variant="h2" fontWeight='500'>{`Showing all vehicles of ${brandName}`}</Typography>
+            <Typography fontSize='2rem' variant="h2" fontWeight='700'>{`Showing all vehicles of ${brandName}`}</Typography>
             <Typography fontSize='1rem' variant="subtitle1" color='secondary'>There are currently {vehicles.length} vehicles in this brand</Typography>
 
             <Grid
@@ -65,26 +65,12 @@ const Brand = ({ vehicles }) => {
                     return (
                         <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
                             <Link href={`${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
-                                <Box className={styles.imageBox}>
-                                    <Image
-                                        src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                                        alt={vehicle.name}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                        className={styles.vehicleImage}
-                                        placeholder='blur'
-                                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                                    />
-                                </Box>
-                                <Typography fontWeight='500' variant='h4' fontSize='1rem' mt={1.5}>{vehicle.name}</Typography>
-                                <Typography color='secondary'>PHP {setCurrency(vehicle.price)}</Typography>
-                                <Typography color='secondary'>DP starts @ PHP 23,829.00</Typography>
-                                <Stack direction='row' spacing={1}>
-                                    <Typography variant="button" fontWeight='500' color='primary.main'>
-                                        VIEW MORE INFORMATION
-                                    </Typography>
-                                    <EastIcon color='primary' />
-                                </Stack>
+                                <VehicleCard
+                                    image={`${API_URL}${vehicle.image}`}
+                                    name={vehicle.name}
+                                    price={vehicle.price}
+                                    downpayment={vehicle.price}
+                                />
                             </Link>
                         </Grid>
                     )

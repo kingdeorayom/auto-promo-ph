@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout'
-import { Box, Breadcrumbs, Button, Divider, Grid, Typography } from '@mui/material'
+import { Box, Breadcrumbs, Button, Divider, Grid, Stack, Typography } from '@mui/material'
 import styles from '@/styles/Management.module.css'
 import Link from 'next/link'
 // import FeaturedVehicles from '@/components/Home/FeaturedVehicles'
@@ -8,6 +8,7 @@ import setCurrency from '@/utils/setCurrency'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 // import mitsubishi from '../../../public/mitsubishi-g4.jpg'
 import AddIcon from '@mui/icons-material/Add';
+import Image from 'next/image'
 
 export async function getStaticProps() {
 
@@ -42,7 +43,7 @@ const VehicleManagement = ({ vehicles }) => {
 
                 <Box display='flex' justifyContent='space-between' alignItems='center'>
                     <Box>
-                        <Typography fontSize='2.5rem' variant="h2" fontWeight='500' mb={1}>All vehicles</Typography>
+                        <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1}>All vehicles</Typography>
                         <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={2}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
                     </Box>
                     <Box display={{ xs: 'none', lg: 'block' }}>
@@ -58,46 +59,72 @@ const VehicleManagement = ({ vehicles }) => {
                     </Link>
                 </Box>
 
-                <Divider sx={{ my: 3 }} />
+                <Divider sx={{ mt: 3, mb: 5 }} />
 
-                <Grid
-                    container
-                    mt={2}
-                    mb={4}
-                    rowSpacing={3}
-                    columnSpacing={2}
-                >
-                    {
-                        vehicles.reverse().map(vehicle => {
-                            return (
-                                <Grid key={vehicle._id} item xs={12} sm={6} lg={6}>
-                                    <Box className={styles.box}>
+                {
+                    vehicles.reverse().map(vehicle => {
+                        return (
+                            <Grid key={vehicle._id} item xs={12} sm={12} lg={12}>
+                                {/* <Box className={styles.box}>
+                                    <Box sx={{ display: 'flex', flex: 1, marginRight: 10 }}>
                                         <Box>
-                                            {/* <Image
-                                                src={`${baseURL}${vehicle.image}`}
-                                                width={250}
-                                                height={150}
-                                                alt='Hey'
-                                                style={{ width: '100%', objectFit: 'contain', marginBottom: '15px' }}
-                                            /> */}
-                                            <Box>
-                                                <Typography fontSize='1.1rem' variant="h2" fontWeight='500' mb={1} color='#343434'>{vehicle.name}</Typography>
-                                                <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
-                                            </Box>
+                                            <Image
+                                                src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                                alt={vehicle.name}
+                                                width={200}
+                                                height={100}
+                                                style={{ objectFit: 'contain', marginRight: '30px' }}
+                                            />
                                         </Box>
                                         <Box>
-                                            <Typography color='#808080' mb={2} fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
+                                            <Typography fontSize='1.1rem' variant="h2" fontWeight='700' mb={1} color='primary'>{vehicle.name}</Typography>
+                                            <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
+                                            <Typography color='#808080' mb={2} fontSize='14px' fontWeight='300' className={styles.truncate}>{vehicle.description}</Typography>
                                         </Box>
-                                        <Divider sx={{ mb: 2 }} />
+                                    </Box>
+                                    <Box display={{ xs: 'none', md: 'block' }}>
                                         <Link href={`/admin/vehicles/edit`} >
-                                            <Button variant="contained" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
+                                            <Button size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
                                         </Link>
                                     </Box>
-                                </Grid>
-                            )
-                        })
-                    }
-                </Grid>
+                                </Box> */}
+
+                                <Stack direction={{ xs: 'column', md: 'row' }}>
+                                    <Stack direction={{ xs: 'column', md: 'row' }} className={styles.box}>
+                                        <Box display={{ xs: 'block', md: 'none' }}>
+                                            <Image
+                                                src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                                alt={vehicle.name}
+                                                width={200}
+                                                height={100}
+                                                style={{ objectFit: 'contain' }}
+                                            />
+                                        </Box>
+                                        <Box display={{ xs: 'none', md: 'block' }}>
+                                            <Image
+                                                src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                                alt={vehicle.name}
+                                                width={200}
+                                                height={100}
+                                                style={{ objectFit: 'contain', marginRight: '20px' }}
+                                            />
+                                        </Box>
+                                        <Box sx={{ flex: 1, mt: 2 }}>
+                                            <Typography fontSize='1.1rem' variant="h2" fontWeight='700' mb={1} color='primary'>{vehicle.name}</Typography>
+                                            <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
+                                            <Typography color='#808080' mb={2} fontSize='14px' fontWeight='300' className={styles.truncate}>{vehicle.description}</Typography>
+                                            <Link href={`/admin/vehicles/edit`} >
+                                                <Button size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
+                                            </Link>
+                                        </Box>
+                                    </Stack>
+                                </Stack>
+
+                            </Grid>
+                        )
+                    })
+                }
+
             </Box>
         </Layout>
     )

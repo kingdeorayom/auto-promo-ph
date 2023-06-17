@@ -140,8 +140,8 @@ const AddVehicle = ({ vehicles }) => {
                 </Box>
 
                 <Box>
-                    <Typography fontSize='2.5rem' variant="h2" fontWeight='500' mb={1}>Add a new vehicle</Typography>
-                    <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit</Typography>
+                    <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1}>Add a new vehicle</Typography>
+                    <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Vehicles you add may not immediately appear on the list of vehicles</Typography>
                 </Box>
 
                 {/* <Divider /> */}
@@ -173,7 +173,7 @@ const AddVehicle = ({ vehicles }) => {
 
                         <Box my={2}>
                             <Typography fontWeight='500'>Price*</Typography>
-                            <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 768000.</Typography>
+                            <Typography mb={1} fontSize='13px' fontWeight='300'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 768000.</Typography>
                             <TextField
                                 type='number'
                                 fullWidth

@@ -113,8 +113,8 @@ const InquiriesPage = ({ inquiries }) => {
                                 height={250}
                                 alt='No inquiries'
                             />
-                            <Typography fontSize='2rem' variant="h2" fontWeight='500' mb={1}>No inquiries yet</Typography>
-                            <Typography fontSize='1.2rem' variant="h2" fontWeight='400' color='#808080' mb={1}>But {"don't worry! You'll"} see all your inquiries here once someone has messaged you.</Typography>
+                            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>No inquiries yet</Typography>
+                            <Typography fontSize='1.1rem' variant="h3" fontWeight='300' color='#808080' mb={1}>But {"don't worry! You'll"} see all your inquiries here once someone has messaged you.</Typography>
                         </Box>
                 }
                 {
