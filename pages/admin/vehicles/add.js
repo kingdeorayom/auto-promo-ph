@@ -79,10 +79,16 @@ const AddVehicle = ({ vehicles }) => {
             return setErrorMessage('Image is required. Please attach an image and try submitting again.')
         }
 
+        if (data.colors === '') {
+            return setErrorMessage('At least one available color is required.')
+        }
+
+        let availableColors = data.colors.split("\\n").map((color) => color.split(","))
+
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
         data['image'] = data.image[0]
-        data['colors'] = ['blue', 'red', 'green']
+        data['colors'] = availableColors
         data['variants'] = variants
 
         console.log(data)
@@ -335,7 +341,7 @@ const AddVehicle = ({ vehicles }) => {
                             <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
                         </Box>
 
-                        {/* <Box my={2}>
+                        <Box my={2}>
                             <Typography mb={1} fontWeight='500'>Available Colors*</Typography>
                             <TextField
                                 type='text'
@@ -347,7 +353,7 @@ const AddVehicle = ({ vehicles }) => {
                                 {...register('colors')}
                                 helperText={errors.colors?.message}
                             />
-                        </Box> */}
+                        </Box>
 
                         <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image*</Typography>
                         <input

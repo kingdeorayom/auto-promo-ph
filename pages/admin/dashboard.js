@@ -145,7 +145,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                                     </Box>
                                     <Typography color='#808080' mb={2} fontWeight='400'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
                                     <Link href='/admin/vehicles'>
-                                        <Button variant="contained" disableElevation endIcon={<ArrowForwardIcon />}>Manage Listing</Button>
+                                        <Button variant="contained" disableElevation endIcon={<ArrowForwardIcon />}>Manage Listings</Button>
                                     </Link>
                                 </Box>
                                 <Box display={{ xs: 'none', sm: 'block' }}>
