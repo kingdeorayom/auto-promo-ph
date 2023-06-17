@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import styles from '@/styles/Brands.module.css'
 
 export async function getStaticProps() {
 
@@ -34,13 +35,14 @@ const Brands = ({ brands }) => {
                 {
                     brands.map(brand => {
                         return (
-                            <Grid key={brand._id} item xs={12} lg={6}>
+                            <Grid key={brand._id} item xs={12} md={6} lg={3}>
                                 <Link
                                     key={brand._id}
                                     href={`brands/${brand.slug}`}
                                 >
                                     <Box sx={{
-                                        border: '1px solid #d3d3d3',
+                                        // border: '1px solid #d3d3d3',
+                                        backgroundColor: '#fafafa',
                                         borderRadius: 2,
                                         paddingY: 2.5,
                                         display: 'flex',
@@ -67,7 +69,7 @@ const Brands = ({ brands }) => {
                                             >
                                                 {brand.name}
                                             </Typography>
-                                            <Typography fontWeight='300' color='secondary'>{brand.description}</Typography>
+                                            <Typography fontWeight='300' color='secondary' className={styles.truncate}>{brand.description}</Typography>
                                         </Box>
                                         <ChevronRightIcon color='secondary' sx={{ marginRight: 3 }} />
                                     </Box>
