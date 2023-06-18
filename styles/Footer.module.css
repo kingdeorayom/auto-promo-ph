@@ -5,3 +5,13 @@
 .footer {
     margin-top: auto;
 }
+
+.link:hover {
+    text-decoration: underline;
+    text-decoration-color: #1976d2;
+    text-decoration-thickness: 1px;
+}
+
+.link:hover .linkText {
+    color: #1976d2;
+}

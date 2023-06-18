@@ -15,7 +15,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
 
     const navigation_item_override = {
         mx: 1,
-        my: .9,
+        my: .7,
         borderRadius: 2.5,
         py: 1.4,
         display: 'flex',
@@ -96,7 +96,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
                 </Box>
             </Link>
 
-            <Link href='/about'>
+            {/* <Link href='/about'>
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
                         <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} fontSize='16px' color={router.pathname == '/about' ? "primary" : "black"} mb={.5}>About</Typography>
@@ -104,7 +104,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
-            </Link>
+            </Link> */}
 
             <Link href='/contact'>
                 <Box sx={navigation_item_override}>

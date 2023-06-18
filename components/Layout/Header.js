@@ -73,11 +73,11 @@ const Header = () => {
                                     <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
                                 </Box>
                             </Link>
-                            <Link href='/about'>
+                            {/* <Link href='/about'>
                                 <Box sx={navigation_item_override}>
                                     <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>
                                 </Box>
-                            </Link>
+                            </Link> */}
                             <Link href='/contact'>
                                 <Box sx={navigation_item_override}>
                                     <Typography fontWeight={router.pathname == '/contact' ? "700" : "400"} color={router.pathname == '/contact' ? "primary" : "black"}>Contact</Typography>

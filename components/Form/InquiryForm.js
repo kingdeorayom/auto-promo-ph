@@ -153,7 +153,7 @@ const InquiryForm = () => {
                     {
                         isSending ?
                             <Box sx={{ mb: 3 }}>
-                                <Typography>Sending...</Typography>
+                                <Typography mb={2}>Sending ...</Typography>
                                 <LinearProgress />
                             </Box> : null
                     }

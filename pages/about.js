@@ -42,6 +42,14 @@ const About = () => {
                     </Link>
                 </Box>
 
+                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque adipisci laudantium harum dicta a incidunt quas veniam at est sapiente nam asperiores eaque ratione magnam architecto, explicabo ipsum laborum consequuntur?
+                </Typography>
+
+                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={4}>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore omnis ducimus earum voluptate rem, impedit dolore laborum numquam. Vel doloremque molestias quas repudiandae qui quisquam autem illum aut praesentium rerum?
+                </Typography>
+
                 <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1}>Why choose <span className={styles.brand}>Auto Promo PH?</span></Typography>
                 <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Thank you for considering Auto Promo PH. I believe that my experience, skills and dedication set me apart and make me the ideal choice for your journey.</Typography>
 

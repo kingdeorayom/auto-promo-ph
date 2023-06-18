@@ -41,14 +41,14 @@ const Footer = () => {
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={3}>OVERVIEW</Typography>
-                            <Link href='/'>
-                                <Typography mb={1} color='secondary' fontSize='.9rem'>Explore</Typography>
+                            <Link className={styles.link} href='/'>
+                                <Typography className={styles.linkText} mb={1} color='secondary' fontSize='.9rem'>Explore</Typography>
                             </Link>
-                            <Link href='/brands'>
-                                <Typography mb={1} color='secondary' fontSize='.9rem'>Brands</Typography>
+                            <Link className={styles.link} href='/brands'>
+                                <Typography className={styles.linkText} mb={1} color='secondary' fontSize='.9rem'>Brands</Typography>
                             </Link>
-                            <Link href='/promos'>
-                                <Typography mb={1} color='secondary' fontSize='.9rem'>Promos</Typography>
+                            <Link className={styles.link} href='/promos'>
+                                <Typography className={styles.linkText} mb={1} color='secondary' fontSize='.9rem'>Promos</Typography>
                             </Link>
                         </Box>
                     </Grid>
@@ -56,14 +56,14 @@ const Footer = () => {
                     <Grid item xs={12} sm={3}>
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={3}>OTHERS</Typography>
-                            <Link href='/about'>
-                                <Typography mb={1} color='secondary' fontSize='.9rem'>About</Typography>
+                            <Link className={styles.link} href='/about'>
+                                <Typography className={styles.linkText} mb={1} color='secondary' fontSize='.9rem'>About</Typography>
                             </Link>
-                            <Link href='/terms-and-condition'>
-                                <Typography mb={1} color='secondary' fontSize='.9rem'>Terms and Condition</Typography>
+                            <Link className={styles.link} href='/terms-and-conditions'>
+                                <Typography className={styles.linkText} mb={1} color='secondary' fontSize='.9rem'>Terms and Conditions</Typography>
                             </Link>
-                            <Link href='/privacy-policy'>
-                                <Typography mb={1} color='secondary' fontSize='.9rem'>Privacy Policy</Typography>
+                            <Link className={styles.link} href='/privacy-policy'>
+                                <Typography className={styles.linkText} mb={1} color='secondary' fontSize='.9rem'>Privacy Policy</Typography>
                             </Link>
                         </Box>
                     </Grid>
@@ -91,7 +91,7 @@ const Footer = () => {
                 }}
             >
                 <Typography fontSize='.9rem'>
-                    Copyright &copy; 2023. All rights reserved.
+                    Copyright &copy; {new Date().getFullYear()}. All rights reserved.
                 </Typography>
                 <Stack direction='row' spacing={2}>
                     <Link href='https://www.facebook.com/dhang.casten' target="_blank">

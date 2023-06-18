@@ -14,6 +14,7 @@ import { useLogin } from '@/hooks/useLogin';
 import { AuthContext } from '@/context/AuthContext';
 import Image from 'next/image';
 import logo from '@/public/logotosvg.png'
+import Head from 'next/head';
 
 const LoginPage = () => {
 
@@ -50,94 +51,100 @@ const LoginPage = () => {
     const togglePassword = () => setIsPasswordShown(!isPasswordShown);
 
     return (
-        <Box className={styles.container}>
-            <Box className={styles.wrapper}>
-                <Box className={styles.formContainer}>
+        <>
+            <Head>
+                <title>Log in | Auto Promo PH</title>
+                <meta name="description" content="Welcome to Auto Promo PH" />
+            </Head>
+            <Box className={styles.container}>
+                <Box className={styles.wrapper}>
+                    <Box className={styles.formContainer}>
 
-                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <Link href='/'>
-                            <Image
-                                src={logo}
-                                alt="Auto Promo PH"
-                                height={48}
-                            />
-                        </Link>
-                    </Box>
-
-                    <Typography fontSize='2rem' variant="h2" fontWeight='700' mt={4} mb={1}>Hi <span className={styles.name}>Dhang</span>, welcome back! &#128075;</Typography>
-                    <Typography fontSize='1rem' variant="h3" color='secondary'>Log in to your account</Typography>
-
-                    {/* <Divider sx={{ my: 3 }} /> */}
-
-                    {error &&
-                        <Alert severity="error" sx={{ my: 3 }}>
-                            <AlertTitle>Oops!</AlertTitle>
-                            {error}
-                        </Alert>
-                    }
-
-                    <form
-                        onSubmit={handleSubmit(onSubmit)}
-                        noValidate
-                    >
-                        <Box my={2}>
-                            <Typography mb={1} fontWeight='500'>Email</Typography>
-                            <TextField
-                                type='email'
-                                id='email'
-                                fullWidth
-                                placeholder='juandelacruz@example.com'
-                                InputProps={{
-                                    startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
-                                }}
-                                {...register('email')}
-                                helperText={errors.email?.message}
-                            />
+                        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                            <Link href='/'>
+                                <Image
+                                    src={logo}
+                                    alt="Auto Promo PH"
+                                    height={48}
+                                />
+                            </Link>
                         </Box>
 
-                        <Box my={2}>
-                            <Typography mb={1} fontWeight='500'>Password</Typography>
-                            <TextField
-                                type={isPasswordShown ? 'text' : 'password'}
-                                id='password'
-                                fullWidth
-                                placeholder='Enter your password'
-                                InputProps={{
-                                    startAdornment: <InputAdornment position='start'><LockOutlinedIcon sx={{ marginRight: .5 }} /></InputAdornment>,
-                                    endAdornment: <InputAdornment position='end'><IconButton onClick={togglePassword}>{isPasswordShown ? <VisibilityOutlinedIcon sx={{ marginRight: .5 }} /> : <VisibilityOffOutlinedIcon sx={{ marginRight: .5 }} />}</IconButton></InputAdornment>
-                                }}
-                                {...register('password')}
-                                helperText={errors.password?.message}
-                            />
-                        </Box>
+                        <Typography fontSize='2rem' variant="h2" fontWeight='700' mt={4} mb={1}>Hi <span className={styles.name}>Dhang</span>, welcome back! &#128075;</Typography>
+                        <Typography fontSize='1rem' variant="h3" color='secondary'>Log in to your account</Typography>
 
-                        <Alert severity="warning" sx={{ my: 3 }}>
-                            <AlertTitle>Important</AlertTitle>
-                            In case of forgotten email or password, contact the web administrator immediately.
-                        </Alert>
+                        {/* <Divider sx={{ my: 3 }} /> */}
 
-                        <Box className={styles.buttonWrapper}>
-                            <Button
-                                type='submit'
-                                variant="contained"
-                                disableElevation
-                                size="large"
-                                // sx={{ width: '75%' }}
-                                fullWidth
-                                disabled={isLoading}
-                            >
-                                Log in
-                            </Button>
-                        </Box>
+                        {error &&
+                            <Alert severity="error" sx={{ my: 3 }}>
+                                <AlertTitle>Oops!</AlertTitle>
+                                {error}
+                            </Alert>
+                        }
 
-                        {/* <Link href='/admin/register'>
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            noValidate
+                        >
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Email</Typography>
+                                <TextField
+                                    type='email'
+                                    id='email'
+                                    fullWidth
+                                    placeholder='juandelacruz@example.com'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                    }}
+                                    {...register('email')}
+                                    helperText={errors.email?.message}
+                                />
+                            </Box>
+
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Password</Typography>
+                                <TextField
+                                    type={isPasswordShown ? 'text' : 'password'}
+                                    id='password'
+                                    fullWidth
+                                    placeholder='Enter your password'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><LockOutlinedIcon sx={{ marginRight: .5 }} /></InputAdornment>,
+                                        endAdornment: <InputAdornment position='end'><IconButton onClick={togglePassword}>{isPasswordShown ? <VisibilityOutlinedIcon sx={{ marginRight: .5 }} /> : <VisibilityOffOutlinedIcon sx={{ marginRight: .5 }} />}</IconButton></InputAdornment>
+                                    }}
+                                    {...register('password')}
+                                    helperText={errors.password?.message}
+                                />
+                            </Box>
+
+                            <Alert severity="warning" sx={{ my: 3 }}>
+                                <AlertTitle>Important</AlertTitle>
+                                In case of forgotten email or password, contact the web administrator immediately.
+                            </Alert>
+
+                            <Box className={styles.buttonWrapper}>
+                                <Button
+                                    type='submit'
+                                    variant="contained"
+                                    disableElevation
+                                    size="large"
+                                    // sx={{ width: '75%' }}
+                                    fullWidth
+                                    disabled={isLoading}
+                                >
+                                    Log in
+                                </Button>
+                            </Box>
+
+                            {/* <Link href='/admin/register'>
                             <Typography color='primary' my={5}>Create an account</Typography>
                         </Link> */}
-                    </form>
+                        </form>
 
+                    </Box>
                 </Box>
             </Box>
-        </Box >
+        </>
     )
 }
 

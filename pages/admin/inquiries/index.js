@@ -9,6 +9,7 @@ import no_inquiries from '@/public/no_inquiries.svg'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Head from 'next/head'
 
 export async function getStaticProps() {
 
@@ -59,96 +60,102 @@ const InquiriesPage = ({ inquiries }) => {
     }
 
     return (
-        <Layout>
-            <Box className={styles.wrapper}>
+        <>
+            <Head>
+                <title>Inquiries | Auto Promo PH</title>
+                <meta name="description" content="Welcome to Auto Promo PH" />
+            </Head>
+            <Layout>
+                <Box className={styles.wrapper}>
 
-                <Box mb={4}>
-                    <Breadcrumbs separator=">" aria-label="breadcrumb">
-                        <Link
-                            underline="hover"
-                            color="inherit"
-                            href="/admin/dashboard"
-                        >
-                            Dashboard
-                        </Link>
-                        <Typography color="primary">Inquiries</Typography>
-                    </Breadcrumbs>
-                </Box>
+                    <Box mb={4}>
+                        <Breadcrumbs separator=">" aria-label="breadcrumb">
+                            <Link
+                                underline="hover"
+                                color="inherit"
+                                href="/admin/dashboard"
+                            >
+                                Dashboard
+                            </Link>
+                            <Typography color="primary">Inquiries</Typography>
+                        </Breadcrumbs>
+                    </Box>
 
-                <Box>
-                    <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1}>Inquiries</Typography>
-                    <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
-                </Box>
+                    <Box>
+                        <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1}>Inquiries</Typography>
+                        <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
+                    </Box>
 
-                {
-                    hasInquiry ?
-                        <Box my={5}>
-                            {
-                                inquiries.reverse().map(inquiry => {
-                                    return (
-                                        <Link href={`/admin/inquiries/${inquiry._id}`} key={inquiry._id}>
-                                            <Box className={styles.inquiryCard}>
-                                                <Avatar className={styles.avatar}>
-                                                    {`${inquiry.firstName.charAt(0).toUpperCase()}${inquiry.lastName.charAt(0).toUpperCase()}`}
-                                                </Avatar>
-                                                <Box sx={{ flex: 1 }}>
-                                                    <Typography fontWeight='500'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
-                                                    <Typography color='#808080' className={styles.truncate}>
-                                                        {inquiry.message}
+                    {
+                        hasInquiry ?
+                            <Box my={5}>
+                                {
+                                    inquiries.reverse().map(inquiry => {
+                                        return (
+                                            <Link href={`/admin/inquiries/${inquiry._id}`} key={inquiry._id}>
+                                                <Box className={styles.inquiryCard}>
+                                                    <Avatar className={styles.avatar}>
+                                                        {`${inquiry.firstName.charAt(0).toUpperCase()}${inquiry.lastName.charAt(0).toUpperCase()}`}
+                                                    </Avatar>
+                                                    <Box sx={{ flex: 1 }}>
+                                                        <Typography fontWeight='500'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
+                                                        <Typography color='#808080' className={styles.truncate}>
+                                                            {inquiry.message}
+                                                        </Typography>
+                                                    </Box>
+                                                    <Typography fontSize='14px' fontWeight='400'>
+                                                        {inquiry.date}
                                                     </Typography>
                                                 </Box>
-                                                <Typography fontSize='14px' fontWeight='400'>
-                                                    {inquiry.date}
-                                                </Typography>
-                                            </Box>
-                                        </Link>
-                                    )
-                                })
-                            }
-                        </Box> :
-                        <Box my={5} sx={{ textAlign: 'center' }}>
-                            <Image
-                                src={no_inquiries}
-                                width={350}
-                                height={250}
-                                alt='No inquiries'
-                            />
-                            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>No inquiries yet</Typography>
-                            <Typography fontSize='1.1rem' variant="h3" fontWeight='300' color='#808080' mb={1}>But {"don't worry! You'll"} see all your inquiries here once someone has messaged you.</Typography>
-                        </Box>
-                }
-                {
-                    hasInquiry ?
-                        <Box mt={5} display='flex' justifyContent='flex-start'>
-                            <Button variant='text' color='error' startIcon={<DeleteOutlineIcon />} onClick={handleDeleteDialogOpen}>Delete all messages</Button>
-                        </Box> :
-                        null
-                }
+                                            </Link>
+                                        )
+                                    })
+                                }
+                            </Box> :
+                            <Box my={5} sx={{ textAlign: 'center' }}>
+                                <Image
+                                    src={no_inquiries}
+                                    width={350}
+                                    height={250}
+                                    alt='No inquiries'
+                                />
+                                <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>No inquiries yet</Typography>
+                                <Typography fontSize='1.1rem' variant="h3" fontWeight='400' color='#808080' mb={1}>But {"don't worry! You'll"} see all your inquiries here once someone has messaged you.</Typography>
+                            </Box>
+                    }
+                    {
+                        hasInquiry ?
+                            <Box mt={5} display='flex' justifyContent='flex-start'>
+                                <Button variant='text' color='error' startIcon={<DeleteOutlineIcon />} onClick={handleDeleteDialogOpen}>Delete all messages</Button>
+                            </Box> :
+                            null
+                    }
 
-                <Dialog
-                    open={isDeleteDialogOpen}
-                    onClose={handleDeleteDialogClose}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title" color='error'>
-                        {"Are you sure you want to delete all inquiries?"}
-                    </DialogTitle>
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                            This action is irreversible. Please be careful.
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleDeleteDialogClose} color='primary'>Cancel</Button>
-                        <Button onClick={handleDeleteInquiry} autoFocus color='error'>
-                            Yes, I am sure
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                    <Dialog
+                        open={isDeleteDialogOpen}
+                        onClose={handleDeleteDialogClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title" color='error'>
+                            {"Are you sure you want to delete all inquiries?"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                This action is irreversible. Please be careful.
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleDeleteDialogClose} color='primary'>Cancel</Button>
+                            <Button onClick={handleDeleteInquiry} autoFocus color='error'>
+                                Yes, I am sure
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
 
-            </Box>
-        </Layout>
+                </Box>
+            </Layout>
+        </>
     )
 }
 
