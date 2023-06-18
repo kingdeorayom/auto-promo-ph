@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import theme from '@/utils/theme'
 import { ThemeProvider } from '@mui/material'
 import { AuthContextProvider } from '@/context/AuthContext'
+import { ListingContextProvider } from '@/context/ListingContext'
 import Head from 'next/head'
 
 const App = ({ Component, pageProps }) => {
@@ -15,9 +16,11 @@ const App = ({ Component, pageProps }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AuthContextProvider>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <ListingContextProvider>
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </ListingContextProvider>
       </AuthContextProvider>
     </>
   )
