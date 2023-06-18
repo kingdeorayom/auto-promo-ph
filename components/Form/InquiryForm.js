@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Divider, InputAdornment, TextField, Typography } from '@mui/material'
+import { Alert, Box, Button, Divider, InputAdornment, LinearProgress, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { inquiry } from '@/data/validation/inquiry'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useRouter } from 'next/router';
 import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 const InquiryForm = () => {
 
@@ -28,12 +29,14 @@ const InquiryForm = () => {
 
     const { register, control, handleSubmit, formState, reset, getValues } = form
     const { errors } = formState
+    const [isSending, setIsSending] = useState(false)
 
     const onSubmit = async (data) => {
 
         data['vehicleSlug'] = router.query.q
+        setIsSending(true)
 
-        console.log(data)
+        // console.log(data)
 
         await emailjs.send('service_00x8du6', 'template_fh6lsi2', data, '_feim_H0vcS-Wc5_u')
             .then((result) => {
@@ -44,15 +47,19 @@ const InquiryForm = () => {
 
         axios.post(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`, data)
             .then((response) => {
-                reset()
-                Swal.fire(
-                    'Your message has been sent successfully.',
-                    'I will get back to you as soon as possible.',
-                    'success'
-                )
+                if (response.status === 201) {
+                    setIsSending(false)
+                    reset()
+                    Swal.fire(
+                        'Your message has been sent successfully.',
+                        'I will get back to you as soon as possible.',
+                        'success'
+                    )
+                }
             })
             .catch((error) => {
                 console.log(error.response.data.message);
+                setIsSending(false)
             });
     }
 
@@ -143,11 +150,20 @@ const InquiryForm = () => {
 
                     <Alert severity="warning" sx={{ my: 3, }}>By clicking the submit button below, you agree to send your <strong>name</strong>, <strong>email address</strong> and <strong>mobile number</strong>. Also, please make sure that the information you provided above are accurate.</Alert>
 
+                    {
+                        isSending ?
+                            <Box sx={{ mb: 3 }}>
+                                <Typography>Sending...</Typography>
+                                <LinearProgress />
+                            </Box> : null
+                    }
+
                     <Button
                         type='submit'
                         variant="contained"
                         disableElevation
                         size="large"
+                        disabled={isSending}
                     >
                         Submit
                     </Button>
