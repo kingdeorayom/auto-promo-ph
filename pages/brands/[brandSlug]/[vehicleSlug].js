@@ -73,7 +73,7 @@ const VehicleDetails = ({ vehicle }) => {
 
                 <Grid container spacing={3} mb={3}>
                     <Grid item xs={12} md={4} className={styles.gridWrapper}>
-                        <Box width={565} height={300} position='relative' display='block' bgcolor='red'>
+                        <Box width={565} height={300} position='relative' display='block'>
                             <Image
                                 src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
                                 alt={vehicle.name}
