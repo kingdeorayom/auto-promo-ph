@@ -73,20 +73,23 @@ const VehicleDetails = ({ vehicle }) => {
 
                 <Grid container spacing={3} mb={3}>
                     <Grid item xs={12} md={4} className={styles.gridWrapper}>
-                        <Image
-                            src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                            alt={vehicle.name}
-                            width={565}
-                            height={50}
-                            style={{
-                                width: '565',
-                                height: '100%',
-                                maxWidth: '100%',
-                                borderRadius: 5
-                            }}
-                            placeholder='blur'
-                            blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                        />
+                        <Box width={565} height={300} position='relative' display='block' bgcolor='red'>
+                            <Image
+                                src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                alt={vehicle.name}
+                                // width={565}
+                                // height={50}
+                                fill
+                                style={{
+                                    // width: '565',
+                                    // height: '100%',
+                                    // maxWidth: '100%',
+                                    borderRadius: 5,
+                                }}
+                                placeholder='blur'
+                                blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                            />
+                        </Box>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Box mt={1}>
