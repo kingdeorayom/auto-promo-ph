@@ -42,17 +42,23 @@ export async function getStaticProps(context) {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/detail/${vehicle_slug}`);
     const vehicle = await response.json();
 
+    console.log(vehicle.variants)
+
+    const variantReponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/variant/detail?vehicleSlug=suzuki-swift`)
+    const variants = await variantReponse.json();
+
     return {
         props: {
             vehicle: vehicle,
+            variants: variants
         },
         revalidate: 10
     };
 }
 
-const VehicleDetails = ({ vehicle }) => {
+const VehicleDetails = ({ vehicle, variants }) => {
 
-    console.log(vehicle)
+    // console.log(variants)
 
     const [value, setValue] = useState('1')
 
@@ -86,9 +92,10 @@ const VehicleDetails = ({ vehicle }) => {
                             style={{
                                 width: '565',
                                 height: '300',
-                                maxHeight: '100%',
+                                // maxHeight: '100%',
                                 maxWidth: '100%',
                                 borderRadius: 5,
+                                objectFit: 'contain'
                             }}
                             placeholder='blur'
                             blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
@@ -251,7 +258,7 @@ const VehicleDetails = ({ vehicle }) => {
                                 </TableHead>
                                 <TableBody>
                                     {
-                                        vehicle.variants.map((item, index) => {
+                                        variants.map((item, index) => {
                                             return (
                                                 <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                                     <TableCell align='center' component="th" scope="row">
@@ -269,8 +276,8 @@ const VehicleDetails = ({ vehicle }) => {
                                                         </Link>
                                                     </TableCell>
                                                     <TableCell align='center'>₱ {setCurrency(item.price)}</TableCell>
-                                                    <TableCell align='center'>₱ {setCurrency(item.discount)}</TableCell>
-                                                    <TableCell align='center'>₱ {setCurrency(item.cash_promo)}</TableCell>
+                                                    <TableCell align='center'>₱ {setCurrency(item.price)}</TableCell>
+                                                    <TableCell align='center'>₱ {setCurrency(item.price)}</TableCell>
                                                 </TableRow>
                                             )
                                         })
