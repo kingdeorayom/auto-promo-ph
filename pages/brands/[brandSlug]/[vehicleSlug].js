@@ -52,6 +52,8 @@ export async function getStaticProps(context) {
 
 const VehicleDetails = ({ vehicle }) => {
 
+    console.log(vehicle)
+
     const [value, setValue] = useState('1')
 
     const handleChange = (event, newValue) => {
@@ -73,28 +75,30 @@ const VehicleDetails = ({ vehicle }) => {
 
                 <Grid container spacing={3} mb={3}>
                     <Grid item xs={12} md={4} className={styles.gridWrapper}>
-                        <Box width={565} height={300} position='relative' display='block'>
-                            <Image
-                                src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                                alt={vehicle.name}
-                                // width={565}
-                                // height={50}
-                                fill
-                                style={{
-                                    // width: '565',
-                                    // height: '100%',
-                                    // maxWidth: '100%',
-                                    borderRadius: 5,
-                                }}
-                                placeholder='blur'
-                                blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                            />
-                        </Box>
+                        {/* <Box width={565} height={300} position='relative' display='block' sx={{ aspectRatio: 1 }}> */}
+                        <Image
+                            src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                            alt={vehicle.name}
+                            width={565}
+                            height={300}
+                            // fill
+                            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                            style={{
+                                width: '565',
+                                height: '300',
+                                maxHeight: '100%',
+                                maxWidth: '100%',
+                                borderRadius: 5,
+                            }}
+                            placeholder='blur'
+                            blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                        />
+                        {/* </Box> */}
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Box mt={1}>
                             <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>{vehicle.name}</Typography>
-                            <Typography fontSize='1rem' variant="subtitle1" color='secondary'>₱ {setCurrency(vehicle.price)}</Typography>
+                            <Typography fontSize='1rem' variant="subtitle1" color='success.main' fontWeight='500'>₱ {setCurrency(vehicle.price)}</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>DP starts @ ₱ 23,829.00</Typography>
                             <Link href={{ pathname: '/inquire', query: { q: vehicle.vehicle_slug } }}>
                                 <Button variant="contained" disableElevation>Inquire Now</Button>
