@@ -92,7 +92,10 @@ const VehicleManagement = ({ vehicles }) => {
                                                 />
                                             </Box>
                                             <Box sx={{ flex: 1, mt: 2 }}>
-                                                <Link className={styles.link} href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`} target='_blank'>
+                                                <Link
+                                                    className={styles.link}
+                                                    href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}
+                                                >
                                                     <Typography fontSize='1.1rem' variant="h2" fontWeight='700' mb={1} color='primary'>{vehicle.name}</Typography>
                                                 </Link>
                                                 <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>

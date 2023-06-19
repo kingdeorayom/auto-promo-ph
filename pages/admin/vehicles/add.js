@@ -58,12 +58,7 @@ const AddVehicle = ({ vehicles }) => {
     const addToVariants = (value) => {
         let data = {
             name: value.name,
-            price: value.price,
-            discount: value.price,
-            cash_promo: value.price,
-            brand_slug: value.brand_slug,
             vehicle_slug: value.vehicle_slug,
-            image: value.image
         }
         console.log(data)
         setVariants(current => [...current, data])
