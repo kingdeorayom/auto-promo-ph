@@ -141,7 +141,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                             </TabList>
                         </Box>
 
-                        <TabPanel value='1' className={styles.tabPanel}>
+                        <TabPanel value='1' sx={{ paddingLeft: 0, paddingRight: 0 }}>
                             <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={2}>About this vehicle</Typography>
 
                             {/* <Alert severity="info" sx={{ mb: 2, fontSize: '1rem' }}>{vehicle.description}</Alert> */}
@@ -191,7 +191,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                         </TabPanel>
 
-                        <TabPanel value='2' className={styles.tabPanel}>
+                        <TabPanel value='2' sx={{ paddingLeft: 0, paddingRight: 0 }}>
 
                             <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1}>Specs & Features</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>Key specifications & features of the {vehicle.name}. View engine specs, dimensions, safety and technology features in detail below.
@@ -251,7 +251,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                         </TabPanel>
 
-                        <TabPanel value='3' className={styles.tabPanel}>
+                        <TabPanel value='3' sx={{ paddingLeft: 0, paddingRight: 0 }}>
                             <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1}>{vehicle.name} Price List</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis corrupti perferendis nobis dolore necessitatibus, quos totam excepturi sint eligendi id vel in! Modi praesentium voluptate repellendus similique illum aliquam laborum.</Typography>
 
