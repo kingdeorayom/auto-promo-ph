@@ -46,8 +46,6 @@ export async function getStaticProps(context) {
 
     let url = new URL(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/variant/detail`);
 
-    console.log(vehicle.variants)
-
     vehicle.variants.forEach(item => url.searchParams.append('vehicleSlug', item.vehicle_slug))
 
     const variantReponse = await fetch(url.href)
@@ -77,8 +75,6 @@ const VehicleDetails = ({ vehicle, variants }) => {
     const stackDirectionBreakpoint = { xs: 'column', md: 'row' }
     const stackSpacingBreakpoint = { xs: 3, md: 4 }
 
-    console.log(router)
-
     return (
         <>
             <Head>
@@ -95,30 +91,31 @@ const VehicleDetails = ({ vehicle, variants }) => {
                     </Box> */}
 
                     <Grid container spacing={3} mb={3}>
-                        <Grid item xs={12} md={6} className={styles.gridWrapper}>
-                            {/* <Box width={565} height={300} position='relative' display='block' sx={{ aspectRatio: 1 }}> */}
-                            <Image
-                                src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                                alt={vehicle.name}
-                                width={565}
-                                height={300}
-                                // fill
-                                // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                style={{
-                                    width: '565',
-                                    height: '300',
-                                    // maxHeight: '100%',
-                                    maxWidth: '100%',
-                                    borderRadius: 5,
-                                    objectFit: 'contain'
-                                }}
-                                placeholder='blur'
-                                blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                            />
-                            {/* </Box> */}
+                        <Grid item xs={12} lg={6} className={styles.gridWrapper}>
+                            <Box width={'100%'} height={300} position='relative' display='block' sx={{ aspectRatio: 1 }}>
+                                <Image
+                                    src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                    alt={vehicle.name}
+                                    // width={565}
+                                    // height={300}
+                                    fill
+                                    // fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                    style={{
+                                        // width: '565',
+                                        // height: '300',
+                                        // maxHeight: '100%',
+                                        // maxWidth: '100%',
+                                        borderRadius: 5,
+                                        objectFit: 'contain'
+                                    }}
+                                    placeholder='blur'
+                                    blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                />
+                            </Box>
                         </Grid>
-                        <Grid item xs={12} md={6}>
-                            <Box mt={1} ml={2}>
+                        <Grid item xs={12} lg={6}>
+                            <Box ml={2}>
                                 <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>{vehicle.name}</Typography>
                                 <Typography fontSize='1rem' variant="subtitle1" color='success.main' fontWeight='500'>₱ {setCurrency(vehicle.price)}</Typography>
                                 <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>DP starts @ ₱ 23,829.00</Typography>
