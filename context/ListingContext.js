@@ -7,6 +7,12 @@ export const listingReducer = (state, action) => {
     switch (action.type) {
         case 'GET_FEATURED_VEHICLES':
             return { ...state, featuredVehicles: action.payload }
+        case 'GET_SEARCH_SUGGESTIONS':
+            return { ...state, searchSuggestions: action.payload }
+        case 'GET_VEHICLES_SUGGESTIONS':
+            return { ...state, vehiclesSuggestions: action.payload }
+        case 'GET_SEARCH_RESULTS':
+            return { ...state, searchResults: action.payload }
         default:
             return state
     }
@@ -16,7 +22,10 @@ export const listingReducer = (state, action) => {
 export const ListingContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(listingReducer, {
-        featuredVehicles: []
+        featuredVehicles: [],
+        searchSuggestions: [],
+        vehiclesSuggestions: [],
+        searchResults: []
     })
 
     // console.log('ListingContext state:', state)

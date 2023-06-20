@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material'
 import { AuthContextProvider } from '@/context/AuthContext'
 import { ListingContextProvider } from '@/context/ListingContext'
 import Head from 'next/head'
+import { InquiriesContextProvider } from '@/context/InquiriesContext'
 
 const App = ({ Component, pageProps }) => {
 
@@ -18,9 +19,11 @@ const App = ({ Component, pageProps }) => {
 
       <AuthContextProvider>
         <ListingContextProvider>
-          <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-          </ThemeProvider>
+          <InquiriesContextProvider>
+            <ThemeProvider theme={theme}>
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </InquiriesContextProvider>
         </ListingContextProvider>
       </AuthContextProvider>
     </>

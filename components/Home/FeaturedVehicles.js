@@ -24,7 +24,7 @@ const FeaturedVehicles = () => {
 
             {
                 isFeaturedVehiclesLoading ?
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 2, mb: 4 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 3, mb: 4 }}>
                         <CircularProgress />
                     </Box> :
                     <Grid

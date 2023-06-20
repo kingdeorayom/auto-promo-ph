@@ -12,7 +12,7 @@ import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { useState } from "react"
 import Link from 'next/link';
-import Suggestions from '@/components/Vehicles/Suggestions';
+import Suggestion from '@/components/Vehicles/Suggestion';
 import setCurrency from '@/utils/setCurrency';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -302,7 +302,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                     </TabContext>
 
-                    <Suggestions brand_slug={vehicle.brand_slug} />
+                    <Suggestion brand_slug={vehicle.brand_slug} />
 
                 </Box>
 
