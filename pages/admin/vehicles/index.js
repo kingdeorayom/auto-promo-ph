@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout'
-import { Box, Breadcrumbs, Button, Divider, Grid, Stack, Typography } from '@mui/material'
+import { Box, Breadcrumbs, Button, Divider, Grid, IconButton, Stack, Typography, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, } from '@mui/material'
 import styles from '@/styles/Management.module.css'
 import Link from 'next/link'
 // import FeaturedVehicles from '@/components/Home/FeaturedVehicles'
@@ -11,6 +11,11 @@ import AddIcon from '@mui/icons-material/Add';
 import Image from 'next/image'
 import Head from 'next/head'
 import nookies from 'nookies'
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { useState } from 'react'
+import axios from 'axios'
+import Swal from 'sweetalert2'
+import { useRouter } from 'next/router'
 
 export async function getServerSideProps(context) {
 
@@ -34,7 +39,34 @@ export async function getServerSideProps(context) {
         },
     };
 }
+
 const VehicleManagement = ({ vehicles }) => {
+
+    const router = useRouter()
+
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+    const [selectedVehicleId, setSelectedVehicleId] = useState(null);
+    const [selectedVehicleName, setSelectedVehicleName] = useState(null);
+
+    const handleDeleteDialogOpen = () => setIsDeleteDialogOpen(true)
+
+    const handleDeleteDialogClose = () => setIsDeleteDialogOpen(false)
+
+    const handleDeleteVehicle = (id, vehicleName) => {
+
+        setIsDeleteDialogOpen(false);
+        axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/${id}`)
+            .then((response) => {
+                Swal.fire(
+                    `Successfully deleted ${vehicleName}`,
+                    'Lorem ipsum',
+                    'success'
+                ).then(() => router.reload())
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
     return (
         <>
@@ -110,17 +142,29 @@ const VehicleManagement = ({ vehicles }) => {
                                                 </Link>
                                                 <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
                                                 <Typography color='#808080' mb={2} fontSize='14px' fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
-                                                <Link
-                                                    // href={`/admin/vehicles/edit`}
-                                                    href={{
-                                                        pathname: "/admin/vehicles/edit",
-                                                        query: {
-                                                            vehicleId: vehicle._id
-                                                        }
-                                                    }}
-                                                >
-                                                    <Button size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
-                                                </Link>
+                                                <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
+                                                    <Link
+                                                        // href={`/admin/vehicles/edit`}
+                                                        href={{
+                                                            pathname: "/admin/vehicles/edit",
+                                                            query: {
+                                                                vehicleId: vehicle._id
+                                                            }
+                                                        }}
+                                                    >
+                                                        <Button size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
+                                                    </Link>
+                                                    <IconButton
+                                                        // onClick={() => handleDeleteVehicle(vehicle._id)}
+                                                        onClick={() => {
+                                                            handleDeleteDialogOpen()
+                                                            setSelectedVehicleId(vehicle._id)
+                                                            setSelectedVehicleName(vehicle.name)
+                                                        }}
+                                                    >
+                                                        <DeleteOutlineIcon color='error' />
+                                                    </IconButton>
+                                                </Box>
                                             </Box>
                                         </Stack>
                                     </Stack>
@@ -129,6 +173,28 @@ const VehicleManagement = ({ vehicles }) => {
                             )
                         })
                     }
+
+                    <Dialog
+                        open={isDeleteDialogOpen}
+                        onClose={handleDeleteDialogClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title" color='error'>
+                            {`Are you sure you want to delete ${selectedVehicleName}?`}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                This action is irreversible. Please be careful.
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleDeleteDialogClose} color='primary'>Cancel</Button>
+                            <Button onClick={() => handleDeleteVehicle(selectedVehicleId, selectedVehicleName)} autoFocus color='error'>
+                                Yes, I am sure
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
 
                 </Box>
             </Layout>
