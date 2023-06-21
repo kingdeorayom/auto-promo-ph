@@ -12,19 +12,25 @@ import Swal from 'sweetalert2';
 import Head from 'next/head'
 import { InquiriesContext } from '@/context/InquiriesContext'
 import { useInquiries } from '@/hooks/useInquiries'
+import nookies from 'nookies'
 
-// export async function getStaticProps() {
+export async function getServerSideProps(context) {
 
-//     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`);
-//     const inquiries = await response.json();
+    const cookies = nookies.get(context)
 
-//     return {
-//         props: {
-//             inquiries: inquiries
-//         },
-//         revalidate: 10
-//     };
-// }
+    if (!cookies['auth-token']) {
+        return {
+            redirect: {
+                destination: '/admin',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: {},
+    };
+}
 
 const InquiriesPage = () => {
 

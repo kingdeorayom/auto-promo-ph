@@ -15,22 +15,31 @@ import { AuthContext } from '@/context/AuthContext';
 import Image from 'next/image';
 import logo from '@/public/logotosvg.png'
 import Head from 'next/head';
+import nookies from 'nookies'
+
+export async function getServerSideProps(context) {
+
+    const cookies = nookies.get(context)
+
+    if (cookies['auth-token']) {
+        return {
+            redirect: {
+                destination: '/admin/dashboard',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: {},
+    };
+}
 
 const LoginPage = () => {
 
     const router = useRouter()
 
     const { login, error, isLoading } = useLogin()
-
-    const { user } = useContext(AuthContext)
-
-    useEffect(() => {
-        if (user !== null) {
-            // router.push('/admin/dashboard')
-            router.push('/admin/dashboard')
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user])
 
     const form = useForm({
         mode: 'onChange',
@@ -42,8 +51,7 @@ const LoginPage = () => {
 
     const onSubmit = async (data) => {
         await login(data.email, data.password)
-        // reset()
-        // router.push({ pathname: "/admin/dashboard" })
+        router.reload()
     }
 
     const [isPasswordShown, setIsPasswordShown] = useState(false);

@@ -1,5 +1,6 @@
 import { AuthContext } from "@/context/AuthContext"
 import { useAuthContext } from "./useAuthContext"
+import { setCookie, parseCookies, destroyCookie } from 'nookies'
 
 export const useLogout = () => {
 
@@ -8,6 +9,12 @@ export const useLogout = () => {
     const logout = () => {
         // remove user from storage
         localStorage.removeItem('user')
+
+        destroyCookie(null, 'auth-token', {
+            path: '/',
+            sameSite: 'strict',
+            maxAge: 0,
+        })
 
         // dispatch logout action
 

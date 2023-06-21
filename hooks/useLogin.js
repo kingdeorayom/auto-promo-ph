@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { setCookie } from 'nookies'
 
 export const useLogin = () => {
 
@@ -29,6 +30,12 @@ export const useLogin = () => {
         if (response.ok) {
             // save the user to local storage
             localStorage.setItem('user', JSON.stringify(json))
+
+            setCookie(null, 'auth-token', JSON.stringify(json), {
+                path: '/',
+                sameSite: 'strict',
+                // maxAge: 3 * 24 * 60 * 60, // expires in 3 days
+            })
 
             // update the auth context
             dispatch({ type: 'LOGIN', payload: json })

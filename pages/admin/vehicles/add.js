@@ -12,17 +12,28 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form'
 import AddIcon from '@mui/icons-material/Add';
 import Head from 'next/head';
+import nookies from 'nookies'
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`);
     const vehicles = await response.json();
+
+    const cookies = nookies.get(context)
+
+    if (!cookies['auth-token']) {
+        return {
+            redirect: {
+                destination: '/admin',
+                permanent: false,
+            },
+        }
+    }
 
     return {
         props: {
             vehicles: vehicles,
         },
-        revalidate: 10
     };
 }
 

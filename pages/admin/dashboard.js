@@ -14,7 +14,9 @@ import dhang_casten from '@/public/dhang_casten.jpg'
 import { useLogout } from '@/hooks/useLogout'
 import Head from 'next/head'
 
-export async function getStaticProps() {
+import nookies from 'nookies'
+
+export async function getServerSideProps(context) {
 
     const vehiclesResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`);
     const vehicles = await vehiclesResponse.json();
@@ -22,12 +24,22 @@ export async function getStaticProps() {
     const inquiriesResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`);
     const inquiries = await inquiriesResponse.json();
 
+    const cookies = nookies.get(context)
+
+    if (!cookies['auth-token']) {
+        return {
+            redirect: {
+                destination: '/admin',
+                permanent: false,
+            },
+        }
+    }
+
     return {
         props: {
             vehicles: vehicles,
             inquiries: inquiries
         },
-        revalidate: 10
     };
 }
 
@@ -53,23 +65,23 @@ const Dashboard = ({ vehicles, inquiries }) => {
 
     let orientation = useMediaQuery(theme.breakpoints.down("md"))
 
-    const redirectToPage = () => {
-        if (!isLoading || user === null) {
-            router.push('/admin')
-        }
-    }
+    // const redirectToPage = () => {
+    //     if (!isLoading || user === null) {
+    //         router.push('/admin')
+    //     }
+    // }
 
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 1000);
-        redirectToPage()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setIsLoading(false)
+    //     }, 1000);
+    //     redirectToPage()
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
 
-    if (isLoading || user === null) {
-        return <AppLoader />
-    }
+    // if (isLoading || user === null) {
+    //     return <AppLoader />
+    // }
 
     return (
         <>

@@ -12,23 +12,9 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import Head from 'next/head';
+import nookies from 'nookies'
 
-export async function getStaticPaths() {
-
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`)
-    const inquiries = await response.json()
-
-    const paths = inquiries.map(inquiry => {
-        return { params: { inquiryId: inquiry._id } }
-    })
-
-    return {
-        paths: paths,
-        fallback: 'blocking',
-    };
-}
-
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
     const inquiry_id = context.params.inquiryId
 
@@ -38,12 +24,22 @@ export async function getStaticProps(context) {
     const vehicleResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/detail/${inquiry.vehicleSlug}`);
     const vehicle = await vehicleResponse.json();
 
+    const cookies = nookies.get(context)
+
+    if (!cookies['auth-token']) {
+        return {
+            redirect: {
+                destination: '/admin',
+                permanent: false,
+            },
+        }
+    }
+
     return {
         props: {
             inquiry: inquiry,
             vehicle: vehicle
         },
-        revalidate: 10
     };
 }
 
