@@ -110,7 +110,15 @@ const VehicleManagement = ({ vehicles }) => {
                                                 </Link>
                                                 <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
                                                 <Typography color='#808080' mb={2} fontSize='14px' fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
-                                                <Link href={`/admin/vehicles/edit`} >
+                                                <Link
+                                                    // href={`/admin/vehicles/edit`}
+                                                    href={{
+                                                        pathname: "/admin/vehicles/edit",
+                                                        query: {
+                                                            vehicleId: vehicle._id
+                                                        }
+                                                    }}
+                                                >
                                                     <Button size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
                                                 </Link>
                                             </Box>
