@@ -31,13 +31,13 @@ export async function getStaticProps(context) {
     const vehicles = await response.json();
 
     // const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
-    const brandResponse = await fetch(`${API_URL}/brands/get/slug/toyota`);
-    const brand = await brandResponse.json();
+    // const brandResponse = await fetch(`${API_URL}/brands/get/slug/toyota`);
+    // const brand = await brandResponse.json();
 
     return {
         props: {
             vehicles: vehicles,
-            brand: brand
+            // brand: brand
         },
         revalidate: 10
     };
@@ -69,7 +69,7 @@ const Brand = ({ vehicles, brand }) => {
                     paddingRight: '15px',
                     textAlign: 'center',
                 }}>
-                    <Box
+                    {/* <Box
                         sx={{
                             width: '100%',
                             maxWidth: '768px',
@@ -84,9 +84,9 @@ const Brand = ({ vehicles, brand }) => {
                             unoptimized={true}
                             alt=''
                         />
-                        <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name} (Not final)</Typography>
+                        <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography>
                         <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography>
-                    </Box>
+                    </Box> */}
 
                 </Box>
 
@@ -100,7 +100,7 @@ const Brand = ({ vehicles, brand }) => {
                     }}
                 >
                     <Typography fontSize='1.5rem' variant="h2" fontWeight='700'>All vehicles</Typography>
-                    <Typography fontSize='1rem' variant="subtitle1" color='secondary'>All available vehicles of {brand.name}</Typography>
+                    <Typography fontSize='1rem' variant="subtitle1" color='secondary'>All available vehicles of {brandName}</Typography>
 
                     <Grid
                         container
