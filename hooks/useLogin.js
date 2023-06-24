@@ -31,7 +31,7 @@ export const useLogin = () => {
             // save the user to local storage
             localStorage.setItem('user', JSON.stringify(json))
 
-            setCookie(null, 'auth-token', JSON.stringify(json), {
+            setCookie(null, 'auth_token', 'loggedIn', {
                 path: '/',
                 sameSite: 'strict',
                 // maxAge: 3 * 24 * 60 * 60, // expires in 3 days

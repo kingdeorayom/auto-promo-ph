@@ -27,7 +27,7 @@ export async function getServerSideProps(context) {
 
     const cookies = nookies.get(context)
 
-    if (!cookies['auth-token']) {
+    if (!cookies['auth_token']) {
         return {
             redirect: {
                 destination: '/admin',

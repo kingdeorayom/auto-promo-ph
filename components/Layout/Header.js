@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router";
@@ -12,8 +12,11 @@ import facebook_icon from '@/public/facebook_icon.svg'
 import styles from '@/styles/Header.module.css'
 import Drawer from "./Drawer";
 import { useAuthContext } from "@/hooks/useAuthContext";
+import nookies from 'nookies'
 
 const Header = () => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const navigation_item_override = {
         px: 2,
@@ -24,14 +27,25 @@ const Header = () => {
         }
     }
 
+    const cookies = nookies.get()
+
+    useEffect(() => {
+        setIsLoggedIn(cookies['auth_token'] === 'loggedIn')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     const router = useRouter()
 
     const { user } = useAuthContext()
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-    const fromMediumDisplay = { xs: 'none', sm: 'none', md: 'flex' }
-    const menuIconDisplay = { xs: 'flex', sm: 'flex', md: 'none' }
+    const fromMediumDisplayWithoutDashboard = { xs: 'none', sm: 'none', md: 'flex' }
+    const fromMediumDisplayWithDashboard = { xs: 'none', sm: 'none', lg: 'flex' }
+
+    const menuIconDisplayWithoutDashboard = { xs: 'flex', sm: 'flex', md: 'none' }
+    const menuIconDisplayWithDashboard = { xs: 'flex', md: 'flex', lg: 'none' }
+
     const withDashboardDisplay = { xs: 'none', lg: 'flex' }
     const withNoDashboardDisplay = { xs: 'none', md: 'flex' }
 
@@ -50,14 +64,14 @@ const Header = () => {
                                 height={40}
                             />
                         </Link>
-                        <Stack direction='row' spacing={3} marginLeft='30px' display={user !== null ? withDashboardDisplay : withNoDashboardDisplay}>
-                            {user && (
+                        <Stack direction='row' spacing={3} marginLeft='30px' display={isLoggedIn ? withDashboardDisplay : withNoDashboardDisplay}>
+                            {isLoggedIn ?
                                 <Link href='/admin/dashboard'>
                                     <Box sx={navigation_item_override}>
                                         <Typography fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} color={router.pathname == '/admin/dashboard' ? "primary" : "black"}>Dashboard</Typography>
                                     </Box>
-                                </Link>
-                            )}
+                                </Link> : null
+                            }
                             <Link href='/'>
                                 <Box sx={navigation_item_override}>
                                     <Typography fontWeight={router.pathname == '/' ? "700" : "400"} color={router.pathname == '/' ? "primary" : "black"}>Explore</Typography>
@@ -88,7 +102,7 @@ const Header = () => {
                     <Stack
                         direction='row'
                         spacing={2}
-                        display={fromMediumDisplay}
+                        display={isLoggedIn ? fromMediumDisplayWithDashboard : fromMediumDisplayWithoutDashboard}
                     >
                         <Link href='/search'>
                             <IconButton>
@@ -129,7 +143,7 @@ const Header = () => {
                     <Stack
                         direction='row'
                         spacing={2}
-                        display={menuIconDisplay}
+                        display={isLoggedIn ? menuIconDisplayWithDashboard : menuIconDisplayWithoutDashboard}
                     >
                         <Link href='/search'>
                             <IconButton>
@@ -149,6 +163,7 @@ const Header = () => {
                 isDrawerOpen={isDrawerOpen}
                 setIsDrawerOpen={setIsDrawerOpen}
                 router={router}
+                isLoggedIn={isLoggedIn}
             />
 
         </>

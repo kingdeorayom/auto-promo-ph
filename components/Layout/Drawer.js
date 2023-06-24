@@ -11,7 +11,7 @@ import facebook_icon from '@/public/facebook_icon.svg'
 import logo from '@/public/logotosvg.png'
 import styles from '@/styles/Header.module.css'
 
-const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
+const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
 
     const navigation_item_override = {
         mx: 1,
@@ -66,11 +66,23 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
 
             <Divider sx={{ mb: 2 }} />
 
+            {
+                isLoggedIn ? <Link href='/admin/dashboard'>
+                    <Box sx={navigation_item_override}>
+                        <Box marginLeft={2.5}>
+                            <Typography fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} fontSize='15px' color={router.pathname == '/admin/dashboard' ? "primary" : "black"} mb={.5}>Dashboard</Typography>
+                            <Typography fontSize='13px' color='#808080'>Manage the content of your website and view customer or client inquiries</Typography>
+                        </Box>
+                        <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                    </Box>
+                </Link> : null
+            }
+
             <Link href='/'>
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
                         <Typography fontWeight={router.pathname == '/' ? "700" : "400"} fontSize='15px' color={router.pathname == '/' ? "primary" : "black"} mb={.5}>Explore</Typography>
-                        <Typography fontSize='13px' color='#808080'>Browse different collections of vehicles offered by Auto Promo PH. Use the Quick Search Filters to easily find your dream vehicle.</Typography>
+                        <Typography fontSize='13px' color='#808080'>Browse different collections of vehicles offered by Auto Promo PH. Use the Quick Search Filters to easily find your dream vehicle</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
@@ -80,7 +92,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
                         <Typography fontWeight={router.pathname == '/brands' ? "700" : "400"} fontSize='15px' color={router.pathname == '/brands' ? "primary" : "black"} mb={.5}>Brands</Typography>
-                        <Typography fontSize='13px' color='#808080'>View available vehicle brands offered by Auto Promo PH. Read a few insight regarding a brand.</Typography>
+                        <Typography fontSize='13px' color='#808080'>View available vehicle brands offered by Auto Promo PH. Read a few insight regarding a brand</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
@@ -90,7 +102,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
                         <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} fontSize='15px' color={router.pathname == '/promos' ? "primary" : "black"} mb={.5}>Promos</Typography>
-                        <Typography fontSize='13px' color='#808080'>View the current promos offered by Auto Promo PH.</Typography>
+                        <Typography fontSize='13px' color='#808080'>View the current promos offered by Auto Promo PH</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
@@ -110,7 +122,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
                         <Typography fontWeight={router.pathname == '/contact' ? "700" : "400"} fontSize='15px' color={router.pathname == '/contact' ? "primary" : "black"} mb={.5}>Contact</Typography>
-                        <Typography fontSize='13px' color='#808080'>Reach out to us. View our contact information.</Typography>
+                        <Typography fontSize='13px' color='#808080'>Reach out to us. View our contact information</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>

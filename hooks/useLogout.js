@@ -10,7 +10,7 @@ export const useLogout = () => {
         // remove user from storage
         localStorage.removeItem('user')
 
-        destroyCookie(null, 'auth-token', {
+        destroyCookie(null, 'auth_token', {
             path: '/',
             sameSite: 'strict',
             maxAge: 0,

@@ -21,7 +21,7 @@ export async function getServerSideProps(context) {
 
     const cookies = nookies.get(context)
 
-    if (cookies['auth-token']) {
+    if (cookies['auth_token']) {
         return {
             redirect: {
                 destination: '/admin/dashboard',
@@ -102,7 +102,8 @@ const LoginPage = () => {
                                     fullWidth
                                     placeholder='juandelacruz@example.com'
                                     InputProps={{
-                                        startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                        startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
+                                        sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
                                     }}
                                     {...register('email')}
                                     helperText={errors.email?.message}
@@ -117,8 +118,9 @@ const LoginPage = () => {
                                     fullWidth
                                     placeholder='Enter your password'
                                     InputProps={{
-                                        startAdornment: <InputAdornment position='start'><LockOutlinedIcon sx={{ marginRight: .5 }} /></InputAdornment>,
-                                        endAdornment: <InputAdornment position='end'><IconButton onClick={togglePassword}>{isPasswordShown ? <VisibilityOutlinedIcon sx={{ marginRight: .5 }} /> : <VisibilityOffOutlinedIcon sx={{ marginRight: .5 }} />}</IconButton></InputAdornment>
+                                        startAdornment: <InputAdornment position='start'><LockOutlinedIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
+                                        endAdornment: <InputAdornment position='end'><IconButton onClick={togglePassword}>{isPasswordShown ? <VisibilityOutlinedIcon sx={{ marginRight: .5 }} /> : <VisibilityOffOutlinedIcon sx={{ marginRight: .5 }} />}</IconButton></InputAdornment>,
+                                        sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
                                     }}
                                     {...register('password')}
                                     helperText={errors.password?.message}
