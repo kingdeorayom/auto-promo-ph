@@ -92,9 +92,16 @@ const Dashboard = ({ vehicles, inquiries }) => {
             <Layout>
                 <Box className={styles.wrapper}>
 
-                    <Box mb={5} display='flex' alignItems='center' justifyContent='space-between'>
+                    <Box mb={3} display='flex' alignItems='center' justifyContent='space-between'
+                        sx={{
+                            backgroundColor: '#ffffff',
+                            padding: '15px 25px',
+                            borderRadius: '10px',
+                            boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
+                        }}
+                    >
                         <Box>
-                            <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1}>Dashboard</Typography>
+                            <Typography fontSize='2.1rem' variant="h2" fontWeight='700' mb={.5} color='primary'>Dashboard</Typography>
                             <Typography fontSize='1rem' variant="h3" color='secondary'>Manage the content of your website and view customer or client inquiries</Typography>
                         </Box>
                         <Image
@@ -113,7 +120,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                 </Alert> */}
 
                     <Box className={styles.box}>
-                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' color='#1976D2' >Overview</Typography>
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' color='#1976D2'>Overview</Typography>
                         <Typography color='#808080' fontWeight='400' mb={3}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
 
                         <Stack
@@ -128,13 +135,13 @@ const Dashboard = ({ vehicles, inquiries }) => {
                         >
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
-                                    <Typography fontWeight='700'>INQUIRIES</Typography>
+                                    <Typography fontWeight='700' color='#343434'>INQUIRIES</Typography>
                                 </Stack>
                                 <Typography color='secondary' fontWeight='400'>{`Total inquiries: ${inquiries.length}`}</Typography>
                             </Box>
                             <Box>
                                 <Stack direction='row' spacing={1} mb={1}>
-                                    <Typography fontWeight='700'>VEHICLES</Typography>
+                                    <Typography fontWeight='700' color='#343434'>VEHICLES</Typography>
                                 </Stack>
                                 <Typography color='secondary' fontWeight='400'>{`Total listed: ${vehicles.length} vehicles`}</Typography>
                             </Box>
@@ -163,7 +170,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                                         </Box>
                                         <Typography color='#808080' mb={2} fontWeight='400'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
                                         <Link href='/admin/vehicles'>
-                                            <Button variant="contained" disableElevation endIcon={<ArrowForwardIcon />}>Manage Listings</Button>
+                                            <Button variant="contained" endIcon={<ArrowForwardIcon />}>Manage Listings</Button>
                                         </Link>
                                     </Box>
                                     <Box display={{ xs: 'none', sm: 'block' }}>
@@ -181,7 +188,6 @@ const Dashboard = ({ vehicles, inquiries }) => {
                             <Box className={styles.box}>
                                 <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
                                     <Box>
-
                                         <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>Inquiries</Typography>
                                         <Box my={2} display={{ xs: 'block', sm: 'none' }} sx={{ textAlign: 'center' }}>
                                             <Image
@@ -192,7 +198,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                                         </Box>
                                         <Typography color='#808080' mb={2} fontWeight='400'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
                                         <Link href='/admin/inquiries'>
-                                            <Button variant="contained" disableElevation endIcon={<ArrowForwardIcon />}>View Inquiries</Button>
+                                            <Button variant="contained" endIcon={<ArrowForwardIcon />}>View Inquiries</Button>
                                         </Link>
                                     </Box>
                                     <Box display={{ xs: 'none', sm: 'block' }}>

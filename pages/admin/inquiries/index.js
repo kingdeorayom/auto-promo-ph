@@ -90,7 +90,7 @@ const InquiriesPage = () => {
                     </Box>
 
                     <Box>
-                        <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1}>Inquiries</Typography>
+                        <Typography fontSize='2.1rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Inquiries</Typography>
                         <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
                     </Box>
 

@@ -19,7 +19,7 @@ const FeaturedVehicles = () => {
 
     return (
         <>
-            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>Featured Vehicles</Typography>
+            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Featured Vehicles</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary'>Featured vehicles curated just for you</Typography>
 
             {

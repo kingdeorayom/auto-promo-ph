@@ -1,16 +1,31 @@
+.welcome {
+    width: 100%;
+    background-color: #ffffff;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: 40px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .categoryImageBox {
     position: relative;
     margin: auto;
     border-radius: 10px;
     overflow: hidden;
-    height: 200px;
+    height: 150px;
 }
 
 .categoryImageBox .backgroundImage {
     transition: all 0.3s;
     display: block;
     width: 100%;
-    height: 200px;
+    height: 150px;
     transform: scale(1);
     object-fit: cover;
     max-width: 100%;

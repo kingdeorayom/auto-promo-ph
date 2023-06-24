@@ -89,25 +89,33 @@ const VehicleManagement = ({ vehicles }) => {
                         </Breadcrumbs>
                     </Box>
 
-                    <Box display='flex' justifyContent='space-between' alignItems='center'>
-                        <Box>
-                            <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1}>All vehicles</Typography>
-                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={2}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
+                    <Box sx={{
+                        backgroundColor: '#ffffff',
+                        padding: '20px 20px',
+                        borderRadius: '10px',
+                        boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
+                        mb: 3
+                    }}>
+                        <Box display='flex' justifyContent='space-between' alignItems='center'>
+                            <Box>
+                                <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>All vehicles</Typography>
+                                <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={2}>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
+                            </Box>
+                            <Box display={{ xs: 'none', lg: 'block' }}>
+                                <Link href='/admin/vehicles/add'>
+                                    <Button variant="contained" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
+                                </Link>
+                            </Box>
                         </Box>
-                        <Box display={{ xs: 'none', lg: 'block' }}>
+
+                        <Box display={{ xs: 'block', lg: 'none' }}>
                             <Link href='/admin/vehicles/add'>
                                 <Button variant="contained" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
                             </Link>
                         </Box>
                     </Box>
 
-                    <Box display={{ xs: 'block', lg: 'none' }}>
-                        <Link href='/admin/vehicles/add'>
-                            <Button variant="contained" disableElevation color='primary' startIcon={<AddIcon />}>Add a vehicle</Button>
-                        </Link>
-                    </Box>
-
-                    <Divider sx={{ mt: 3, mb: 5 }} />
+                    {/* <Divider sx={{ mt: 3, mb: 5 }} /> */}
 
                     {
                         vehicles.reverse().map(vehicle => {

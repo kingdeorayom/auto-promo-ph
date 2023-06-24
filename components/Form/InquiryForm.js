@@ -18,13 +18,13 @@ const InquiryForm = () => {
     const form = useForm({
         mode: 'onChange',
         resolver: yupResolver(inquiry),
-        defaultValues: {
-            firstName: 'Serking',
-            lastName: 'de Orayom',
-            email: 'kingdeorayom@gmail.com',
-            mobileNumber: '09564750051',
-            message: 'Hello'
-        }
+        // defaultValues: {
+        //     firstName: 'Serking',
+        //     lastName: 'de Orayom',
+        //     email: 'kingdeorayom@gmail.com',
+        //     mobileNumber: '09564750051',
+        //     message: 'Hello'
+        // }
     })
 
     const { register, control, handleSubmit, formState, reset, getValues } = form
@@ -64,12 +64,20 @@ const InquiryForm = () => {
     }
 
     return (
-        <>
+        <Box
+            sx={{
+                backgroundColor: '#ffffff',
+                padding: '30px 20px',
+                mb: '30px',
+                borderRadius: '10px',
+                boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
+            }}
+        >
             <Typography fontSize='1.5rem' variant="h1" fontWeight='500' mb={3}>Inquiry Form</Typography>
 
             <Divider />
 
-            <Box mb={3}>
+            <Box>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     noValidate
@@ -82,7 +90,8 @@ const InquiryForm = () => {
                             fullWidth
                             placeholder='Enter your first name'
                             InputProps={{
-                                startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
+                                sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
                             }}
                             {...register('firstName')}
                             helperText={errors.firstName?.message}
@@ -97,7 +106,8 @@ const InquiryForm = () => {
                             fullWidth
                             placeholder='Enter your last name'
                             InputProps={{
-                                startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
+                                sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
                             }}
                             {...register('lastName')}
                             helperText={errors.lastName?.message}
@@ -112,7 +122,8 @@ const InquiryForm = () => {
                             fullWidth
                             placeholder='Enter your email'
                             InputProps={{
-                                startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
+                                sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
                             }}
                             {...register('email')}
                             helperText={errors.email?.message}
@@ -127,7 +138,8 @@ const InquiryForm = () => {
                             fullWidth
                             placeholder='Enter your mobile number'
                             InputProps={{
-                                startAdornment: <InputAdornment position='start'><LocalPhoneOutlinedIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                startAdornment: <InputAdornment position='start'><LocalPhoneOutlinedIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
+                                sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
                             }}
                             {...register('mobileNumber')}
                             helperText={errors.mobileNumber?.message}
@@ -145,10 +157,13 @@ const InquiryForm = () => {
                             rows={5}
                             {...register('message')}
                             helperText={errors.message?.message}
+                            InputProps={{
+                                sx: { borderRadius: 3, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                            }}
                         />
                     </Box>
 
-                    <Alert severity="warning" sx={{ my: 3, }}>By clicking the submit button below, you agree to send your <strong>name</strong>, <strong>email address</strong> and <strong>mobile number</strong>. Also, please make sure that the information you provided above are accurate.</Alert>
+                    <Alert severity="warning" sx={{ my: 3, borderRadius: '10px' }}>By clicking the submit button below, you agree to send your <strong>name</strong>, <strong>email address</strong> and <strong>mobile number</strong>. Also, please make sure that the information you provided above are accurate.</Alert>
 
                     {
                         isSending ?
@@ -169,7 +184,7 @@ const InquiryForm = () => {
                     </Button>
                 </form>
             </Box>
-        </>
+        </Box>
     )
 }
 

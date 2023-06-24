@@ -10,6 +10,7 @@ const Welcome = () => {
                 mt={.8}
                 mb={1}
                 lineHeight={1}
+                color='#343434'
             >
                 Welcome to{' '}
                 <Typography
@@ -23,7 +24,7 @@ const Welcome = () => {
                 </Typography>
             </Typography>
 
-            <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>
+            <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={2} color='secondary'>
                 Explore, or easily search for vehicles using our search field below
             </Typography>
         </>

@@ -1,9 +1,10 @@
 import Layout from '@/layouts/Layout';
-import { Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import VehicleCard from '@/components/Vehicles/VehicleCard';
 import Head from 'next/head';
+import Image from 'next/image';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -29,15 +30,19 @@ export async function getStaticProps(context) {
     const response = await fetch(`${API_URL}/brands/vehicle/${brandSlug}`);
     const vehicles = await response.json();
 
+    const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
+    const brand = await brandResponse.json();
+
     return {
         props: {
             vehicles: vehicles,
+            brand: brand
         },
         revalidate: 10
     };
 }
 
-const Brand = ({ vehicles }) => {
+const Brand = ({ vehicles, brand }) => {
 
     const router = useRouter()
 
@@ -55,33 +60,72 @@ const Brand = ({ vehicles }) => {
                 <meta name="description" content="Welcome to Auto Promo PH" />
             </Head>
             <Layout>
-                <Typography fontSize='2rem' variant="h2" fontWeight='700'>{`Showing all vehicles of ${brandName}`}</Typography>
-                <Typography fontSize='1rem' variant="subtitle1" color='secondary'>There are currently {vehicles.length} vehicles in this brand</Typography>
 
-                <Grid
-                    container
-                    mt={2}
-                    mb={4}
-                    rowSpacing={3}
-                    columnSpacing={2}
+                <Box sx={{
+                    width: '100%',
+                    backgroundColor: '#ffffff',
+                    paddingLeft: '15px',
+                    paddingRight: '15px',
+                    textAlign: 'center',
+                }}>
+                    <Box
+                        sx={{
+                            width: '100%',
+                            maxWidth: '768px',
+                            margin: 'auto',
+                            my: '40px'
+                        }}
+                    >
+                        <Image
+                            src={`${process.env.NEXT_PUBLIC_API_URL}${brand.logo}`}
+                            width={90}
+                            height={50}
+                            unoptimized={true}
+                            alt=''
+                        />
+                        <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography>
+                        <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography>
+                    </Box>
+
+                </Box>
+
+                <Box
+                    sx={{
+                        width: '100%',
+                        maxWidth: '1280px',
+                        margin: '40px auto',
+                        paddingLeft: '15px',
+                        paddingRight: '15px'
+                    }}
                 >
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='700'>All vehicles</Typography>
+                    <Typography fontSize='1rem' variant="subtitle1" color='secondary'>All available vehicles of {brand.name}</Typography>
 
-                    {vehicles.map((vehicle) => {
-                        return (
-                            <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
-                                <Link href={`${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
-                                    <VehicleCard
-                                        image={`${API_URL}${vehicle.image}`}
-                                        name={vehicle.name}
-                                        price={vehicle.price}
-                                        downpayment={vehicle.price}
-                                    />
-                                </Link>
-                            </Grid>
-                        )
-                    })}
+                    <Grid
+                        container
+                        mt={2}
+                        mb={4}
+                        rowSpacing={3}
+                        columnSpacing={2}
+                    >
 
-                </Grid>
+                        {vehicles.map((vehicle) => {
+                            return (
+                                <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
+                                    <Link href={`${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
+                                        <VehicleCard
+                                            image={`${API_URL}${vehicle.image}`}
+                                            name={vehicle.name}
+                                            price={vehicle.price}
+                                            downpayment={vehicle.price}
+                                        />
+                                    </Link>
+                                </Grid>
+                            )
+                        })}
+
+                    </Grid>
+                </Box>
 
             </Layout>
         </>

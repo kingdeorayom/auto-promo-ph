@@ -106,7 +106,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                         // height: '300',
                                         // maxHeight: '100%',
                                         // maxWidth: '100%',
-                                        borderRadius: 5,
+                                        borderRadius: '5px',
                                         objectFit: 'contain'
                                     }}
                                     placeholder='blur'
@@ -120,7 +120,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 <Typography fontSize='1rem' variant="subtitle1" color='success.main' fontWeight='500'>₱ {setCurrency(vehicle.price)}</Typography>
                                 <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>DP starts @ ₱ 23,829.00</Typography>
                                 <Link href={{ pathname: '/inquire', query: { q: vehicle.vehicle_slug } }}>
-                                    <Button variant="contained" disableElevation>Inquire Now</Button>
+                                    <Button variant="contained">Inquire Now</Button>
                                 </Link>
                             </Box>
                         </Grid>
@@ -139,13 +139,13 @@ const VehicleDetails = ({ vehicle, variants }) => {
                         </Box>
 
                         <TabPanel value='1' sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={2}>About this vehicle</Typography>
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={2} color='#343434'>About this vehicle</Typography>
 
                             {/* <Alert severity="info" sx={{ mb: 2, fontSize: '1rem' }}>{vehicle.description}</Alert> */}
 
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2} className={styles.description}>{vehicle.description}</Typography>
 
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mt={3} mb={2}>Vehicle Details</Typography>
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mt={3} mb={2} color='#343434'>Vehicle Details</Typography>
 
                             <Box className={styles.stackWrapper}>
 
@@ -190,7 +190,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                         <TabPanel value='2' sx={{ paddingLeft: 0, paddingRight: 0 }}>
 
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1}>Specs & Features</Typography>
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Specs & Features</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>Key specifications & features of the {vehicle.name}. View engine specs, dimensions, safety and technology features in detail below.
                             </Typography>
 
@@ -235,13 +235,13 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                             <Box mt={3}>
 
-                                <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1}>Available colors</Typography>
+                                <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Available colors</Typography>
                                 <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes in {vehicle.colors.length} available colors
                                 </Typography>
 
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '768px', maxWidth: '100%' }}>
                                     {
-                                        vehicle.colors.map((item, index) => <Chip key={index} label={item} variant="outlined" sx={{ mx: '3px', my: '5px' }} />)
+                                        vehicle.colors.map((item, index) => <Chip key={index} label={item} variant="outlined" sx={{ mx: '3px', my: '5px', backgroundColor: '#ffffff', border: '0 solid black', boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)' }} />)
                                     }
                                 </Box>
                             </Box>
@@ -249,7 +249,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                         </TabPanel>
 
                         <TabPanel value='3' sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1}>{vehicle.name} Price List</Typography>
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>{vehicle.name} Price List</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis corrupti perferendis nobis dolore necessitatibus, quos totam excepturi sint eligendi id vel in! Modi praesentium voluptate repellendus similique illum aliquam laborum.</Typography>
 
                             <Alert severity="info" sx={{ mb: 3 }}>

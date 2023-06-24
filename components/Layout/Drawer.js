@@ -69,7 +69,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
             <Link href='/'>
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/' ? "700" : "400"} fontSize='16px' color={router.pathname == '/' ? "primary" : "black"} mb={.5}>Explore</Typography>
+                        <Typography fontWeight={router.pathname == '/' ? "700" : "400"} fontSize='15px' color={router.pathname == '/' ? "primary" : "black"} mb={.5}>Explore</Typography>
                         <Typography fontSize='13px' color='#808080'>Browse different collections of vehicles offered by Auto Promo PH. Use the Quick Search Filters to easily find your dream vehicle.</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
@@ -79,8 +79,8 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
             <Link href='/brands'>
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/brands' ? "700" : "400"} fontSize='16px' color={router.pathname == '/brands' ? "primary" : "black"} mb={.5}>Brands</Typography>
-                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
+                        <Typography fontWeight={router.pathname == '/brands' ? "700" : "400"} fontSize='15px' color={router.pathname == '/brands' ? "primary" : "black"} mb={.5}>Brands</Typography>
+                        <Typography fontSize='13px' color='#808080'>View available vehicle brands offered by Auto Promo PH. Read a few insight regarding a brand.</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
@@ -89,8 +89,8 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
             <Link href='/promos'>
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} fontSize='16px' color={router.pathname == '/promos' ? "primary" : "black"} mb={.5}>Promos</Typography>
-                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
+                        <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} fontSize='15px' color={router.pathname == '/promos' ? "primary" : "black"} mb={.5}>Promos</Typography>
+                        <Typography fontSize='13px' color='#808080'>View the current promos offered by Auto Promo PH.</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
@@ -99,7 +99,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
             {/* <Link href='/about'>
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} fontSize='16px' color={router.pathname == '/about' ? "primary" : "black"} mb={.5}>About</Typography>
+                        <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} fontSize='15px' color={router.pathname == '/about' ? "primary" : "black"} mb={.5}>About</Typography>
                         <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
@@ -109,8 +109,8 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen }) => {
             <Link href='/contact'>
                 <Box sx={navigation_item_override}>
                     <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/contact' ? "700" : "400"} fontSize='16px' color={router.pathname == '/contact' ? "primary" : "black"} mb={.5}>Contact</Typography>
-                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
+                        <Typography fontWeight={router.pathname == '/contact' ? "700" : "400"} fontSize='15px' color={router.pathname == '/contact' ? "primary" : "black"} mb={.5}>Contact</Typography>
+                        <Typography fontSize='13px' color='#808080'>Reach out to us. View our contact information.</Typography>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>

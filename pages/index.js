@@ -6,6 +6,8 @@ import Banner from "@/components/Home/Banner"
 import SearchBox from "@/components/Search/SearchBox"
 import Welcome from "@/components/Home/Welcome"
 import Head from "next/head"
+import { Box } from "@mui/material"
+import styles from '@/styles/Home.module.css'
 
 const Home = () => {
 
@@ -16,12 +18,18 @@ const Home = () => {
         <meta name="description" content="Welcome to Auto Promo PH. Explore, or easily search for vehicles using our search field below." />
       </Head>
       <Layout>
-        <Welcome />
-        <SearchBox />
-        <FeaturedVehicles />
-        <BodyTypeSearch />
-        <BudgetSearch />
-        <Banner />
+        <Box className={styles.welcome}>
+          <Box sx={{ textAlign: 'center', mt: 7, mb: 2 }}>
+            <Welcome />
+            <SearchBox />
+          </Box>
+        </Box>
+        <Box className={styles.wrapper}>
+          <FeaturedVehicles />
+          <BodyTypeSearch />
+          <BudgetSearch />
+          <Banner />
+        </Box>
       </Layout>
     </>
   )

@@ -14,6 +14,17 @@ import AddIcon from '@mui/icons-material/Add';
 import Head from 'next/head';
 import nookies from 'nookies'
 
+import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import LocalGasStationOutlinedIcon from '@mui/icons-material/LocalGasStationOutlined';
+import AirportShuttleOutlinedIcon from '@mui/icons-material/AirportShuttleOutlined';
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import FeaturedPlayListOutlinedIcon from '@mui/icons-material/FeaturedPlayListOutlined';
+import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
+
 export async function getServerSideProps(context) {
 
     const vehicleId = context.query.vehicleId
@@ -192,269 +203,287 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                         </Breadcrumbs>
                     </Box>
 
-                    <Box>
-                        <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1}>Edit {vehicleDetails.name}</Typography>
-                        <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Details you update may not immediately reflect on the details of vehicle, though this is very unlike to happen</Typography>
+                    <Box
+                        sx={{
+                            backgroundColor: '#ffffff',
+                            padding: '25px 25px',
+                            marginBottom: '20px',
+                            borderRadius: '10px',
+                            boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
+                        }}>
+                        <Box>
+                            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Edit {vehicleDetails.name}</Typography>
+                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Details you update may not immediately reflect on the details of vehicle, though this is very unlike to happen</Typography>
+                        </Box>
+
+                        <Alert severity="warning" sx={{ mt: 3, mb: 2 }}>Review the data you will input before clicking the save button below</Alert>
+
                     </Box>
 
-                    {/* <Divider /> */}
-
-                    <Alert severity="warning" sx={{ my: 3 }}>Review the data you will input before clicking the save button below</Alert>
-
-                    <Box mb={3}>
-                        <form
-                            onSubmit={handleSubmit(onSubmit)}
-                            noValidate
-                            encType='multipart/form-data'
-                        >
-                            <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Name*</Typography>
-                                <TextField
-                                    type='text'
-                                    fullWidth
-                                    placeholder='e.g., Mitsubishi Mirage G4'
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
-                                    }}
-                                    {...register('name')}
-                                    helperText={errors.name?.message}
-                                />
-                                <Box onClick={handleSlugDialogOpen} sx={{ cursor: 'pointer' }}>
-                                    <Typography mt={1} fontSize='13px' color='primary' fontWeight='400'>Learn more about vehicle name and vehicle slug</Typography>
-                                </Box>
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography fontWeight='500'>Price*</Typography>
-                                <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 768000.</Typography>
-                                <TextField
-                                    type='number'
-                                    fullWidth
-                                    placeholder='e.g, 768000'
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
-                                    }}
-                                    {...register('price')}
-                                    helperText={errors.price?.message}
-                                />
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Description*</Typography>
-                                <TextField
-                                    type='text'
-                                    fullWidth
-                                    placeholder='Provide a description of the vehicle'
-                                    {...register('description')}
-                                    helperText={errors.description?.message}
-                                    multiline
-                                    rows={5}
-                                />
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Brand*</Typography>
-                                <TextField
-                                    select
-                                    fullWidth
-                                    label="Select Brand"
-                                    defaultValue=''
-                                    inputProps={register('brand')}
-                                >
-                                    <MenuItem value='Geely'>Geely</MenuItem>
-                                    <MenuItem value='Honda'>Honda</MenuItem>
-                                    <MenuItem value='Isuzu'>Isuzu</MenuItem>
-                                    <MenuItem value='MG'>MG</MenuItem>
-                                    <MenuItem value='Mitsubishi'>Mitsubishi</MenuItem>
-                                    <MenuItem value='Suzuki'>Suzuki</MenuItem>
-                                    <MenuItem value='Toyota'>Toyota</MenuItem>
-                                </TextField>
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Model*</Typography>
-                                <TextField
-                                    type='text'
-                                    fullWidth
-                                    placeholder='e.g., Mirage G4'
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
-                                    }}
-                                    {...register('model')}
-                                    helperText={errors.model?.message}
-                                />
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Body Type*</Typography>
-                                <TextField
-                                    select
-                                    fullWidth
-                                    label="Select Body Type"
-                                    defaultValue=''
-                                    inputProps={register('type')}
-                                >
-                                    <MenuItem value='Sedan'>Sedan</MenuItem>
-                                    <MenuItem value='SUV'>SUV</MenuItem>
-                                    <MenuItem value='Hatchback'>Hatchback</MenuItem>
-                                    <MenuItem value='Van'>Van</MenuItem>
-                                    <MenuItem value='Utility'>Utility</MenuItem>
-                                </TextField>
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Transmission*</Typography>
-                                <TextField
-                                    select
-                                    fullWidth
-                                    label="Select Transmission"
-                                    defaultValue=''
-                                    inputProps={register('transmission')}
-                                >
-                                    {/* <MenuItem value='Automatic'>Automatic</MenuItem>
-                                <MenuItem value='Manual'>Manual</MenuItem> */}
-                                    <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
-                                    <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
-                                    <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
-                                    <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
-                                    <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
-                                    <MenuItem value='Manual'>Manual</MenuItem>
-                                </TextField>
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Fuel Type*</Typography>
-                                <TextField
-                                    select
-                                    fullWidth
-                                    label="Select Fuel Type"
-                                    defaultValue=''
-                                    inputProps={register('fuelType')}
-                                >
-                                    <MenuItem value='Diesel'>Diesel</MenuItem>
-                                    <MenuItem value='Gasoline'>Gasoline</MenuItem>
-                                </TextField>
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Year*</Typography>
-                                <TextField
-                                    type='tel'
-                                    fullWidth
-                                    placeholder='e.g, 2023'
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
-                                    }}
-                                    inputProps={{ maxLength: 4 }}
-                                    {...register('year')}
-                                    helperText={errors.year?.message}
-                                />
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Key Features*</Typography>
-                                <TextField
-                                    type='text'
-                                    fullWidth
-                                    placeholder="Provide this vehicle's key features"
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
-                                    }}
-                                    {...register('keyFeatures')}
-                                    helperText={errors.keyFeatures?.message}
-                                />
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Variants</Typography>
-                                <Typography mb={1} fontSize='14px' fontWeight='400'>Added variants:</Typography>
-                                {
-                                    variants.map((item, index) => {
-                                        return (
-                                            <Chip
-                                                key={index}
-                                                label={item.name}
-                                                variant='contained'
-                                                color='primary'
-                                                sx={{ mx: .5, my: .5 }}
-                                                onDelete={() => removeVariant(index)}
-                                            />
-                                        )
-                                    })
-                                }
-                            </Box>
-
-                            <Box>
-                                <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
-                            </Box>
-
-                            <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Available Colors*</Typography>
-                                <Typography mb={1} fontSize='13px' fontWeight='400'>Enter available colors for this vehicle, separated by a comma. Note that an entry is determined after each comma.</Typography>
-                                <TextField
-                                    type='text'
-                                    fullWidth
-                                    placeholder="e.g., Red, Green, Blue"
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
-                                    }}
-                                    {...register('colors')}
-                                    helperText={errors.colors?.message}
-                                />
-                            </Box>
-
-                            <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image*</Typography>
-                            <input
-                                type='file'
-                                // accept="image/*"
-                                accept="image/png, image/jpeg, image/jpg"
-                                {...register('image', {
-                                    onChange: handleImageChange
-                                })}
-                                name='image'
-                                required
-                            />
-
-                            <Box sx={{ mt: 2, border: '1px solid #d3d3d3', width: '275px', height: '125px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                                {
-                                    imagePreview !== null ?
-                                        <Image
-                                            src={imagePreview}
-                                            alt='Preview image'
-                                            width={250}
-                                            height={100}
-                                        /> :
-                                        <Typography color='#808080' fontSize='12px' mx={2}>The image you will attach will be previewed here. To change, simple choose another file using the file picker above.</Typography>
-                                }
-                            </Box>
-                            <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image you will upload.</Typography>
-
-                            {errorMessage !== null ?
-                                <Alert severity="error" sx={{ my: 3 }}>
-                                    <AlertTitle>Oops!</AlertTitle>
-                                    {errorMessage}
-                                </Alert> : null
-                            }
-
-                            {
-                                isUploading ?
-                                    <Box sx={{ my: 3 }}>
-                                        <Typography mb={2}>Saving vehicle details ...</Typography>
-                                        <LinearProgress />
-                                    </Box> : null
-                            }
-
-                            <Button
-                                type='submit'
-                                variant="contained"
-                                disableElevation
-                                size="large"
-                                sx={{ mt: 2.5 }}
-                                disabled={isUploading}
+                    <Box
+                        sx={{
+                            backgroundColor: '#ffffff',
+                            padding: '10px 20px',
+                            mb: '30px',
+                            borderRadius: '10px',
+                            boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
+                        }}
+                    >
+                        <Box mb={3}>
+                            <form
+                                onSubmit={handleSubmit(onSubmit)}
+                                noValidate
+                                encType='multipart/form-data'
                             >
-                                Save
-                            </Button>
-                        </form>
+                                <Box my={2}>
+                                    <Typography mb={1} fontWeight='500'>Name*</Typography>
+                                    <TextField
+                                        type='text'
+                                        fullWidth
+                                        placeholder='e.g., Mitsubishi Mirage G4'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                        }}
+                                        {...register('name')}
+                                        helperText={errors.name?.message}
+                                    />
+                                    <Box onClick={handleSlugDialogOpen} sx={{ cursor: 'pointer' }}>
+                                        <Typography mt={1} fontSize='13px' color='primary' fontWeight='400'>Learn more about vehicle name and vehicle slug</Typography>
+                                    </Box>
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography fontWeight='500'>Price*</Typography>
+                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 768000.</Typography>
+                                    <TextField
+                                        type='number'
+                                        fullWidth
+                                        placeholder='e.g, 768000'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                        }}
+                                        {...register('price')}
+                                        helperText={errors.price?.message}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={1} fontWeight='500'>Description*</Typography>
+                                    <TextField
+                                        type='text'
+                                        fullWidth
+                                        placeholder='Provide a description of the vehicle'
+                                        {...register('description')}
+                                        helperText={errors.description?.message}
+                                        multiline
+                                        rows={5}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={2} fontWeight='500'>Brand*</Typography>
+                                    <TextField
+                                        select
+                                        fullWidth
+                                        label="Select Brand"
+                                        defaultValue=''
+                                        inputProps={register('brand')}
+                                    >
+                                        <MenuItem value='Geely'>Geely</MenuItem>
+                                        <MenuItem value='Honda'>Honda</MenuItem>
+                                        <MenuItem value='Isuzu'>Isuzu</MenuItem>
+                                        <MenuItem value='MG'>MG</MenuItem>
+                                        <MenuItem value='Mitsubishi'>Mitsubishi</MenuItem>
+                                        <MenuItem value='Suzuki'>Suzuki</MenuItem>
+                                        <MenuItem value='Toyota'>Toyota</MenuItem>
+                                    </TextField>
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={1} fontWeight='500'>Model*</Typography>
+                                    <TextField
+                                        type='text'
+                                        fullWidth
+                                        placeholder='e.g., Mirage G4'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                        }}
+                                        {...register('model')}
+                                        helperText={errors.model?.message}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={2} fontWeight='500'>Body Type*</Typography>
+                                    <TextField
+                                        select
+                                        fullWidth
+                                        label="Select Body Type"
+                                        defaultValue=''
+                                        inputProps={register('type')}
+                                    >
+                                        <MenuItem value='Sedan'>Sedan</MenuItem>
+                                        <MenuItem value='SUV'>SUV</MenuItem>
+                                        <MenuItem value='Hatchback'>Hatchback</MenuItem>
+                                        <MenuItem value='Van'>Van</MenuItem>
+                                        <MenuItem value='Utility'>Utility</MenuItem>
+                                    </TextField>
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={2} fontWeight='500'>Transmission*</Typography>
+                                    <TextField
+                                        select
+                                        fullWidth
+                                        label="Select Transmission"
+                                        defaultValue=''
+                                        inputProps={register('transmission')}
+                                    >
+                                        {/* <MenuItem value='Automatic'>Automatic</MenuItem>
+                                <MenuItem value='Manual'>Manual</MenuItem> */}
+                                        <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
+                                        <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
+                                        <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
+                                        <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
+                                        <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
+                                        <MenuItem value='Manual'>Manual</MenuItem>
+                                    </TextField>
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={2} fontWeight='500'>Fuel Type*</Typography>
+                                    <TextField
+                                        select
+                                        fullWidth
+                                        label="Select Fuel Type"
+                                        defaultValue=''
+                                        inputProps={register('fuelType')}
+                                    >
+                                        <MenuItem value='Diesel'>Diesel</MenuItem>
+                                        <MenuItem value='Gasoline'>Gasoline</MenuItem>
+                                    </TextField>
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={2} fontWeight='500'>Year*</Typography>
+                                    <TextField
+                                        type='tel'
+                                        fullWidth
+                                        placeholder='e.g, 2023'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                        }}
+                                        inputProps={{ maxLength: 4 }}
+                                        {...register('year')}
+                                        helperText={errors.year?.message}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={1} fontWeight='500'>Key Features*</Typography>
+                                    <TextField
+                                        type='text'
+                                        fullWidth
+                                        placeholder="Provide this vehicle's key features"
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                        }}
+                                        {...register('keyFeatures')}
+                                        helperText={errors.keyFeatures?.message}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={1} fontWeight='500'>Variants</Typography>
+                                    <Typography mb={1} fontSize='14px' fontWeight='400'>Added variants:</Typography>
+                                    {
+                                        variants.map((item, index) => {
+                                            return (
+                                                <Chip
+                                                    key={index}
+                                                    label={item.name}
+                                                    variant='contained'
+                                                    color='primary'
+                                                    sx={{ mx: .5, my: .5 }}
+                                                    onDelete={() => removeVariant(index)}
+                                                />
+                                            )
+                                        })
+                                    }
+                                </Box>
+
+                                <Box>
+                                    <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography mb={1} fontWeight='500'>Available Colors*</Typography>
+                                    <Typography mb={1} fontSize='13px' fontWeight='400'>Enter available colors for this vehicle, separated by a comma. Note that an entry is determined after each comma.</Typography>
+                                    <TextField
+                                        type='text'
+                                        fullWidth
+                                        placeholder="e.g., Red, Green, Blue"
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5 }} /></InputAdornment>
+                                        }}
+                                        {...register('colors')}
+                                        helperText={errors.colors?.message}
+                                    />
+                                </Box>
+
+                                <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image*</Typography>
+                                <input
+                                    type='file'
+                                    // accept="image/*"
+                                    accept="image/png, image/jpeg, image/jpg"
+                                    {...register('image', {
+                                        onChange: handleImageChange
+                                    })}
+                                    name='image'
+                                    required
+                                />
+
+                                <Box sx={{ mt: 2, border: '1px solid #d3d3d3', width: '275px', height: '125px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                                    {
+                                        imagePreview !== null ?
+                                            <Image
+                                                src={imagePreview}
+                                                alt='Preview image'
+                                                width={250}
+                                                height={100}
+                                            /> :
+                                            <Typography color='#808080' fontSize='12px' mx={2}>The image you will attach will be previewed here. To change, simple choose another file using the file picker above.</Typography>
+                                    }
+                                </Box>
+                                <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image you will upload.</Typography>
+
+                                {errorMessage !== null ?
+                                    <Alert severity="error" sx={{ my: 3 }}>
+                                        <AlertTitle>Oops!</AlertTitle>
+                                        {errorMessage}
+                                    </Alert> : null
+                                }
+
+                                {
+                                    isUploading ?
+                                        <Box sx={{ my: 3 }}>
+                                            <Typography mb={2}>Saving vehicle details ...</Typography>
+                                            <LinearProgress />
+                                        </Box> : null
+                                }
+
+                                <Button
+                                    type='submit'
+                                    variant="contained"
+                                    disableElevation
+                                    size="large"
+                                    sx={{ mt: 2.5 }}
+                                    disabled={isUploading}
+                                >
+                                    Save changes
+                                </Button>
+                            </form>
+                        </Box>
                     </Box>
 
                     <Dialog
