@@ -49,19 +49,19 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
 
     const form = useForm({
         mode: 'onChange',
-        // defaultValues: {
-        //     // name: vehicleDetails.name,
-        //     // price: vehicleDetails.price,
-        //     // description: vehicleDetails.description,
-        //     // brand: vehicleDetails.brand,
-        //     // model: vehicleDetails.model,
-        //     // type: vehicleDetails.type,
-        //     // transmission: vehicleDetails.transmission,
-        //     // fuelType: vehicleDetails.fuelType,
-        //     // year: vehicleDetails.year,
-        //     // keyFeatures: vehicleDetails.keyFeatures,
-        //     // colors: vehicleDetails.colors,
-        // }
+        defaultValues: {
+            name: vehicleDetails.name,
+            price: vehicleDetails.price,
+            description: vehicleDetails.description,
+            brand: vehicleDetails.brand,
+            model: vehicleDetails.model,
+            type: vehicleDetails.type,
+            transmission: vehicleDetails.transmission,
+            fuelType: vehicleDetails.fuelType,
+            year: vehicleDetails.year,
+            keyFeatures: vehicleDetails.keyFeatures,
+            // colors: vehicleDetails.colors,
+        }
     })
 
     const { register, handleSubmit, formState, reset } = form
@@ -69,7 +69,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
 
     const [errorMessage, setErrorMessage] = useState(null)
     const [imagePreview, setImagePreview] = useState(null)
-    const [variants, setVariants] = useState([])
+    const [variants, setVariants] = useState(vehicleDetails.variants)
     const [isUploading, setIsUploading] = useState(false)
 
     const convertToBase64 = (image) => {
@@ -100,15 +100,15 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
 
     const onSubmit = (data) => {
 
-        if (data.image.length !== 0) {
-            setErrorMessage(null)
-        } else {
-            return setErrorMessage('Image is required. Please attach an image and try submitting again.')
-        }
+        // if (data.image.length !== 0) {
+        //     setErrorMessage(null)
+        // } else {
+        //     return setErrorMessage('Image is required. Please attach an image and try submitting again.')
+        // }
 
-        if (data.colors === '') {
-            return setErrorMessage('At least one available color is required.')
-        }
+        // if (data.colors === '') {
+        //     return setErrorMessage('At least one available color is required.')
+        // }
 
         let availableColors = data.colors.split(/[ ,]+/)
 
@@ -120,35 +120,35 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
 
         console.log(data)
 
-        setIsUploading(true)
+        // setIsUploading(true)
 
-        axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/${vehicleDetails._id}`, data, { headers: { "Content-Type": "multipart/form-data" } })
-            .then((response) => {
-                // reset()
-                // setErrorMessage(null)
-                // Swal.fire(
-                //     'Vehicle added successfully.',
-                //     'Lorem ipsum',
-                //     'success'
-                // ).then(() => router.reload())
+        // axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/${vehicleDetails._id}`, data, { headers: { "Content-Type": "multipart/form-data" } })
+        //     .then((response) => {
+        //         // reset()
+        //         // setErrorMessage(null)
+        //         // Swal.fire(
+        //         //     'Vehicle added successfully.',
+        //         //     'Lorem ipsum',
+        //         //     'success'
+        //         // ).then(() => router.reload())
 
-                if (response.status === 200) {
-                    setErrorMessage(null)
-                    setIsUploading(false)
-                    reset()
-                    Swal.fire(
-                        'Vehicle edited successfully',
-                        'Lorem ipsum',
-                        'success'
-                    ).then(() => router.reload())
-                }
+        //         if (response.status === 200) {
+        //             setErrorMessage(null)
+        //             setIsUploading(false)
+        //             reset()
+        //             Swal.fire(
+        //                 'Vehicle edited successfully',
+        //                 'Lorem ipsum',
+        //                 'success'
+        //             ).then(() => router.reload())
+        //         }
 
-            })
-            .catch((error) => {
-                console.log(error.response.data.message);
-                setErrorMessage(error.response.data.message)
-                setIsUploading(false)
-            });
+        //     })
+        //     .catch((error) => {
+        //         console.log(error.response.data.message);
+        //         setErrorMessage(error.response.data.message)
+        //         setIsUploading(false)
+        //     });
     }
 
     const handleImageChange = (e) => {
