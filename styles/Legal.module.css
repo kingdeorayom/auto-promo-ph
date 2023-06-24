@@ -1,0 +1,13 @@
+.wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.link{
+    color: #1976d2
+}
+
+.link:hover{
+    text-decoration: underline;
+}
