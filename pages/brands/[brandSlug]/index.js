@@ -30,7 +30,8 @@ export async function getStaticProps(context) {
     const response = await fetch(`${API_URL}/brands/vehicle/${brandSlug}`);
     const vehicles = await response.json();
 
-    const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
+    // const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
+    const brandResponse = await fetch(`${API_URL}/brands/get/slug/toyota`);
     const brand = await brandResponse.json();
 
     return {
@@ -83,7 +84,7 @@ const Brand = ({ vehicles, brand }) => {
                             unoptimized={true}
                             alt=''
                         />
-                        <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography>
+                        <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name} (Not final)</Typography>
                         <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography>
                     </Box>
 
