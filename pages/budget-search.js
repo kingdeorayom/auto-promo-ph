@@ -16,19 +16,7 @@ import useNumberFormatter from '@/hooks/useNumberFormatter'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
-const BudgetSearchResults = () => {
-
-    const router = useRouter()
-
-    const { getBudgetSearchResults, isBudgetSearchResultsLoading } = useBudgetSearchResults()
-    const { budgetSearchResults } = useContext(ListingContext)
-
-    useEffect(() => {
-        getBudgetSearchResults(router.query.budget)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router.query.budget])
-
-    const isResultsEmpty = useEmptyArrayChecker(budgetSearchResults)
+const BudgetSearchSlider = () => {
 
     const [value, setValue] = useState(2000000);
 
@@ -60,6 +48,68 @@ const BudgetSearchResults = () => {
     ];
 
     return (
+
+        <Box display='flex' justifyContent='center'>
+            <Box sx={{
+                mt: 2,
+                mb: 5,
+                backgroundColor: '#ffffff',
+                padding: '5px 15px',
+                borderRadius: '10px',
+                width: '100%',
+                maxWidth: '1000px',
+                // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
+            }}
+            >
+                <Box sx={{ marginY: 2, marginX: 3 }}>
+                    <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5}>Adjust the slider below to match your maximum budget</Typography>
+                    <Box sx={{ mt: 3, marginX: 5 }}>
+                        <Slider
+                            valueLabelDisplay="on"
+                            valueLabelFormat={`₱ ${useNumberFormatter(value)}`}
+                            value={typeof value === 'number' ? value : 0}
+                            onChange={handleSliderChange}
+                            step={100000}
+                            marks={marks}
+                            min={700000}
+                            max={2500000}
+                        />
+                    </Box>
+                    <Box display='flex' justifyContent='center'>
+                        <Link href={`/budget-search?budget=${value}`}>
+                            <Button
+                                variant='outlined'
+                                size='large'
+                                color='info'
+                                sx={{ mt: 3.5, mb: .5, textTransform: 'unset' }}
+                            // endIcon={<EastIcon />}
+                            >
+                                Search for vehicles under ₱ {useNumberFormatter(value)}
+                            </Button>
+                        </Link>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+    )
+
+}
+
+const BudgetSearchResults = () => {
+
+    const router = useRouter()
+
+    const { getBudgetSearchResults, isBudgetSearchResultsLoading } = useBudgetSearchResults()
+    const { budgetSearchResults } = useContext(ListingContext)
+
+    useEffect(() => {
+        getBudgetSearchResults(router.query.budget)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [router.query.budget])
+
+    const isResultsEmpty = useEmptyArrayChecker(budgetSearchResults)
+
+    return (
         <>
             <Head>
                 <title>{`Showing vehicles under ₱ ${router.query.budget} | Auto Promo PH`}</title>
@@ -80,48 +130,7 @@ const BudgetSearchResults = () => {
 
                     {/* <SearchBox /> */}
 
-                    <Box display='flex' justifyContent='center'>
-                        <Box sx={{
-                            mt: 2,
-                            mb: 5,
-                            backgroundColor: '#ffffff',
-                            padding: '5px 15px',
-                            borderRadius: '10px',
-                            width: '100%',
-                            maxWidth: '1000px',
-                            // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
-                        }}
-                        >
-                            <Box sx={{ marginY: 2, marginX: 3 }}>
-                                <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5}>Adjust the slider below to match your maximum budget</Typography>
-                                <Box sx={{ mt: 3, marginX: 5 }}>
-                                    <Slider
-                                        valueLabelDisplay="on"
-                                        valueLabelFormat={`₱ ${useNumberFormatter(value)}`}
-                                        value={typeof value === 'number' ? value : 0}
-                                        onChange={handleSliderChange}
-                                        step={100000}
-                                        marks={marks}
-                                        min={700000}
-                                        max={2500000}
-                                    />
-                                </Box>
-                                <Box display='flex' justifyContent='center'>
-                                    <Link href={`/budget-search?budget=${value}`}>
-                                        <Button
-                                            variant='outlined'
-                                            size='large'
-                                            color='info'
-                                            sx={{ mt: 3.5, mb: .5, textTransform: 'unset' }}
-                                        // endIcon={<EastIcon />}
-                                        >
-                                            Search for vehicles under ₱ {useNumberFormatter(value)}
-                                        </Button>
-                                    </Link>
-                                </Box>
-                            </Box>
-                        </Box>
-                    </Box>
+                    <BudgetSearchSlider />
 
                 </Box>
 
