@@ -20,16 +20,16 @@ const Home = () => {
       </Head>
       <Layout>
         <Box className={styles.welcome}>
-          <Box sx={{ textAlign: 'center', mt: 7, mb: 2 }}>
+          <Box sx={{ textAlign: 'center', mt: 7, mb: 0 }}>
             <Welcome />
             <SearchBox />
           </Box>
         </Box>
         <Box className={styles.wrapper}>
-          <FeaturedVehicles />
+          <FeaturedVehicles isHome={true} hasSeeAll={true} />
           <BodyTypeSearch />
           <BudgetSearch />
-          <AllVehicles isHome={true} />
+          <AllVehicles isHome={true} hasSeeAll={true} />
           <Banner />
         </Box>
       </Layout>

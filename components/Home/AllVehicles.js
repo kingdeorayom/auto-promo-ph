@@ -4,10 +4,11 @@ import { Box, CircularProgress, Grid, Typography } from '@mui/material'
 import VehicleCard from '@/components/Vehicles/VehicleCard'
 import { useAllVehicles } from '@/hooks/useAllVehicles'
 import { ListingContext } from '@/context/ListingContext'
+import styles from '@/styles/Vehicles.module.css'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
-const AllVehicles = ({ isHome }) => {
+const AllVehicles = ({ isHome, hasSeeAll }) => {
 
     const { getAllVehicles, isAllVehiclesLoading } = useAllVehicles()
     const { allVehicles } = useContext(ListingContext)
@@ -19,8 +20,20 @@ const AllVehicles = ({ isHome }) => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>All Vehicles</Typography>
-            <Typography fontSize='1rem' variant="h3" color='secondary'>All vehicles available under Auto Promo PH</Typography>
+            <Box display='flex' alignItems='center' justifyContent='space-between'>
+                <Box>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>All Vehicles</Typography>
+                    <Typography fontSize='1rem' variant="h3" color='secondary'>All vehicles available under Auto Promo PH</Typography>
+                </Box>
+                {
+                    hasSeeAll ?
+                        <Link href='/vehicles'>
+                            <Box>
+                                <Typography color='#1976d2' fontSize='14px' fontWeight='500' className={styles.seeAll}>See all</Typography>
+                            </Box>
+                        </Link> : null
+                }
+            </Box>
 
             {
                 isAllVehiclesLoading ?
