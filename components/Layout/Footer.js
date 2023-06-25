@@ -12,7 +12,8 @@ const Footer = () => {
         <Box component='footer' className={styles.footer}>
             <Box
                 sx={{
-                    borderTop: '1px solid #d3d3d3',
+                    // borderTop: '1px solid #d3d3d3',
+                    paddingTop: 1,
                     paddingX: 5,
                     borderBottom: '1px solid #d3d3d3',
                 }}

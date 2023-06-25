@@ -1,8 +1,17 @@
-.wrapper {
+.container {
     width: 100%;
     max-width: 1000px;
     margin: 20px auto;
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.wrapper {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 1px 2px 0 rgba(36, 39, 44, 0.15);
+    margin-bottom: 30px;
 }
 
 .link{

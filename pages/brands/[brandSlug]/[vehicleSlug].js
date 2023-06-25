@@ -132,9 +132,9 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 onChange={handleChange}
                                 variant="scrollable"
                             >
-                                <Tab label='Overview' value='1' />
-                                <Tab label='Specifications' value='2' />
-                                <Tab label='Price List' value='3' />
+                                <Tab label='Overview' value='1' sx={{ fontWeight: '700' }} />
+                                <Tab label='Specifications' value='2' sx={{ fontWeight: '700' }} />
+                                <Tab label='Price List' value='3' sx={{ fontWeight: '700' }} />
                             </TabList>
                         </Box>
 
@@ -236,7 +236,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                             <Box mt={3}>
 
                                 <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Available colors</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes in {vehicle.colors.length} available colors
+                                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes with {vehicle.colors.length} available colors
                                 </Typography>
 
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '768px', maxWidth: '100%' }}>

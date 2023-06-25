@@ -34,7 +34,7 @@ const SearchSuggestions = () => {
                         columnSpacing={2}
                     >
                         {
-                            searchSuggestions.map(vehicle => {
+                            searchSuggestions.slice(0, 12).map(vehicle => {
                                 return (
                                     <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
                                         <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
