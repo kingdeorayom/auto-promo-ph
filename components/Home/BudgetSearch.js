@@ -15,23 +15,23 @@ const BudgetSearch = () => {
     const marks = [
         {
             value: 700000,
-            label: '₱ 700K',
+            label: '700K',
         },
         {
             value: 1000000,
-            label: '₱ 1M',
+            label: '1M',
         },
         {
             value: 1500000,
-            label: '₱ 1.5M',
+            label: '1.5M',
         },
         {
             value: 2000000,
-            label: '₱ 2M',
+            label: '2M',
         },
         {
             value: 2500000,
-            label: '₱ 2.5M',
+            label: '2.5M',
         },
     ];
 
@@ -67,13 +67,13 @@ const BudgetSearch = () => {
                                 max={2500000}
                             />
                         </Box>
-                        <Box display='flex' justifyContent='flex-start'>
+                        <Box display='flex' justifyContent='flex-start' sx={{ mt: 3.5, mb: .5, }}>
                             <Link href={`/budget-search?budget=${value}`}>
                                 <Button
                                     variant='outlined'
                                     size='large'
                                     color='info'
-                                    sx={{ mt: 3.5, mb: .5, textTransform: 'unset' }}
+                                    sx={{ textTransform: 'unset' }}
                                     endIcon={<EastIcon />}
                                 >
                                     Search for vehicles under ₱ {useNumberFormatter(value)}
