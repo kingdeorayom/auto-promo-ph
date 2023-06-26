@@ -9,11 +9,29 @@ import Swal from 'sweetalert2';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useRouter } from 'next/router';
 import emailjs from '@emailjs/browser';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const InquiryForm = () => {
 
     const router = useRouter()
+
+    const [vehicleName, setVehicleName] = useState('a vehicle')
+
+    const getVehicleBySlug = async () => {
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/detail/${router.query.q}`);
+            const vehicle = await response.json();
+            // console.log(vehicle)
+            setVehicleName(vehicle.name)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getVehicleBySlug()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [router.query.q])
 
     const form = useForm({
         mode: 'onChange',
@@ -34,6 +52,8 @@ const InquiryForm = () => {
     const onSubmit = async (data) => {
 
         data['vehicleSlug'] = router.query.q
+        data['vehicleName'] = vehicleName
+
         setIsSending(true)
 
         // console.log(data)
