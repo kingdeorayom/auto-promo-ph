@@ -30,14 +30,22 @@ export async function getStaticProps(context) {
     const response = await fetch(`${API_URL}/brands/vehicle/${brandSlug}`);
     const vehicles = await response.json();
 
-    // const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
-    // const brandResponse = await fetch(`${API_URL}/brands/get/slug/toyota`);
-    // const brand = await brandResponse.json();
+    let brand
+
+    try {
+        const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
+        // const brandResponse = await fetch(`${API_URL}/brands/get/slug/toyota`);
+        brand = await brandResponse.json();
+    } catch (error) {
+        console.log(error)
+    }
+
+    console.log(brand)
 
     return {
         props: {
             vehicles: vehicles,
-            // brand: brand
+            brand: brand
         },
         revalidate: 10
     };
@@ -69,7 +77,7 @@ const Brand = ({ vehicles, brand }) => {
                     paddingRight: '15px',
                     textAlign: 'center',
                 }}>
-                    {/* <Box
+                    <Box
                         sx={{
                             width: '100%',
                             maxWidth: '768px',
@@ -86,7 +94,7 @@ const Brand = ({ vehicles, brand }) => {
                         />
                         <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography>
                         <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography>
-                    </Box> */}
+                    </Box>
 
                 </Box>
 
