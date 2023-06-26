@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { InputAdornment, TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchBox = () => {
+const SearchBox = ({ autoFocus }) => {
 
     const router = useRouter()
     const [keyword, setKeyword] = useState('');
@@ -11,6 +11,7 @@ const SearchBox = () => {
     return (
         <TextField
             color='primary'
+            autoFocus={autoFocus}
             placeholder='Search for brand, name, model or type'
             sx={{ width: '100%', marginY: 3, maxWidth: '750px' }}
             InputProps={{

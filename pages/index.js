@@ -22,7 +22,7 @@ const Home = () => {
         <Box className={styles.welcome}>
           <Box sx={{ textAlign: 'center', mt: 7, mb: 0 }}>
             <Welcome />
-            <SearchBox />
+            <SearchBox autoFocus={false} />
           </Box>
         </Box>
         <Box className={styles.wrapper}>

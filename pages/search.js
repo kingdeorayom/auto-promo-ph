@@ -24,7 +24,7 @@ const Search = () => {
                     <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} color='#343434'>Search for vehicles</Typography>
                     <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>Easily search for vehicles using our search field below</Typography>
 
-                    <SearchBox />
+                    <SearchBox autoFocus={true} />
                 </Box>
                 <Box
                     sx={{
