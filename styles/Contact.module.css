@@ -1,0 +1,23 @@
+.wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.masthead{
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 20px;
+}
+
+.link{
+    color: #1976d2;
+}
+
+.link:hover{
+    text-decoration: underline;
+    text-decoration-color: #1976d2;
+    text-decoration-thickness: 1px;
+}
