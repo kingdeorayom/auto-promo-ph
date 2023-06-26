@@ -121,7 +121,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
         //     return setErrorMessage('At least one available color is required.')
         // }
 
-        let availableColors = data.colors.split(/[ ,]+/)
+        let availableColors = data.colors.split(/[,]+/)
 
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()

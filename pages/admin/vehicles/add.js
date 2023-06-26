@@ -24,6 +24,8 @@ import AirportShuttleOutlinedIcon from '@mui/icons-material/AirportShuttleOutlin
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import FeaturedPlayListOutlinedIcon from '@mui/icons-material/FeaturedPlayListOutlined';
 import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
+import ModeStandbyOutlinedIcon from '@mui/icons-material/ModeStandbyOutlined';
+import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined';
 
 export async function getServerSideProps(context) {
 
@@ -102,7 +104,7 @@ const AddVehicle = ({ vehicles }) => {
             return setErrorMessage('At least one available color is required.')
         }
 
-        let availableColors = data.colors.split(/[ ,]+/)
+        let availableColors = data.colors.split(/[,]+/)
 
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
@@ -110,7 +112,7 @@ const AddVehicle = ({ vehicles }) => {
         data['colors'] = availableColors
         data['variants'] = variants
 
-        // console.log(data)
+        console.log(data)
 
         setIsUploading(true)
 
@@ -194,7 +196,7 @@ const AddVehicle = ({ vehicles }) => {
                         }}>
                         <Box>
                             <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Add a new vehicle</Typography>
-                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Vehicles you add may not immediately appear on the list of vehicles</Typography>
+                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Vehicles you add may not immediately appear on the list of vehicles, but this is unlikely to happen.</Typography>
                         </Box>
 
                         <Alert severity="warning" sx={{ mt: 3, mb: 2 }}>Review the data you will input before clicking the save button below. In case of error in details, you may edit through <strong>Vehicle Management</strong> section under <strong>Dashboard</strong>.</Alert>
@@ -234,8 +236,8 @@ const AddVehicle = ({ vehicles }) => {
                                 </Box>
 
                                 <Box my={2}>
-                                    <Typography fontWeight='500'>Price*</Typography>
-                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is. For example: 768000.</Typography>
+                                    <Typography fontWeight='500'>Unit Price*</Typography>
+                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is.</Typography>
                                     <TextField
                                         type='number'
                                         fullWidth
@@ -246,6 +248,22 @@ const AddVehicle = ({ vehicles }) => {
                                         }}
                                         {...register('price')}
                                         helperText={errors.price?.message}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography fontWeight='500'>Net Price*</Typography>
+                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol just like with Unit Price.</Typography>
+                                    <TextField
+                                        type='number'
+                                        fullWidth
+                                        placeholder='e.g, 750000'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                        }}
+                                        {...register('netPrice')}
+                                        helperText={errors.netPrice?.message}
                                     />
                                 </Box>
 
@@ -365,6 +383,39 @@ const AddVehicle = ({ vehicles }) => {
                                         <MenuItem value='Gasoline'>Gasoline</MenuItem>
                                     </TextField>
                                 </Box>
+
+                                <Box my={2}>
+                                    <Typography fontWeight='500'>Engine Power*</Typography>
+                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
+                                    <TextField
+                                        type='number'
+                                        fullWidth
+                                        placeholder='e.g, 106'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><ModeStandbyOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                        }}
+                                        {...register('power')}
+                                        helperText={errors.power?.message}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography fontWeight='500'>Engine Displacement*</Typography>
+                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
+                                    <TextField
+                                        type='number'
+                                        fullWidth
+                                        placeholder='e.g, 1496'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><PrecisionManufacturingOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                        }}
+                                        {...register('engineDisplacement')}
+                                        helperText={errors.engineDisplacement?.message}
+                                    />
+                                </Box>
+
 
                                 <Box my={2}>
                                     <Typography mb={2} fontWeight='500'>Year*</Typography>

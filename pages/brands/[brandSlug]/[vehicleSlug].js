@@ -3,12 +3,12 @@ import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useT
 import Image from 'next/image';
 import styles from '@/styles/Details.module.css'
 import GasMeterIcon from '@mui/icons-material/GasMeter';
-import WidgetsIcon from '@mui/icons-material/Widgets';
-import SettingsIcon from '@mui/icons-material/Settings';
-import CategoryIcon from '@mui/icons-material/Category';
+import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import SpaceDashboardOutlinedIcon from '@mui/icons-material/SpaceDashboardOutlined';
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { useState } from "react"
 import Link from 'next/link';
@@ -16,6 +16,9 @@ import Suggestion from '@/components/Vehicles/Suggestion';
 import setCurrency from '@/utils/setCurrency';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import LocalGasStationOutlinedIcon from '@mui/icons-material/LocalGasStationOutlined';
+import ModeStandbyOutlinedIcon from '@mui/icons-material/ModeStandbyOutlined';
+import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined';
 
 export async function getStaticPaths() {
 
@@ -61,6 +64,8 @@ export async function getStaticProps(context) {
 }
 
 const VehicleDetails = ({ vehicle, variants }) => {
+
+    console.log(vehicle)
 
     const router = useRouter()
 
@@ -161,21 +166,21 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 >
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <SpaceDashboardIcon color='primary' />
+                                            <SpaceDashboardOutlinedIcon color='primary' />
                                             <Typography fontWeight='500'>MODEL</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{vehicle.model}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <WidgetsIcon color='primary' />
+                                            <WidgetsOutlinedIcon color='primary' />
                                             <Typography fontWeight='500'>BODY TYPE</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{vehicle.type}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <CalendarMonthIcon color='primary' />
+                                            <CalendarMonthOutlinedIcon color='primary' />
                                             <Typography fontWeight='500'>YEAR</Typography>
                                         </Stack>
                                         <Typography color='secondary'>
@@ -208,21 +213,50 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 >
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <SettingsIcon color='primary' />
+                                            <SettingsOutlinedIcon color='primary' />
                                             <Typography fontWeight='500'>TRANSMISSION</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{vehicle.transmission}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <GasMeterIcon color='primary' />
+                                            <LocalGasStationOutlinedIcon color='primary' />
                                             <Typography fontWeight='500'>FUEL TYPE</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{vehicle.fuelType}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <CategoryIcon color='primary' />
+                                            <ModeStandbyOutlinedIcon color='primary' />
+                                            <Typography fontWeight='500'>POWER</Typography>
+                                        </Stack>
+                                        <Typography color='secondary'>{`${vehicle.power} hp`}</Typography>
+                                    </Box>
+                                    <Box>
+                                        <Stack direction='row' spacing={1} mb={1}>
+                                            <PrecisionManufacturingOutlinedIcon color='primary' />
+                                            <Typography fontWeight='500'>ENGINE DISPLACEMENT</Typography>
+                                        </Stack>
+                                        <Typography color='secondary'>{`${vehicle.engineDisplacement} cc`}</Typography>
+                                    </Box>
+                                </Stack>
+
+                            </Box>
+
+                            <Box className={styles.stackWrapper}>
+
+                                <Stack
+                                    direction={stackDirectionBreakpoint}
+                                    spacing={stackSpacingBreakpoint}
+                                    divider={
+                                        <Divider
+                                            orientation={useMediaQuery(theme.breakpoints.down("md")) ? "horizontal" : "vertical"}
+                                            flexItem={true}
+                                        />
+                                    }
+                                >                                    <Box>
+                                        <Stack direction='row' spacing={1} mb={1}>
+                                            <CategoryOutlinedIcon color='primary' />
                                             <Typography fontWeight='500'>KEY FEATURES</Typography>
                                         </Stack>
                                         <Typography color='secondary'>
@@ -261,11 +295,11 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
-                                            <TableCell align='center'>Image</TableCell>
-                                            <TableCell align='center'>Name</TableCell>
-                                            <TableCell align='center'>Unit Price</TableCell>
-                                            <TableCell align='center'>Discount</TableCell>
-                                            <TableCell align='center'>Cash Promo</TableCell>
+                                            <TableCell align='center' sx={{ fontWeight: '700' }}>Image</TableCell>
+                                            <TableCell align='center' sx={{ fontWeight: '700' }}>Name</TableCell>
+                                            <TableCell align='center' sx={{ fontWeight: '700' }}>Unit Price</TableCell>
+                                            {/* <TableCell align='center'>Discount</TableCell> */}
+                                            <TableCell align='center' sx={{ fontWeight: '700' }}>Net Price</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -288,8 +322,8 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                                             </Link>
                                                         </TableCell>
                                                         <TableCell align='center'>₱ {setCurrency(item.price)}</TableCell>
-                                                        <TableCell align='center'>₱ {setCurrency(item.price)}</TableCell>
-                                                        <TableCell align='center'>₱ {setCurrency(item.price)}</TableCell>
+                                                        {/* <TableCell align='center'>₱ {setCurrency(item.price)}</TableCell> */}
+                                                        <TableCell align='center'>₱ {setCurrency(item.netPrice)}</TableCell>
                                                     </TableRow>
                                                 )
                                             })
