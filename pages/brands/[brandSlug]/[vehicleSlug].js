@@ -248,12 +248,12 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 <Stack
                                     direction={stackDirectionBreakpoint}
                                     spacing={stackSpacingBreakpoint}
-                                    divider={
-                                        <Divider
-                                            orientation={useMediaQuery(theme.breakpoints.down("md")) ? "horizontal" : "vertical"}
-                                            flexItem={true}
-                                        />
-                                    }
+                                // divider={
+                                //     <Divider
+                                //         orientation={useMediaQuery(theme.breakpoints.down("md")) ? "horizontal" : "vertical"}
+                                //         flexItem={true}
+                                //     />
+                                // }
                                 >                                    <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
                                             <CategoryOutlinedIcon color='primary' />
