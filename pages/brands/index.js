@@ -50,12 +50,13 @@ const Brands = ({ brands }) => {
                                         >
                                             <Box sx={{
                                                 // border: '1px solid #d3d3d3',
-                                                backgroundColor: '#fff',
+                                                backgroundColor: '#ffffff',
                                                 borderRadius: 2,
                                                 paddingY: 2.5,
                                                 display: 'flex',
                                                 justifyContent: 'flex-start',
                                                 alignItems: 'center',
+                                                boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
                                                 '&:hover': {
                                                     // backgroundColor: '#fcfcfc',
                                                     transform: 'translate(0, -7px)',

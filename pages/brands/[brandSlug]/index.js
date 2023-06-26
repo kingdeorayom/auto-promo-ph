@@ -57,7 +57,7 @@ const Brand = ({ vehicles, brand }) => {
     return (
         <>
             <Head>
-                <title>{brandName} | Auto Promo PH</title>
+                <title>{`${brandName} | Auto Promo PH`}</title>
                 <meta name="description" content="Welcome to Auto Promo PH" />
             </Head>
             <Layout>
