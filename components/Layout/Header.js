@@ -54,9 +54,15 @@ const Header = () => {
             <AppBar
                 position='sticky'
                 elevation={0}
+                sx={{
+                    backgroundColor: 'white',
+                    boxShadow: '0 0 4px 0 rgba(36, 39, 44, 0.15)',
+                    margin: '0 auto',
+                    // maxWidth: '1280px',
+                }}
             >
                 <Toolbar className={styles.toolbar}>
-                    <Box display='flex' alignItems='center'>
+                    <Box>
                         <Link href='/'>
                             <Image
                                 src={logo}
@@ -64,41 +70,41 @@ const Header = () => {
                                 height={40}
                             />
                         </Link>
-                        <Stack direction='row' spacing={3} marginLeft='30px' display={isLoggedIn ? withDashboardDisplay : withNoDashboardDisplay}>
-                            {isLoggedIn ?
-                                <Link href='/admin/dashboard'>
-                                    <Box sx={navigation_item_override}>
-                                        <Typography fontSize='1rem' fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} color={router.pathname == '/admin/dashboard' ? "primary" : "black"}>Dashboard</Typography>
-                                    </Box>
-                                </Link> : null
-                            }
-                            <Link href='/'>
+                    </Box>
+                    <Stack direction='row' spacing={3} marginLeft='30px' display={isLoggedIn ? withDashboardDisplay : withNoDashboardDisplay}>
+                        {isLoggedIn ?
+                            <Link href='/admin/dashboard'>
                                 <Box sx={navigation_item_override}>
-                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/' ? "700" : "400"} color={router.pathname == '/' ? "primary" : "black"}>Explore</Typography>
+                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} color={router.pathname == '/admin/dashboard' ? "primary" : "black"}>Dashboard</Typography>
                                 </Box>
-                            </Link>
-                            <Link href='/brands'>
-                                <Box sx={navigation_item_override}>
-                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/brands' ? "700" : "400"} color={router.pathname == '/brands' ? "primary" : "black"}>Brands</Typography>
-                                </Box>
-                            </Link>
-                            <Link href='/promos'>
-                                <Box sx={navigation_item_override}>
-                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
-                                </Box>
-                            </Link>
-                            {/* <Link href='/about'>
+                            </Link> : null
+                        }
+                        <Link href='/'>
+                            <Box sx={navigation_item_override}>
+                                <Typography fontSize='1rem' fontWeight={router.pathname == '/' ? "700" : "400"} color={router.pathname == '/' ? "primary" : "black"}>Explore</Typography>
+                            </Box>
+                        </Link>
+                        <Link href='/brands'>
+                            <Box sx={navigation_item_override}>
+                                <Typography fontSize='1rem' fontWeight={router.pathname == '/brands' ? "700" : "400"} color={router.pathname == '/brands' ? "primary" : "black"}>Brands</Typography>
+                            </Box>
+                        </Link>
+                        <Link href='/promos'>
+                            <Box sx={navigation_item_override}>
+                                <Typography fontSize='1rem' fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
+                            </Box>
+                        </Link>
+                        {/* <Link href='/about'>
                                 <Box sx={navigation_item_override}>
                                     <Typography fontSize='1rem' fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>
                                 </Box>
                             </Link> */}
-                            <Link href='/contact'>
-                                <Box sx={navigation_item_override}>
-                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/contact' ? "700" : "400"} color={router.pathname == '/contact' ? "primary" : "black"}>Contact</Typography>
-                                </Box>
-                            </Link>
-                        </Stack>
-                    </Box>
+                        <Link href='/contact'>
+                            <Box sx={navigation_item_override}>
+                                <Typography fontSize='1rem' fontWeight={router.pathname == '/contact' ? "700" : "400"} color={router.pathname == '/contact' ? "primary" : "black"}>Contact</Typography>
+                            </Box>
+                        </Link>
+                    </Stack>
                     <Stack
                         direction='row'
                         spacing={2}

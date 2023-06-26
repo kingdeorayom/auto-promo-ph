@@ -13,9 +13,13 @@ const Footer = () => {
             <Box
                 sx={{
                     // borderTop: '1px solid #d3d3d3',
-                    paddingTop: 1,
+                    paddingTop: .1,
                     paddingX: 5,
-                    borderBottom: '1px solid #d3d3d3',
+                    // borderBottom: '1px solid #d3d3d3',
+                    // display: 'flex',
+                    // justifyContent: 'center',
+                    maxWidth: '1280px',
+                    margin: '0 auto'
                 }}
             >
                 <Grid
@@ -23,23 +27,11 @@ const Footer = () => {
                     mt={2}
                     mb={4}
                     rowSpacing={3}
-                    columnSpacing={2}
+                    columnSpacing={'60px'}
+                // sx={{ backgroundColor: 'red' }}
                 >
 
-                    <Grid item xs={12} sm={3}>
-                        <Box sx={{}}>
-                            <Link href='/'>
-                                <Image
-                                    src={logo}
-                                    alt="Auto Promo PH"
-                                    height={40}
-                                    className={styles.logo}
-                                />
-                            </Link>
-                        </Box>
-                    </Grid>
-
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={4}>
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={3}>OVERVIEW</Typography>
                             <Link className={styles.link} href='/'>
@@ -54,7 +46,7 @@ const Footer = () => {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={4}>
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={3}>OTHERS</Typography>
                             <Link className={styles.link} href='/about'>
@@ -69,7 +61,7 @@ const Footer = () => {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={4}>
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={3}>CONNECT WITH ME</Typography>
                             <Typography mb={1} color='secondary' fontSize='.9rem'>Dhang Casten</Typography>
@@ -116,8 +108,9 @@ const Footer = () => {
                     // backgroundColor: '#fafafa',
                     backgroundColor: '#ffffff',
                     paddingX: 5,
-                    paddingY: 2,
-                    borderBottom: '1px solid #d3d3d3',
+                    paddingY: 2.5,
+                    // borderBottom: '1px solid #d3d3d3',
+                    borderTop: '1px solid #d3d3d3',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: "center"
