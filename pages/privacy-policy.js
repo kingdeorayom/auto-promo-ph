@@ -90,8 +90,8 @@ const PrivacyPolicy = () => {
                         <Typography mb={1}>If you have any questions about our Privacy Policy, You can contact us:</Typography>
 
                         <ul style={{ marginLeft: 20 }}>
-                            <li><Typography mb={1}>By mobile number: +63 956 475 0051</Typography></li>
-                            <li><Typography mb={1}>By email: kingdeorayom@gmail.com</Typography></li>
+                            <li><Typography mb={1}>By mobile number: +63 928 513 0117</Typography></li>
+                            <li><Typography mb={1}>By email: dhangcasten@autopromo.ph</Typography></li>
                         </ul>
                     </Box>
                 </Box>

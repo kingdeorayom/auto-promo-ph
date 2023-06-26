@@ -149,7 +149,7 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
                         {
                             vehicleNotFound ?
                                 <Alert severity="error" sx={{ borderRadius: '10px' }}>
-                                    <AlertTitle>Error</AlertTitle>
+                                    <AlertTitle>Vehicle not found</AlertTitle>
                                     {vehicle.message}
                                     {/* {errorMessage} */}
                                 </Alert> :

@@ -21,7 +21,7 @@ const InquiryForm = () => {
         // defaultValues: {
         //     firstName: 'Serking',
         //     lastName: 'de Orayom',
-        //     email: 'kingdeorayom@gmail.com',
+        //     email: 'dhangcasten@autopromo.ph',
         //     mobileNumber: '09564750051',
         //     message: 'Hello'
         // }

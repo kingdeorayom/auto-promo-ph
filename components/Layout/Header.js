@@ -68,33 +68,33 @@ const Header = () => {
                             {isLoggedIn ?
                                 <Link href='/admin/dashboard'>
                                     <Box sx={navigation_item_override}>
-                                        <Typography fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} color={router.pathname == '/admin/dashboard' ? "primary" : "black"}>Dashboard</Typography>
+                                        <Typography fontSize='1rem' fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} color={router.pathname == '/admin/dashboard' ? "primary" : "black"}>Dashboard</Typography>
                                     </Box>
                                 </Link> : null
                             }
                             <Link href='/'>
                                 <Box sx={navigation_item_override}>
-                                    <Typography fontWeight={router.pathname == '/' ? "700" : "400"} color={router.pathname == '/' ? "primary" : "black"}>Explore</Typography>
+                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/' ? "700" : "400"} color={router.pathname == '/' ? "primary" : "black"}>Explore</Typography>
                                 </Box>
                             </Link>
                             <Link href='/brands'>
                                 <Box sx={navigation_item_override}>
-                                    <Typography fontWeight={router.pathname == '/brands' ? "700" : "400"} color={router.pathname == '/brands' ? "primary" : "black"}>Brands</Typography>
+                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/brands' ? "700" : "400"} color={router.pathname == '/brands' ? "primary" : "black"}>Brands</Typography>
                                 </Box>
                             </Link>
                             <Link href='/promos'>
                                 <Box sx={navigation_item_override}>
-                                    <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
+                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
                                 </Box>
                             </Link>
                             {/* <Link href='/about'>
                                 <Box sx={navigation_item_override}>
-                                    <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>
+                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>
                                 </Box>
                             </Link> */}
                             <Link href='/contact'>
                                 <Box sx={navigation_item_override}>
-                                    <Typography fontWeight={router.pathname == '/contact' ? "700" : "400"} color={router.pathname == '/contact' ? "primary" : "black"}>Contact</Typography>
+                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/contact' ? "700" : "400"} color={router.pathname == '/contact' ? "primary" : "black"}>Contact</Typography>
                                 </Box>
                             </Link>
                         </Stack>
@@ -129,7 +129,7 @@ const Header = () => {
                                 />
                             </IconButton>
                         </Link>
-                        <Link href='mailto:kingdeorayom@gmail.com' target="_blank">
+                        <Link href='mailto:dhangcasten@autopromo.ph' target="_blank">
                             <IconButton>
                                 <Image
                                     src={gmail_icon}

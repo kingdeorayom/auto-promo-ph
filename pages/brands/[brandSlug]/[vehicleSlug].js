@@ -118,7 +118,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                             <Box ml={2}>
                                 <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>{vehicle.name}</Typography>
                                 <Typography fontSize='1rem' variant="subtitle1" color='success.main' fontWeight='500'>₱ {setCurrency(vehicle.price)}</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>DP starts @ ₱ 23,829.00</Typography>
+                                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>{`DP starts @ ₱ ${setCurrency(vehicle.price)}`}</Typography>
                                 <Link href={{ pathname: '/inquire', query: { q: vehicle.vehicle_slug } }}>
                                     <Button variant="contained">Inquire Now</Button>
                                 </Link>
@@ -250,11 +250,11 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                         <TabPanel value='3' sx={{ paddingLeft: 0, paddingRight: 0 }}>
                             <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>{vehicle.name} Price List</Typography>
-                            <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis corrupti perferendis nobis dolore necessitatibus, quos totam excepturi sint eligendi id vel in! Modi praesentium voluptate repellendus similique illum aliquam laborum.</Typography>
+                            <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={3}>View price list of {vehicle.name} and its variants, if any</Typography>
 
-                            <Alert severity="info" sx={{ mb: 3 }}>
-                                <AlertTitle>Lorem Ipsum</AlertTitle>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, corporis quos ipsum porro unde doloremque numquam enim quasi alias tempore dolores illo at consectetur repellendus libero vero atque quisquam iusto.
+                            <Alert severity="warning" sx={{ mb: 3 }}>
+                                <AlertTitle>Important!</AlertTitle>
+                                The following price list is subject to change without prior notice.
                             </Alert>
 
                             <TableContainer component={Paper}>
