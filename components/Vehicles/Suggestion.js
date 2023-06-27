@@ -19,7 +19,7 @@ const Suggestion = ({ brand_slug }) => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h1" fontWeight='700' mt={5} mb={1} color='#343434'>You may also like</Typography>
+            <Typography fontSize='1.5rem' variant="h1" fontWeight='700' mt={0} mb={1} color='#343434'>You may also like</Typography>
             <Typography fontSize='1rem' variant="h3" color='secondary'>Suggested vehicles based on the currently viewed vehicle</Typography>
             {
                 isVehiclesSuggestionsLoading ?

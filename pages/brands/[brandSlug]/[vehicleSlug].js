@@ -191,6 +191,28 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                             </Box>
 
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mt={3} mb={2} color='#343434'>{`${vehicle.name}'s Interior and Exterior`}</Typography>
+
+                            <Box className={styles.gallery}>
+                                {
+                                    vehicle.extraImages.map((item, index) => {
+                                        return (
+                                            <Box key={index} width={'100%'} height={100} position='relative' display='block' sx={{ aspectRatio: 1 }}>
+                                                <Image
+                                                    src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                    alt={vehicle.name}
+                                                    fill
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                                    className={styles.gallery__image}
+                                                    placeholder='blur'
+                                                    blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                />
+                                            </Box>
+                                        )
+                                    })
+                                }
+                            </Box>
+
                         </TabPanel>
 
                         <TabPanel value='2' sx={{ paddingLeft: 0, paddingRight: 0 }}>

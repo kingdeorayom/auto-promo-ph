@@ -64,3 +64,29 @@
     text-decoration-color: #1976d2;
     text-decoration-thickness: 1px;
 }
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 12px;
+    padding: 12px;
+    margin: 30px 0 10px 0;
+}
+
+@media screen and (max-width: 425px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* .image__disappear {
+        display: none;
+    } */
+}
+
+.gallery__image {
+    aspect-ratio: 1;
+    object-fit: cover;
+    /* object-fit: contain; */
+    border-radius: 5px;
+    width: 400px;
+}
