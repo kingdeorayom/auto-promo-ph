@@ -52,9 +52,8 @@ const Brands = ({ brands }) => {
                                         >
                                             <Box
                                                 sx={{
-                                                    // border: '1px solid #d3d3d3',
-                                                    // backgroundColor: '#ffffff',
-                                                    backgroundColor: '#f5f8ff',
+                                                    // backgroundColor: '#f5f8ff',
+                                                    border: '1px solid #d3d3d3',
                                                     borderRadius: 2,
                                                     paddingTop: 2.5,
                                                     paddingBottom: 2,

@@ -110,15 +110,13 @@ const Header = () => {
                         <Link href='/search'>
                             <IconButton>
                                 <SearchIcon
-                                    // color='error'
-                                    sx={{ color: grey[50] }}
+                                    sx={{ color: grey[50], ':hover': { color: '#FFDE00' } }}
                                 />
                             </IconButton>
                         </Link>
                         <IconButton onClick={() => setIsDrawerOpen(true)}>
                             <MenuIcon
-                                // color='error'
-                                sx={{ color: grey[50] }}
+                                sx={{ color: grey[50], ':hover': { color: '#FFDE00' } }}
                             />
                         </IconButton>
                     </Stack>

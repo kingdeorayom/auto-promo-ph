@@ -9,8 +9,21 @@ import Welcome from "@/components/Home/Welcome"
 import Head from "next/head"
 import { Box, Typography } from "@mui/material"
 import styles from '@/styles/Home.module.css'
+import BrandSearch from "@/components/Home/BrandSearch"
 
-const Home = () => {
+export async function getStaticProps() {
+
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`);
+  const brands = await response.json();
+
+  return {
+    props: {
+      brands: brands,
+    }
+  };
+}
+
+const Home = ({ brands }) => {
 
   return (
     <>
@@ -32,6 +45,7 @@ const Home = () => {
         </Box>
         <Box className={styles.wrapper}>
           <FeaturedVehicles isHome={true} hasSeeAll={true} />
+          <BrandSearch brands={brands} />
           <BodyTypeSearch />
           <BudgetSearch />
           <AllVehicles isHome={true} hasSeeAll={true} />
