@@ -45,7 +45,7 @@ const Brands = ({ brands }) => {
                         {
                             brands.map(brand => {
                                 return (
-                                    <Grid key={brand._id} item xs={4} sm={4} md={3} lg={1.7}>
+                                    <Grid key={brand._id} item xs={4} sm={4} md={3} lg={2}>
                                         <Link
                                             key={brand._id}
                                             href={`brands/${brand.slug}`}
