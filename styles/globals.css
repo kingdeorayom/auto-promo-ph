@@ -17,4 +17,14 @@ a {
 
 img {
     pointer-events: none;
-  }
+}
+
+.overlayBackground {
+    background: url(https://static1.eyellowpages.ph/assets/yp_home_bg-8b8da4e918d8629254f2955c51da2e5c43be81ce031d3b417800e4991ff3d2e7.png) transparent no-repeat;
+    width: 100%;
+    height: 150px;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: luminosity;
+    opacity: .9;
+}

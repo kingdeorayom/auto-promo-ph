@@ -5,16 +5,6 @@
     font-family: 'Inter', sans-serif;
 }
 
-.overlayBackground {
-    background: url(https://static1.eyellowpages.ph/assets/yp_home_bg-8b8da4e918d8629254f2955c51da2e5c43be81ce031d3b417800e4991ff3d2e7.png) transparent no-repeat;
-    width: 100%;
-    height: 150px;
-    background-position: center;
-    background-size: cover;
-    background-blend-mode: luminosity;
-    opacity: .9;
-}
-
 .welcome {
     width: 100%;
     /* background-color: #00adef; */
@@ -22,8 +12,8 @@
     background-color: #1f308a;
     /* background-color: #A90B0B; */
     /* background-color: #D32F2F; */
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
 }
 
 .wrapper {

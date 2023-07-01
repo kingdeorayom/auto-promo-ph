@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@900&display=swap');
+
+.search {
+    width: 100%;
+    background-color: #1f308a;
+    background-color: #ffffff;
+    /* background-color: #fafafa; */
+    text-align: center;
+    padding-top: 40px;
+}
+
+.title, .subtitle{
+    font-family: 'Inter', sans-serif;
+}

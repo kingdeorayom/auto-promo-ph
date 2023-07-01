@@ -20,7 +20,7 @@ const Home = () => {
       </Head>
       <Layout>
         <Box className={styles.welcome}>
-          <Box sx={{ textAlign: 'center', mt: 10, mb: 3 }}>
+          <Box sx={{ textAlign: 'center', mt: 10, mb: 3, paddingLeft: '15px', paddingRight: '15px' }}>
             <Welcome />
             <SearchBox autoFocus={false} />
             {/* <Typography color='white'>or</Typography>
@@ -28,7 +28,7 @@ const Home = () => {
               <Typography>Explore</Typography>
             </Box> */}
           </Box>
-          <Box className={styles.overlayBackground}></Box>
+          <Box className='overlayBackground'></Box>
         </Box>
         <Box className={styles.wrapper}>
           <FeaturedVehicles isHome={true} hasSeeAll={true} />

@@ -14,6 +14,8 @@ import { useSearchResults } from '@/hooks/useSearchResults'
 import { ListingContext } from '@/context/ListingContext'
 import styles from '@/styles/Vehicles.module.css'
 
+import searchStyles from '@/styles/Search.module.css'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 const SearchResults = () => {
@@ -47,11 +49,37 @@ const SearchResults = () => {
                     textAlign: 'center',
                     paddingTop: '40px'
                 }}>
-                    <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} color='#343434'>Search for vehicles</Typography>
-                    <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>Easily search for vehicles using our search field below</Typography>
+                    {/* <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} color='#343434'>Search for vehicles</Typography> */}
+                    {/* <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>Easily search for vehicles using our search field below</Typography> */}
+
+                    <Typography
+                        fontSize='2rem'
+                        variant="h1"
+                        className={searchStyles.title}
+                        mt={.8}
+                        mb={1}
+                        lineHeight={1}
+                        fontWeight='800'
+                        color='#505050'
+                    // color='#ffffff'
+                    >
+                        Search for vehicles</Typography>
+                    <Typography
+                        fontSize='1rem'
+                        variant="h3"
+                        fontWeight='400'
+                        lineHeight={1.5}
+                        mb={1}
+                        color='#808080'
+                        // color='#dadada'
+                        className={searchStyles.subtitle}
+                    >
+                        Easily search for vehicles using our search field below
+                    </Typography>
 
                     <SearchBox autoFocus={false} />
                 </Box>
+                <Box className='overlayBackground'></Box>
 
                 <Box
                     sx={{
