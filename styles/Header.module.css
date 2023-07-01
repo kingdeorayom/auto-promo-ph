@@ -27,16 +27,20 @@
 }
 
 .navLinkContainer {
-    padding: 8px 16px;
-    border-bottom: 2px solid #FFDE00;
+    padding: 5px 16px;
+    background-color: #fcfcfc;
+    border-radius: 20px;
+    color: #000000;
 }
 
 .navLinkContainerUnselected{
-    padding: 8px 16px;
-    border-bottom: 2px solid #1f308a;
+    padding: 5px 16px;
+    color: #ffffff;
 }
 
 .navLinkContainer:hover,
 .navLinkContainerUnselected:hover {
-    border-bottom: 2px solid whitesmoke;
+    background-color: #fcfcfc;
+    border-radius: 20px;
+    color: #505050;
 }
