@@ -66,6 +66,7 @@ const BudgetSearch = () => {
                                 marks={marks}
                                 min={700000}
                                 max={2500000}
+                                sx={{ color: '#1f308a' }}
                             />
                         </Box>
                         <Box display='flex' justifyContent='flex-start' sx={{ mt: 3.5, mb: .5, }}>
@@ -75,8 +76,7 @@ const BudgetSearch = () => {
                                     disableElevation
                                     // size='large'
                                     // color='info'
-                                    sx={{ fontSize: '12px', color: '#343434', backgroundColor: '#ffffff', ':hover': { backgroundColor: '#ffffff', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)', }, borderRadius: '20px' }}
-                                    endIcon={<EastIcon />}
+                                    sx={{ fontSize: '12px', color: '#343434', backgroundColor: '#ffffff', ':hover': { backgroundColor: '#f5f5f5', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)' }, borderRadius: '20px', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)' }} endIcon={<EastIcon />}
                                 >
                                     Search for vehicles under ₱ {useNumberFormatter(value)}
                                 </Button>

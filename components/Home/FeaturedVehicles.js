@@ -34,7 +34,7 @@ const FeaturedVehicles = ({ isHome, hasSeeAll }) => {
             items: 2
         },
         mobile: {
-            breakpoint: { max: 464, min: 0 },
+            breakpoint: { max: 768, min: 0 },
             items: 1
         }
     };
@@ -56,86 +56,65 @@ const FeaturedVehicles = ({ isHome, hasSeeAll }) => {
                 }
             </Box>
 
-
             {
                 isFeaturedVehiclesLoading ?
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 3, mb: 4 }}>
                         <CircularProgress />
                     </Box> :
-
-                    <Carousel
-                        swipeable={true}
-                        infinite={true}
-                        draggable={false}
-                        responsive={responsive}
-                        className={styles.featuredVehiclesCarousel}
-                    >
-                        {
-                            featuredVehicles.map(vehicle => {
-                                return (
-                                    <Link key={vehicle._id} href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
-                                        <VehicleCard
-                                            image={`${API_URL}${vehicle.image}`}
-                                            name={vehicle.name}
-                                            price={vehicle.price}
-                                            promo={vehicle.price}
-                                            fuelType={vehicle.fuelType}
-                                            transmission={vehicle.transmission}
-                                            type={vehicle.type}
-                                        />
-                                    </Link>
-                                )
-                            })
-                        }
-                    </Carousel>
-
-                // <Grid
-                //     container
-                //     mt={2}
-                //     mb={4}
-                //     rowSpacing={3}
-                //     columnSpacing={2}
-                // >
-                //     {
-                //         isHome ?
-                //             featuredVehicles.slice(0, 4).map(vehicle => {
-                //                 return (
-                //                     <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
-                //                         <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
-                //                             <VehicleCard
-                //                                 image={`${API_URL}${vehicle.image}`}
-                //                                 name={vehicle.name}
-                //                                 price={vehicle.price}
-                //                                 promo={vehicle.price}
-                //                                 fuelType={vehicle.fuelType}
-                //                                 transmission={vehicle.transmission}
-                //                                 type={vehicle.type}
-                //                             />
-                //                         </Link>
-                //                     </Grid>
-                //                 )
-                //             }) :
-                //             featuredVehicles.map(vehicle => {
-                //                 return (
-                //                     <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
-                //                         <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
-                //                             <VehicleCard
-                //                                 image={`${API_URL}${vehicle.image}`}
-                //                                 name={vehicle.name}
-                //                                 price={vehicle.price}
-                //                                 promo={vehicle.price}
-                //                                 fuelType={vehicle.fuelType}
-                //                                 transmission={vehicle.transmission}
-                //                                 type={vehicle.type}
-                //                             />
-                //                         </Link>
-                //                     </Grid>
-                //                 )
-                //             })
-                //     }
-                // </Grid>
+                    isHome ?
+                        <Carousel
+                            swipeable={true}
+                            infinite={true}
+                            draggable={false}
+                            responsive={responsive}
+                            className={styles.featuredVehiclesCarousel}
+                        >
+                            {
+                                featuredVehicles.map(vehicle => {
+                                    return (
+                                        <Link key={vehicle._id} href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
+                                            <VehicleCard
+                                                image={`${API_URL}${vehicle.image}`}
+                                                name={vehicle.name}
+                                                price={vehicle.price}
+                                                promo={vehicle.price}
+                                                fuelType={vehicle.fuelType}
+                                                transmission={vehicle.transmission}
+                                                type={vehicle.type}
+                                            />
+                                        </Link>
+                                    )
+                                })
+                            }
+                        </Carousel> :
+                        <Grid
+                            container
+                            mt={2}
+                            mb={4}
+                            rowSpacing={3}
+                            columnSpacing={2}
+                        >
+                            {
+                                featuredVehicles.map(vehicle => {
+                                    return (
+                                        <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
+                                            <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
+                                                <VehicleCard
+                                                    image={`${API_URL}${vehicle.image}`}
+                                                    name={vehicle.name}
+                                                    price={vehicle.price}
+                                                    promo={vehicle.price}
+                                                    fuelType={vehicle.fuelType}
+                                                    transmission={vehicle.transmission}
+                                                    type={vehicle.type}
+                                                />
+                                            </Link>
+                                        </Grid>
+                                    )
+                                })
+                            }
+                        </Grid>
             }
-
         </>
     )
 }

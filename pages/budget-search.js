@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout'
-import { Box, Button, CircularProgress, Grid, Slider, Typography } from '@mui/material'
+import { Box, Breadcrumbs, Button, CircularProgress, Grid, Slider, Typography } from '@mui/material'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
@@ -13,6 +13,8 @@ import Head from 'next/head'
 import { useBudgetSearchResults } from '@/hooks/useBudgetSearchResults'
 import { ListingContext } from '@/context/ListingContext'
 import useNumberFormatter from '@/hooks/useNumberFormatter'
+import styles from '@/styles/Search.module.css'
+import EastIcon from '@mui/icons-material/East';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -48,49 +50,53 @@ const BudgetSearchSlider = () => {
     ];
 
     return (
-
-        <Box display='flex' justifyContent='center'>
-            <Box sx={{
-                mt: 2,
-                mb: 5,
-                backgroundColor: '#ffffff',
-                padding: '5px 15px',
-                borderRadius: '10px',
-                width: '100%',
-                maxWidth: '1000px',
-                // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
-            }}
-            >
-                <Box sx={{ marginY: 2, marginX: 3 }}>
-                    <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5}>Adjust the slider below to match your maximum budget</Typography>
-                    <Box sx={{ mt: 3, marginX: 5 }}>
-                        <Slider
-                            valueLabelDisplay="on"
-                            valueLabelFormat={`₱ ${useNumberFormatter(value)}`}
-                            value={typeof value === 'number' ? value : 0}
-                            onChange={handleSliderChange}
-                            step={100000}
-                            marks={marks}
-                            min={700000}
-                            max={2500000}
-                        />
-                    </Box>
-                    <Box display='flex' justifyContent='center' sx={{ mt: 3.5, mb: .5, }}>
-                        <Link href={`/budget-search?budget=${value}`}>
-                            <Button
-                                variant='outlined'
-                                size='large'
-                                color='info'
-                                sx={{ textTransform: 'unset' }}
-                            // endIcon={<EastIcon />}
-                            >
-                                Search for vehicles under ₱ {useNumberFormatter(value)}
-                            </Button>
-                        </Link>
+        <>
+            <Box display='flex' justifyContent='center'>
+                <Box sx={{
+                    mt: 2,
+                    mb: 5,
+                    backgroundColor: '#ffffff',
+                    padding: '5px 15px',
+                    borderRadius: '10px',
+                    width: '100%',
+                    maxWidth: '1000px',
+                    // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
+                }}
+                >
+                    <Box sx={{ marginY: 2, marginX: 3 }}>
+                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5}>Adjust the slider below to match your maximum budget</Typography>
+                        <Box sx={{ mt: 3, marginX: 5 }}>
+                            <Slider
+                                valueLabelDisplay="on"
+                                valueLabelFormat={`₱ ${useNumberFormatter(value)}`}
+                                value={typeof value === 'number' ? value : 0}
+                                onChange={handleSliderChange}
+                                step={100000}
+                                marks={marks}
+                                min={700000}
+                                max={2500000}
+                                sx={{ color: '#1f308a' }}
+                            />
+                        </Box>
+                        <Box display='flex' justifyContent='center' sx={{ mt: 3.5, mb: .5, }}>
+                            <Link href={`/budget-search?budget=${value}`}>
+                                <Button
+                                    variant='contained'
+                                    disableElevation
+                                    // size='large'
+                                    // color='info'
+                                    sx={{ fontSize: '12px', color: '#343434', backgroundColor: '#ffffff', ':hover': { backgroundColor: '#f5f5f5', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)' }, borderRadius: '20px', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)' }}
+                                    endIcon={<EastIcon />}
+                                >
+                                    Search for vehicles under ₱ {useNumberFormatter(value)}
+                                </Button>
+                            </Link>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
-        </Box>
+            <Box className='overlayBackground'></Box>
+        </>
     )
 
 }
@@ -120,13 +126,40 @@ const BudgetSearchResults = () => {
                 <Box sx={{
                     width: '100%',
                     backgroundColor: '#ffffff',
-                    paddingLeft: '15px',
-                    paddingRight: '15px',
+                    // paddingLeft: '15px',
+                    // paddingRight: '15px',
                     textAlign: 'center',
                     paddingTop: '40px'
-                }}>
-                    <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} color='#343434'>Budget Search</Typography>
-                    <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget</Typography>
+                }}
+                >
+                    {/* <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} color='#343434'>Budget Search</Typography>
+                    <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget</Typography> */}
+
+                    <Typography
+                        fontSize='2rem'
+                        variant="h1"
+                        className={styles.title}
+                        mt={.8}
+                        mb={1}
+                        lineHeight={1}
+                        fontWeight='800'
+                        color='#505050'
+                    // color='#ffffff'
+                    >
+                        Budget Search
+                    </Typography>
+                    <Typography
+                        fontSize='1rem'
+                        variant="h3"
+                        fontWeight='400'
+                        lineHeight={1.5}
+                        mb={1}
+                        color='#808080'
+                        // color='#dadada'
+                        className={styles.subtitle}
+                    >
+                        Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget
+                    </Typography>
 
                     {/* <SearchBox /> */}
 
@@ -144,8 +177,34 @@ const BudgetSearchResults = () => {
                     }}
                 >
 
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>{`Showing vehicles under ₱ ${useNumberFormatter(router.query.budget)}`}</Typography>
-                    <Typography fontSize='1rem' variant="h3" color='secondary'>To search for another vehicle based on your maximum budget, simply use the slider above</Typography>
+                    {/* <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>{`Showing vehicles under ₱ ${useNumberFormatter(router.query.budget)}`}</Typography>
+                    <Typography fontSize='1rem' variant="h3" color='secondary'>To search for another vehicle based on your maximum budget, simply use the slider above</Typography> */}
+
+                    <Typography
+                        fontSize='1.5rem'
+                        variant="h2"
+                        className={styles.title}
+                        mt={.8}
+                        mb={1}
+                        lineHeight={1}
+                        fontWeight='800'
+                        color='#343434'
+                    // color='#ffffff'
+                    >
+                        {`Showing vehicles under ₱ ${useNumberFormatter(router.query.budget)}`}
+                    </Typography>
+                    <Typography
+                        fontSize='14px'
+                        variant="h3"
+                        fontWeight='400'
+                        lineHeight={1.5}
+                        mb={1}
+                        color='secondary'
+                        // color='#dadada'
+                        className={styles.subtitle}
+                    >
+                        To search for another vehicle based on your maximum budget, simply use the slider above
+                    </Typography>
 
                     {
                         isBudgetSearchResultsLoading ?
@@ -180,6 +239,7 @@ const BudgetSearchResults = () => {
                                                             image={`${API_URL}${vehicle.image}`}
                                                             name={vehicle.name}
                                                             price={vehicle.price}
+                                                            promo={vehicle.price}
                                                             downpayment={vehicle.price}
                                                         />
                                                     </Link>

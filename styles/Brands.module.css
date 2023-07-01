@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@900&display=swap');
+
 .wrapper {
     width: 100%;
     /* max-width: 1000px; */
@@ -12,4 +14,12 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
+}
+
+.title, .subtitle{
+    font-family: 'Inter', sans-serif;
+}
+
+.sectionLabel,.sectionLabelSubtitle {
+    font-family: 'Inter', sans-serif;
 }

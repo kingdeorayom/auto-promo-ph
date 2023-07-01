@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import VehicleCard from '@/components/Vehicles/VehicleCard';
 import Head from 'next/head';
 import Image from 'next/image';
+import styles from '@/styles/Brands.module.css'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -72,9 +73,9 @@ const Brand = ({ vehicles, brand }) => {
 
                 <Box sx={{
                     width: '100%',
-                    backgroundColor: '#ffffff',
-                    paddingLeft: '15px',
-                    paddingRight: '15px',
+                    backgroundColor: '#1f308a',
+                    // paddingLeft: '15px',
+                    // paddingRight: '15px',
                     textAlign: 'center',
                 }}>
                     <Box
@@ -92,10 +93,38 @@ const Brand = ({ vehicles, brand }) => {
                             unoptimized={true}
                             alt=''
                         />
-                        <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography>
-                        <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography>
-                    </Box>
 
+                        <Box mx={2}>
+                            {/* <Typography
+                                fontSize='2rem'
+                                variant="h1"
+                                className={styles.title}
+                                mt={.8}
+                                mb={1}
+                                lineHeight={1}
+                                fontWeight='800'
+                                color='#ffffff'
+                            >
+                                {brand.name}
+                            </Typography> */}
+                            <Typography
+                                fontSize='1rem'
+                                variant="h3"
+                                fontWeight='400'
+                                lineHeight={1.5}
+                                mt={3}
+                                mb={1}
+                                color='#dadada'
+                                className={styles.subtitle}
+                            >
+                                {brand.description}
+                            </Typography>
+                        </Box>
+
+                        {/* <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography> */}
+                        {/* <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography> */}
+                    </Box>
+                    <Box className='overlayBackground'></Box>
                 </Box>
 
                 <Box
@@ -107,9 +136,10 @@ const Brand = ({ vehicles, brand }) => {
                         paddingRight: '15px'
                     }}
                 >
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='700'>All vehicles</Typography>
-                    <Typography fontSize='1rem' variant="subtitle1" color='secondary'>All available vehicles of {brandName}</Typography>
-
+                    <Box>
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={styles.sectionLabel}>All vehicles</Typography>
+                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>{`All available vehicles of ${brandName}`}</Typography>
+                    </Box>
                     <Grid
                         container
                         mt={2}
@@ -126,7 +156,10 @@ const Brand = ({ vehicles, brand }) => {
                                             image={`${API_URL}${vehicle.image}`}
                                             name={vehicle.name}
                                             price={vehicle.price}
-                                            downpayment={vehicle.price}
+                                            promo={vehicle.price}
+                                            fuelType={vehicle.fuelType}
+                                            transmission={vehicle.transmission}
+                                            type={vehicle.type}
                                         />
                                     </Link>
                                 </Grid>

@@ -1,8 +1,9 @@
 import Layout from '@/layouts/Layout'
-import { Box } from '@mui/material'
+import { Box, Breadcrumbs, Typography } from '@mui/material'
 import styles from '@/styles/Vehicles.module.css'
 import Head from 'next/head';
 import FeaturedVehicles from '@/components/Home/FeaturedVehicles';
+import Link from 'next/link';
 
 const FeaturedVehiclesPage = () => {
 
@@ -14,6 +15,18 @@ const FeaturedVehiclesPage = () => {
             </Head>
             <Layout>
                 <Box className={styles.wrapper}>
+                    <Box mb={4}>
+                        <Breadcrumbs separator=">" aria-label="breadcrumb">
+                            <Link
+                                underline="hover"
+                                color="inherit"
+                                href="/"
+                            >
+                                Explore
+                            </Link>
+                            <Typography color="primary" fontWeight='500'>Featured Vehicles</Typography>
+                        </Breadcrumbs>
+                    </Box>
                     <FeaturedVehicles />
                 </Box>
             </Layout>
