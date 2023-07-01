@@ -4,6 +4,7 @@ import { useState } from 'react';
 import useNumberFormatter from '@/hooks/useNumberFormatter';
 import EastIcon from '@mui/icons-material/East';
 import styles from '@/styles/Home.module.css'
+import { useInter } from '@/utils/fonts';
 
 const BudgetSearch = () => {
 
@@ -38,8 +39,8 @@ const BudgetSearch = () => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434' className={styles.sectionLabel}>Browse cars by budget</Typography>
-            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget</Typography>
+            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434' className={useInter.className}>Browse cars by budget</Typography>
+            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget</Typography>
 
             <Box display='flex' justifyContent='center'>
                 <Box sx={{
@@ -55,7 +56,7 @@ const BudgetSearch = () => {
                 >
 
                     <Box sx={{ marginY: 2, marginX: 3 }}>
-                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' className={styles.sectionLabelSubtitle} lineHeight={1.5}>Adjust the slider below to match your maximum budget</Typography>
+                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' className={useInter.className} lineHeight={1.5}>Adjust the slider below to match your maximum budget</Typography>
                         <Box sx={{ mt: 3, marginX: 5 }}>
                             <Slider
                                 valueLabelDisplay="on"

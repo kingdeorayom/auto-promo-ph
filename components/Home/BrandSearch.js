@@ -9,6 +9,7 @@ import styles from '@/styles/Brands.module.css'
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useInter } from '@/utils/fonts'
 
 const BrandSearch = ({ brands }) => {
 
@@ -36,8 +37,8 @@ const BrandSearch = ({ brands }) => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434' className={styles.sectionLabel}>Browse cars by brand</Typography>
-            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>Choose vehicle from the most popular brands</Typography>
+            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434' className={useInter.className}>Browse cars by brand</Typography>
+            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>Choose vehicle from the most popular brands</Typography>
 
             <Carousel
                 swipeable={true}
@@ -79,7 +80,7 @@ const BrandSearch = ({ brands }) => {
                                             fontSize='14px'
                                             variant="h3"
                                             fontWeight='600'
-                                            className={styles.title}
+                                            className={useInter.className}
                                             mb={1}
                                             mt={1}
                                             color='#505050'

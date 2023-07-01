@@ -15,6 +15,7 @@ import { ListingContext } from '@/context/ListingContext'
 import styles from '@/styles/Vehicles.module.css'
 
 import searchStyles from '@/styles/Search.module.css'
+import { useInter } from '@/utils/fonts'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -55,7 +56,7 @@ const SearchResults = () => {
                     <Typography
                         fontSize='2rem'
                         variant="h1"
-                        className={searchStyles.title}
+                        className={useInter.className}
                         mt={.8}
                         mb={1}
                         lineHeight={1}
@@ -72,7 +73,7 @@ const SearchResults = () => {
                         mb={1}
                         color='#808080'
                         // color='#dadada'
-                        className={searchStyles.subtitle}
+                        className={useInter.className}
                     >
                         Easily search for vehicles using our search field below
                     </Typography>
@@ -90,8 +91,8 @@ const SearchResults = () => {
                         paddingRight: '15px'
                     }}
                 >
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={styles.sectionLabel}>{`Showing search results for '${router.query.q}'`}</Typography>
-                    <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>To search for another vehicle, simply type your query on the search field above</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={useInter.className}>{`Showing search results for '${router.query.q}'`}</Typography>
+                    <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>To search for another vehicle, simply type your query on the search field above</Typography>
 
                     {
                         isSearchResultsLoading ?

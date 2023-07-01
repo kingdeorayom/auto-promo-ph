@@ -6,6 +6,7 @@ import VehicleCard from '@/components/Vehicles/VehicleCard';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/Brands.module.css'
+import { useInter } from '@/utils/fonts';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -98,7 +99,7 @@ const Brand = ({ vehicles, brand }) => {
                             <Typography
                                 fontSize='2rem'
                                 variant="h1"
-                                className={styles.title}
+                                className={useInter.className}
                                 mt={2.5}
                                 mb={1}
                                 lineHeight={1}
@@ -115,7 +116,7 @@ const Brand = ({ vehicles, brand }) => {
                                 mt={3}
                                 mb={1}
                                 color='#dadada'
-                                className={styles.subtitle}
+                                className={useInter.className}
                             >
                                 {brand.description}
                             </Typography>
@@ -137,8 +138,8 @@ const Brand = ({ vehicles, brand }) => {
                     }}
                 >
                     <Box>
-                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={styles.sectionLabel}>All vehicles</Typography>
-                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>{`All available vehicles of ${brandName}`}</Typography>
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={useInter.className}>All vehicles</Typography>
+                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>{`All available vehicles of ${brandName}`}</Typography>
                     </Box>
                     <Grid
                         container

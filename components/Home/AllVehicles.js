@@ -7,6 +7,7 @@ import { ListingContext } from '@/context/ListingContext'
 import styles from '@/styles/Vehicles.module.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useInter } from '@/utils/fonts'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -43,8 +44,8 @@ const AllVehicles = ({ isHome, hasSeeAll }) => {
         <>
             <Box display='flex' alignItems='center' justifyContent='space-between'>
                 <Box>
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={styles.sectionLabel}>All Vehicles</Typography>
-                    <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>All vehicles available under Auto Promo PH</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={useInter.className}>All Vehicles</Typography>
+                    <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>All vehicles available under Auto Promo PH</Typography>
                 </Box>
                 {
                     hasSeeAll ?

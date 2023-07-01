@@ -4,6 +4,7 @@ import styles from '@/styles/Vehicles.module.css'
 import Head from 'next/head';
 import AllVehicles from '@/components/Home/AllVehicles';
 import Link from 'next/link';
+import { useInter } from '@/utils/fonts';
 
 const AllVehiclesPage = () => {
 
@@ -21,10 +22,11 @@ const AllVehiclesPage = () => {
                                 underline="hover"
                                 color="inherit"
                                 href="/"
+                                className={useInter.className}
                             >
                                 Explore
                             </Link>
-                            <Typography color="primary" fontWeight='500'>All Vehicles</Typography>
+                            <Typography color="primary" fontWeight='500' className={useInter.className}>All Vehicles</Typography>
                         </Breadcrumbs>
                     </Box>
                     <AllVehicles />

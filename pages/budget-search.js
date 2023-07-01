@@ -15,6 +15,7 @@ import { ListingContext } from '@/context/ListingContext'
 import useNumberFormatter from '@/hooks/useNumberFormatter'
 import styles from '@/styles/Search.module.css'
 import EastIcon from '@mui/icons-material/East';
+import { useInter } from '@/utils/fonts'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -64,7 +65,7 @@ const BudgetSearchSlider = () => {
                 }}
                 >
                     <Box sx={{ marginY: 2, marginX: 3 }}>
-                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5} className={styles.subtitle}>Adjust the slider below to match your maximum budget</Typography>
+                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5} className={useInter.className}>Adjust the slider below to match your maximum budget</Typography>
                         <Box sx={{ mt: 3, marginX: 5 }}>
                             <Slider
                                 valueLabelDisplay="on"
@@ -138,7 +139,7 @@ const BudgetSearchResults = () => {
                     <Typography
                         fontSize='2rem'
                         variant="h1"
-                        className={styles.title}
+                        className={useInter.className}
                         mt={.8}
                         mb={1}
                         lineHeight={1}
@@ -156,7 +157,7 @@ const BudgetSearchResults = () => {
                         mb={1}
                         color='#808080'
                         // color='#dadada'
-                        className={styles.subtitle}
+                        className={useInter.className}
                     >
                         Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget
                     </Typography>
@@ -183,7 +184,7 @@ const BudgetSearchResults = () => {
                     <Typography
                         fontSize='1.5rem'
                         variant="h2"
-                        className={styles.title}
+                        className={useInter.className}
                         mt={.8}
                         mb={1}
                         lineHeight={1}
@@ -201,7 +202,7 @@ const BudgetSearchResults = () => {
                         mb={1}
                         color='secondary'
                         // color='#dadada'
-                        className={styles.subtitle}
+                        className={useInter.className}
                     >
                         To search for another vehicle based on your maximum budget, simply use the slider above
                     </Typography>
