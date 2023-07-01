@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import styles from '@/styles/Home.module.css'
-import { useInter } from '@/utils/fonts'
+
 
 const Welcome = () => {
     return (
@@ -14,12 +14,12 @@ const Welcome = () => {
                 lineHeight={1}
                 fontWeight='800'
                 color='white'
-                className={useInter.className}
+
             >
                 Find, Inquire, Buy &mdash; quick and super easy!
             </Typography>
 
-            <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#dadada' className={useInter.className}>
+            <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#dadada'  >
                 Streamline your car-buying experience with our effortless search
                 {/* Explore, or easily search for vehicles using our search field below */}
             </Typography>

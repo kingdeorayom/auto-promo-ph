@@ -4,7 +4,6 @@ import SearchSuggestions from '@/components/Search/SearchSuggestions';
 import { Box, Typography } from '@mui/material';
 import Head from 'next/head';
 import styles from '@/styles/Search.module.css'
-import { useInter } from '@/utils/fonts';
 
 const Search = () => {
 
@@ -20,7 +19,7 @@ const Search = () => {
                         <Typography
                             fontSize='2rem'
                             variant="h1"
-                            className={useInter.className}
+
                             mt={.8}
                             mb={1}
                             lineHeight={1}
@@ -36,8 +35,8 @@ const Search = () => {
                             lineHeight={1.5}
                             mb={1}
                             color='#808080'
-                            // color='#dadada'
-                            className={useInter.className}
+                        // color='#dadada'
+
                         >
                             Easily search for vehicles using our search field below
                         </Typography>

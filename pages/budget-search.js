@@ -1,10 +1,9 @@
 import Layout from '@/layouts/Layout'
-import { Box, Breadcrumbs, Button, CircularProgress, Grid, Slider, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, Grid, Slider, Typography } from '@mui/material'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import VehicleCard from '@/components/Vehicles/VehicleCard'
-import SearchBox from '@/components/Search/SearchBox'
 import useEmptyArrayChecker from '@/hooks/useEmptyArrayChecker'
 import Image from 'next/image'
 import no_results from '@/public/no_results.svg'
@@ -13,9 +12,8 @@ import Head from 'next/head'
 import { useBudgetSearchResults } from '@/hooks/useBudgetSearchResults'
 import { ListingContext } from '@/context/ListingContext'
 import useNumberFormatter from '@/hooks/useNumberFormatter'
-import styles from '@/styles/Search.module.css'
 import EastIcon from '@mui/icons-material/East';
-import { useInter } from '@/utils/fonts'
+
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -61,11 +59,10 @@ const BudgetSearchSlider = () => {
                     borderRadius: '10px',
                     width: '100%',
                     maxWidth: '1000px',
-                    // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
                 }}
                 >
                     <Box sx={{ marginY: 2, marginX: 3 }}>
-                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5} className={useInter.className}>Adjust the slider below to match your maximum budget</Typography>
+                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5}  >Adjust the slider below to match your maximum budget</Typography>
                         <Box sx={{ mt: 3, marginX: 5 }}>
                             <Slider
                                 valueLabelDisplay="on"
@@ -84,8 +81,6 @@ const BudgetSearchSlider = () => {
                                 <Button
                                     variant='contained'
                                     disableElevation
-                                    // size='large'
-                                    // color='info'
                                     sx={{ fontSize: '12px', color: '#343434', backgroundColor: '#ffffff', ':hover': { backgroundColor: '#f5f5f5', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)' }, borderRadius: '20px', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)' }}
                                     endIcon={<EastIcon />}
                                 >
@@ -133,13 +128,11 @@ const BudgetSearchResults = () => {
                     paddingTop: '40px'
                 }}
                 >
-                    {/* <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} color='#343434'>Budget Search</Typography>
-                    <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget</Typography> */}
 
                     <Typography
                         fontSize='2rem'
                         variant="h1"
-                        className={useInter.className}
+
                         mt={.8}
                         mb={1}
                         lineHeight={1}
@@ -156,8 +149,8 @@ const BudgetSearchResults = () => {
                         lineHeight={1.5}
                         mb={1}
                         color='#808080'
-                        // color='#dadada'
-                        className={useInter.className}
+                    // color='#dadada'
+
                     >
                         Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget
                     </Typography>
@@ -178,13 +171,10 @@ const BudgetSearchResults = () => {
                     }}
                 >
 
-                    {/* <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>{`Showing vehicles under ₱ ${useNumberFormatter(router.query.budget)}`}</Typography>
-                    <Typography fontSize='1rem' variant="h3" color='secondary'>To search for another vehicle based on your maximum budget, simply use the slider above</Typography> */}
-
                     <Typography
                         fontSize='1.5rem'
                         variant="h2"
-                        className={useInter.className}
+
                         mt={.8}
                         mb={1}
                         lineHeight={1}
@@ -201,8 +191,8 @@ const BudgetSearchResults = () => {
                         lineHeight={1.5}
                         mb={1}
                         color='secondary'
-                        // color='#dadada'
-                        className={useInter.className}
+                    // color='#dadada'
+
                     >
                         To search for another vehicle based on your maximum budget, simply use the slider above
                     </Typography>

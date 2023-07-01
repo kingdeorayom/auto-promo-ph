@@ -6,7 +6,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import styles from '@/styles/Brands.module.css'
 import Head from 'next/head';
 import AllVehicles from '@/components/Home/AllVehicles';
-import { useInter } from '@/utils/fonts';
+;
 
 export async function getStaticProps() {
 
@@ -31,8 +31,8 @@ const Brands = ({ brands }) => {
             <Layout>
                 <Box className={styles.wrapper}>
                     <Box>
-                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={useInter.className}>All Brands</Typography>
-                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>Choose vehicle from the most popular brands</Typography>
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'  >All Brands</Typography>
+                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050'  >Choose vehicle from the most popular brands</Typography>
                     </Box>
 
                     <Grid
@@ -76,7 +76,7 @@ const Brands = ({ brands }) => {
                                                         fontSize='14px'
                                                         variant="h3"
                                                         fontWeight='600'
-                                                        className={useInter.className}
+
                                                         mb={1}
                                                         mt={1}
                                                         color='#505050'

@@ -1,9 +1,6 @@
-import AppLoader from '@/components/Utility/AppLoader'
-import { AuthContext } from '@/context/AuthContext'
 import Layout from '@/layouts/Layout'
 import { Box, Button, useMediaQuery, useTheme, Divider, Grid, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/router'
-import { useContext, useEffect, useState } from 'react'
 import styles from '@/styles/Dashboard.module.css'
 import Link from 'next/link'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -47,7 +44,6 @@ export async function getServerSideProps(context) {
 const Dashboard = ({ vehicles, inquiries }) => {
 
     const router = useRouter()
-    const { user } = useContext(AuthContext)
 
     const { logout } = useLogout()
 
@@ -56,32 +52,12 @@ const Dashboard = ({ vehicles, inquiries }) => {
         router.replace('/admin')
     }
 
-    const [isLoading, setIsLoading] = useState(true)
-
     const theme = useTheme();
 
     const stackDirectionBreakpoint = { xs: 'column', md: 'row' }
     const stackSpacingBreakpoint = { xs: 3, md: 4 }
 
     let orientation = useMediaQuery(theme.breakpoints.down("md"))
-
-    // const redirectToPage = () => {
-    //     if (!isLoading || user === null) {
-    //         router.push('/admin')
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setIsLoading(false)
-    //     }, 1000);
-    //     redirectToPage()
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [])
-
-    // if (isLoading || user === null) {
-    //     return <AppLoader />
-    // }
 
     return (
         <>
@@ -113,11 +89,6 @@ const Dashboard = ({ vehicles, inquiries }) => {
                             className={styles.image}
                         />
                     </Box>
-
-                    {/* <Alert severity="info">
-                    <AlertTitle>info</AlertTitle>
-                    This is a info alert — <strong>check it out!</strong>
-                </Alert> */}
 
                     <Box className={styles.box}>
                         <Typography fontSize='1.5rem' variant="h2" fontWeight='700' color='#1976D2'>Overview</Typography>

@@ -1,19 +1,11 @@
 .appbar {
     background-color: white;
-    /* padding: 3px; */
-    /* border-bottom: 1px solid #d3d3d3; */
-    /* box-shadow: 0 2px 6px 0 rgba(36, 39, 44, 0.15); */
 }
 
 .toolbar {
     display: flex;
     justify-content: space-around;
-    /* background-color: #ffffff; */
-    /* background-color: #172153; */
     background-color: #1f308a;
-    /* padding-top: 15px; */
-    /* padding-bottom: 15px; */
-    /* background-color: #00adef; */
 }
 
 .navbar {

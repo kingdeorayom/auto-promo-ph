@@ -4,7 +4,7 @@ import styles from '@/styles/Vehicles.module.css'
 import Head from 'next/head';
 import FeaturedVehicles from '@/components/Home/FeaturedVehicles';
 import Link from 'next/link';
-import { useInter } from '@/utils/fonts';
+;
 
 const FeaturedVehiclesPage = () => {
 
@@ -22,11 +22,11 @@ const FeaturedVehiclesPage = () => {
                                 underline="hover"
                                 color="inherit"
                                 href="/"
-                                className={useInter.className}
+
                             >
                                 Explore
                             </Link>
-                            <Typography color="primary" fontWeight='500' className={useInter.className}>Featured Vehicles</Typography>
+                            <Typography color="primary" fontWeight='500'  >Featured Vehicles</Typography>
                         </Breadcrumbs>
                     </Box>
                     <FeaturedVehicles />

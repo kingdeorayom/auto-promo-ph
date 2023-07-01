@@ -1,5 +1,5 @@
-import { Alert, AlertTitle, Box, Button, Divider, IconButton, InputAdornment, TextField, Typography } from '@mui/material'
-import { useContext, useEffect, useState } from 'react'
+import { Alert, AlertTitle, Box, Button, IconButton, InputAdornment, TextField, Typography } from '@mui/material'
+import { useState } from 'react'
 import styles from '@/styles/Login.module.css'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -11,7 +11,6 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useLogin } from '@/hooks/useLogin';
-import { AuthContext } from '@/context/AuthContext';
 import Image from 'next/image';
 import logo from '@/public/logotosvg.png'
 import Head from 'next/head';
@@ -80,8 +79,6 @@ const LoginPage = () => {
 
                         <Typography fontSize='2rem' variant="h2" fontWeight='700' mt={4} mb={1}>Hi <span className={styles.name}>Dhang</span>, welcome back! &#128075;</Typography>
                         <Typography fontSize='1rem' variant="h3" color='secondary'>Log in to your account</Typography>
-
-                        {/* <Divider sx={{ my: 3 }} /> */}
 
                         {error &&
                             <Alert severity="error" sx={{ my: 3 }}>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import sedan from '@/public/sedan.jpg'
 import suv from '@/public/suv.jpg'
 import hatchback from '@/public/hatchback.jpg'
@@ -9,13 +9,12 @@ import styles from '@/styles/Home.module.css'
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { useInter } from '@/utils/fonts'
+
 
 const BodyTypeSearch = () => {
 
     const responsive = {
         superLargeDesktop: {
-            // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
             items: 5
         },
@@ -35,8 +34,8 @@ const BodyTypeSearch = () => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434' className={useInter.className}>Browse cars by body type</Typography>
-            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>Whether you&#39;re looking for a sedan for personal use or an SUV for that long-awaited family trip, you can find it all here</Typography>
+            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434'  >Browse cars by body type</Typography>
+            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050'  >Whether you&#39;re looking for a sedan for personal use or an SUV for that long-awaited family trip, you can find it all here</Typography>
 
             <Carousel
                 swipeable={true}
@@ -90,72 +89,6 @@ const BodyTypeSearch = () => {
                     </Box>
                 </Link>
             </Carousel>
-
-            {/* <Grid
-                container
-                mt={2}
-                mb={4}
-                rowSpacing={3}
-                columnSpacing={2}
-            >
-
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Link href='/results?q=sedan'>
-                        <Box className={styles.categoryImageBox}>
-                            <Image
-                                src={sedan}
-                                alt="Mitsubishi Mirage G4"
-                                className={styles.backgroundImage}
-                                priority
-                            />
-                            <Typography fontSize='1.4rem' fontWeight='500' color='white' className={styles.categoryLabel}>Sedan</Typography>
-                        </Box>
-                    </Link>
-                </Grid>
-
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Link href='/results?q=suv'>
-                        <Box className={styles.categoryImageBox}>
-                            <Image
-                                src={suv}
-                                alt="Mitsubishi Mirage G4"
-                                className={styles.backgroundImage}
-                                priority
-                            />
-                            <Typography fontSize='1.4rem' fontWeight='500' color='white' className={styles.categoryLabel}>SUV</Typography>
-                        </Box>
-                    </Link>
-                </Grid>
-
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Link href='/results?q=hatchback'>
-                        <Box className={styles.categoryImageBox}>
-                            <Image
-                                src={hatchback}
-                                alt="Mitsubishi Mirage G4"
-                                className={styles.backgroundImage}
-                                priority
-                            />
-                            <Typography fontSize='1.4rem' fontWeight='500' color='white' className={styles.categoryLabel}>Hatchback</Typography>
-                        </Box>
-                    </Link>
-                </Grid>
-
-                <Grid item xs={12} sm={6} lg={3}>
-                    <Link href='/results?q=van'>
-                        <Box className={styles.categoryImageBox}>
-                            <Image
-                                src={van}
-                                alt="Mitsubishi Mirage G4"
-                                className={styles.backgroundImage}
-                                priority
-                            />
-                            <Typography fontSize='1.4rem' fontWeight='500' color='white' className={styles.categoryLabel}>Van</Typography>
-                        </Box>
-                    </Link>
-                </Grid>
-
-            </Grid> */}
         </>
     )
 }

@@ -1,21 +1,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Box, Grid, Typography } from '@mui/material'
-import sedan from '@/public/sedan.jpg'
-import suv from '@/public/suv.jpg'
-import hatchback from '@/public/hatchback.jpg'
-import van from '@/public/van.jpg'
+import { Box, Typography } from '@mui/material'
+
 import styles from '@/styles/Brands.module.css'
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { useInter } from '@/utils/fonts'
+
 
 const BrandSearch = ({ brands }) => {
 
     const responsive = {
         superLargeDesktop: {
-            // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
             items: 6
         },
@@ -37,8 +33,8 @@ const BrandSearch = ({ brands }) => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434' className={useInter.className}>Browse cars by brand</Typography>
-            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>Choose vehicle from the most popular brands</Typography>
+            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434'  >Browse cars by brand</Typography>
+            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050'  >Choose vehicle from the most popular brands</Typography>
 
             <Carousel
                 swipeable={true}
@@ -80,7 +76,7 @@ const BrandSearch = ({ brands }) => {
                                             fontSize='14px'
                                             variant="h3"
                                             fontWeight='600'
-                                            className={useInter.className}
+
                                             mb={1}
                                             mt={1}
                                             color='#505050'

@@ -7,7 +7,7 @@ import Banner from "@/components/Home/Banner"
 import SearchBox from "@/components/Search/SearchBox"
 import Welcome from "@/components/Home/Welcome"
 import Head from "next/head"
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import styles from '@/styles/Home.module.css'
 import BrandSearch from "@/components/Home/BrandSearch"
 
@@ -36,10 +36,6 @@ const Home = ({ brands }) => {
           <Box sx={{ textAlign: 'center', mt: 10, mb: 3, paddingLeft: '15px', paddingRight: '15px' }}>
             <Welcome />
             <SearchBox autoFocus={false} />
-            {/* <Typography color='white'>or</Typography>
-            <Box sx={{ backgroundColor: 'white', maxWidth: '200px', borderRadius: 1, padding: .5 }}>
-              <Typography>Explore</Typography>
-            </Box> */}
           </Box>
           <Box className='overlayBackground'></Box>
         </Box>

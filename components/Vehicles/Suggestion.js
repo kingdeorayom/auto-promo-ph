@@ -5,7 +5,7 @@ import VehicleCard from '@/components/Vehicles/VehicleCard'
 import { ListingContext } from '@/context/ListingContext'
 import { useVehiclesSuggestions } from '@/hooks/useVehiclesSuggestions'
 import styles from '@/styles/Vehicles.module.css'
-import { useInter } from '@/utils/fonts'
+
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -21,8 +21,8 @@ const Suggestion = ({ brand_slug }) => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={useInter.className}>You may also like</Typography>
-            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={useInter.className}>Suggested vehicles based on the currently viewed vehicle</Typography>
+            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'  >You may also like</Typography>
+            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050'  >Suggested vehicles based on the currently viewed vehicle</Typography>
             {
                 isVehiclesSuggestionsLoading ?
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 3, mb: 4 }}>

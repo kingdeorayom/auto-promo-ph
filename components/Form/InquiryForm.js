@@ -21,7 +21,6 @@ const InquiryForm = () => {
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/detail/${router.query.q}`);
             const vehicle = await response.json();
-            // console.log(vehicle)
             setVehicleName(vehicle.name)
         } catch (error) {
             console.log(error)
@@ -36,16 +35,9 @@ const InquiryForm = () => {
     const form = useForm({
         mode: 'onChange',
         resolver: yupResolver(inquiry),
-        // defaultValues: {
-        //     firstName: 'Serking',
-        //     lastName: 'de Orayom',
-        //     email: 'dhangcasten@autopromo.ph',
-        //     mobileNumber: '09564750051',
-        //     message: 'Hello'
-        // }
     })
 
-    const { register, control, handleSubmit, formState, reset, getValues } = form
+    const { register, handleSubmit, formState, reset } = form
     const { errors } = formState
     const [isSending, setIsSending] = useState(false)
 
