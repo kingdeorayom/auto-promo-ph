@@ -29,8 +29,10 @@ const Brands = ({ brands }) => {
             </Head>
             <Layout>
                 <Box className={styles.wrapper}>
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='700' color='#343434'>All Brands</Typography>
-                    <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Choose vehicle from the most popular brands</Typography>
+                    <Box>
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={styles.sectionLabel}>All Brands</Typography>
+                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>Choose vehicle from the most popular brands</Typography>
+                    </Box>
 
                     <Grid
                         container
@@ -43,47 +45,45 @@ const Brands = ({ brands }) => {
                         {
                             brands.map(brand => {
                                 return (
-                                    <Grid key={brand._id} item xs={12} md={6} lg={6}>
+                                    <Grid key={brand._id} item xs={4} sm={4} md={3} lg={1.7}>
                                         <Link
                                             key={brand._id}
                                             href={`brands/${brand.slug}`}
                                         >
-                                            <Box sx={{
-                                                // border: '1px solid #d3d3d3',
-                                                backgroundColor: '#ffffff',
-                                                borderRadius: 2,
-                                                paddingY: 2.5,
-                                                display: 'flex',
-                                                justifyContent: 'flex-start',
-                                                alignItems: 'center',
-                                                boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
-                                                '&:hover': {
-                                                    // backgroundColor: '#fcfcfc',
-                                                    transform: 'translate(0, -7px)',
-                                                    transition: 'all 0.1s linear'
-                                                }
-                                            }}>
+                                            <Box
+                                                sx={{
+                                                    // border: '1px solid #d3d3d3',
+                                                    // backgroundColor: '#ffffff',
+                                                    backgroundColor: '#f5f8ff',
+                                                    borderRadius: 2,
+                                                    paddingTop: 2.5,
+                                                    paddingBottom: 2,
+                                                    textAlign: 'center',
+                                                    '&:hover': {
+                                                        transform: 'translate(0, -7px)',
+                                                        transition: 'all 0.1s linear'
+                                                    }
+                                                }}>
                                                 <Image
                                                     src={`${process.env.NEXT_PUBLIC_API_URL}${brand.logo}`}
                                                     width={90}
                                                     height={50}
                                                     unoptimized={true}
                                                     alt=''
-                                                    style={{ marginLeft: 15 }}
                                                 />
                                                 <Box mx={2}>
                                                     <Typography
-                                                        fontSize='1.5rem'
+                                                        fontSize='14px'
                                                         variant="h3"
-                                                        fontWeight='700'
+                                                        fontWeight='600'
+                                                        className={styles.title}
                                                         mb={1}
-                                                        color='#343434'
+                                                        mt={1}
+                                                        color='#505050'
                                                     >
                                                         {brand.name}
                                                     </Typography>
-                                                    <Typography fontWeight='400' fontSize='15px' color='secondary' className={styles.truncate}>{brand.description}</Typography>
                                                 </Box>
-                                                <ChevronRightIcon color='secondary' sx={{ marginRight: 3 }} />
                                             </Box>
                                         </Link>
                                     </Grid>

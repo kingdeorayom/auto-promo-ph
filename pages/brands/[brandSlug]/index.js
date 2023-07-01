@@ -95,18 +95,18 @@ const Brand = ({ vehicles, brand }) => {
                         />
 
                         <Box mx={2}>
-                            {/* <Typography
+                            <Typography
                                 fontSize='2rem'
                                 variant="h1"
                                 className={styles.title}
-                                mt={.8}
+                                mt={2.5}
                                 mb={1}
                                 lineHeight={1}
                                 fontWeight='800'
                                 color='#ffffff'
                             >
                                 {brand.name}
-                            </Typography> */}
+                            </Typography>
                             <Typography
                                 fontSize='1rem'
                                 variant="h3"
