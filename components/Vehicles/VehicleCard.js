@@ -18,8 +18,8 @@ const VehicleCard = ({ image, name, price, promo, fuelType, transmission, type }
             <Box className={styles.card}>
                 <Box className={styles.imageBox}>
                     <Image
-                        // src={carnobg}
-                        src={image}
+                        src={carnobg}
+                        // src={image}
                         alt={name}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
