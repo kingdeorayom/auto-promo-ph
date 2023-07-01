@@ -55,7 +55,7 @@ const BudgetSearch = () => {
                 >
 
                     <Box sx={{ marginY: 2, marginX: 3 }}>
-                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' lineHeight={1.5}>Adjust the slider below to match your maximum budget</Typography>
+                        <Typography fontSize='1rem' variant="h3" color='#343434' fontWeight='500' className={styles.sectionLabelSubtitle} lineHeight={1.5}>Adjust the slider below to match your maximum budget</Typography>
                         <Box sx={{ mt: 3, marginX: 5 }}>
                             <Slider
                                 valueLabelDisplay="on"

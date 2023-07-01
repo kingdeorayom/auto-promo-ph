@@ -28,3 +28,8 @@
     text-decoration-color: #d2b019;
     text-decoration-thickness: 1px;
 }
+
+.icon:hover {
+    transform: translate(0, -7px);
+    transition: all 0.1s linear;
+}

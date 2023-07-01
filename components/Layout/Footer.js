@@ -34,7 +34,7 @@ const Footer = () => {
                 </Link>
                 <Stack direction='row' spacing={2}>
                     <Link href='https://www.facebook.com/dhang.casten' target="_blank">
-                        <IconButton>
+                        <IconButton className={styles.icon}>
                             <Image
                                 src={facebook_icon}
                                 alt="Facebook Icon"
@@ -44,7 +44,7 @@ const Footer = () => {
                         </IconButton>
                     </Link>
                     <Link href='https://www.viber.com/' target="_blank">
-                        <IconButton>
+                        <IconButton className={styles.icon}>
                             <Image
                                 src={viber_icon}
                                 alt="Viber Icon"
@@ -54,7 +54,7 @@ const Footer = () => {
                         </IconButton>
                     </Link>
                     <Link href='mailto:dhangcasten@autopromo.ph' target="_blank">
-                        <IconButton>
+                        <IconButton className={styles.icon}>
                             <Image
                                 src={gmail_icon}
                                 alt="Gmail Icon"
