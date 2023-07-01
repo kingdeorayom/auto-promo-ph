@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@900&display=swap');
+
 .wrapper {
     width: 100%;
     /* max-width: 1000px; */
@@ -10,7 +12,8 @@
 .imageBox {
     position: relative;
     margin: auto;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     overflow: hidden;
     height: 175px;
 }
@@ -23,7 +26,8 @@
     transform: scale(1);
     object-fit: cover;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     max-width: 100%;
 }
 
@@ -37,15 +41,23 @@
     border-radius: 5px;
 } */
 
+
 .card:hover .title {
     color: #1976d2;
 }
 
 .card {
-    border-radius: 5px;
-    padding: 15px 12px 15px 12px;
-    background-color: #ffffff;
-    box-shadow: 0 1px 2px 0 rgba(36, 39, 44, 0.15);
+    border-radius: 15px;
+    /* background-color: #ffffff; */
+    background-color: #f5f8ff;
+    /* box-shadow: 0 1px 1px 1px rgba(36, 39, 44, 0.15); */
+    /* border: 1px solid #d3d3d3; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.details {
+    padding: 0 12px 15px 12px;
 }
 
 .card:hover{
@@ -63,4 +75,13 @@
     text-decoration: underline;
     text-decoration-color: #1976d2;
     text-decoration-thickness: 2px;
+}
+
+.sectionLabel,.sectionLabelSubtitle {
+    font-family: 'Inter', sans-serif;
+}
+
+.featuredVehiclesCarousel {
+    margin-top: 32px;
+    margin-bottom: 32px;
 }

@@ -7,7 +7,7 @@ import Banner from "@/components/Home/Banner"
 import SearchBox from "@/components/Search/SearchBox"
 import Welcome from "@/components/Home/Welcome"
 import Head from "next/head"
-import { Box } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import styles from '@/styles/Home.module.css'
 
 const Home = () => {
@@ -20,10 +20,15 @@ const Home = () => {
       </Head>
       <Layout>
         <Box className={styles.welcome}>
-          <Box sx={{ textAlign: 'center', mt: 7, mb: 0 }}>
+          <Box sx={{ textAlign: 'center', mt: 10, mb: 3 }}>
             <Welcome />
             <SearchBox autoFocus={false} />
+            {/* <Typography color='white'>or</Typography>
+            <Box sx={{ backgroundColor: 'white', maxWidth: '200px', borderRadius: 1, padding: .5 }}>
+              <Typography>Explore</Typography>
+            </Box> */}
           </Box>
+          <Box className={styles.overlayBackground}></Box>
         </Box>
         <Box className={styles.wrapper}>
           <FeaturedVehicles isHome={true} hasSeeAll={true} />

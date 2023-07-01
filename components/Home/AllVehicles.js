@@ -22,8 +22,8 @@ const AllVehicles = ({ isHome, hasSeeAll }) => {
         <>
             <Box display='flex' alignItems='center' justifyContent='space-between'>
                 <Box>
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>All Vehicles</Typography>
-                    <Typography fontSize='1rem' variant="h3" color='secondary'>All vehicles available under Auto Promo PH</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={styles.sectionLabel}>All Vehicles</Typography>
+                    <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>All vehicles available under Auto Promo PH</Typography>
                 </Box>
                 {
                     hasSeeAll ?
@@ -56,7 +56,10 @@ const AllVehicles = ({ isHome, hasSeeAll }) => {
                                                 image={`${API_URL}${vehicle.image}`}
                                                 name={vehicle.name}
                                                 price={vehicle.price}
-                                                downpayment={vehicle.price}
+                                                promo={vehicle.price}
+                                                fuelType={vehicle.fuelType}
+                                                transmission={vehicle.transmission}
+                                                type={vehicle.type}
                                             />
                                         </Link>
                                     </Grid>
@@ -69,7 +72,10 @@ const AllVehicles = ({ isHome, hasSeeAll }) => {
                                                 image={`${API_URL}${vehicle.image}`}
                                                 name={vehicle.name}
                                                 price={vehicle.price}
-                                                downpayment={vehicle.price}
+                                                promo={vehicle.price}
+                                                fuelType={vehicle.fuelType}
+                                                transmission={vehicle.transmission}
+                                                type={vehicle.type}
                                             />
                                         </Link>
                                     </Grid>

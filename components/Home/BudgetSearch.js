@@ -3,6 +3,7 @@ import { Box, Button, Slider, Typography } from '@mui/material'
 import { useState } from 'react';
 import useNumberFormatter from '@/hooks/useNumberFormatter';
 import EastIcon from '@mui/icons-material/East';
+import styles from '@/styles/Home.module.css'
 
 const BudgetSearch = () => {
 
@@ -37,17 +38,17 @@ const BudgetSearch = () => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Browse cars by budget</Typography>
-            <Typography fontSize='1rem' variant="h3" color='secondary' lineHeight={1.5}>Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget</Typography>
+            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434' className={styles.sectionLabel}>Browse cars by budget</Typography>
+            <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>Tight on budget? Use our Budget Search below to search for vehicles fitting your <strong>maximum</strong> budget</Typography>
 
             <Box display='flex' justifyContent='center'>
                 <Box sx={{
                     mt: 3,
                     mb: 5,
-                    backgroundColor: '#ffffff',
+                    backgroundColor: '#f5f8ff',
                     padding: '5px 15px',
                     borderRadius: '10px',
-                    boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
+                    // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
                     width: '100%',
                     // maxWidth: '1000px',
                 }}
@@ -70,10 +71,11 @@ const BudgetSearch = () => {
                         <Box display='flex' justifyContent='flex-start' sx={{ mt: 3.5, mb: .5, }}>
                             <Link href={`/budget-search?budget=${value}`}>
                                 <Button
-                                    variant='outlined'
-                                    size='large'
-                                    color='info'
-                                    sx={{ textTransform: 'unset' }}
+                                    variant='contained'
+                                    disableElevation
+                                    // size='large'
+                                    // color='info'
+                                    sx={{ fontSize: '12px', color: '#343434', backgroundColor: '#ffffff', ':hover': { backgroundColor: '#ffffff', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)', }, borderRadius: '20px' }}
                                     endIcon={<EastIcon />}
                                 >
                                     Search for vehicles under ₱ {useNumberFormatter(value)}

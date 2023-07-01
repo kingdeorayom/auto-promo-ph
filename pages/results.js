@@ -12,6 +12,7 @@ import SearchSuggestions from '@/components/Search/SearchSuggestions'
 import Head from 'next/head'
 import { useSearchResults } from '@/hooks/useSearchResults'
 import { ListingContext } from '@/context/ListingContext'
+import styles from '@/styles/Vehicles.module.css'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -61,8 +62,8 @@ const SearchResults = () => {
                         paddingRight: '15px'
                     }}
                 >
-                    <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>{`Showing search results for '${router.query.q}'`}</Typography>
-                    <Typography fontSize='1rem' variant="h3" color='secondary'>To search for another vehicle, simply type your query on the search field above</Typography>
+                    <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434' className={styles.sectionLabel}>{`Showing search results for '${router.query.q}'`}</Typography>
+                    <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050' className={styles.sectionLabelSubtitle}>To search for another vehicle, simply type your query on the search field above</Typography>
 
                     {
                         isSearchResultsLoading ?
@@ -97,7 +98,10 @@ const SearchResults = () => {
                                                             image={`${API_URL}${vehicle.image}`}
                                                             name={vehicle.name}
                                                             price={vehicle.price}
-                                                            downpayment={vehicle.price}
+                                                            promo={vehicle.price}
+                                                            fuelType={vehicle.fuelType}
+                                                            transmission={vehicle.transmission}
+                                                            type={vehicle.type}
                                                         />
                                                     </Link>
                                                 </Grid>

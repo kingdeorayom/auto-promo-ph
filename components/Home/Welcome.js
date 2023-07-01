@@ -1,31 +1,26 @@
 import { Typography } from '@mui/material'
+import styles from '@/styles/Home.module.css'
 
 const Welcome = () => {
     return (
         <>
             <Typography
-                fontSize='2.5rem'
-                component='div'
-                fontWeight='700'
+                fontSize='3rem'
+                // fontSize='5vw'
+                variant="h1"
                 mt={.8}
-                mb={1}
+                mb={2.5}
                 lineHeight={1}
-                color='#343434'
+                fontWeight='800'
+                color='white'
+                className={styles.title}
             >
-                Welcome to{' '}
-                <Typography
-                    fontSize='2.5rem'
-                    display='inline'
-                    variant="h1"
-                    fontWeight='700'
-                    color='primary'
-                >
-                    Auto Promo PH
-                </Typography>
+                Find, Inquire, Buy &mdash; quick and super easy!
             </Typography>
 
-            <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={2} color='secondary'>
-                Explore, or easily search for vehicles using our search field below
+            <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#dadada' className={styles.subtitle}>
+                Streamline your car-buying experience with our effortless search
+                {/* Explore, or easily search for vehicles using our search field below */}
             </Typography>
         </>
     )

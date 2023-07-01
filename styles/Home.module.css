@@ -1,6 +1,27 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@900&display=swap');
+
+.title, .subtitle{
+    font-family: 'Inter', sans-serif;
+}
+
+.overlayBackground {
+    background: url(https://static1.eyellowpages.ph/assets/yp_home_bg-8b8da4e918d8629254f2955c51da2e5c43be81ce031d3b417800e4991ff3d2e7.png) transparent no-repeat;
+    width: 100%;
+    height: 150px;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: luminosity;
+    opacity: .9;
+}
+
 .welcome {
     width: 100%;
-    background-color: #ffffff;
+    /* background-color: #00adef; */
+    /* background-color: #172153; */
+    background-color: #1f308a;
+    /* background-color: #A90B0B; */
+    /* background-color: #D32F2F; */
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -18,14 +39,16 @@
     margin: auto;
     border-radius: 10px;
     overflow: hidden;
-    height: 150px;
+    height: 165px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .categoryImageBox .backgroundImage {
     transition: all 0.3s;
     display: block;
     width: 100%;
-    height: 150px;
+    height: 165px;
     transform: scale(1);
     object-fit: cover;
     max-width: 100%;
@@ -48,4 +71,29 @@
 .bannerImage {
     max-width: 100%;
     width: auto;
+}
+
+/* .bodyTypeWrapper {
+    display: flex;
+    overflow-x: auto;
+    overflow: hidden;
+}
+
+.bodyTypeWrapper::-webkit-scrollbar{
+    display: none;
+} */
+
+.seeAll:hover {
+    text-decoration: underline;
+    text-decoration-color: #1976d2;
+    text-decoration-thickness: 2px;
+}
+
+.sectionLabel,.sectionLabelSubtitle {
+    font-family: 'Inter', sans-serif;
+}
+
+.bodyTypeCarousel {
+    margin-top: 32px;
+    margin-bottom: 32px;
 }

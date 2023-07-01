@@ -13,19 +13,23 @@ import styles from '@/styles/Header.module.css'
 import Drawer from "./Drawer";
 import { useAuthContext } from "@/hooks/useAuthContext";
 import nookies from 'nookies'
+import { grey } from '@mui/material/colors';
 
 const Header = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-    const navigation_item_override = {
-        px: 2,
-        py: 1,
-        '&:hover': {
-            borderRadius: 2.5,
-            backgroundColor: '#f5f5f5',
-        }
-    }
+    const selectedLink = '#FFDE00'
+    // const selectedLink = '#ffffff'
+    const unSelectedLink = '#ffffff'
+
+    // const navigation_item_override = {
+    //     px: '16px',
+    //     py: '8px',
+    //     '&:hover': {
+    //         borderBottom: `2px solid ${selectedLink}`
+    //     }
+    // }
 
     const cookies = nookies.get()
 
@@ -55,95 +59,47 @@ const Header = () => {
                 position='sticky'
                 elevation={0}
                 sx={{
-                    backgroundColor: 'white',
-                    boxShadow: '0 0 4px 0 rgba(36, 39, 44, 0.15)',
-                    margin: '0 auto',
-                    // maxWidth: '1280px',
+                    // boxShadow: '0 0 4px 2px rgba(36, 39, 44, 0.15)',
                 }}
             >
                 <Toolbar className={styles.toolbar}>
                     <Box>
                         <Link href='/'>
-                            <Image
+                            {/* <Image
                                 src={logo}
                                 alt="Auto Promo PH"
                                 height={40}
-                            />
+                            /> */}
+                            <Typography fontSize='1.2rem' fontWeight='700'>Logo</Typography>
                         </Link>
                     </Box>
                     <Stack direction='row' spacing={3} marginLeft='30px' display={isLoggedIn ? withDashboardDisplay : withNoDashboardDisplay}>
                         {isLoggedIn ?
                             <Link href='/admin/dashboard'>
-                                <Box sx={navigation_item_override}>
-                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} color={router.pathname == '/admin/dashboard' ? "primary" : "black"}>Dashboard</Typography>
+                                <Box className={router.pathname == '/admin/dashboard' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} color={router.pathname == '/admin/dashboard' ? selectedLink : unSelectedLink}>Dashboard</Typography>
                                 </Box>
                             </Link> : null
                         }
                         <Link href='/'>
-                            <Box sx={navigation_item_override}>
-                                <Typography fontSize='1rem' fontWeight={router.pathname == '/' ? "700" : "400"} color={router.pathname == '/' ? "primary" : "black"}>Explore</Typography>
+                            <Box className={router.pathname == '/' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                                <Typography fontSize='1rem' fontWeight={router.pathname == '/' ? "700" : "400"} color={router.pathname == '/' ? selectedLink : unSelectedLink}>Explore</Typography>
                             </Box>
                         </Link>
                         <Link href='/brands'>
-                            <Box sx={navigation_item_override}>
-                                <Typography fontSize='1rem' fontWeight={router.pathname == '/brands' ? "700" : "400"} color={router.pathname == '/brands' ? "primary" : "black"}>Brands</Typography>
+                            <Box className={router.pathname == '/brands' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                                <Typography fontSize='1rem' fontWeight={router.pathname == '/brands' ? "700" : "400"} color={router.pathname == '/brands' ? selectedLink : unSelectedLink}>Brands</Typography>
                             </Box>
                         </Link>
                         <Link href='/promos'>
-                            <Box sx={navigation_item_override}>
-                                <Typography fontSize='1rem' fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? "primary" : "black"}>Promos</Typography>
+                            <Box className={router.pathname == '/promos' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                                <Typography fontSize='1rem' fontWeight={router.pathname == '/promos' ? "700" : "400"} color={router.pathname == '/promos' ? selectedLink : unSelectedLink}>Promos</Typography>
                             </Box>
                         </Link>
-                        {/* <Link href='/about'>
-                                <Box sx={navigation_item_override}>
-                                    <Typography fontSize='1rem' fontWeight={router.pathname == '/about' ? "700" : "400"} color={router.pathname == '/about' ? "primary" : "black"}>About</Typography>
-                                </Box>
-                            </Link> */}
                         <Link href='/contact'>
-                            <Box sx={navigation_item_override}>
-                                <Typography fontSize='1rem' fontWeight={router.pathname == '/contact' ? "700" : "400"} color={router.pathname == '/contact' ? "primary" : "black"}>Contact</Typography>
+                            <Box className={router.pathname == '/contact' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                                <Typography fontSize='1rem' fontWeight={router.pathname == '/contact' ? "700" : "400"} color={router.pathname == '/contact' ? selectedLink : unSelectedLink}>Contact</Typography>
                             </Box>
-                        </Link>
-                    </Stack>
-                    <Stack
-                        direction='row'
-                        spacing={2}
-                        display={isLoggedIn ? fromMediumDisplayWithDashboard : fromMediumDisplayWithoutDashboard}
-                    >
-                        <Link href='/search'>
-                            <IconButton>
-                                <SearchIcon />
-                            </IconButton>
-                        </Link>
-                        <Link href='https://www.facebook.com/dhang.casten' target="_blank">
-                            <IconButton>
-                                <Image
-                                    src={facebook_icon}
-                                    alt="Facebook Icon"
-                                    width={20}
-                                    height={20}
-                                />
-                            </IconButton>
-                        </Link>
-                        <Link href='https://www.viber.com/' target="_blank">
-                            <IconButton>
-                                <Image
-                                    src={viber_icon}
-                                    alt="Viber Icon"
-                                    width={20}
-                                    height={20}
-                                />
-                            </IconButton>
-                        </Link>
-                        <Link href='mailto:dhangcasten@autopromo.ph' target="_blank">
-                            <IconButton>
-                                <Image
-                                    src={gmail_icon}
-                                    alt="Gmail Icon"
-                                    width={20}
-                                    height={20}
-                                />
-                            </IconButton>
                         </Link>
                     </Stack>
                     <Stack
@@ -153,11 +109,17 @@ const Header = () => {
                     >
                         <Link href='/search'>
                             <IconButton>
-                                <SearchIcon />
+                                <SearchIcon
+                                    // color='error'
+                                    sx={{ color: grey[50] }}
+                                />
                             </IconButton>
                         </Link>
                         <IconButton onClick={() => setIsDrawerOpen(true)}>
-                            <MenuIcon color="primary" />
+                            <MenuIcon
+                                // color='error'
+                                sx={{ color: grey[50] }}
+                            />
                         </IconButton>
                     </Stack>
                 </Toolbar>

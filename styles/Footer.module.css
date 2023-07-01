@@ -4,25 +4,27 @@
 
 .footer {
     margin-top: auto;
-    background-color: #ffffff;
+    background-color: #202020;
+    border-top: 1px solid #d3d3d3;
 }
 
 .link:hover {
     text-decoration: underline;
-    text-decoration-color: #1976d2;
+    text-decoration-color: #d2b019;
     text-decoration-thickness: 1px;
 }
 
 .link:hover .linkText {
-    color: #1976d2;
+    color: #d2b019;
 }
 
-.developer{
-    color: #1976d2;
-}
+/* .developer{
+    color: #d2b019;
+} */
 
 .developer:hover{
+    color: #d2b019;
     text-decoration: underline;
-    text-decoration-color: #1976d2;
+    text-decoration-color: #d2b019;
     text-decoration-thickness: 1px;
 }
