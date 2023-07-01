@@ -1,9 +1,9 @@
 import { createTheme } from "@mui/material";
-import { useDMSans } from "./fonts";
+import { useInter } from "./fonts";
 
 const theme = createTheme({
     typography: {
-        fontFamily: useDMSans.style.fontFamily
+        fontFamily: useInter.style.fontFamily
     },
     palette: {
         secondary: {
