@@ -68,16 +68,16 @@ const Dashboard = ({ vehicles, inquiries }) => {
             <Layout>
                 <Box className={styles.wrapper}>
 
-                    <Box mb={3} display='flex' alignItems='center' justifyContent='space-between'
+                    <Box mb={5} display='flex' alignItems='center' justifyContent='space-between'
                         sx={{
-                            backgroundColor: '#ffffff',
-                            padding: '15px 25px',
-                            borderRadius: '10px',
-                            boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
+                            // backgroundColor: '#ffffff',
+                            // padding: '15px 25px',
+                            // borderRadius: '10px',
+                            // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
                         }}
                     >
                         <Box>
-                            <Typography fontSize='2.1rem' variant="h2" fontWeight='700' mb={.5} color='primary'>Dashboard</Typography>
+                            <Typography fontSize='2.1rem' variant="h2" fontWeight='700' mb={.5} color='#343434'>Dashboard</Typography>
                             <Typography fontSize='1rem' variant="h3" color='secondary'>Manage the content of your website and view customer or client inquiries</Typography>
                         </Box>
                         <Image
@@ -131,7 +131,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                             <Box className={styles.box}>
                                 <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
                                     <Box>
-                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>Manage your vehicles</Typography>
+                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1.5} color='#343434'>Manage your vehicles</Typography>
                                         <Box my={2} display={{ xs: 'block', sm: 'none' }} sx={{ textAlign: 'center' }}>
                                             <Image
                                                 src={car_image}
@@ -139,9 +139,23 @@ const Dashboard = ({ vehicles, inquiries }) => {
                                                 height={120}
                                             />
                                         </Box>
-                                        <Typography color='#808080' mb={2} fontWeight='400'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
+                                        <Typography color='#808080' fontSize='14px' mb={2} fontWeight='400'>View and manage your vehicle listings. Add a new vehicle, edit existing details or delete a record</Typography>
                                         <Link href='/admin/vehicles'>
-                                            <Button variant="contained" endIcon={<ArrowForwardIcon />}>Manage Listings</Button>
+                                            <Button
+                                                variant="contained"
+                                                endIcon={<ArrowForwardIcon />}
+                                                disableElevation
+                                            // sx={{ borderRadius: 10 }}
+                                            // sx={{
+                                            //     color: '#343434',
+                                            //     backgroundColor: '#ffffff',
+                                            //     ':hover': { backgroundColor: '#f5f5f5', boxShadow: '0 0 2px 0 rgba(34, 34, 34, 1)' },
+                                            //     borderRadius: '20px',
+                                            // }}
+
+                                            >
+                                                Manage Listings
+                                            </Button>
                                         </Link>
                                     </Box>
                                     <Box display={{ xs: 'none', sm: 'block' }}>
@@ -159,7 +173,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                             <Box className={styles.box}>
                                 <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
                                     <Box>
-                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>Inquiries</Typography>
+                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1.5} color='#343434'>Inquiries</Typography>
                                         <Box my={2} display={{ xs: 'block', sm: 'none' }} sx={{ textAlign: 'center' }}>
                                             <Image
                                                 src={notifications_image}
@@ -167,9 +181,13 @@ const Dashboard = ({ vehicles, inquiries }) => {
                                                 height={120}
                                             />
                                         </Box>
-                                        <Typography color='#808080' mb={2} fontWeight='400'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
+                                        <Typography color='#808080' mb={2} fontSize='14px' fontWeight='400'>View and manage inquiries of clients or customers, their name, and contact information</Typography>
                                         <Link href='/admin/inquiries'>
-                                            <Button variant="contained" endIcon={<ArrowForwardIcon />}>View Inquiries</Button>
+                                            <Button disableElevation variant="contained" endIcon={<ArrowForwardIcon />}
+                                            // sx={{ borderRadius: 10 }}
+                                            >
+                                                View Inquiries
+                                            </Button>
                                         </Link>
                                     </Box>
                                     <Box display={{ xs: 'none', sm: 'block' }}>

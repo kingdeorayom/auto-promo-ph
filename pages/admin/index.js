@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useLogin } from '@/hooks/useLogin';
 import Image from 'next/image';
-import logo from '@/public/logotosvg.png'
+// import logo from '@/public/logotosvg.png'
 import Head from 'next/head';
 import nookies from 'nookies'
 
@@ -67,7 +67,7 @@ const LoginPage = () => {
                 <Box className={styles.wrapper}>
                     <Box className={styles.formContainer}>
 
-                        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                        {/* <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                             <Link href='/'>
                                 <Image
                                     src={logo}
@@ -75,7 +75,7 @@ const LoginPage = () => {
                                     height={48}
                                 />
                             </Link>
-                        </Box>
+                        </Box> */}
 
                         <Typography fontSize='2rem' variant="h2" fontWeight='700' mt={4} mb={1}>Hi <span className={styles.name}>Dhang</span>, welcome back! &#128075;</Typography>
                         <Typography fontSize='1rem' variant="h3" color='secondary'>Log in to your account</Typography>

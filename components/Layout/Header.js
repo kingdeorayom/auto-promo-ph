@@ -5,11 +5,11 @@ import { useRouter } from "next/router";
 import { AppBar, Box, IconButton, Stack, Toolbar, Typography } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
-import logo from '@/public/logotosvg.png'
 import styles from '@/styles/Header.module.css'
 import Drawer from "./Drawer";
 import nookies from 'nookies'
 import { grey } from '@mui/material/colors';
+import logo from '@/public/logo.svg'
 
 const Header = () => {
 
@@ -39,49 +39,53 @@ const Header = () => {
                 elevation={0}
             >
                 <Toolbar className={styles.toolbar}>
-                    <Box>
-                        <Link href='/'>
-                            {/* <Image
+                    <Box display={{ xs: 'flex', md: 'flex', lg: 'none' }}>
+                        <IconButton onClick={() => setIsDrawerOpen(true)}>
+                            <MenuIcon
+                                sx={{ color: grey[50], ':hover': { color: '#FFDE00' } }}
+                            />
+                        </IconButton>
+                    </Box>
+                    <Link href='/'>
+                        <Box>
+                            <Image
                                 src={logo}
                                 alt="Auto Promo PH"
-                                height={40}
-                            /> */}
-                            <Typography fontSize='1.2rem' fontWeight='700'>Logo</Typography>
-                        </Link>
-                    </Box>
+                                height={25}
+                            />
+                        </Box>
+                    </Link>
                     <Stack direction='row' spacing={3} marginLeft='30px' display={isLoggedIn ? withDashboardDisplay : withNoDashboardDisplay}>
                         {isLoggedIn ?
                             <Link href='/admin/dashboard'>
                                 <Box className={router.pathname == '/admin/dashboard' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
-                                    <Typography fontSize='1rem' fontWeight='700'>Dashboard</Typography>
+                                    <Typography fontSize='15px' fontWeight='700'>Dashboard</Typography>
                                 </Box>
                             </Link> : null
                         }
                         <Link href='/'>
                             <Box className={router.pathname == '/' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
-                                <Typography fontSize='1rem' fontWeight='700'>Explore</Typography>
+                                <Typography fontSize='15px' fontWeight='700'>Explore</Typography>
                             </Box>
                         </Link>
                         <Link href='/brands'>
                             <Box className={router.pathname == '/brands' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
-                                <Typography fontSize='1rem' fontWeight='700'>Brands</Typography>
+                                <Typography fontSize='15px' fontWeight='700'>Brands</Typography>
                             </Box>
                         </Link>
                         <Link href='/promos'>
                             <Box className={router.pathname == '/promos' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
-                                <Typography fontSize='1rem' fontWeight='700'>Promos</Typography>
+                                <Typography fontSize='15px' fontWeight='700'>Promos</Typography>
                             </Box>
                         </Link>
                         <Link href='/contact'>
                             <Box className={router.pathname == '/contact' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
-                                <Typography fontSize='1rem' fontWeight='700'>Contact</Typography>
+                                <Typography fontSize='15px' fontWeight='700'>Contact</Typography>
                             </Box>
                         </Link>
                     </Stack>
-                    <Stack
-                        direction='row'
-                        spacing={2}
-                        display={isLoggedIn ? menuIconDisplayWithDashboard : menuIconDisplayWithoutDashboard}
+                    <Box
+                    // display={isLoggedIn ? menuIconDisplayWithDashboard : menuIconDisplayWithoutDashboard}
                     >
                         <Link href='/search'>
                             <IconButton>
@@ -90,12 +94,7 @@ const Header = () => {
                                 />
                             </IconButton>
                         </Link>
-                        <IconButton onClick={() => setIsDrawerOpen(true)}>
-                            <MenuIcon
-                                sx={{ color: grey[50], ':hover': { color: '#FFDE00' } }}
-                            />
-                        </IconButton>
-                    </Stack>
+                    </Box>
                 </Toolbar>
             </AppBar>
 

@@ -1,35 +1,26 @@
-import { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Box, Divider, Drawer as MuiDrawer, IconButton, Stack, Typography } from '@mui/material'
+import { Box, Divider, Drawer as MuiDrawer, IconButton, Typography } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import gmail_icon from '@/public/gmail_icon.svg'
 import viber_icon from '@/public/viber_icon.svg'
 import facebook_icon from '@/public/facebook_icon.svg'
-import logo from '@/public/logotosvg.png'
-import styles from '@/styles/Header.module.css'
+import logo from '@/public/logo.svg'
+import styles from '@/styles/Drawer.module.css'
+
+import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
+import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
+import ScatterPlotOutlinedIcon from '@mui/icons-material/ScatterPlotOutlined';
+import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
+import ContactPhoneOutlinedIcon from '@mui/icons-material/ContactPhoneOutlined';
 
 const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
 
-    const navigation_item_override = {
-        mx: 1,
-        my: .7,
-        borderRadius: 2.5,
-        py: 1.4,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        '&:hover': {
-            // backgroundColor: '#E6F7FF',
-            backgroundColor: '#fafafa',
-        }
-    }
-
     return (
         <MuiDrawer
-            anchor='right'
+            anchor='left'
             open={isDrawerOpen}
             onClose={() => setIsDrawerOpen(false)}
             transitionDuration={0}
@@ -39,39 +30,38 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
                 }
             }}
         >
-            <Box component='nav'
-                sx={{
-                    py: '9px', px: '13px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                }}
-            >
+            <Box component='nav' className={styles.wrapper}>
+                <Box>
+                    <IconButton onClick={() => setIsDrawerOpen(false)}>
+                        <CloseIcon sx={{ color: '#ffffff', ':hover': { color: '#FFDE00' } }} />
+                    </IconButton>
+                </Box>
                 <Link href='/'>
                     <Image
                         src={logo}
                         alt="Auto Promo PH"
-                        height={40}
-                    // className={styles.logo}
+                        height={25}
+                        className={styles.logo}
                     />
                 </Link>
-                <Stack direction='row' spacing={2}>
+                <Box>
                     <Link href='/search'>
-                        <IconButton>
+                        <IconButton sx={{ color: '#ffffff', ':hover': { color: '#FFDE00' } }}>
                             <SearchIcon />
                         </IconButton>
                     </Link>
-                    <IconButton onClick={() => setIsDrawerOpen(false)}>
-                        <CloseIcon color='primary' />
-                    </IconButton>
-                </Stack>
+                </Box>
             </Box>
-
-            <Divider sx={{ mb: 2 }} />
 
             {
                 isLoggedIn ? <Link href='/admin/dashboard'>
-                    <Box sx={navigation_item_override}>
-                        <Box marginLeft={2.5}>
-                            <Typography fontWeight={router.pathname == '/admin/dashboard' ? "700" : "400"} fontSize='15px' color={router.pathname == '/admin/dashboard' ? "primary" : "black"} mb={.5}>Dashboard</Typography>
-                            <Typography fontSize='13px' color='#808080'>Manage the content of your website and view customer or client inquiries</Typography>
+                    <Box className={router.pathname == '/admin/dashboard' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                        <Box display='flex' alignItems='center'>
+                            <DashboardCustomizeOutlinedIcon sx={{ mx: 3 }} />
+                            <Box>
+                                <Typography fontSize='15px' fontWeight='700' mb={.5}>Dashboard</Typography>
+                                <Typography fontSize='13px' color='#808080'>Manage the content of your website and view customer or client inquiries</Typography>
+                            </Box>
                         </Box>
                         <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                     </Box>
@@ -79,50 +69,52 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
             }
 
             <Link href='/'>
-                <Box sx={navigation_item_override}>
-                    <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/' ? "700" : "400"} fontSize='15px' color={router.pathname == '/' ? "primary" : "black"} mb={.5}>Explore</Typography>
-                        <Typography fontSize='13px' color='#808080'>Browse different collections of vehicles offered by Auto Promo PH. Use the Quick Search Filters to easily find your dream vehicle</Typography>
+                <Box className={router.pathname == '/' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                    <Box display='flex' alignItems='center'>
+                        <ExploreOutlinedIcon sx={{ mx: 3 }} />
+                        <Box>
+                            <Typography fontSize='15px' fontWeight='700' mb={.5}>Explore</Typography>
+                            <Typography fontSize='13px' color='#808080'>Browse different collections of vehicles offered by Auto Promo PH. Use the Quick Search Filters to easily find your dream vehicle</Typography>
+                        </Box>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
             </Link>
 
             <Link href='/brands'>
-                <Box sx={navigation_item_override}>
-                    <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/brands' ? "700" : "400"} fontSize='15px' color={router.pathname == '/brands' ? "primary" : "black"} mb={.5}>Brands</Typography>
-                        <Typography fontSize='13px' color='#808080'>View available vehicle brands offered by Auto Promo PH. Read a few insight regarding a brand</Typography>
+                <Box className={router.pathname == '/brands' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                    <Box display='flex' alignItems='center'>
+                        <ScatterPlotOutlinedIcon sx={{ mx: 3 }} />
+                        <Box>
+                            <Typography fontSize='15px' fontWeight='700' mb={.5}>Brands</Typography>
+                            <Typography fontSize='13px' color='#808080'>View available vehicle brands offered by Auto Promo PH. Read a few insight regarding a brand</Typography>
+                        </Box>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
             </Link>
 
             <Link href='/promos'>
-                <Box sx={navigation_item_override}>
-                    <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/promos' ? "700" : "400"} fontSize='15px' color={router.pathname == '/promos' ? "primary" : "black"} mb={.5}>Promos</Typography>
-                        <Typography fontSize='13px' color='#808080'>View the current promos offered by Auto Promo PH</Typography>
+                <Box className={router.pathname == '/promos' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                    <Box display='flex' alignItems='center'>
+                        <SellOutlinedIcon sx={{ mx: 3 }} />
+                        <Box>
+                            <Typography fontSize='15px' fontWeight='700' mb={.5}>Promos</Typography>
+                            <Typography fontSize='13px' color='#808080'>View the current promos offered by Auto Promo PH</Typography>
+                        </Box>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>
             </Link>
 
-            {/* <Link href='/about'>
-                <Box sx={navigation_item_override}>
-                    <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/about' ? "700" : "400"} fontSize='15px' color={router.pathname == '/about' ? "primary" : "black"} mb={.5}>About</Typography>
-                        <Typography fontSize='13px' color='#808080'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad excepturi.</Typography>
-                    </Box>
-                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
-                </Box>
-            </Link> */}
-
             <Link href='/contact'>
-                <Box sx={navigation_item_override}>
-                    <Box marginLeft={2.5}>
-                        <Typography fontWeight={router.pathname == '/contact' ? "700" : "400"} fontSize='15px' color={router.pathname == '/contact' ? "primary" : "black"} mb={.5}>Contact</Typography>
-                        <Typography fontSize='13px' color='#808080'>Reach out to us. View our contact information</Typography>
+                <Box className={router.pathname == '/contact' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                    <Box display='flex' alignItems='center'>
+                        <ContactPhoneOutlinedIcon sx={{ mx: 3 }} />
+                        <Box>
+                            <Typography fontSize='15px' fontWeight='700' mb={.5}>Contact</Typography>
+                            <Typography fontSize='13px' color='#808080'>Reach out to us. View our contact information</Typography>
+                        </Box>
                     </Box>
                     <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
                 </Box>

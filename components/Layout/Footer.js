@@ -5,7 +5,7 @@ import gmail_icon from '@/public/gmail_icon.svg'
 import viber_icon from '@/public/viber_icon.svg'
 import facebook_icon from '@/public/facebook_icon.svg'
 import styles from '@/styles/Footer.module.css'
-import logo from '@/public/logotosvg.png'
+import logo from '@/public/logo.svg'
 
 const Footer = () => {
     return (
@@ -24,13 +24,13 @@ const Footer = () => {
                     paddingX: 2
                 }}>
                 <Link href='/'>
-                    {/* <Image
+                    <Image
                         src={logo}
                         alt="Auto Promo PH"
-                        height={40}
-                        className={styles.logo}
-                    /> */}
-                    <Typography fontSize='1.2rem' fontWeight='700' color='white'>Logo</Typography>
+                        height={25}
+                    // className={styles.logo}
+                    />
+                    {/* <Typography fontSize='1.2rem' fontWeight='700' color='white'>Logo</Typography> */}
                 </Link>
                 <Stack direction='row' spacing={2}>
                     <Link href='https://www.facebook.com/dhang.casten' target="_blank">
