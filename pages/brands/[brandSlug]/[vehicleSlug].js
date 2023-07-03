@@ -23,6 +23,8 @@ import carnobg from '@/public/carnobg.png'
 import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 export async function getStaticPaths() {
 
@@ -101,25 +103,12 @@ const VehicleDetails = ({ vehicle, variants }) => {
             breakpoint: { max: 768, min: 0 },
             items: 1
         }
-
-        // lg: {
-        //     breakpoint: { max: 1535, min: 1200 },
-        //     items: 4
-        // },
-        // md: {
-        //     breakpoint: { max: 1199, min: 900 },
-        //     items: 4
-        // },
-        // sm: {
-        //     breakpoint: { max: 899, min: 600 },
-        //     items: 2
-        // },
-        // xs: {
-        //     breakpoint: { max: 599, min: 0 },
-        //     items: 1
-        // },
     };
 
+    Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+        closeButton: true,
+    });
 
     return (
         <>
@@ -276,49 +265,31 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 <Box className={styles.extraImages}>
                                     <Carousel
                                         swipeable={true}
-                                        infinite={true}
+                                        // infinite={true}
                                         draggable={false}
                                         responsive={responsive}
                                     >
                                         {
                                             vehicle.extraImages.map((item, index) => {
                                                 return (
-                                                    <Box key={index} width={{ xs: "100%", sm: '95%' }} height={{ xs: 225, sm: 220 }} position='relative' display='block' sx={{ aspectRatio: 1 }}>
-                                                        <Image
-                                                            src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
-                                                            alt={vehicle.name}
-                                                            fill
-                                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                                            className={styles.extraImage}
-                                                            placeholder='blur'
-                                                            blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
-                                                        />
-                                                    </Box>
+                                                    <Link data-fancybox="extraImages" href={`${process.env.NEXT_PUBLIC_API_URL}${item}`} key={index}>
+                                                        <Box width={{ xs: "100%", sm: '95%' }} height={{ xs: 225, sm: 220 }} position='relative' display='block' sx={{ aspectRatio: 1 }}>
+                                                            <Image
+                                                                src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                                alt={vehicle.name}
+                                                                fill
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                                                className={styles.extraImage}
+                                                                placeholder='blur'
+                                                                blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                            />
+                                                        </Box>
+                                                    </Link>
                                                 )
                                             })
                                         }
                                     </Carousel>
                                 </Box>
-
-                                {/* <Box className={styles.gallery}>
-                                    {
-                                        vehicle.extraImages.map((item, index) => {
-                                            return (
-                                                <Box key={index} width={'100%'} height={100} position='relative' display='block' sx={{ aspectRatio: 1 }}>
-                                                    <Image
-                                                        src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
-                                                        alt={vehicle.name}
-                                                        fill
-                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                                        className={styles.gallery__image}
-                                                        placeholder='blur'
-                                                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
-                                                    />
-                                                </Box>
-                                            )
-                                        })
-                                    }
-                                </Box> */}
 
                             </Box>
 
