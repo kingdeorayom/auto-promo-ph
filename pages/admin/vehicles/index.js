@@ -85,16 +85,16 @@ const VehicleManagement = ({ vehicles }) => {
                             >
                                 Dashboard
                             </Link>
-                            <Typography color="primary">Manage your vehicles</Typography>
+                            <Typography color="primary" fontWeight='500'>Manage your vehicles</Typography>
                         </Breadcrumbs>
                     </Box>
 
                     <Box sx={{
-                        backgroundColor: '#ffffff',
-                        padding: '20px 20px',
-                        borderRadius: '10px',
-                        boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
-                        mb: 3
+                        // backgroundColor: '#ffffff',
+                        // padding: '20px 20px',
+                        // borderRadius: '10px',
+                        // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
+                        mb: 5
                     }}>
                         <Box display='flex' justifyContent='space-between' alignItems='center'>
                             <Box>

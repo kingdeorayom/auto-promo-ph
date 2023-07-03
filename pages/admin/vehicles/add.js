@@ -182,411 +182,393 @@ const AddVehicle = ({ vehicles }) => {
                             >
                                 Manage your vehicles
                             </Link>
-                            <Typography color="primary">Add a vehicle</Typography>
+                            <Typography color="primary" fontWeight='500'>Add a vehicle</Typography>
                         </Breadcrumbs>
                     </Box>
 
-                    <Box
-                        sx={{
-                            backgroundColor: '#ffffff',
-                            padding: '25px 25px',
-                            marginBottom: '20px',
-                            borderRadius: '10px',
-                            boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
-                        }}>
-                        <Box>
-                            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Add a new vehicle</Typography>
-                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Vehicles you add may not immediately appear on the list of vehicles, but this is unlikely to happen.</Typography>
-                        </Box>
-
-                        <Alert severity="warning" sx={{ mt: 3, mb: 2 }}>Review the data you will input before clicking the save button below. Fields marked with red asterisk (*) are required and cannot be left blank or without any data with it. In case of error in details, you may edit through <strong>Vehicle Management</strong> section under <strong>Dashboard</strong>.</Alert>
+                    <Box>
+                        <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Add a new vehicle</Typography>
+                        <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Vehicles you add may not immediately appear on the list of vehicles, but this is unlikely to happen.</Typography>
                     </Box>
 
-                    <Box
-                        sx={{
-                            backgroundColor: '#ffffff',
-                            padding: '10px 20px',
-                            mb: '30px',
-                            borderRadius: '10px',
-                            boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
-                        }}
-                    >
-                        <Box mb={3}>
-                            <form
-                                onSubmit={handleSubmit(onSubmit)}
-                                noValidate
-                                encType='multipart/form-data'
-                            >
-                                <Box my={2}>
-                                    <Typography mb={1} fontWeight='500'>Name <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        type='text'
-                                        fullWidth
-                                        placeholder='e.g., Mitsubishi Mirage G4'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><FontDownloadOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('name')}
-                                        helperText={errors.name?.message}
-                                    />
-                                    <Box onClick={handleSlugDialogOpen} sx={{ cursor: 'pointer' }}>
-                                        <Typography mt={1} fontSize='13px' color='primary' fontWeight='400'>Learn more about vehicle name and vehicle slug</Typography>
-                                    </Box>
-                                </Box>
+                    <Alert severity="warning" sx={{ mt: 3, mb: 5 }}>Review the data you will input before clicking the save button below. Fields marked with red asterisk (*) are required and cannot be left blank or without any data with it. In case of error in details, you may edit through <strong>Vehicle Management</strong> section under <strong>Dashboard</strong>.</Alert>
 
-                                <Box my={2}>
-                                    <Typography fontWeight='500'>Unit Price <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is.</Typography>
-                                    <TextField
-                                        type='number'
-                                        fullWidth
-                                        placeholder='e.g, 768000'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('price')}
-                                        helperText={errors.price?.message}
-                                    />
+                    <Box mb={3}>
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            noValidate
+                            encType='multipart/form-data'
+                        >
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Name <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    type='text'
+                                    fullWidth
+                                    placeholder='e.g., Mitsubishi Mirage G4'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><FontDownloadOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, marginTop: 1.5, }
+                                    }}
+                                    {...register('name')}
+                                    helperText={errors.name?.message}
+                                />
+                                <Box onClick={handleSlugDialogOpen} sx={{ cursor: 'pointer' }}>
+                                    <Typography mt={1} fontSize='13px' color='primary' fontWeight='400'>Learn more about vehicle name and vehicle slug</Typography>
                                 </Box>
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography fontWeight='500'>Net Price <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol just like with Unit Price.</Typography>
-                                    <TextField
-                                        type='number'
-                                        fullWidth
-                                        placeholder='e.g, 750000'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('netPrice')}
-                                        helperText={errors.netPrice?.message}
-                                    />
-                                </Box>
+                            <Box my={2}>
+                                <Typography fontWeight='500'>Unit Price <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is.</Typography>
+                                <TextField
+                                    type='number'
+                                    fullWidth
+                                    placeholder='e.g, 768000'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, marginTop: 1.5, }
+                                    }}
+                                    {...register('price')}
+                                    helperText={errors.price?.message}
+                                />
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography fontWeight='500'>Downpayment <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the downpayment as is.</Typography>
-                                    <TextField
-                                        type='number'
-                                        fullWidth
-                                        placeholder='e.g, 60000'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('downpayment')}
-                                        helperText={errors.downpayment?.message}
-                                    />
-                                </Box>
+                            <Box my={2}>
+                                <Typography fontWeight='500'>Net Price <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol just like with Unit Price.</Typography>
+                                <TextField
+                                    type='number'
+                                    fullWidth
+                                    placeholder='e.g, 750000'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, marginTop: 1.5, }
+                                    }}
+                                    {...register('netPrice')}
+                                    helperText={errors.netPrice?.message}
+                                />
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography fontWeight='500'>5 years Amortization <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the value as is.</Typography>
-                                    <TextField
-                                        type='number'
-                                        fullWidth
-                                        placeholder='e.g, 12844'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('amortization')}
-                                        helperText={errors.amortization?.message}
-                                    />
-                                </Box>
+                            <Box my={2}>
+                                <Typography fontWeight='500'>Downpayment <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the downpayment as is.</Typography>
+                                <TextField
+                                    type='number'
+                                    fullWidth
+                                    placeholder='e.g, 60000'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, marginTop: 1.5, }
+                                    }}
+                                    {...register('downpayment')}
+                                    helperText={errors.downpayment?.message}
+                                />
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography mb={1} fontWeight='500'>Description <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        type='text'
-                                        fullWidth
-                                        placeholder='Provide a description of the vehicle'
-                                        {...register('description')}
-                                        helperText={errors.description?.message}
-                                        multiline
-                                        rows={5}
-                                        InputProps={{
-                                            sx: { borderRadius: 3, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                    />
-                                </Box>
+                            <Box my={2}>
+                                <Typography fontWeight='500'>5 years Amortization <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the value as is.</Typography>
+                                <TextField
+                                    type='number'
+                                    fullWidth
+                                    placeholder='e.g, 12844'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, marginTop: 1.5, }
+                                    }}
+                                    {...register('amortization')}
+                                    helperText={errors.amortization?.message}
+                                />
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography mb={2} fontWeight='500'>Brand <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        select
-                                        fullWidth
-                                        label="Select Brand"
-                                        defaultValue=''
-                                        inputProps={register('brand')}
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><DashboardOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                    >
-                                        <MenuItem value='Geely'>Geely</MenuItem>
-                                        <MenuItem value='Honda'>Honda</MenuItem>
-                                        <MenuItem value='Isuzu'>Isuzu</MenuItem>
-                                        <MenuItem value='MG'>MG</MenuItem>
-                                        <MenuItem value='Mitsubishi'>Mitsubishi</MenuItem>
-                                        <MenuItem value='Suzuki'>Suzuki</MenuItem>
-                                        <MenuItem value='Toyota'>Toyota</MenuItem>
-                                    </TextField>
-                                </Box>
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Description <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    type='text'
+                                    fullWidth
+                                    placeholder='Provide a description of the vehicle'
+                                    {...register('description')}
+                                    helperText={errors.description?.message}
+                                    multiline
+                                    rows={5}
+                                    InputProps={{
+                                        sx: { borderRadius: 2, marginTop: 1.5, }
+                                    }}
+                                />
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography mb={1} fontWeight='500'>Model <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        type='text'
-                                        fullWidth
-                                        placeholder='e.g., Mirage G4'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><CategoryOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('model')}
-                                        helperText={errors.model?.message}
-                                    />
-                                </Box>
+                            <Box my={2}>
+                                <Typography mb={2} fontWeight='500'>Brand <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    select
+                                    fullWidth
+                                    label="Select Brand"
+                                    defaultValue=''
+                                    inputProps={register('brand')}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><DashboardOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                >
+                                    <MenuItem value='Geely'>Geely</MenuItem>
+                                    <MenuItem value='Honda'>Honda</MenuItem>
+                                    <MenuItem value='Isuzu'>Isuzu</MenuItem>
+                                    <MenuItem value='MG'>MG</MenuItem>
+                                    <MenuItem value='Mitsubishi'>Mitsubishi</MenuItem>
+                                    <MenuItem value='Suzuki'>Suzuki</MenuItem>
+                                    <MenuItem value='Toyota'>Toyota</MenuItem>
+                                </TextField>
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography mb={2} fontWeight='500'>Body Type <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        select
-                                        fullWidth
-                                        label="Select Body Type"
-                                        defaultValue=''
-                                        inputProps={register('type')}
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><AirportShuttleOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                    >
-                                        <MenuItem value='Sedan'>Sedan</MenuItem>
-                                        <MenuItem value='SUV'>SUV</MenuItem>
-                                        <MenuItem value='Hatchback'>Hatchback</MenuItem>
-                                        <MenuItem value='Van'>Van</MenuItem>
-                                        <MenuItem value='Utility'>Utility</MenuItem>
-                                    </TextField>
-                                </Box>
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Model <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    type='text'
+                                    fullWidth
+                                    placeholder='e.g., Mirage G4'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><CategoryOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                    {...register('model')}
+                                    helperText={errors.model?.message}
+                                />
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography mb={2} fontWeight='500'>Transmission <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        select
-                                        fullWidth
-                                        label="Select Transmission"
-                                        defaultValue=''
-                                        inputProps={register('transmission')}
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><SettingsOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                    >
-                                        {/* <MenuItem value='Automatic'>Automatic</MenuItem>
+                            <Box my={2}>
+                                <Typography mb={2} fontWeight='500'>Body Type <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    select
+                                    fullWidth
+                                    label="Select Body Type"
+                                    defaultValue=''
+                                    inputProps={register('type')}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><AirportShuttleOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                >
+                                    <MenuItem value='Sedan'>Sedan</MenuItem>
+                                    <MenuItem value='SUV'>SUV</MenuItem>
+                                    <MenuItem value='Hatchback'>Hatchback</MenuItem>
+                                    <MenuItem value='Van'>Van</MenuItem>
+                                    <MenuItem value='Utility'>Utility</MenuItem>
+                                </TextField>
+                            </Box>
+
+                            <Box my={2}>
+                                <Typography mb={2} fontWeight='500'>Transmission <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    select
+                                    fullWidth
+                                    label="Select Transmission"
+                                    defaultValue=''
+                                    inputProps={register('transmission')}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><SettingsOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                >
+                                    {/* <MenuItem value='Automatic'>Automatic</MenuItem>
                                 <MenuItem value='Manual'>Manual</MenuItem> */}
-                                        <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
-                                        <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
-                                        <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
-                                        <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
-                                        <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
-                                        <MenuItem value='Manual'>Manual</MenuItem>
-                                    </TextField>
-                                </Box>
+                                    <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
+                                    <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
+                                    <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
+                                    <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
+                                    <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
+                                    <MenuItem value='Manual'>Manual</MenuItem>
+                                </TextField>
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography mb={2} fontWeight='500'>Fuel Type <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        select
-                                        fullWidth
-                                        label="Select Fuel Type"
-                                        defaultValue=''
-                                        inputProps={register('fuelType')}
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><LocalGasStationOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                    >
-                                        <MenuItem value='Diesel'>Diesel</MenuItem>
-                                        <MenuItem value='Gasoline'>Gasoline</MenuItem>
-                                    </TextField>
-                                </Box>
+                            <Box my={2}>
+                                <Typography mb={2} fontWeight='500'>Fuel Type <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    select
+                                    fullWidth
+                                    label="Select Fuel Type"
+                                    defaultValue=''
+                                    inputProps={register('fuelType')}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><LocalGasStationOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                >
+                                    <MenuItem value='Diesel'>Diesel</MenuItem>
+                                    <MenuItem value='Gasoline'>Gasoline</MenuItem>
+                                </TextField>
+                            </Box>
 
-                                <Box my={2}>
-                                    <Typography fontWeight='500'>Engine Power <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
-                                    <TextField
-                                        type='number'
-                                        fullWidth
-                                        placeholder='e.g, 106'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><ModeStandbyOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('power')}
-                                        helperText={errors.power?.message}
-                                    />
-                                </Box>
-
-                                <Box my={2}>
-                                    <Typography fontWeight='500'>Engine Displacement <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
-                                    <TextField
-                                        type='number'
-                                        fullWidth
-                                        placeholder='e.g, 1496'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><PrecisionManufacturingOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('engineDisplacement')}
-                                        helperText={errors.engineDisplacement?.message}
-                                    />
-                                </Box>
-
-
-                                <Box my={2}>
-                                    <Typography mb={2} fontWeight='500'>Year <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        type='tel'
-                                        fullWidth
-                                        placeholder='e.g, 2023'
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><CalendarMonthOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        inputProps={{ maxLength: 4 }}
-                                        {...register('year')}
-                                        helperText={errors.year?.message}
-                                    />
-                                </Box>
-
-                                <Box my={2}>
-                                    <Typography mb={1} fontWeight='500'>Key Features <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <TextField
-                                        type='text'
-                                        fullWidth
-                                        placeholder="Provide this vehicle's key features"
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><FeaturedPlayListOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('keyFeatures')}
-                                        helperText={errors.keyFeatures?.message}
-                                    />
-                                </Box>
-
-                                <Box my={2}>
-                                    <Typography mb={1} fontWeight='500'>Variants</Typography>
-                                    <Typography mb={1} fontSize='14px' fontWeight='400'>Added variants:</Typography>
-                                    {
-                                        variants.map((item, index) => {
-                                            return (
-                                                <Chip
-                                                    key={index}
-                                                    label={item.name}
-                                                    variant='contained'
-                                                    color='primary'
-                                                    sx={{ mx: .5, my: .5 }}
-                                                    onDelete={() => removeVariant(index)}
-                                                />
-                                            )
-                                        })
-                                    }
-                                </Box>
-
-                                <Box>
-                                    <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
-                                </Box>
-
-                                <Box my={2}>
-                                    <Typography mb={1} fontWeight='500'>Available Colors <sup><span className={styles.required}>*</span></sup></Typography>
-                                    <Typography mb={1} fontSize='13px' fontWeight='400'>Enter available colors for this vehicle, separated by a comma. Note that an entry is determined after each comma.</Typography>
-                                    <TextField
-                                        type='text'
-                                        fullWidth
-                                        placeholder="e.g., Red, Green, Blue"
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position='start'><PaletteOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
-                                            sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
-                                        }}
-                                        {...register('colors')}
-                                        helperText={errors.colors?.message}
-                                    />
-                                </Box>
-
-                                <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image <sup><span className={styles.required}>*</span></sup></Typography>
-                                <input
-                                    type='file'
-                                    // accept="image/*"
-                                    accept="image/png, image/jpeg, image/jpg"
-                                    {...register('image', {
-                                        onChange: handleImageChange
-                                    })}
-                                    name='image'
-                                    required
+                            <Box my={2}>
+                                <Typography fontWeight='500'>Engine Power <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
+                                <TextField
+                                    type='number'
+                                    fullWidth
+                                    placeholder='e.g, 106'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><ModeStandbyOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, marginTop: 1.5, }
+                                    }}
+                                    {...register('power')}
+                                    helperText={errors.power?.message}
                                 />
+                            </Box>
 
-                                <Box sx={{ mt: 2, border: '1px solid #d3d3d3', width: '275px', height: '125px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                                    {
-                                        imagePreview !== null ?
-                                            <Image
-                                                src={imagePreview}
-                                                alt='Preview image'
-                                                width={250}
-                                                height={100}
-                                            /> :
-                                            <Typography color='#808080' fontSize='12px' mx={2}>The image you will attach will be previewed here. To change, simply choose another file using the file picker above.</Typography>
-                                    }
-                                </Box>
-
-                                <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image you will upload.</Typography>
-
-                                <Typography mt={2} mb={1} fontWeight='500'>Interior and Exterior Images</Typography>
-
-                                <input
-                                    type='file'
-                                    multiple
-                                    accept="image/png, image/jpeg, image/jpg"
-                                    {...register('extraImages')}
-                                    name='extraImages'
-                                    required
+                            <Box my={2}>
+                                <Typography fontWeight='500'>Engine Displacement <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
+                                <TextField
+                                    type='number'
+                                    fullWidth
+                                    placeholder='e.g, 1496'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><PrecisionManufacturingOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, marginTop: 1.5, }
+                                    }}
+                                    {...register('engineDisplacement')}
+                                    helperText={errors.engineDisplacement?.message}
                                 />
+                            </Box>
 
-                                {errorMessage !== null ?
-                                    <Alert severity="error" sx={{ my: 3 }}>
-                                        <AlertTitle>Oops!</AlertTitle>
-                                        {errorMessage}
-                                    </Alert> : null
-                                }
 
+                            <Box my={2}>
+                                <Typography mb={2} fontWeight='500'>Year <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    type='tel'
+                                    fullWidth
+                                    placeholder='e.g, 2023'
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><CalendarMonthOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                    inputProps={{ maxLength: 4 }}
+                                    {...register('year')}
+                                    helperText={errors.year?.message}
+                                />
+                            </Box>
+
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Key Features <sup><span className={styles.required}>*</span></sup></Typography>
+                                <TextField
+                                    type='text'
+                                    fullWidth
+                                    placeholder="Provide this vehicle's key features"
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><FeaturedPlayListOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                    {...register('keyFeatures')}
+                                    helperText={errors.keyFeatures?.message}
+                                />
+                            </Box>
+
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Variants</Typography>
+                                <Typography mb={1} fontSize='14px' fontWeight='400'>Added variants:</Typography>
                                 {
-                                    isUploading ?
-                                        <Box sx={{ my: 3 }}>
-                                            <Typography mb={2}>Uploading vehicle ...</Typography>
-                                            <LinearProgress />
-                                        </Box> : null
+                                    variants.map((item, index) => {
+                                        return (
+                                            <Chip
+                                                key={index}
+                                                label={item.name}
+                                                variant='contained'
+                                                color='primary'
+                                                sx={{ mx: .5, my: .5 }}
+                                                onDelete={() => removeVariant(index)}
+                                            />
+                                        )
+                                    })
                                 }
+                            </Box>
 
-                                <Box>
-                                    <Button
-                                        type='submit'
-                                        variant="contained"
-                                        // disableElevation
-                                        size="large"
-                                        sx={{ mt: 2.5 }}
-                                        disabled={isUploading}
-                                    >
-                                        Save
-                                    </Button>
-                                </Box>
-                            </form>
-                        </Box>
+                            <Box>
+                                <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
+                            </Box>
+
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Available Colors <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontSize='13px' fontWeight='400'>Enter available colors for this vehicle, separated by a comma. Note that an entry is determined after each comma.</Typography>
+                                <TextField
+                                    type='text'
+                                    fullWidth
+                                    placeholder="e.g., Red, Green, Blue"
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><PaletteOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                    {...register('colors')}
+                                    helperText={errors.colors?.message}
+                                />
+                            </Box>
+
+                            <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image <sup><span className={styles.required}>*</span></sup></Typography>
+                            <input
+                                type='file'
+                                // accept="image/*"
+                                accept="image/png, image/jpeg, image/jpg"
+                                {...register('image', {
+                                    onChange: handleImageChange
+                                })}
+                                name='image'
+                                required
+                            />
+
+                            <Box sx={{ mt: 2, border: '1px solid #d3d3d3', width: '275px', height: '125px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                                {
+                                    imagePreview !== null ?
+                                        <Image
+                                            src={imagePreview}
+                                            alt='Preview image'
+                                            width={250}
+                                            height={100}
+                                        /> :
+                                        <Typography color='#808080' fontSize='12px' mx={2}>The image you will attach will be previewed here. To change, simply choose another file using the file picker above.</Typography>
+                                }
+                            </Box>
+
+                            <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image you will upload.</Typography>
+
+                            <Typography mt={2} mb={1} fontWeight='500'>Interior and Exterior Images</Typography>
+
+                            <input
+                                type='file'
+                                multiple
+                                accept="image/png, image/jpeg, image/jpg"
+                                {...register('extraImages')}
+                                name='extraImages'
+                                required
+                            />
+
+                            {errorMessage !== null ?
+                                <Alert severity="error" sx={{ my: 3 }}>
+                                    <AlertTitle>Oops!</AlertTitle>
+                                    {errorMessage}
+                                </Alert> : null
+                            }
+
+                            {
+                                isUploading ?
+                                    <Box sx={{ my: 3 }}>
+                                        <Typography mb={2}>Uploading vehicle ...</Typography>
+                                        <LinearProgress />
+                                    </Box> : null
+                            }
+
+                            <Box>
+                                <Button
+                                    type='submit'
+                                    variant="contained"
+                                    // disableElevation
+                                    size="large"
+                                    sx={{ mt: 2.5 }}
+                                    disabled={isUploading}
+                                >
+                                    Add this vehicle
+                                </Button>
+                            </Box>
+                        </form>
                     </Box>
+
                     <Dialog
                         open={isSlugDialogOpen}
                         onClose={handleSlugDialogClose}

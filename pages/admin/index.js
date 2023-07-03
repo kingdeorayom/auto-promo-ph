@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useLogin } from '@/hooks/useLogin';
 import Image from 'next/image';
-// import logo from '@/public/logotosvg.png'
+import logo from '@/public/logo.svg'
 import Head from 'next/head';
 import nookies from 'nookies'
 
@@ -45,7 +45,7 @@ const LoginPage = () => {
         resolver: yupResolver(login_validation)
     })
 
-    const { register, control, handleSubmit, formState, reset } = form
+    const { register, handleSubmit, formState } = form
     const { errors } = formState
 
     const onSubmit = async (data) => {
@@ -67,15 +67,15 @@ const LoginPage = () => {
                 <Box className={styles.wrapper}>
                     <Box className={styles.formContainer}>
 
-                        {/* <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                             <Link href='/'>
                                 <Image
                                     src={logo}
                                     alt="Auto Promo PH"
-                                    height={48}
+                                    height={25}
                                 />
                             </Link>
-                        </Box> */}
+                        </Box>
 
                         <Typography fontSize='2rem' variant="h2" fontWeight='700' mt={4} mb={1}>Hi <span className={styles.name}>Dhang</span>, welcome back! &#128075;</Typography>
                         <Typography fontSize='1rem' variant="h3" color='secondary'>Log in to your account</Typography>
@@ -92,15 +92,14 @@ const LoginPage = () => {
                             noValidate
                         >
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Email</Typography>
+                                <Typography mb={1} fontWeight='700'>Email</Typography>
                                 <TextField
                                     type='email'
                                     id='email'
                                     fullWidth
-                                    placeholder='juandelacruz@example.com'
+                                    placeholder='email@example.com'
                                     InputProps={{
                                         startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
-                                        sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
                                     }}
                                     {...register('email')}
                                     helperText={errors.email?.message}
@@ -108,7 +107,7 @@ const LoginPage = () => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Password</Typography>
+                                <Typography mb={1} fontWeight='700'>Password</Typography>
                                 <TextField
                                     type={isPasswordShown ? 'text' : 'password'}
                                     id='password'
@@ -117,7 +116,6 @@ const LoginPage = () => {
                                     InputProps={{
                                         startAdornment: <InputAdornment position='start'><LockOutlinedIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
                                         endAdornment: <InputAdornment position='end'><IconButton onClick={togglePassword}>{isPasswordShown ? <VisibilityOutlinedIcon sx={{ marginRight: .5 }} /> : <VisibilityOffOutlinedIcon sx={{ marginRight: .5 }} />}</IconButton></InputAdornment>,
-                                        sx: { borderRadius: 10, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
                                     }}
                                     {...register('password')}
                                     helperText={errors.password?.message}

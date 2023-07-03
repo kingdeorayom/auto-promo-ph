@@ -85,7 +85,7 @@ const InquiriesPage = () => {
                             >
                                 Dashboard
                             </Link>
-                            <Typography color="primary">Inquiries</Typography>
+                            <Typography color="primary" fontWeight='500'>Inquiries</Typography>
                         </Breadcrumbs>
                     </Box>
 
@@ -110,7 +110,7 @@ const InquiriesPage = () => {
                                                             {`${inquiry.firstName.charAt(0).toUpperCase()}${inquiry.lastName.charAt(0).toUpperCase()}`}
                                                         </Avatar>
                                                         <Box sx={{ flex: 1 }}>
-                                                            <Typography fontWeight='500'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
+                                                            <Typography className={styles.name} fontWeight='500'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
                                                             <Typography color='#808080' className={styles.truncate}>
                                                                 {inquiry.message}
                                                             </Typography>

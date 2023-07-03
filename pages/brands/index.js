@@ -31,8 +31,8 @@ const Brands = ({ brands }) => {
             <Layout>
                 <Box className={styles.wrapper}>
                     <Box>
-                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'  >All Brands</Typography>
-                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050'  >Choose vehicle from the most popular brands</Typography>
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'>All Brands</Typography>
+                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050'>Choose vehicle from the most popular brands</Typography>
                     </Box>
 
                     <Grid

@@ -99,88 +99,79 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
                             >
                                 Inquiries
                             </Link>
-                            <Typography color="primary">{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
+                            <Typography color="primary" fontWeight='500'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
                         </Breadcrumbs>
                     </Box>
 
-                    <Box sx={{
-                        backgroundColor: '#ffffff',
-                        padding: '25px',
-                        borderRadius: '10px',
-                        boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
-                    }}>
-                        <Box>
-                            <Typography fontSize='14px' fontWeight='400' mb={2} sx={{ textAlign: 'start' }}>
-                                {inquiry.date}
-                            </Typography>
-                            <Typography fontSize='2.5rem' variant="h2" fontWeight='500' mb={1} color='primary'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
-                            <Box mt={2} mb={4}>
-                                <Tooltip title={inquiry.mobileNumber}>
-                                    <IconButton onClick={() => { navigator.clipboard.writeText(inquiry.mobileNumber) }}>
-                                        <LocalPhoneOutlinedIcon />
-                                    </IconButton>
-                                </Tooltip>
-                                <Tooltip title={inquiry.email}>
-                                    <IconButton onClick={() => { navigator.clipboard.writeText(inquiry.email) }}>
-                                        <EmailOutlinedIcon />
-                                    </IconButton>
-                                </Tooltip>
-                                <Typography fontSize='13px' color='#808080' fontWeight='400'>Hover on icon to view information. Click to copy.</Typography>
+                    <Box>
+                        <Typography fontSize='14px' fontWeight='400' mb={2} sx={{ textAlign: 'start' }}>
+                            {inquiry.date}
+                        </Typography>
+                        <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={1} color='#1f308a'>{`${inquiry.firstName} ${inquiry.lastName}`}</Typography>
+                        <Box mt={2} mb={4}>
+                            <Tooltip title={inquiry.mobileNumber}>
+                                <IconButton onClick={() => { navigator.clipboard.writeText(inquiry.mobileNumber) }}>
+                                    <LocalPhoneOutlinedIcon />
+                                </IconButton>
+                            </Tooltip>
+                            <Tooltip title={inquiry.email}>
+                                <IconButton onClick={() => { navigator.clipboard.writeText(inquiry.email) }}>
+                                    <EmailOutlinedIcon />
+                                </IconButton>
+                            </Tooltip>
+                            <Typography fontSize='13px' color='#808080' fontWeight='400'>Hover on icon to view information. Click to copy.</Typography>
+                        </Box>
+                    </Box>
+
+                    <Box>
+                        <Box className={styles.messageWrapper}>
+                            <Avatar className={styles.bigAvatar}>
+                                {`${inquiry.firstName.charAt(0).toUpperCase()}${inquiry.lastName.charAt(0).toUpperCase()}`}
+                            </Avatar>
+                            <Box className={styles.messageBubble}>
+                                <Typography fontSize='.9rem'>
+                                    {inquiry.message}
+                                </Typography>
                             </Box>
                         </Box>
+                    </Box>
 
-                        {/* <Divider sx={{ my: 3 }} /> */}
+                    <Typography fontSize='1rem' variant="h2" fontWeight='400' my={5}>Inquires about:</Typography>
 
-                        <Box>
-                            <Box className={styles.messageWrapper}>
-                                <Avatar className={styles.bigAvatar}>
-                                    {`${inquiry.firstName.charAt(0).toUpperCase()}${inquiry.lastName.charAt(0).toUpperCase()}`}
-                                </Avatar>
-                                <Box className={styles.messageBubble}>
-                                    <Typography>
-                                        {inquiry.message}
-                                    </Typography>
-                                </Box>
+                    {
+                        vehicleNotFound ?
+                            <Alert severity="error" sx={{ borderRadius: '10px' }}>
+                                <AlertTitle>Vehicle not found</AlertTitle>
+                                {vehicle.message}
+                                {/* {errorMessage} */}
+                            </Alert> :
+                            <Box className={styles.box}>
+                                <Stack direction={{ xs: 'column', md: 'row' }} spacing={1.8} display='flex' alignItems='center'>
+                                    <Box mr={2}>
+                                        <Image
+                                            src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                            alt={vehicle.name}
+                                            width={200}
+                                            height={100}
+                                            style={{ objectFit: 'contain' }}
+                                        />
+                                    </Box>
+                                    <Box>
+                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>{vehicle.name}</Typography>
+                                        <Typography color='#808080' mb={1} fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
+                                        <Typography color='#808080' mb={2} fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
+                                        <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`} target='_blank'>
+                                            <Button variant="outlined" disableElevation color='primary' endIcon={<ArrowOutwardOutlinedIcon />}>View Details</Button>
+                                        </Link>
+                                    </Box>
+                                </Stack>
                             </Box>
-                        </Box>
+                    }
 
-                        <Typography fontSize='1rem' variant="h2" fontWeight='400' my={5}>Inquires about:</Typography>
+                    <Divider sx={{ mt: 5 }} />
 
-                        {
-                            vehicleNotFound ?
-                                <Alert severity="error" sx={{ borderRadius: '10px' }}>
-                                    <AlertTitle>Vehicle not found</AlertTitle>
-                                    {vehicle.message}
-                                    {/* {errorMessage} */}
-                                </Alert> :
-                                <Box className={styles.box}>
-                                    <Stack direction={{ xs: 'column', md: 'row' }} spacing={1.8} display='flex' alignItems='center'>
-                                        <Box mr={2}>
-                                            <Image
-                                                src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
-                                                alt={vehicle.name}
-                                                width={200}
-                                                height={100}
-                                                style={{ objectFit: 'contain' }}
-                                            />
-                                        </Box>
-                                        <Box>
-                                            <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>{vehicle.name}</Typography>
-                                            <Typography color='#808080' mb={1} fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
-                                            <Typography color='#808080' mb={2} fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
-                                            <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`} target='_blank'>
-                                                <Button variant="outlined" disableElevation color='primary' endIcon={<ArrowOutwardOutlinedIcon />}>View Details</Button>
-                                            </Link>
-                                        </Box>
-                                    </Stack>
-                                </Box>
-                        }
-
-                        <Divider sx={{ mt: 5 }} />
-
-                        <Box mt={5} display='flex' justifyContent='flex-start'>
-                            <Button variant='text' color='error' startIcon={<DeleteOutlineIcon />} onClick={handleDeleteDialogOpen}>Delete this message</Button>
-                        </Box>
+                    <Box mt={5} display='flex' justifyContent='flex-start'>
+                        <Button variant='text' color='error' startIcon={<DeleteOutlineIcon />} onClick={handleDeleteDialogOpen}>Delete this message</Button>
                     </Box>
 
                     <Dialog

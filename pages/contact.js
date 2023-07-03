@@ -17,88 +17,56 @@ const Contact = () => {
                 <meta name="description" content="Welcome to Auto Promo PH" />
             </Head>
             <Layout>
-                <Box className={styles.masthead}>
-                    <Box className={styles.wrapper}>
-                        <Stack direction='row' display='flex' justifyContent='space-between' alignItems='center' sx={{ padding: '20px' }}>
-                            <Box>
-                                <Typography fontSize='2.5rem' variant="h2" fontWeight='700' mb={2} color='#343434'>Get in touch</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary'>{"Want to get in touch? I'd love to hear from you."}</Typography>
-                            </Box>
-                            <Box>
-                                <Image
-                                    src={contact}
-                                    width={250}
-                                    height={250}
-                                    alt='Hello'
-                                />
-                            </Box>
-                        </Stack>
+                <Box sx={{
+                    width: '100%',
+                    backgroundColor: '#1f308a',
+                    // paddingLeft: '15px',
+                    // paddingRight: '15px',
+                    textAlign: 'center',
+                }}>
+                    <Box
+                        sx={{
+                            width: '100%',
+                            maxWidth: '768px',
+                            margin: 'auto',
+                            paddingLeft: '5px',
+                            paddingRight: '5px',
+                            my: '40px'
+                        }}
+                    >
+                        <Box mx={2}>
+                            <Typography
+                                fontSize='2rem'
+                                variant="h1"
+
+                                mt={2.5}
+                                mb={1}
+                                lineHeight={1}
+                                fontWeight='800'
+                                color='#ffffff'
+                            >
+                                Get in touch
+                            </Typography>
+                            <Typography
+                                fontSize='1rem'
+                                variant="h3"
+                                fontWeight='400'
+                                lineHeight={1.5}
+                                mt={3}
+                                mb={1}
+                                color='#dadada'
+
+                            >
+                                Want to get in touch? {"I'd"} love to hear from you. Just contact me through one of the following contact information below:
+                            </Typography>
+                        </Box>
+
+                        {/* <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography> */}
+                        {/* <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography> */}
                     </Box>
+                    <Box className='overlayBackground'></Box>
                 </Box>
                 <Box className={styles.wrapper}>
-                    <Typography fontSize='1rem' variant="h2" fontWeight='400' color='#343434' mt={5} mb={2}>Reach me through the following:</Typography>
-                    <Grid
-                        container
-                        mt={.1}
-                        mb={3}
-                        rowSpacing={3}
-                        columnSpacing={2}
-                        justifyContent='center'
-                    >
-                        <Grid item xs={12} md={4}>
-                            <Box sx={{ backgroundColor: '#ffffff', padding: 2.5, borderRadius: '15px', boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)' }}>
-                                <Image
-                                    src={facebook_icon}
-                                    width={48}
-                                    height={48}
-                                    alt='Hello'
-                                    style={{
-                                        position: 'relative',
-                                        marginTop: '-50px'
-                                    }}
-                                />
-                                <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1} color='primary'>Facebook</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Dhang Casten</Typography>
-                                <Link href='https://www.facebook.com/dhang.casten' target='_blank' className={styles.link}>
-                                    <Typography fontSize='1rem' variant="subtitle1">facebook.com/dhang.casten</Typography>
-                                </Link>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <Box sx={{ backgroundColor: '#ffffff', padding: 2.5, borderRadius: '15px', boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)' }}>
-                                <Image
-                                    src={viber_icon}
-                                    width={48}
-                                    height={48}
-                                    alt='Hello'
-                                    style={{
-                                        position: 'relative',
-                                        marginTop: '-50px'
-                                    }}
-                                />
-                                <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1} color='primary'>Viber or Phone</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Dhang Casten</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary'>+63 928 513 0117</Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <Box sx={{ backgroundColor: '#ffffff', padding: 2.5, borderRadius: '15px', boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)' }}>
-                                <Image
-                                    src={gmail_icon}
-                                    width={48}
-                                    height={48}
-                                    alt='Hello'
-                                    style={{
-                                        position: 'relative',
-                                        marginTop: '-50px'
-                                    }}
-                                />
-                                <Typography fontSize='1.2rem' fontWeight='700' mt={2} mb={1} color='primary'>Email</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary'>Dhang Casten</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary'>dhangcasten@example.com</Typography>
-                            </Box>
-                        </Grid>
-                    </Grid>
                 </Box>
             </Layout>
         </>

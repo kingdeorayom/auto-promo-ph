@@ -81,11 +81,12 @@ const InquiryForm = () => {
                 backgroundColor: '#ffffff',
                 padding: '30px 20px',
                 mb: '30px',
-                borderRadius: '10px',
-                boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
+                borderRadius: '5px',
+                border: '1px solid #d3d3d3',
+                // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
             }}
         >
-            <Typography fontSize='1.5rem' variant="h1" fontWeight='500' mb={3}>Inquiry Form</Typography>
+            <Typography fontSize='1.5rem' variant="h1" fontWeight='700' mb={3}>Inquiry Form</Typography>
 
             <Divider />
 
