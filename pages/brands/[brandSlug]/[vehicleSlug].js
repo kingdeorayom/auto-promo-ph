@@ -85,39 +85,39 @@ const VehicleDetails = ({ vehicle, variants }) => {
     const stackSpacingBreakpoint = { xs: 3, md: 4 }
 
     const responsive = {
-        // superLargeDesktop: {
-        //     breakpoint: { max: 4000, min: 3000 },
-        //     items: 5
-        // },
-        // desktop: {
-        //     breakpoint: { max: 3000, min: 1024 },
-        //     items: 4
-        // },
-        // tablet: {
-        //     breakpoint: { max: 1024, min: 768 },
-        //     items: 2
-        // },
-        // mobile: {
-        //     breakpoint: { max: 768, min: 0 },
-        //     items: 1
-        // }
-
-        lg: {
-            breakpoint: { max: 1535, min: 1200 },
+        superLargeDesktop: {
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
             items: 4
         },
-        md: {
-            breakpoint: { max: 1199, min: 900 },
-            items: 4
-        },
-        sm: {
-            breakpoint: { max: 899, min: 600 },
+        tablet: {
+            breakpoint: { max: 1024, min: 768 },
             items: 2
         },
-        xs: {
-            breakpoint: { max: 599, min: 0 },
+        mobile: {
+            breakpoint: { max: 768, min: 0 },
             items: 1
-        },
+        }
+
+        // lg: {
+        //     breakpoint: { max: 1535, min: 1200 },
+        //     items: 4
+        // },
+        // md: {
+        //     breakpoint: { max: 1199, min: 900 },
+        //     items: 4
+        // },
+        // sm: {
+        //     breakpoint: { max: 899, min: 600 },
+        //     items: 2
+        // },
+        // xs: {
+        //     breakpoint: { max: 599, min: 0 },
+        //     items: 1
+        // },
     };
 
 
