@@ -268,6 +268,38 @@ const AddVehicle = ({ vehicles }) => {
                                 </Box>
 
                                 <Box my={2}>
+                                    <Typography fontWeight='500'>Downpayment <sup><span className={styles.required}>*</span></sup></Typography>
+                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the downpayment as is.</Typography>
+                                    <TextField
+                                        type='number'
+                                        fullWidth
+                                        placeholder='e.g, 60000'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                        }}
+                                        {...register('downpayment')}
+                                        helperText={errors.downpayment?.message}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
+                                    <Typography fontWeight='500'>5 years Amortization <sup><span className={styles.required}>*</span></sup></Typography>
+                                    <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the value as is.</Typography>
+                                    <TextField
+                                        type='number'
+                                        fullWidth
+                                        placeholder='e.g, 12844'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                            sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                        }}
+                                        {...register('amortization')}
+                                        helperText={errors.amortization?.message}
+                                    />
+                                </Box>
+
+                                <Box my={2}>
                                     <Typography mb={1} fontWeight='500'>Description <sup><span className={styles.required}>*</span></sup></Typography>
                                     <TextField
                                         type='text'
