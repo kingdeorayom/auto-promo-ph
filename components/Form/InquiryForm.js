@@ -83,7 +83,7 @@ const InquiryForm = () => {
                 mb: '30px',
                 borderRadius: '5px',
                 border: '1px solid #d3d3d3',
-                // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
+                boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)'
             }}
         >
             <Typography fontSize='1.5rem' variant="h1" fontWeight='700' mb={3}>Inquiry Form</Typography>
@@ -104,7 +104,7 @@ const InquiryForm = () => {
                             placeholder='Enter your first name'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
-                                sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                sx: { borderRadius: 2, marginTop: 1.5 }
                             }}
                             {...register('firstName')}
                             helperText={errors.firstName?.message}
@@ -120,7 +120,7 @@ const InquiryForm = () => {
                             placeholder='Enter your last name'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><PersonOutlineIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
-                                sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                sx: { borderRadius: 2, marginTop: 1.5 }
                             }}
                             {...register('lastName')}
                             helperText={errors.lastName?.message}
@@ -136,7 +136,7 @@ const InquiryForm = () => {
                             placeholder='Enter your email'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><MailOutlineIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
-                                sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                sx: { borderRadius: 2, marginTop: 1.5 }
                             }}
                             {...register('email')}
                             helperText={errors.email?.message}
@@ -152,7 +152,7 @@ const InquiryForm = () => {
                             placeholder='Enter your mobile number'
                             InputProps={{
                                 startAdornment: <InputAdornment position='start'><LocalPhoneOutlinedIcon sx={{ marginRight: .5, marginLeft: .8 }} /></InputAdornment>,
-                                sx: { borderRadius: 10, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                sx: { borderRadius: 2, marginTop: 1.5 }
                             }}
                             {...register('mobileNumber')}
                             helperText={errors.mobileNumber?.message}
@@ -171,7 +171,7 @@ const InquiryForm = () => {
                             {...register('message')}
                             helperText={errors.message?.message}
                             InputProps={{
-                                sx: { borderRadius: 3, marginTop: 1.5, backgroundColor: '#F3F4F8', "& fieldset": { border: 'none' } }
+                                sx: { borderRadius: 3, marginTop: 1.5 }
                             }}
                         />
                     </Box>

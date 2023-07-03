@@ -57,7 +57,7 @@ const Contact = () => {
                                 color='#dadada'
 
                             >
-                                Want to get in touch? {"I'd"} love to hear from you. Just contact me through one of the following contact information below:
+                                Want to get in touch? {"I'd"} love to hear from you. Just contact me through the following contact information below:
                             </Typography>
                         </Box>
 

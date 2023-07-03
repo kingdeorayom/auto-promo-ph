@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout';
-import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle, Chip, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton } from '@mui/material';
+import { Box, Button, Divider, Grid, Stack, Typography, Tab, useMediaQuery, useTheme, Alert, AlertTitle, Chip, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Breadcrumbs } from '@mui/material';
 import Image from 'next/image';
 import styles from '@/styles/Details.module.css'
 import GasMeterIcon from '@mui/icons-material/GasMeter';
@@ -19,6 +19,8 @@ import { useRouter } from 'next/router';
 import LocalGasStationOutlinedIcon from '@mui/icons-material/LocalGasStationOutlined';
 import ModeStandbyOutlinedIcon from '@mui/icons-material/ModeStandbyOutlined';
 import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined';
+import carnobg from '@/public/carnobg.png'
+import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
 
 export async function getStaticPaths() {
 
@@ -90,16 +92,37 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                 <Box className={styles.wrapper}>
 
+                    <Box mb={4}>
+                        <Breadcrumbs separator=">" aria-label="breadcrumb">
+                            <Link
+                                underline="hover"
+                                color="inherit"
+                                href="/"
+                            >
+                                Explore
+                            </Link>
+                            <Link
+                                underline="hover"
+                                color="inherit"
+                                href="/vehicles"
+                            >
+                                All Vehicles
+                            </Link>
+                            <Typography color="primary" fontWeight='500'>{vehicle.name}</Typography>
+                        </Breadcrumbs>
+                    </Box>
+
                     {/* <Box mb={3} className={styles.back} onClick={() => router.back()}>
                         <ArrowBackIcon color='primary' />
                         <Typography color='primary' ml={1}>Back</Typography>
                     </Box> */}
 
-                    <Grid container spacing={3} mb={3}>
-                        <Grid item xs={12} lg={6} className={styles.gridWrapper}>
+                    <Grid container spacing={{ xs: 2, sm: 3, md: 5 }} mb={3}>
+                        <Grid item xs={12} sm={7}>
                             <Box width={'100%'} height={300} position='relative' display='block' sx={{ aspectRatio: 1 }}>
                                 <Image
                                     src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                    // src={carnobg}
                                     alt={vehicle.name}
                                     // width={565}
                                     // height={300}
@@ -119,13 +142,30 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 />
                             </Box>
                         </Grid>
-                        <Grid item xs={12} lg={6}>
-                            <Box ml={2}>
-                                <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1}>{vehicle.name}</Typography>
+                        <Grid item xs={12} sm={5} display={{ xs: 'block', sm: 'flex' }} alignItems='center'>
+                            <Box>
+                                <Typography fontSize='2rem' variant="h2" fontWeight='800' mb={1}>{vehicle.name}</Typography>
                                 <Typography fontSize='1rem' variant="subtitle1" color='success.main' fontWeight='500'>₱ {setCurrency(vehicle.price)}</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>{`DP starts @ ₱ ${setCurrency(vehicle.price)}`}</Typography>
+                                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>{`Promo: ₱ ${setCurrency(vehicle.price)}`}</Typography>
                                 <Link href={{ pathname: '/inquire', query: { q: vehicle.vehicle_slug } }}>
-                                    <Button variant="contained">Inquire Now</Button>
+                                    <Button
+                                        fullWidth
+                                        startIcon={<LiveHelpOutlinedIcon />}
+                                        variant="contained"
+                                        disableElevation
+                                        // color='info'
+                                        sx={{
+                                            mt: 2,
+                                            backgroundColor: '#ff3366',
+                                            borderRadius: 2,
+                                            ':hover': {
+                                                backgroundColor: '#ff3366',
+                                                boxShadow: "0 8px 8px 0 rgba(255,51,102,0.2)"
+                                            }
+                                        }}
+                                    >
+                                        Inquire Now
+                                    </Button>
                                 </Link>
                             </Box>
                         </Grid>
@@ -137,20 +177,20 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 onChange={handleChange}
                                 variant="scrollable"
                             >
-                                <Tab label='Overview' value='1' sx={{ fontWeight: '700' }} />
-                                <Tab label='Specifications' value='2' sx={{ fontWeight: '700' }} />
-                                <Tab label='Price List' value='3' sx={{ fontWeight: '700' }} />
+                                <Tab label='Overview' value='1' sx={{ fontWeight: '700', textTransform: "none", fontSize: '15px' }} />
+                                <Tab label='Specifications' value='2' sx={{ fontWeight: '700', textTransform: "none", fontSize: '15px' }} />
+                                <Tab label='Price List' value='3' sx={{ fontWeight: '700', textTransform: "none", fontSize: '15px' }} />
                             </TabList>
                         </Box>
 
                         <TabPanel value='1' sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={2} color='#343434'>About this vehicle</Typography>
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={2} color='#343434'>About this vehicle</Typography>
 
                             {/* <Alert severity="info" sx={{ mb: 2, fontSize: '1rem' }}>{vehicle.description}</Alert> */}
 
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2} className={styles.description}>{vehicle.description}</Typography>
 
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mt={3} mb={2} color='#343434'>Vehicle Details</Typography>
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={3} mb={2} color='#343434'>Vehicle Details</Typography>
 
                             <Box className={styles.stackWrapper}>
 
@@ -166,22 +206,22 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 >
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <SpaceDashboardOutlinedIcon color='primary' />
-                                            <Typography fontWeight='500'>MODEL</Typography>
+                                            <SpaceDashboardOutlinedIcon sx={{ color: 'crimson' }} />
+                                            <Typography fontWeight='700'>Model</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{vehicle.model}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <WidgetsOutlinedIcon color='primary' />
-                                            <Typography fontWeight='500'>BODY TYPE</Typography>
+                                            <WidgetsOutlinedIcon sx={{ color: '#5D5FC0' }} />
+                                            <Typography fontWeight='700'>Body Type</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{vehicle.type}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <CalendarMonthOutlinedIcon color='primary' />
-                                            <Typography fontWeight='500'>YEAR</Typography>
+                                            <CalendarMonthOutlinedIcon sx={{ color: 'darkgoldenrod' }} />
+                                            <Typography fontWeight='700'>Year</Typography>
                                         </Stack>
                                         <Typography color='secondary'>
                                             {vehicle.year}
@@ -191,34 +231,36 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                             </Box>
 
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mt={3} mb={2} color='#343434'>{`${vehicle.name}'s Interior and Exterior`}</Typography>
+                            <Box mt={5} mb={3}>
+                                <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={3} mb={2} color='#343434'>{`${vehicle.name}'s Interior and Exterior`}</Typography>
 
-                            <Box className={styles.gallery}>
-                                {
-                                    vehicle.extraImages.map((item, index) => {
-                                        return (
-                                            <Box key={index} width={'100%'} height={100} position='relative' display='block' sx={{ aspectRatio: 1 }}>
-                                                <Image
-                                                    src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
-                                                    alt={vehicle.name}
-                                                    fill
-                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                                    className={styles.gallery__image}
-                                                    placeholder='blur'
-                                                    blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
-                                                />
-                                            </Box>
-                                        )
-                                    })
-                                }
+                                <Box className={styles.gallery}>
+                                    {
+                                        vehicle.extraImages.map((item, index) => {
+                                            return (
+                                                <Box key={index} width={'100%'} height={100} position='relative' display='block' sx={{ aspectRatio: 1 }}>
+                                                    <Image
+                                                        src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                        alt={vehicle.name}
+                                                        fill
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                                        className={styles.gallery__image}
+                                                        placeholder='blur'
+                                                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                    />
+                                                </Box>
+                                            )
+                                        })
+                                    }
+                                </Box>
                             </Box>
 
                         </TabPanel>
 
                         <TabPanel value='2' sx={{ paddingLeft: 0, paddingRight: 0 }}>
 
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Specs & Features</Typography>
-                            <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>Key specifications & features of the {vehicle.name}. View engine specs, dimensions, safety and technology features in detail below.
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'>Specs & Features</Typography>
+                            <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>Key specifications & features of the {vehicle.name}. View engine specs, safety and technology features below.
                             </Typography>
 
                             <Box className={styles.stackWrapper}>
@@ -235,29 +277,29 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 >
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <SettingsOutlinedIcon color='primary' />
-                                            <Typography fontWeight='500'>TRANSMISSION</Typography>
+                                            <SettingsOutlinedIcon sx={{ color: '#FF905E' }} />
+                                            <Typography fontWeight='700'>Transmission</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{vehicle.transmission}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <LocalGasStationOutlinedIcon color='primary' />
-                                            <Typography fontWeight='500'>FUEL TYPE</Typography>
+                                            <LocalGasStationOutlinedIcon sx={{ color: '#47AE58' }} />
+                                            <Typography fontWeight='700'>Fuel Type</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{vehicle.fuelType}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <ModeStandbyOutlinedIcon color='primary' />
-                                            <Typography fontWeight='500'>POWER</Typography>
+                                            <ModeStandbyOutlinedIcon sx={{ color: 'red' }} />
+                                            <Typography fontWeight='700'>Power</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{`${vehicle.power} hp`}</Typography>
                                     </Box>
                                     <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
-                                            <PrecisionManufacturingOutlinedIcon color='primary' />
-                                            <Typography fontWeight='500'>ENGINE DISPLACEMENT</Typography>
+                                            <PrecisionManufacturingOutlinedIcon sx={{ color: 'brown' }} />
+                                            <Typography fontWeight='700'>Engine Displacement</Typography>
                                         </Stack>
                                         <Typography color='secondary'>{`${vehicle.engineDisplacement} cc`}</Typography>
                                     </Box>
@@ -276,10 +318,11 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 //         flexItem={true}
                                 //     />
                                 // }
-                                >                                    <Box>
+                                >
+                                    <Box>
                                         <Stack direction='row' spacing={1} mb={1}>
                                             <CategoryOutlinedIcon color='primary' />
-                                            <Typography fontWeight='500'>KEY FEATURES</Typography>
+                                            <Typography fontWeight='700'>Key Features</Typography>
                                         </Stack>
                                         <Typography color='secondary'>
                                             {vehicle.keyFeatures}
@@ -289,23 +332,44 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                             </Box>
 
-                            <Box mt={3}>
+                            <Box mt={4}>
 
-                                <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Available colors</Typography>
+                                <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'>Available colors</Typography>
                                 <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes with {vehicle.colors.length} available colors
                                 </Typography>
 
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '768px', maxWidth: '100%' }}>
                                     {
-                                        vehicle.colors.map((item, index) => <Chip key={index} label={item} variant="outlined" sx={{ mx: '3px', my: '5px', backgroundColor: '#ffffff', border: '0 solid black', boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)' }} />)
+                                        vehicle.colors.map((item, index) => <Chip key={index} label={item} variant="outlined" sx={{ mx: '3px', my: '5px', backgroundColor: '#ffffff', border: '1px solid #d3d3d3', fontWeight: '600' }} />)
                                     }
                                 </Box>
+
+                                {/* <Box className={styles.gallery}>
+                                    {
+                                        vehicle.extraImages.map((item, index) => {
+                                            return (
+                                                <Box key={index} width={'100%'} height={100} position='relative' display='block' sx={{ aspectRatio: 1 }}>
+                                                    <Image
+                                                        src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                        alt={vehicle.name}
+                                                        fill
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                                        className={styles.gallery__image}
+                                                        placeholder='blur'
+                                                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                    />
+                                                </Box>
+                                            )
+                                        })
+                                    }
+                                </Box> */}
+
                             </Box>
 
                         </TabPanel>
 
                         <TabPanel value='3' sx={{ paddingLeft: 0, paddingRight: 0 }}>
-                            <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1} color='#343434'>{vehicle.name} Price List</Typography>
+                            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'>{vehicle.name} Price List</Typography>
                             <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={3}>View price list of {vehicle.name} and its variants, if any</Typography>
 
                             <Alert severity="warning" sx={{ mb: 3 }}>
@@ -313,7 +377,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 The following price list is subject to change without prior notice.
                             </Alert>
 
-                            <TableContainer component={Paper}>
+                            <TableContainer component={Paper} elevation={0} sx={{ border: '1px solid #d3d3d3', boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)' }}>
                                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
@@ -358,7 +422,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                     </TabContext>
 
-                    <Suggestion brand_slug={vehicle.brand_slug} />
+                    <Suggestion brand_slug={vehicle.brand_slug} brand={vehicle.brand} />
 
                 </Box>
 
