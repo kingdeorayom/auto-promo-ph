@@ -39,7 +39,7 @@ const Header = () => {
                 elevation={0}
             >
                 <Toolbar className={styles.toolbar}>
-                    <Box display={{ xs: 'flex', md: 'flex', lg: 'none' }}>
+                    <Box display={{ xs: 'flex', md: 'none' }}>
                         <IconButton onClick={() => setIsDrawerOpen(true)}>
                             <MenuIcon
                                 sx={{ color: grey[50], ':hover': { color: '#FFDE00' } }}
