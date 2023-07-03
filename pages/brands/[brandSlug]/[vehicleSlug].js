@@ -21,6 +21,8 @@ import ModeStandbyOutlinedIcon from '@mui/icons-material/ModeStandbyOutlined';
 import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined';
 import carnobg from '@/public/carnobg.png'
 import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 export async function getStaticPaths() {
 
@@ -81,6 +83,43 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
     const stackDirectionBreakpoint = { xs: 'column', md: 'row' }
     const stackSpacingBreakpoint = { xs: 3, md: 4 }
+
+    const responsive = {
+        // superLargeDesktop: {
+        //     breakpoint: { max: 4000, min: 3000 },
+        //     items: 5
+        // },
+        // desktop: {
+        //     breakpoint: { max: 3000, min: 1024 },
+        //     items: 4
+        // },
+        // tablet: {
+        //     breakpoint: { max: 1024, min: 768 },
+        //     items: 2
+        // },
+        // mobile: {
+        //     breakpoint: { max: 768, min: 0 },
+        //     items: 1
+        // }
+
+        lg: {
+            breakpoint: { max: 1535, min: 1200 },
+            items: 4
+        },
+        md: {
+            breakpoint: { max: 1199, min: 900 },
+            items: 4
+        },
+        sm: {
+            breakpoint: { max: 899, min: 600 },
+            items: 2
+        },
+        xs: {
+            breakpoint: { max: 599, min: 0 },
+            items: 1
+        },
+    };
+
 
     return (
         <>
@@ -234,7 +273,34 @@ const VehicleDetails = ({ vehicle, variants }) => {
                             <Box mt={5} mb={3}>
                                 <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={3} mb={2} color='#343434'>{`${vehicle.name}'s Interior and Exterior`}</Typography>
 
-                                <Box className={styles.gallery}>
+                                <Box className={styles.extraImages}>
+                                    <Carousel
+                                        swipeable={true}
+                                        infinite={true}
+                                        draggable={false}
+                                        responsive={responsive}
+                                    >
+                                        {
+                                            vehicle.extraImages.map((item, index) => {
+                                                return (
+                                                    <Box key={index} width={{ xs: "100%", sm: '95%' }} height={{ xs: 225, sm: 220 }} position='relative' display='block' sx={{ aspectRatio: 1 }}>
+                                                        <Image
+                                                            src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                            alt={vehicle.name}
+                                                            fill
+                                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                                            className={styles.extraImage}
+                                                            placeholder='blur'
+                                                            blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                        />
+                                                    </Box>
+                                                )
+                                            })
+                                        }
+                                    </Carousel>
+                                </Box>
+
+                                {/* <Box className={styles.gallery}>
                                     {
                                         vehicle.extraImages.map((item, index) => {
                                             return (
@@ -252,7 +318,8 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                             )
                                         })
                                     }
-                                </Box>
+                                </Box> */}
+
                             </Box>
 
                         </TabPanel>
