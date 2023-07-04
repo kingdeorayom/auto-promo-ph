@@ -1,13 +1,33 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { Alert, AlertTitle, Box, Typography } from '@mui/material'
+import { Alert, AlertTitle, Box, Breadcrumbs, Typography } from '@mui/material'
 import styles from '@/styles/Inquire.module.css'
 import dhang_casten from '@/public/dhang_casten.jpg'
+import Link from 'next/link'
 
 const Profile = () => {
 
     return (
         <>
+            <Box mt={2} mb={2}>
+                <Breadcrumbs separator=">" aria-label="breadcrumb">
+                    <Link
+                        underline="hover"
+                        color="inherit"
+                        href="/"
+                    >
+                        Explore
+                    </Link>
+                    <Link
+                        underline="hover"
+                        color="inherit"
+                        href="/vehicles"
+                    >
+                        Vehicles
+                    </Link>
+                    <Typography color="primary" fontWeight='500'>Inquire</Typography>
+                </Breadcrumbs>
+            </Box>
             <Box className={styles.profileWrapper}>
                 <Image
                     src={dhang_casten}
@@ -19,7 +39,7 @@ const Profile = () => {
                 />
                 <Box>
                     <Typography fontSize='1.5rem' variant="h1" fontWeight='700' mb={1}>Hi, {"I'm"} Dhang &#128075;</Typography>
-                    <Typography fontSize='1rem' variant="h3" lineHeight={1.5} color='secondary'>Ask me anything you need to know about this vehicle.</Typography>
+                    <Typography fontSize='15px' variant="h3" lineHeight={1.5} color='secondary'>You may contact me through this form, or approach me directly using the contact information <Link href='/contact'><span className={styles.link}>here</span></Link>.</Typography>
                 </Box>
             </Box>
             <Alert severity="info" sx={{ mb: 5, borderRadius: '10px' }}>
