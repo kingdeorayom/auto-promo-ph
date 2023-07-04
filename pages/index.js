@@ -10,6 +10,8 @@ import Head from "next/head"
 import { Box } from "@mui/material"
 import styles from '@/styles/Home.module.css'
 import BrandSearch from "@/components/Home/BrandSearch"
+import CarouselBanner from "@/components/Home/CarouselBanner"
+import Ratings from "@/components/Home/Ratings"
 
 export async function getStaticProps() {
 
@@ -41,12 +43,14 @@ const Home = ({ brands }) => {
         </Box>
         <Box className={styles.wrapper}>
           <FeaturedVehicles isHome={true} hasSeeAll={true} />
+          <CarouselBanner />
           <BrandSearch brands={brands} />
           <BodyTypeSearch />
           <BudgetSearch />
           <AllVehicles isHome={true} hasSeeAll={true} />
-          <Banner />
         </Box>
+        <Banner />
+        <Ratings />
       </Layout>
     </>
   )

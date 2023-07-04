@@ -33,7 +33,7 @@ const BrandSearch = ({ brands }) => {
 
     return (
         <>
-            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={5} mb={1} color='#343434'  >Browse cars by brand</Typography>
+            <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={3} mb={1} color='#343434'  >Browse cars by brand</Typography>
             <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050'  >Choose vehicle from the most popular brands</Typography>
 
             <Carousel

@@ -554,11 +554,11 @@ const AddVehicle = ({ vehicles }) => {
                                     </Box> : null
                             }
 
-                            <Box>
+                            <Box mt={3}>
                                 <Button
                                     type='submit'
                                     variant="contained"
-                                    // disableElevation
+                                    disableElevation
                                     size="large"
                                     sx={{ mt: 2.5 }}
                                     disabled={isUploading}

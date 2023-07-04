@@ -268,12 +268,13 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                         // infinite={true}
                                         draggable={false}
                                         responsive={responsive}
+                                        className={styles.extraImagesCarousel}
                                     >
                                         {
                                             vehicle.extraImages.map((item, index) => {
                                                 return (
                                                     <Link data-fancybox="extraImages" href={`${process.env.NEXT_PUBLIC_API_URL}${item}`} key={index}>
-                                                        <Box width={{ xs: "100%", sm: '95%' }} height={{ xs: 225, sm: 220 }} position='relative' display='block' sx={{ aspectRatio: 1 }}>
+                                                        <Box className={styles.extraImageBox} width={{ xs: "100%", sm: '95%' }} height={{ xs: 225, sm: 220 }} position='relative' display='block' sx={{ aspectRatio: 1 }}>
                                                             <Image
                                                                 src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
                                                                 alt={vehicle.name}

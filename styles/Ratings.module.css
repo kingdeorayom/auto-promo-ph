@@ -1,0 +1,12 @@
+.wrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: 20px auto 50px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.ratingsCarousel {
+    margin-top: 64px;
+    margin-bottom: 32px;
+}

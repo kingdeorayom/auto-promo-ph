@@ -204,7 +204,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                     </Grid>
 
                     <Box display='flex' alignItems='flex-end' justifyContent='flex-end'>
-                        <Button onClick={handleClick} color='error'>Log out</Button>
+                        <Button onClick={handleClick} variant='contained' color='error' disableElevation>Log out</Button>
                     </Box>
 
                 </Box>
