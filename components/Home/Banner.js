@@ -34,7 +34,7 @@ const Banner = () => {
                     <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#505050'  >
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit
                     </Typography>
-                    <Button startIcon={<LocalPhoneOutlinedIcon />} variant='contained' size='large' disableElevation sx={{ backgroundColor: '#1976d2', color: '#fafafa', borderRadius: 10, mt: 2, textTransform: "none", ':hover': { backgroundColor: '#1f308a' } }}>Contact Me</Button>
+                    <Button startIcon={<LocalPhoneOutlinedIcon />} variant='contained' size='large' disableElevation sx={{ backgroundColor: '#1976d2', color: '#fafafa', borderRadius: 10, mt: 2, mb: 10, textTransform: "none", ':hover': { backgroundColor: '#1f308a' } }}>Contact Me</Button>
                 </Box>
             </Stack>
             {/* <Box className='overlayBackground'></Box> */}

@@ -49,8 +49,8 @@ const Home = ({ brands }) => {
           <BudgetSearch />
           <AllVehicles isHome={true} hasSeeAll={true} />
         </Box>
-        <Banner />
         <Ratings />
+        <Banner />
       </Layout>
     </>
   )
