@@ -5,8 +5,7 @@ import { useRouter } from 'next/router'
 import VehicleCard from '@/components/Vehicles/VehicleCard';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '@/styles/Brands.module.css'
-    ;
+import styles from '@/styles/Brands.module.css';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 

@@ -1,46 +1,79 @@
-import Layout from '@/layouts/Layout'
-import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, } from '@mui/material'
-import Head from 'next/head'
-import styles from '@/styles/Promos.module.css'
-import Image from 'next/image'
-import Link from 'next/link'
-import setCurrency from '@/utils/setCurrency'
+import Layout from '@/layouts/Layout';
+import { Alert, AlertTitle, Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import Link from 'next/link';
+import { useRouter } from 'next/router'
+import VehicleCard from '@/components/Vehicles/VehicleCard';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '@/styles/Brands.module.css';
+import setCurrency from '@/utils/setCurrency';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL
+
+export async function getStaticPaths() {
+
+    const response = await fetch(`${API_URL}/brands`);
+    const brands = await response.json();
+
+    const paths = brands.map(brand => {
+        return { params: { brandSlug: brand.slug.toString() } }
+    })
+
+    return {
+        paths,
+        fallback: false,
+    };
+}
 
 export async function getStaticProps(context) {
 
-    const vehicle_slug = 'mitsubishi-l300'
+    const brandSlug = context.params.brandSlug
 
-    const vehicleResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/detail/${vehicle_slug}`);
-    const vehicle = await vehicleResponse.json();
+    const response = await fetch(`${API_URL}/brands/vehicle/${brandSlug}`);
+    const vehicles = await response.json();
 
-    let url = new URL(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/variant/detail`);
+    let brand
 
-    vehicle.variants.forEach(item => url.searchParams.append('vehicleSlug', item.vehicle_slug))
+    try {
+        const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
+        // const brandResponse = await fetch(`${API_URL}/brands/get/slug/toyota`);
+        brand = await brandResponse.json();
+    } catch (error) {
+        console.log(error)
+    }
 
-    console.log(url.href)
-
-    const variantReponse = await fetch(url.href)
-    const variants = await variantReponse.json();
+    console.log(brand)
 
     return {
         props: {
-            variants: variants
+            vehicles: vehicles,
+            brand: brand
         },
         revalidate: 10
     };
 }
 
-const Promos = ({ variants }) => {
+const Promo = ({ vehicles, brand }) => {
 
-    console.log(variants)
+    console.log(vehicles)
+
+    const router = useRouter()
+
+    const temporaryBrandName = router.query.brandSlug
+    var brandName = temporaryBrandName.charAt(0).toUpperCase() + temporaryBrandName.slice(1)
+
+    if (brandName === "Mg") {
+        brandName = "MG"
+    }
 
     return (
         <>
             <Head>
-                <title>Promos | Auto Promo PH</title>
+                <title>{`${brandName} | Auto Promo PH`}</title>
                 <meta name="description" content="Welcome to Auto Promo PH" />
             </Head>
             <Layout>
+
                 <Box sx={{
                     width: '100%',
                     backgroundColor: '#1f308a',
@@ -53,11 +86,17 @@ const Promos = ({ variants }) => {
                             width: '100%',
                             maxWidth: '768px',
                             margin: 'auto',
-                            paddingLeft: '5px',
-                            paddingRight: '5px',
                             my: '40px'
                         }}
                     >
+                        <Image
+                            src={`${process.env.NEXT_PUBLIC_API_URL}${brand.logo}`}
+                            width={90}
+                            height={50}
+                            unoptimized={true}
+                            alt=''
+                        />
+
                         <Box mx={2}>
                             <Typography
                                 fontSize='2rem'
@@ -69,7 +108,7 @@ const Promos = ({ variants }) => {
                                 fontWeight='800'
                                 color='#ffffff'
                             >
-                                Promos
+                                {`${brand.name} Promos`}
                             </Typography>
                             <Typography
                                 fontSize='1rem'
@@ -81,7 +120,7 @@ const Promos = ({ variants }) => {
                                 color='#dadada'
 
                             >
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta harum vel porro quidem. Fugiat asperiores quod ipsam rerum eaque cupiditate illo quidem.
+                                {brand.description}
                             </Typography>
                         </Box>
 
@@ -89,19 +128,27 @@ const Promos = ({ variants }) => {
                         {/* <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography> */}
                     </Box>
                     <Box className='overlayBackground'></Box>
-
                 </Box>
+
                 <Box
                     sx={{
                         width: '100%',
                         maxWidth: '1280px',
-                        margin: 'auto',
+                        margin: '40px auto',
                         paddingLeft: '15px',
-                        paddingRight: '15px',
-                        my: '40px'
+                        paddingRight: '15px'
                     }}
                 >
-                    <Typography mb={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, quasi commodi, saepe officiis vitae veritatis eveniet temporibus voluptate alias ipsum provident consequatur cumque autem laudantium ex laboriosam quibusdam beatae ad?</Typography>
+
+                    <Box>
+                        <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'>All vehicles</Typography>
+                        <Typography fontSize='14px' variant="h3" fontWeight='400' color='#505050'  >{`All available promos of ${brandName}`}</Typography>
+                    </Box>
+
+                    <Alert severity="warning" sx={{ mt: 4, mb: 4 }}>
+                        <AlertTitle>Important!</AlertTitle>
+                        The following promos below is subject to change without prior notice.
+                    </Alert>
 
                     <TableContainer component={Paper} elevation={0} sx={{ border: '1px solid #d3d3d3', boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)' }}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -116,7 +163,7 @@ const Promos = ({ variants }) => {
                             </TableHead>
                             <TableBody>
                                 {
-                                    variants.map((item, index) => {
+                                    vehicles.map((item, index) => {
                                         return (
                                             <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                                 <TableCell align='center' component="th" scope="row">
@@ -142,6 +189,7 @@ const Promos = ({ variants }) => {
                             </TableBody>
                         </Table>
                     </TableContainer>
+
                 </Box>
 
             </Layout>
@@ -149,4 +197,4 @@ const Promos = ({ variants }) => {
     )
 }
 
-export default Promos
+export default Promo

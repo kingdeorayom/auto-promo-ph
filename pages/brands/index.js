@@ -6,7 +6,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import styles from '@/styles/Brands.module.css'
 import Head from 'next/head';
 import AllVehicles from '@/components/Home/AllVehicles';
-;
 
 export async function getStaticProps() {
 

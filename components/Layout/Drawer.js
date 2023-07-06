@@ -57,7 +57,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
                 isLoggedIn ? <Link href='/admin/dashboard'>
                     <Box className={router.pathname == '/admin/dashboard' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
                         <Box display='flex' alignItems='center'>
-                            <DashboardCustomizeOutlinedIcon sx={{ mx: 3 }} />
+                            <DashboardCustomizeOutlinedIcon sx={{ mx: 3, color: '#FF905E' }} />
                             <Box>
                                 <Typography fontSize='15px' fontWeight='700' mb={.5}>Dashboard</Typography>
                                 <Typography fontSize='13px' color='#808080'>Manage the content of your website and view customer or client inquiries</Typography>
@@ -71,7 +71,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
             <Link href='/'>
                 <Box className={router.pathname == '/' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
                     <Box display='flex' alignItems='center'>
-                        <ExploreOutlinedIcon sx={{ mx: 3 }} />
+                        <ExploreOutlinedIcon sx={{ mx: 3, color: 'green' }} />
                         <Box>
                             <Typography fontSize='15px' fontWeight='700' mb={.5}>Explore</Typography>
                             <Typography fontSize='13px' color='#808080'>Browse different collections of vehicles offered by Auto Promo PH. Use the Quick Search Filters to easily find your dream vehicle</Typography>
@@ -84,7 +84,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
             <Link href='/brands'>
                 <Box className={router.pathname == '/brands' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
                     <Box display='flex' alignItems='center'>
-                        <ScatterPlotOutlinedIcon sx={{ mx: 3 }} />
+                        <ScatterPlotOutlinedIcon sx={{ mx: 3, color: '#5D5FC0' }} />
                         <Box>
                             <Typography fontSize='15px' fontWeight='700' mb={.5}>Brands</Typography>
                             <Typography fontSize='13px' color='#808080'>View available vehicle brands offered by Auto Promo PH. Read a few insight regarding a brand</Typography>
@@ -97,7 +97,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
             <Link href='/promos'>
                 <Box className={router.pathname == '/promos' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
                     <Box display='flex' alignItems='center'>
-                        <SellOutlinedIcon sx={{ mx: 3 }} />
+                        <SellOutlinedIcon sx={{ mx: 3, color: 'brown' }} />
                         <Box>
                             <Typography fontSize='15px' fontWeight='700' mb={.5}>Promos</Typography>
                             <Typography fontSize='13px' color='#808080'>View the current promos offered by Auto Promo PH</Typography>
@@ -110,7 +110,7 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
             <Link href='/contact'>
                 <Box className={router.pathname == '/contact' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
                     <Box display='flex' alignItems='center'>
-                        <ContactPhoneOutlinedIcon sx={{ mx: 3 }} />
+                        <ContactPhoneOutlinedIcon sx={{ mx: 3, color: 'darkgoldenrod' }} />
                         <Box>
                             <Typography fontSize='15px' fontWeight='700' mb={.5}>Contact</Typography>
                             <Typography fontSize='13px' color='#808080'>Reach out to us. View our contact information</Typography>

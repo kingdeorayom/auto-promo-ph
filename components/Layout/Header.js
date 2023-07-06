@@ -27,7 +27,7 @@ const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
     const menuIconDisplayWithoutDashboard = { xs: 'flex', sm: 'flex', md: 'none' }
-    const menuIconDisplayWithDashboard = { xs: 'flex', md: 'flex', lg: 'none' }
+    const menuIconDisplayWithDashboard = { xs: 'flex', md: 'flex', lg: 'flex' }
 
     const withDashboardDisplay = { xs: 'none', lg: 'flex' }
     const withNoDashboardDisplay = { xs: 'none', md: 'flex' }
@@ -39,7 +39,7 @@ const Header = () => {
                 elevation={0}
             >
                 <Toolbar className={styles.toolbar}>
-                    <Box display={{ xs: 'flex', md: 'none' }}>
+                    <Box display={{ xs: 'flex', md: 'flex', lg: 'none' }}>
                         <IconButton onClick={() => setIsDrawerOpen(true)}>
                             <MenuIcon
                                 sx={{ color: grey[50], ':hover': { color: '#FFDE00' } }}
@@ -84,9 +84,7 @@ const Header = () => {
                             </Box>
                         </Link>
                     </Stack>
-                    <Box
-                    // display={isLoggedIn ? menuIconDisplayWithDashboard : menuIconDisplayWithoutDashboard}
-                    >
+                    <Box>
                         <Link href='/search'>
                             <IconButton>
                                 <SearchIcon

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Image from 'next/image'
 import notifications_image from '@/public/notifications.svg'
+// import promos_image from '@/public/promos.svg'
 import car_image from '@/public/car.svg'
 import dhang_casten from '@/public/dhang_casten.jpg'
 import { useLogout } from '@/hooks/useLogout'
@@ -201,10 +202,42 @@ const Dashboard = ({ vehicles, inquiries }) => {
                             </Box>
                         </Grid>
 
+                        {/* <Grid item xs={12} sm={12} md={6} className={styles.gridItem}>
+                            <Box className={styles.box}>
+                                <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
+                                    <Box>
+                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1.5} color='#343434'>Manage Promos</Typography>
+                                        <Box my={2} display={{ xs: 'block', sm: 'none' }} sx={{ textAlign: 'center' }}>
+                                            <Image
+                                                src={promos_image}
+                                                alt='Notification'
+                                                height={120}
+                                            />
+                                        </Box>
+                                        <Typography color='#808080' mb={2} fontSize='14px' fontWeight='400'>Add, Remove, and Update or simply manage and view list of promos to show to visitors</Typography>
+                                        <Link href='/admin/inquiries'>
+                                            <Button disableElevation variant="contained" endIcon={<ArrowForwardIcon />}
+                                            // sx={{ borderRadius: 10 }}
+                                            >
+                                                Manage Promos
+                                            </Button>
+                                        </Link>
+                                    </Box>
+                                    <Box display={{ xs: 'none', sm: 'block' }}>
+                                        <Image
+                                            src={promos_image}
+                                            alt='Notification'
+                                            height={120}
+                                        />
+                                    </Box>
+                                </Stack>
+                            </Box>
+                        </Grid> */}
+
                     </Grid>
 
                     <Box display='flex' alignItems='flex-end' justifyContent='flex-end'>
-                        <Button onClick={handleClick} variant='contained' color='error' disableElevation>Log out</Button>
+                        <Button onClick={handleClick} variant='outlined' color='error' disableElevation>Log out</Button>
                     </Box>
 
                 </Box>
