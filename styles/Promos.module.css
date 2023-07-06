@@ -1,0 +1,13 @@
+.wrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: 40px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.link:hover {
+    text-decoration: underline;
+    text-decoration-color: #1976d2;
+    text-decoration-thickness: 1px;
+}
