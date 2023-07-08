@@ -19,8 +19,6 @@ export const InquiriesContextProvider = ({ children }) => {
         inquiries: [],
     })
 
-    // console.log('InquiriesContext state:', state)
-
     return (
         <InquiriesContext.Provider value={{ ...state, dispatch }}>
             {children}

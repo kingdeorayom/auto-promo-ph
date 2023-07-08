@@ -35,13 +35,9 @@ export async function getStaticProps(context) {
 
     try {
         const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
-        // const brandResponse = await fetch(`${API_URL}/brands/get/slug/toyota`);
         brand = await brandResponse.json();
     } catch (error) {
-        console.log(error)
     }
-
-    console.log(brand)
 
     return {
         props: {

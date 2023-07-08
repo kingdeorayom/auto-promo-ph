@@ -63,7 +63,7 @@ const InquiriesPage = () => {
                 ).then(() => router.push('/admin/inquiries'))
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error)
             });
     }
 

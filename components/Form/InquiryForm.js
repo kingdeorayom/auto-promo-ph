@@ -23,7 +23,6 @@ const InquiryForm = () => {
             const vehicle = await response.json();
             setVehicleName(vehicle.name)
         } catch (error) {
-            console.log(error)
         }
     }
 
@@ -48,13 +47,11 @@ const InquiryForm = () => {
 
         setIsSending(true)
 
-        // console.log(data)
-
         await emailjs.send('service_00x8du6', 'template_fh6lsi2', data, '_feim_H0vcS-Wc5_u')
             .then((result) => {
-                console.log("result => " + result.text);
+                console.log(result)
             }, (error) => {
-                console.log("error => " + error.text);
+                console.log(error)
             });
 
         axios.post(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`, data)
@@ -70,7 +67,7 @@ const InquiryForm = () => {
                 }
             })
             .catch((error) => {
-                console.log(error.response.data.message);
+                console.log(error)
                 setIsSending(false)
             });
     }

@@ -98,7 +98,6 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
             }
             reader.readAsDataURL(image)
         } catch (error) {
-            console.log("Cancelled")
             setImagePreview(null)
         }
     }
@@ -108,7 +107,6 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
             name: value.name,
             vehicle_slug: value.vehicle_slug,
         }
-        console.log(data)
         setVariants(current => [...current, data])
     }
 
@@ -118,15 +116,15 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
 
     const onSubmit = (data) => {
 
-        // if (data.image.length !== 0) {
-        //     setErrorMessage(null)
-        // } else {
-        //     return setErrorMessage('Image is required. Please attach an image and try submitting again.')
-        // }
+        if (data.image.length !== 0) {
+            setErrorMessage(null)
+        } else {
+            return setErrorMessage('Image is required. Please attach an image and try submitting again.')
+        }
 
-        // if (data.colors === '') {
-        //     return setErrorMessage('At least one available color is required.')
-        // }
+        if (data.colors === '') {
+            return setErrorMessage('At least one available color is required.')
+        }
 
         let availableColors = data.colors.split(/[,]+/)
 
@@ -135,8 +133,6 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
         data['image'] = data.image[0]
         data['colors'] = availableColors
         data['variants'] = variants
-
-        console.log(data)
 
         setIsUploading(true)
 
@@ -163,7 +159,6 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
 
             })
             .catch((error) => {
-                console.log(error.response.data.message);
                 setErrorMessage(error.response.data.message)
                 setIsUploading(false)
             });
@@ -227,7 +222,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             encType='multipart/form-data'
                         >
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Name*</Typography>
+                                <Typography mb={1} fontWeight='500'>Name <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -245,7 +240,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Unit Price <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Unit Price <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is.</Typography>
                                 <TextField
                                     type='number'
@@ -261,7 +256,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Net Price <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Net Price <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol just like with Unit Price.</Typography>
                                 <TextField
                                     type='number'
@@ -277,7 +272,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Downpayment <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Downpayment <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the downpayment as is.</Typography>
                                 <TextField
                                     type='number'
@@ -293,7 +288,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>5 years Amortization <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>5 years Amortization <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the value as is.</Typography>
                                 <TextField
                                     type='number'
@@ -309,7 +304,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Description*</Typography>
+                                <Typography mb={1} fontWeight='500'>Description <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -325,7 +320,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Brand*</Typography>
+                                <Typography mb={1} fontWeight='500'>Brand <sup><span className={styles.required}>This cannot be changed</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -335,6 +330,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                                     }}
                                     {...register('brand')}
                                     helperText={errors.brand?.message}
+                                    disabled
                                 />
                             </Box>
 
@@ -362,7 +358,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box> */}
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Model*</Typography>
+                                <Typography mb={1} fontWeight='500'>Model <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -376,7 +372,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                                 />
                             </Box>
 
-                            <Box my={2}>
+                            {/* <Box my={2}>
                                 <Typography mb={2} fontWeight='500'>Body Type*</Typography>
                                 <TextField
                                     select
@@ -395,10 +391,25 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                                     <MenuItem value='Van'>Van</MenuItem>
                                     <MenuItem value='Utility'>Utility</MenuItem>
                                 </TextField>
+                            </Box> */}
+
+                            <Box my={2}>
+                                <Typography mb={1} fontWeight='500'>Body Type <sup><span className={styles.required}>This cannot be changed</span></sup></Typography>
+                                <TextField
+                                    type='text'
+                                    fullWidth
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'><AirportShuttleOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
+                                        sx: { borderRadius: 2, }
+                                    }}
+                                    {...register('type')}
+                                    helperText={errors.type?.message}
+                                    disabled
+                                />
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Transmission*</Typography>
+                                <Typography mb={2} fontWeight='500'>Transmission <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     select
                                     fullWidth
@@ -422,7 +433,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Fuel Type*</Typography>
+                                <Typography mb={2} fontWeight='500'>Fuel Type <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     select
                                     fullWidth
@@ -440,7 +451,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Engine Power <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Engine Power <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
                                 <TextField
                                     type='number'
@@ -456,7 +467,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Engine Displacement <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Engine Displacement <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
                                 <TextField
                                     type='number'
@@ -472,7 +483,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Year*</Typography>
+                                <Typography mb={2} fontWeight='500'>Year <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='tel'
                                     fullWidth
@@ -488,7 +499,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Key Features*</Typography>
+                                <Typography mb={1} fontWeight='500'>Key Features <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -526,7 +537,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Available Colors*</Typography>
+                                <Typography mb={1} fontWeight='500'>Available Colors <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>Enter available colors for this vehicle, separated by a comma. Note that an entry is determined after each comma.</Typography>
                                 <TextField
                                     type='text'
@@ -541,7 +552,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                                 />
                             </Box>
 
-                            <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image*</Typography>
+                            <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image <sup><span className={styles.required}>Required</span></sup></Typography>
                             <input
                                 type='file'
                                 // accept="image/*"
@@ -567,7 +578,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                             </Box>
                             <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image you will upload.</Typography>
 
-                            <Typography mt={2} mb={1} fontWeight='500'>Interior and Exterior Images</Typography>
+                            <Typography mt={2} mb={1} fontWeight='500'>Interior and Exterior Images <sup><span className={styles.required}>Required</span></sup></Typography>
 
                             <input
                                 type='file'

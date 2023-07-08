@@ -74,7 +74,6 @@ const AddVehicle = ({ vehicles }) => {
             }
             reader.readAsDataURL(image)
         } catch (error) {
-            console.log("Cancelled")
             setImagePreview(null)
         }
     }
@@ -84,7 +83,6 @@ const AddVehicle = ({ vehicles }) => {
             name: value.name,
             vehicle_slug: value.vehicle_slug,
         }
-        console.log(data)
         setVariants(current => [...current, data])
     }
 
@@ -112,19 +110,10 @@ const AddVehicle = ({ vehicles }) => {
         data['colors'] = availableColors
         data['variants'] = variants
 
-        console.log(data)
-
         setIsUploading(true)
 
         axios.post(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`, data, { headers: { "Content-Type": "multipart/form-data" } })
             .then((response) => {
-                // reset()
-                // setErrorMessage(null)
-                // Swal.fire(
-                //     'Vehicle added successfully.',
-                //     'Lorem ipsum',
-                //     'success'
-                // ).then(() => router.reload())
 
                 if (response.status === 201) {
                     setErrorMessage(null)
@@ -139,7 +128,6 @@ const AddVehicle = ({ vehicles }) => {
 
             })
             .catch((error) => {
-                console.log(error.response.data.message);
                 setErrorMessage(error.response.data.message)
                 setIsUploading(false)
             });
@@ -200,7 +188,7 @@ const AddVehicle = ({ vehicles }) => {
                             encType='multipart/form-data'
                         >
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Name <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontWeight='500'>Name <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -218,7 +206,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Unit Price <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Unit Price <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the price as is.</Typography>
                                 <TextField
                                     type='number'
@@ -234,7 +222,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Net Price <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Net Price <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol just like with Unit Price.</Typography>
                                 <TextField
                                     type='number'
@@ -250,7 +238,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Downpayment <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Downpayment <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the downpayment as is.</Typography>
                                 <TextField
                                     type='number'
@@ -266,7 +254,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>5 years Amortization <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>5 years Amortization <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas, dots or currency symbol. It will be automatically added later. Just add the value as is.</Typography>
                                 <TextField
                                     type='number'
@@ -282,7 +270,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Description <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontWeight='500'>Description <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -298,7 +286,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Brand <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={2} fontWeight='500'>Brand <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     select
                                     fullWidth
@@ -321,7 +309,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Model <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontWeight='500'>Model <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -336,7 +324,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Body Type <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={2} fontWeight='500'>Body Type <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     select
                                     fullWidth
@@ -357,7 +345,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Transmission <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={2} fontWeight='500'>Transmission <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     select
                                     fullWidth
@@ -381,7 +369,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Fuel Type <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={2} fontWeight='500'>Fuel Type <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     select
                                     fullWidth
@@ -399,7 +387,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Engine Power <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Engine Power <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
                                 <TextField
                                     type='number'
@@ -415,7 +403,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography fontWeight='500'>Engine Displacement <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography fontWeight='500'>Engine Displacement <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>No need to add any special character such as commas.</Typography>
                                 <TextField
                                     type='number'
@@ -432,7 +420,7 @@ const AddVehicle = ({ vehicles }) => {
 
 
                             <Box my={2}>
-                                <Typography mb={2} fontWeight='500'>Year <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={2} fontWeight='500'>Year <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='tel'
                                     fullWidth
@@ -448,7 +436,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Key Features <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontWeight='500'>Key Features <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
                                     fullWidth
@@ -486,7 +474,7 @@ const AddVehicle = ({ vehicles }) => {
                             </Box>
 
                             <Box my={2}>
-                                <Typography mb={1} fontWeight='500'>Available Colors <sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mb={1} fontWeight='500'>Available Colors <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>Enter available colors for this vehicle, separated by a comma. Note that an entry is determined after each comma.</Typography>
                                 <TextField
                                     type='text'
@@ -501,7 +489,7 @@ const AddVehicle = ({ vehicles }) => {
                                 />
                             </Box>
 
-                            <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image <sup><span className={styles.required}>*</span></sup></Typography>
+                            <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image <sup><span className={styles.required}>Required</span></sup></Typography>
                             <input
                                 type='file'
                                 // accept="image/*"
@@ -528,7 +516,7 @@ const AddVehicle = ({ vehicles }) => {
 
                             <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image you will upload.</Typography>
 
-                            <Typography mt={2} mb={1} fontWeight='500'>Interior and Exterior Images</Typography>
+                            <Typography mt={2} mb={1} fontWeight='500'>Interior and Exterior Images <sup><span className={styles.required}>Required</span></sup></Typography>
 
                             <input
                                 type='file'

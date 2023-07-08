@@ -34,8 +34,6 @@ export const ListingContextProvider = ({ children }) => {
         allVehicles: []
     })
 
-    // console.log('ListingContext state:', state)
-
     return (
         <ListingContext.Provider value={{ ...state, dispatch }}>
             {children}

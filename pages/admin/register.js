@@ -27,7 +27,6 @@ const RegistrationPage = () => {
     const { errors } = formState
 
     const onSubmit = async (data) => {
-        // console.log(data.email)
         await createAccount(data.email, data.password)
         reset()
     }

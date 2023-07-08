@@ -64,7 +64,7 @@ const VehicleManagement = ({ vehicles }) => {
                 ).then(() => router.reload())
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error)
             });
     }
 

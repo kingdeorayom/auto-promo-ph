@@ -1,8 +1,7 @@
 import Layout from '@/layouts/Layout';
-import { Alert, AlertTitle, Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Alert, AlertTitle, Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import VehicleCard from '@/components/Vehicles/VehicleCard';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/Brands.module.css';
@@ -36,13 +35,10 @@ export async function getStaticProps(context) {
 
     try {
         const brandResponse = await fetch(`${API_URL}/brands/get/slug/${brandSlug}`);
-        // const brandResponse = await fetch(`${API_URL}/brands/get/slug/toyota`);
         brand = await brandResponse.json();
     } catch (error) {
         console.log(error)
     }
-
-    console.log(brand)
 
     return {
         props: {
@@ -54,8 +50,6 @@ export async function getStaticProps(context) {
 }
 
 const Promo = ({ vehicles, brand }) => {
-
-    console.log(vehicles)
 
     const router = useRouter()
 

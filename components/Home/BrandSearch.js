@@ -29,8 +29,6 @@ const BrandSearch = ({ brands }) => {
         }
     };
 
-    console.log(brands)
-
     return (
         <>
             <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mt={3} mb={1} color='#343434'  >Browse cars by brand</Typography>

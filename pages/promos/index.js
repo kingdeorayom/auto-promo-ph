@@ -19,30 +19,6 @@ export async function getStaticProps() {
     };
 }
 
-// export async function getStaticProps(context) {
-
-//     const vehicle_slug = 'mitsubishi-l300'
-
-//     const vehicleResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/detail/${vehicle_slug}`);
-//     const vehicle = await vehicleResponse.json();
-
-//     let url = new URL(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/variant/detail`);
-
-//     vehicle.variants.forEach(item => url.searchParams.append('vehicleSlug', item.vehicle_slug))
-
-//     console.log(url.href)
-
-//     const variantReponse = await fetch(url.href)
-//     const variants = await variantReponse.json();
-
-//     return {
-//         props: {
-//             variants: variants
-//         },
-//         revalidate: 10
-//     };
-// }
-
 const Promos = ({ brands }) => {
 
     return (

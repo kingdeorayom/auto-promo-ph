@@ -57,8 +57,6 @@ export async function getStaticProps(context) {
 
     vehicle.variants.forEach(item => url.searchParams.append('vehicleSlug', item.vehicle_slug))
 
-    console.log(url.href)
-
     const variantReponse = await fetch(url.href)
     const variants = await variantReponse.json();
 
@@ -72,8 +70,6 @@ export async function getStaticProps(context) {
 }
 
 const VehicleDetails = ({ vehicle, variants }) => {
-
-    console.log(vehicle)
 
     const router = useRouter()
 
