@@ -11,6 +11,27 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 import { useRouter } from 'next/router';
 import { useRegister } from '@/hooks/useRegister';
 import Link from 'next/link';
+import nookies from 'nookies'
+import Image from 'next/image';
+import logo from '@/public/logo.svg'
+
+export async function getServerSideProps(context) {
+
+    const cookies = nookies.get(context)
+
+    if (cookies['auth_token']) {
+        return {
+            redirect: {
+                destination: '/admin/dashboard',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: {},
+    };
+}
 
 const RegistrationPage = () => {
 
@@ -28,7 +49,8 @@ const RegistrationPage = () => {
 
     const onSubmit = async (data) => {
         await createAccount(data.email, data.password)
-        reset()
+        // reset()
+        router.reload()
     }
 
     const [isPasswordShown, setIsPasswordShown] = useState(false);
@@ -40,8 +62,18 @@ const RegistrationPage = () => {
             <Box className={styles.wrapper}>
                 <Box className={styles.formContainer}>
 
-                    <Typography fontSize='2rem' variant="h2" fontWeight='500' mt={2} mb={1}>Register for an account</Typography>
-                    <Typography fontSize='1rem' variant="h3" color='secondary'>Fill out the form below to create your account</Typography>
+                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <Link href='/'>
+                            <Image
+                                src={logo}
+                                alt="Auto Promo PH"
+                                height={25}
+                            />
+                        </Link>
+                    </Box>
+
+                    <Typography fontSize='2rem' variant="h2" fontWeight='700' mt={4} mb={1}>Create an account</Typography>
+                    <Typography fontSize='1rem' variant="h3" color='secondary' lineHeight='28px'>Fill out the form below to create your account</Typography>
 
                     {/* <Divider sx={{ my: 3 }} /> */}
 
@@ -57,7 +89,7 @@ const RegistrationPage = () => {
                         noValidate
                     >
                         <Box my={2}>
-                            <Typography mb={1} fontWeight='500'>Email</Typography>
+                            <Typography mb={1} fontWeight='700'>Email</Typography>
                             <TextField
                                 type='email'
                                 id='email'
@@ -72,7 +104,7 @@ const RegistrationPage = () => {
                         </Box>
 
                         <Box my={2}>
-                            <Typography mb={1} fontWeight='500'>Password</Typography>
+                            <Typography mb={1} fontWeight='700'>Password</Typography>
                             <TextField
                                 type={isPasswordShown ? 'text' : 'password'}
                                 id='password'
@@ -89,7 +121,7 @@ const RegistrationPage = () => {
 
                         <Alert severity="warning" sx={{ my: 3 }}>
                             <AlertTitle>Important</AlertTitle>
-                            In case of forgotten email or password, contact the web administrator immediately.
+                            You will be logged in automatically upon successful creation.
                         </Alert>
 
                         <Box className={styles.buttonWrapper}>
@@ -106,9 +138,11 @@ const RegistrationPage = () => {
                             </Button>
                         </Box>
 
-                        <Link href='/admin'>
-                            <Typography color='primary' my={5}>Log in</Typography>
-                        </Link>
+                        <Box display='flex' justifyContent='center'>
+                            <Link href='/admin' className={styles.link}>
+                                <Typography color='primary' my={5}>Already have an account? Log in</Typography>
+                            </Link>
+                        </Box>
 
                     </form>
 

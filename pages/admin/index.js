@@ -140,10 +140,11 @@ const LoginPage = () => {
                                     Log in
                                 </Button>
                             </Box>
-
-                            {/* <Link href='/admin/register'>
-                            <Typography color='primary' my={5}>Create an account</Typography>
-                        </Link> */}
+                            <Box display='flex' justifyContent='center'>
+                                <Link href='/admin/register' className={styles.link}>
+                                    <Typography color='primary' my={5}>Create an account</Typography>
+                                </Link>
+                            </Box>
                         </form>
 
                     </Box>

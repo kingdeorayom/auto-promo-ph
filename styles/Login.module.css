@@ -27,3 +27,14 @@
     align-items: center;
     justify-content: center;
 }
+
+
+.link{
+    color: #1976d2;
+}
+
+.link:hover{
+    text-decoration: underline;
+    text-decoration-color: #1976d2;
+    text-decoration-thickness: 1px;
+}
