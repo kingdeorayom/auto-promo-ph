@@ -147,7 +147,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                         <Grid item xs={12} sm={7}>
                             <Box width={'100%'} height={300} position='relative' display='block' sx={{ aspectRatio: 1 }}>
                                 <Image
-                                    src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                    src={vehicle.image}
                                     // src={carnobg}
                                     alt={vehicle.name}
                                     // width={565}
@@ -164,7 +164,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                         objectFit: 'contain'
                                     }}
                                     placeholder='blur'
-                                    blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                    blurDataURL={vehicle.image}
                                 />
                             </Box>
                         </Grid>
@@ -271,16 +271,16 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                         {
                                             vehicle.extraImages.map((item, index) => {
                                                 return (
-                                                    <Link data-fancybox="extraImages" href={`${process.env.NEXT_PUBLIC_API_URL}${item}`} key={index}>
+                                                    <Link data-fancybox="extraImages" href={item} key={index}>
                                                         <Box className={styles.extraImageBox} width={{ xs: "100%", sm: '95%' }} height={{ xs: 225, sm: 220 }} position='relative' display='block' sx={{ aspectRatio: 1 }}>
                                                             <Image
-                                                                src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                                src={item}
                                                                 alt={vehicle.name}
                                                                 fill
                                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                                                 className={styles.extraImage}
                                                                 placeholder='blur'
-                                                                blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
+                                                                blurDataURL={item}
                                                             />
                                                         </Box>
                                                     </Link>
@@ -372,34 +372,44 @@ const VehicleDetails = ({ vehicle, variants }) => {
                             <Box mt={4}>
 
                                 <Typography fontSize='1.5rem' variant="h2" fontWeight='800' mb={1} color='#343434'>Available colors</Typography>
-                                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={2}>This vehicle comes with {vehicle.colors.length} available colors
+                                <Typography fontSize='1rem' variant="subtitle1" color='secondary' mb={0}>This vehicle comes with {vehicle.colors.length} available colors
                                 </Typography>
 
-                                <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '768px', maxWidth: '100%' }}>
+                                {/* <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '768px', maxWidth: '100%' }}>
                                     {
                                         vehicle.colors.map((item, index) => <Chip key={index} label={item} variant="outlined" sx={{ mx: '3px', my: '5px', backgroundColor: '#ffffff', border: '1px solid #d3d3d3', fontWeight: '600' }} />)
                                     }
-                                </Box>
-
-                                {/* <Box className={styles.gallery}>
-                                    {
-                                        vehicle.extraImages.map((item, index) => {
-                                            return (
-                                                <Box key={index} width={'100%'} height={100} position='relative' display='block' sx={{ aspectRatio: 1 }}>
-                                                    <Image
-                                                        src={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
-                                                        alt={vehicle.name}
-                                                        fill
-                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                                        className={styles.gallery__image}
-                                                        placeholder='blur'
-                                                        blurDataURL={`${process.env.NEXT_PUBLIC_API_URL}${item}`}
-                                                    />
-                                                </Box>
-                                            )
-                                        })
-                                    }
                                 </Box> */}
+
+                                <Box className={styles.colorImages}>
+                                    <Carousel
+                                        swipeable={true}
+                                        // infinite={true}
+                                        draggable={false}
+                                        responsive={responsive}
+                                        className={styles.colorImagesCarousel}
+                                    >
+                                        {
+                                            vehicle.colors.map((item, index) => {
+                                                return (
+                                                    <Link data-fancybox="colors" href={item} key={index}>
+                                                        <Box className={styles.colorImageBox} width={{ xs: "100%", sm: '95%' }} height={{ xs: 225, sm: 220 }} position='relative' display='block' sx={{ aspectRatio: 1 }}>
+                                                            <Image
+                                                                src={item}
+                                                                alt={vehicle.name}
+                                                                fill
+                                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                                                className={styles.colorImage}
+                                                                placeholder='blur'
+                                                                blurDataURL={item}
+                                                            />
+                                                        </Box>
+                                                    </Link>
+                                                )
+                                            })
+                                        }
+                                    </Carousel>
+                                </Box>
 
                             </Box>
 
@@ -432,7 +442,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                                     <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                                         <TableCell align='center' component="th" scope="row">
                                                             <Image
-                                                                src={`${process.env.NEXT_PUBLIC_API_URL}${item.image}`}
+                                                                src={item.image}
                                                                 alt={vehicle.name}
                                                                 width={200}
                                                                 height={100}

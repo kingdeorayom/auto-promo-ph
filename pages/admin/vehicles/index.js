@@ -125,7 +125,7 @@ const VehicleManagement = ({ vehicles }) => {
                                         <Stack direction={{ xs: 'column', md: 'row' }} className={styles.box}>
                                             <Box display={{ xs: 'block', md: 'none' }}>
                                                 <Image
-                                                    src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                                    src={vehicle.image}
                                                     alt={vehicle.name}
                                                     width={200}
                                                     height={100}
@@ -134,7 +134,7 @@ const VehicleManagement = ({ vehicles }) => {
                                             </Box>
                                             <Box display={{ xs: 'none', md: 'block' }}>
                                                 <Image
-                                                    src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                                    src={vehicle.image}
                                                     alt={vehicle.name}
                                                     width={200}
                                                     height={100}

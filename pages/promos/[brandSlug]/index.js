@@ -162,7 +162,7 @@ const Promo = ({ vehicles, brand }) => {
                                             <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                                 <TableCell align='center' component="th" scope="row">
                                                     <Image
-                                                        src={`${process.env.NEXT_PUBLIC_API_URL}${item.image}`}
+                                                        src={item.image}
                                                         alt={item.name}
                                                         width={200}
                                                         height={100}

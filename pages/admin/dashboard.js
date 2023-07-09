@@ -132,7 +132,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                             <Box className={styles.box}>
                                 <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
                                     <Box>
-                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1.5} color='#343434'>Manage your vehicles</Typography>
+                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1.5} color='#505050'>Manage your vehicles</Typography>
                                         <Box my={2} display={{ xs: 'block', sm: 'none' }} sx={{ textAlign: 'center' }}>
                                             <Image
                                                 src={car_image}
@@ -174,7 +174,7 @@ const Dashboard = ({ vehicles, inquiries }) => {
                             <Box className={styles.box}>
                                 <Stack direction='row' display='flex' alignItems='center' justifyContent='center'>
                                     <Box>
-                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1.5} color='#343434'>Inquiries</Typography>
+                                        <Typography fontSize='1.5rem' variant="h2" fontWeight='700' mb={1.5} color='#505050'>Inquiries</Typography>
                                         <Box my={2} display={{ xs: 'block', sm: 'none' }} sx={{ textAlign: 'center' }}>
                                             <Image
                                                 src={notifications_image}

@@ -98,16 +98,16 @@ const AddVehicle = ({ vehicles }) => {
             return setErrorMessage('Image is required. Please attach an image and try submitting again.')
         }
 
-        if (data.colors === '') {
-            return setErrorMessage('At least one available color is required.')
-        }
+        // if (data.colors === '') {
+        //     return setErrorMessage('At least one available color is required.')
+        // }
 
-        let availableColors = data.colors.split(/[,]+/)
+        // let availableColors = data.colors.split(/[,]+/)
 
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
         data['image'] = data.image[0]
-        data['colors'] = availableColors
+        // data['colors'] = availableColors
         data['variants'] = variants
 
         setIsUploading(true)
@@ -298,9 +298,10 @@ const AddVehicle = ({ vehicles }) => {
                                         sx: { borderRadius: 2, }
                                     }}
                                 >
+                                    <MenuItem value='Ford'>Ford</MenuItem>
                                     <MenuItem value='Geely'>Geely</MenuItem>
-                                    <MenuItem value='Honda'>Honda</MenuItem>
-                                    <MenuItem value='Isuzu'>Isuzu</MenuItem>
+                                    {/* <MenuItem value='Honda'>Honda</MenuItem> */}
+                                    {/* <MenuItem value='Isuzu'>Isuzu</MenuItem> */}
                                     <MenuItem value='MG'>MG</MenuItem>
                                     <MenuItem value='Mitsubishi'>Mitsubishi</MenuItem>
                                     <MenuItem value='Suzuki'>Suzuki</MenuItem>
@@ -473,7 +474,7 @@ const AddVehicle = ({ vehicles }) => {
                                 <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
                             </Box>
 
-                            <Box my={2}>
+                            {/* <Box my={2}>
                                 <Typography mb={1} fontWeight='500'>Available Colors <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <Typography mb={1} fontSize='13px' fontWeight='400'>Enter available colors for this vehicle, separated by a comma. Note that an entry is determined after each comma.</Typography>
                                 <TextField
@@ -487,13 +488,13 @@ const AddVehicle = ({ vehicles }) => {
                                     {...register('colors')}
                                     helperText={errors.colors?.message}
                                 />
-                            </Box>
+                            </Box> */}
 
                             <Typography mt={2} mb={1} fontWeight='500'>Vehicle Image <sup><span className={styles.required}>Required</span></sup></Typography>
                             <input
                                 type='file'
                                 // accept="image/*"
-                                accept="image/png, image/jpeg, image/jpg"
+                                accept="image/png, image/jpeg, image/jpg, image/jfif"
                                 {...register('image', {
                                     onChange: handleImageChange
                                 })}
@@ -516,12 +517,23 @@ const AddVehicle = ({ vehicles }) => {
 
                             <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image you will upload.</Typography>
 
-                            <Typography mt={2} mb={1} fontWeight='500'>Interior and Exterior Images <sup><span className={styles.required}>Required</span></sup></Typography>
+                            <Typography mt={2} mb={1} fontWeight='500'>Available Colors <sup><span className={styles.required}>Required</span></sup></Typography>
 
                             <input
                                 type='file'
                                 multiple
-                                accept="image/png, image/jpeg, image/jpg"
+                                accept="image/png, image/jpeg, image/jpg, image/jfif"
+                                {...register('colors')}
+                                name='colors'
+                                required
+                            />
+
+                            <Typography mt={4} mb={1} fontWeight='500'>Interior and Exterior Images <sup><span className={styles.required}>Required</span></sup></Typography>
+
+                            <input
+                                type='file'
+                                multiple
+                                accept="image/png, image/jpeg, image/jpg, image/jfif"
                                 {...register('extraImages')}
                                 name='extraImages'
                                 required

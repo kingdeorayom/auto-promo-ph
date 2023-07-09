@@ -74,7 +74,7 @@ const AllVehicles = ({ isHome, hasSeeAll }) => {
                                     return (
                                         <Link key={vehicle._id} href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                             <VehicleCard
-                                                image={`${API_URL}${vehicle.image}`}
+                                                image={vehicle.image}
                                                 name={vehicle.name}
                                                 price={vehicle.price}
                                                 promo={vehicle.price}
@@ -100,7 +100,7 @@ const AllVehicles = ({ isHome, hasSeeAll }) => {
                                         <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
                                             <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                                 <VehicleCard
-                                                    image={`${API_URL}${vehicle.image}`}
+                                                    image={vehicle.image}
                                                     name={vehicle.name}
                                                     price={vehicle.price}
                                                     promo={vehicle.price}

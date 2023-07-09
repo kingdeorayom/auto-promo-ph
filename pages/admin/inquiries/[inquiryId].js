@@ -149,7 +149,7 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
                                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={1.8} display='flex' alignItems='center'>
                                     <Box mr={2}>
                                         <Image
-                                            src={`${process.env.NEXT_PUBLIC_API_URL}${vehicle.image}`}
+                                            src={vehicle.image}
                                             alt={vehicle.name}
                                             width={200}
                                             height={100}

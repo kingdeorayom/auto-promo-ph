@@ -41,7 +41,7 @@ const Suggestion = ({ brand_slug, brand }) => {
                                     <Grid key={vehicle._id} item xs={12} sm={6} lg={4}>
                                         <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                             <VehicleCard
-                                                image={`${API_URL}${vehicle.image}`}
+                                                image={vehicle.image}
                                                 name={vehicle.name}
                                                 price={vehicle.price}
                                                 promo={vehicle.price}

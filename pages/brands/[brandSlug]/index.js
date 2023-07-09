@@ -149,7 +149,7 @@ const Brand = ({ vehicles, brand }) => {
                                 <Grid key={vehicle._id} item xs={12} sm={6} lg={3}>
                                     <Link href={`${vehicle.brand_slug}/${vehicle.vehicle_slug}`}>
                                         <VehicleCard
-                                            image={`${API_URL}${vehicle.image}`}
+                                            image={vehicle.image}
                                             name={vehicle.name}
                                             price={vehicle.price}
                                             promo={vehicle.price}
