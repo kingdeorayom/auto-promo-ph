@@ -12,6 +12,7 @@ import styles from '@/styles/Home.module.css'
 import BrandSearch from "@/components/Home/BrandSearch"
 import CarouselBanner from "@/components/Home/CarouselBanner"
 import Ratings from "@/components/Home/Ratings"
+import TradeIn from "@/components/Home/TradeIn"
 
 export async function getStaticProps() {
 
@@ -49,6 +50,7 @@ const Home = ({ brands }) => {
           <BodyTypeSearch />
           <BudgetSearch />
           <AllVehicles isHome={true} hasSeeAll={true} />
+          <TradeIn />
         </Box>
         <Ratings />
         <Banner />

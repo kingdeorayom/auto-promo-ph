@@ -77,11 +77,11 @@ const FeaturedVehicles = ({ isHome, hasSeeAll }) => {
                                             <VehicleCard
                                                 image={vehicle.image}
                                                 name={vehicle.name}
-                                                price={vehicle.price}
-                                                promo={vehicle.price}
+                                                unitPrice={vehicle.unitPrice}
                                                 fuelType={vehicle.fuelType}
                                                 transmission={vehicle.transmission}
-                                                type={vehicle.type}
+                                                bodyType={vehicle.bodyType}
+                                                description={vehicle.description}
                                             />
                                         </Link>
                                     )
@@ -103,11 +103,11 @@ const FeaturedVehicles = ({ isHome, hasSeeAll }) => {
                                                 <VehicleCard
                                                     image={vehicle.image}
                                                     name={vehicle.name}
-                                                    price={vehicle.price}
-                                                    promo={vehicle.price}
+                                                    unitPrice={vehicle.unitPrice}
                                                     fuelType={vehicle.fuelType}
                                                     transmission={vehicle.transmission}
-                                                    type={vehicle.type}
+                                                    bodyType={vehicle.bodyType}
+                                                    description={vehicle.description}
                                                 />
                                             </Link>
                                         </Grid>

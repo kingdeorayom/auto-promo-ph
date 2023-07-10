@@ -148,7 +148,7 @@ const VehicleManagement = ({ vehicles }) => {
                                                 >
                                                     <Typography fontSize='1.1rem' variant="h2" fontWeight='700' mb={1} color='primary'>{vehicle.name}</Typography>
                                                 </Link>
-                                                <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
+                                                <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.unitPrice)}</Typography>
                                                 <Typography color='#808080' mb={2} fontSize='14px' fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
                                                 <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
                                                     <Link

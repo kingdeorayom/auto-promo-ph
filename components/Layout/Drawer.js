@@ -7,7 +7,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import gmail_icon from '@/public/gmail_icon.svg'
 import viber_icon from '@/public/viber_icon.svg'
 import facebook_icon from '@/public/facebook_icon.svg'
-import logo from '@/public/logo.svg'
+import logo_light from '@/public/logo_light.svg'
 import styles from '@/styles/Drawer.module.css'
 
 import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
@@ -38,9 +38,9 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
                 </Box>
                 <Link href='/'>
                     <Image
-                        src={logo}
+                        src={logo_light}
                         alt="Auto Promo PH"
-                        height={25}
+                        height={20}
                         className={styles.logo}
                     />
                 </Link>

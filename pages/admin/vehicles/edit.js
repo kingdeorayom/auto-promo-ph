@@ -64,20 +64,20 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
         mode: 'onChange',
         defaultValues: {
             name: vehicleDetails.name,
-            price: vehicleDetails.price,
+            unitPrice: vehicleDetails.unitPrice,
             netPrice: vehicleDetails.netPrice,
             downpayment: vehicleDetails.downpayment,
             amortization: vehicleDetails.amortization,
             description: vehicleDetails.description,
             brand: vehicleDetails.brand,
             model: vehicleDetails.model,
-            type: vehicleDetails.type,
+            bodyType: vehicleDetails.bodyType,
             transmission: vehicleDetails.transmission,
             fuelType: vehicleDetails.fuelType,
             power: vehicleDetails.power,
             engineDisplacement: vehicleDetails.engineDisplacement,
             year: vehicleDetails.year,
-            keyFeatures: vehicleDetails.keyFeatures,
+            // keyFeatures: vehicleDetails.keyFeatures,
             // colors: vehicleDetails.colors,
         }
     })
@@ -250,8 +250,8 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                                         startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
                                         sx: { borderRadius: 2, marginTop: 1.5, }
                                     }}
-                                    {...register('price')}
-                                    helperText={errors.price?.message}
+                                    {...register('unitPrice')}
+                                    helperText={errors.unitPrice?.message}
                                 />
                             </Box>
 
@@ -402,8 +402,8 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                                         startAdornment: <InputAdornment position='start'><AirportShuttleOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
                                         sx: { borderRadius: 2, }
                                     }}
-                                    {...register('type')}
-                                    helperText={errors.type?.message}
+                                    {...register('bodyType')}
+                                    helperText={errors.bodyType?.message}
                                     disabled
                                 />
                             </Box>
@@ -498,7 +498,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                                 />
                             </Box>
 
-                            <Box my={2}>
+                            {/* <Box my={2}>
                                 <Typography mb={1} fontWeight='500'>Key Features <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
@@ -511,7 +511,7 @@ const EditVehicle = ({ vehicles, vehicleDetails }) => {
                                     {...register('keyFeatures')}
                                     helperText={errors.keyFeatures?.message}
                                 />
-                            </Box>
+                            </Box> */}
 
                             <Box my={2}>
                                 <Typography mb={1} fontWeight='500'>Variants</Typography>

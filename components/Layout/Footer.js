@@ -5,7 +5,7 @@ import gmail_icon from '@/public/gmail_icon.svg'
 import viber_icon from '@/public/viber_icon.svg'
 import facebook_icon from '@/public/facebook_icon.svg'
 import styles from '@/styles/Footer.module.css'
-import logo from '@/public/logo.svg'
+import logo_light from '@/public/logo_light.svg'
 
 const Footer = () => {
     return (
@@ -25,9 +25,9 @@ const Footer = () => {
                 }}>
                 <Link href='/'>
                     <Image
-                        src={logo}
+                        src={logo_light}
                         alt="Auto Promo PH"
-                        height={25}
+                        height={20}
                     // className={styles.logo}
                     />
                     {/* <Typography fontSize='1.2rem' fontWeight='700' color='white'>Logo</Typography> */}

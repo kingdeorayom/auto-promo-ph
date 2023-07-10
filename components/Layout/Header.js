@@ -9,7 +9,7 @@ import styles from '@/styles/Header.module.css'
 import Drawer from "./Drawer";
 import nookies from 'nookies'
 import { grey } from '@mui/material/colors';
-import logo from '@/public/logo.svg'
+import logo_light from '@/public/logo_light.svg'
 
 const Header = () => {
 
@@ -49,9 +49,9 @@ const Header = () => {
                     <Link href='/'>
                         <Box>
                             <Image
-                                src={logo}
+                                src={logo_light}
                                 alt="Auto Promo PH"
-                                height={25}
+                                height={20}
                             />
                         </Box>
                     </Link>

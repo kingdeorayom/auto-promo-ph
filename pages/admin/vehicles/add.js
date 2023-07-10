@@ -216,8 +216,8 @@ const AddVehicle = ({ vehicles }) => {
                                         startAdornment: <InputAdornment position='start'><LocalOfferOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
                                         sx: { borderRadius: 2, marginTop: 1.5, }
                                     }}
-                                    {...register('price')}
-                                    helperText={errors.price?.message}
+                                    {...register('unitPrice')}
+                                    helperText={errors.unitPrice?.message}
                                 />
                             </Box>
 
@@ -300,8 +300,6 @@ const AddVehicle = ({ vehicles }) => {
                                 >
                                     <MenuItem value='Ford'>Ford</MenuItem>
                                     <MenuItem value='Geely'>Geely</MenuItem>
-                                    {/* <MenuItem value='Honda'>Honda</MenuItem> */}
-                                    {/* <MenuItem value='Isuzu'>Isuzu</MenuItem> */}
                                     <MenuItem value='MG'>MG</MenuItem>
                                     <MenuItem value='Mitsubishi'>Mitsubishi</MenuItem>
                                     <MenuItem value='Suzuki'>Suzuki</MenuItem>
@@ -331,7 +329,7 @@ const AddVehicle = ({ vehicles }) => {
                                     fullWidth
                                     label="Select Body Type"
                                     defaultValue=''
-                                    inputProps={register('type')}
+                                    inputProps={register('bodyType')}
                                     InputProps={{
                                         startAdornment: <InputAdornment position='start'><AirportShuttleOutlinedIcon sx={{ marginLeft: .8, marginRight: .5 }} /></InputAdornment>,
                                         sx: { borderRadius: 2, }
@@ -436,7 +434,7 @@ const AddVehicle = ({ vehicles }) => {
                                 />
                             </Box>
 
-                            <Box my={2}>
+                            {/* <Box my={2}>
                                 <Typography mb={1} fontWeight='500'>Key Features <sup><span className={styles.required}>Required</span></sup></Typography>
                                 <TextField
                                     type='text'
@@ -449,7 +447,7 @@ const AddVehicle = ({ vehicles }) => {
                                     {...register('keyFeatures')}
                                     helperText={errors.keyFeatures?.message}
                                 />
-                            </Box>
+                            </Box> */}
 
                             <Box my={2}>
                                 <Typography mb={1} fontWeight='500'>Variants</Typography>

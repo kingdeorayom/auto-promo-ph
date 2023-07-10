@@ -8,10 +8,11 @@ import carnobg from '@/public/carnobg.png'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LocalGasStationOutlinedIcon from '@mui/icons-material/LocalGasStationOutlined';
 import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 
-const VehicleCard = ({ image, name, price, promo, fuelType, transmission, type }) => {
+const VehicleCard = ({ image, name, unitPrice, promo, fuelType, transmission, bodyType, description }) => {
 
-    const shortHandTransmission = transmission === "Automatic, CVT" ? "CVT" : transmission === "Automatic, SAT" ? "SAT" : transmission === "Automatic, DCT" ? "DCT" : transmission === "Semi-Automatic" ? "Semi" : transmission === "Manual" ? "Manual" : null
+    const shortHandTransmission = transmission === "Automatic, CVT" ? "CVT" : transmission === "Automatic, SAT" ? "SAT" : transmission === "Automatic, DCT" ? "DCT" : transmission === "Automatic, TCT" ? "TCT" : transmission === "Semi-Automatic" ? "Semi" : transmission === "Manual" ? "Manual" : null
 
     return (
         <>
@@ -29,15 +30,20 @@ const VehicleCard = ({ image, name, price, promo, fuelType, transmission, type }
                     />
                 </Box>
                 <Box className={styles.details}>
-                    <Typography fontWeight='700' color='#343434' variant='h4' fontSize='.9rem' mt={1.5} className={styles.title}>{name}</Typography>
-                    <Typography color='success.main' fontSize='14px' fontWeight='500'>₱ {useNumberFormatter(price)}</Typography>
-                    <Typography color='secondary' fontSize='14px'>Promo: ₱ {useNumberFormatter(promo)}</Typography>
+                    <Typography fontWeight='700' color='#343434' variant='h4' fontSize='.9rem' className={styles.title}>{name}</Typography>
+                    <Typography color='success.main' fontSize='14px' fontWeight='500'>₱ {useNumberFormatter(unitPrice)}</Typography>
+                    {/* <Typography color='secondary' fontSize='14px'>Promo: ₱ {useNumberFormatter(promo)}</Typography> */}
+                    <Typography color='secondary' fontSize='13px' mt={1} className={styles.truncate}>{description}</Typography>
+                    {/* <Stack direction='row' alignItems='center'>
+                        <LocalOfferOutlinedIcon sx={{ color: 'royalblue', fontSize: '14px', marginRight: '5px', marginTop: '2px' }} />
+                        <Typography color='secondary' fontSize='14px'>Available for trade in</Typography>
+                    </Stack> */}
 
                     <Stack direction={'row'} spacing={2} mt={2} mb={.5} justifyContent='space-around'>
 
                         <Stack direction='row' spacing={1}>
                             <WidgetsOutlinedIcon sx={{ fontSize: '18px', color: '#5D5FC0' }} />
-                            <Typography fontWeight='500' fontSize='12px'>{type}</Typography>
+                            <Typography fontWeight='500' fontSize='12px'>{bodyType}</Typography>
                         </Stack>
 
                         <Stack direction='row' spacing={1}>

@@ -229,9 +229,8 @@ const BudgetSearchResults = () => {
                                                         <VehicleCard
                                                             image={vehicle.image}
                                                             name={vehicle.name}
-                                                            price={vehicle.price}
-                                                            promo={vehicle.price}
-                                                            downpayment={vehicle.price}
+                                                            unitPrice={vehicle.unitPrice}
+                                                            description={vehicle.description}
                                                         />
                                                     </Link>
                                                 </Grid>

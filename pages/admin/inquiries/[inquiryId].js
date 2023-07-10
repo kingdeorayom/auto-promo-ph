@@ -158,7 +158,7 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
                                     </Box>
                                     <Box>
                                         <Typography fontSize='1.5rem' variant="h2" fontWeight='500' mb={1.5} color='#1976D2'>{vehicle.name}</Typography>
-                                        <Typography color='#808080' mb={1} fontWeight='400'>PHP {setCurrency(vehicle.price)}</Typography>
+                                        <Typography color='#808080' mb={1} fontWeight='400'>PHP {setCurrency(vehicle.unitPrice)}</Typography>
                                         <Typography color='#808080' mb={2} fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
                                         <Link href={`/brands/${vehicle.brand_slug}/${vehicle.vehicle_slug}`} target='_blank'>
                                             <Button variant="outlined" disableElevation color='primary' endIcon={<ArrowOutwardOutlinedIcon />}>View Details</Button>
