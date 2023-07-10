@@ -151,17 +151,17 @@ const VehicleManagement = ({ vehicles }) => {
                                                 <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.unitPrice)}</Typography>
                                                 <Typography color='#808080' mb={2} fontSize='14px' fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
                                                 <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
-                                                    <Link
-                                                        // href={`/admin/vehicles/edit`}
+                                                    {/* <Link
                                                         href={{
                                                             pathname: "/admin/vehicles/edit",
                                                             query: {
                                                                 vehicleId: vehicle._id
                                                             }
                                                         }}
-                                                    >
-                                                        <Button size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button>
-                                                    </Link>
+                                                    > */}
+                                                    {/* <Button disabled size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button> */}
+                                                    {/* </Link> */}
+                                                    <Typography fontSize='12px' color='error'>Editing will be available soon. For urgent need of editing details, contact the web administrator immediately.</Typography>
                                                     <IconButton
                                                         // onClick={() => handleDeleteVehicle(vehicle._id)}
                                                         onClick={() => {

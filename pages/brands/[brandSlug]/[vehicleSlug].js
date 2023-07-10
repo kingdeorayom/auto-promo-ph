@@ -182,7 +182,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
 
                                     <Stack direction='row' spacing={1}>
                                         <SettingsOutlinedIcon sx={{ fontSize: '18px', color: '#FF905E' }} />
-                                        <Typography fontWeight='500' fontSize='12px'>{vehicle.transmission}</Typography>
+                                        <Typography fontWeight='500' fontSize='12px'>{vehicle.transmissionType}</Typography>
                                     </Stack>
 
                                     <Stack direction='row' spacing={1}>
@@ -362,52 +362,52 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 </Box>
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Overall Length</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>3480 mm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.overallLength}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Overall Width</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>3650 mm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.overallWidth}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Overall Height</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>1645 mm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.overallHeight}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Wheelbase</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>2250 mm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.wheelbase}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Tread</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>3480 mm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.tread}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Minimum Turning Radius</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>3650 mm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.minimumTurningRadius}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Minimum Ground Clearance</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>1645 mm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.minimumGroundClearance}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Approach angle</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>2250 deg</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.approachAngle}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Ramp breakover angle</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>2250 deg</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.rampBreakoverAngle}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Departure angle</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>2250 deg</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.departureAngle}</Typography>
                                 </Box>
                             </Box>
 
@@ -417,28 +417,33 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 </Box>
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Number of cylinders</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>4</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.numberOfCylinders}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Number of valves</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>16</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.numberOfValves}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Piston displacement</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>1462 cm3</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.pistonDisplacement}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Maximum output</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>103/6,000 HP/rpm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.maximumOutput}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Maximum torque</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>130/4,000 N - m/rpm</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.maximumTorque}</Typography>
                                 </Box>
+                                {/* <Divider />
+                                <Box px={2} py={2} display='flex' justifyContent='space-between'>
+                                    <Typography color='#505050' fontWeight='700' mr={'24px'}>Fuel Distribution</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>Multipoint injection</Typography>
+                                </Box> */}
                             </Box>
 
 
@@ -448,12 +453,12 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 </Box>
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Type</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>5 MT</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.transmissionType}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Drive system</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>4x4 ALL GRIP PRO</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.driveSystem}</Typography>
                                 </Box>
                             </Box>
 
@@ -463,22 +468,22 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 </Box>
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Steering</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>Recirculating ball</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.steering}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Brakes</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>Solid disc (Front), Drum, leading and trailing (Rear)</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.brakes}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Suspension</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>3-link rigid axle with coil spring (Front and Rear)</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.suspension}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Tyres</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>195/80R15</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.tyres}</Typography>
                                 </Box>
                             </Box>
 
@@ -488,17 +493,17 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 </Box>
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Seating capacity</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>4 persons</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.seatingCapacity}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Luggage capacity</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus fuga cum perferendis iusto eligendi</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.luggageCapacity}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Fuel tank capacity</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>40 litres</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.fuelTankCapacity}</Typography>
                                 </Box>
                             </Box>
 
@@ -508,12 +513,12 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 </Box>
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Kerb weight (min./with full option)</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>1090 kg</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.kerbWeight}</Typography>
                                 </Box>
                                 <Divider />
                                 <Box px={2} py={2} display='flex' justifyContent='space-between'>
                                     <Typography color='#505050' fontWeight='700' mr={'24px'}>Gross vehicle weight</Typography>
-                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>1435 kg</Typography>
+                                    <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.grossWeight}</Typography>
                                 </Box>
                             </Box>
                         </TabPanel>
