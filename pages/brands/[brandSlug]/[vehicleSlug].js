@@ -95,37 +95,21 @@ const VehicleDetails = ({ vehicle, variants }) => {
                             </TabList>
                         </Box>
 
-                        <TabPanel
-                            value='1'
-                            // sx={{ paddingLeft: 0, paddingRight: 0 }}
-                            className={styles.tabPanel}
-                        >
+                        <TabPanel value='1' sx={{ paddingLeft: 0, paddingRight: 0 }}>
                             <Description vehicle={vehicle} />
                             <InteriorExterior vehicle={vehicle} />
                             <AvailableColors vehicle={vehicle} />
                         </TabPanel>
 
-                        <TabPanel
-                            value='2'
-                            // sx={{ paddingLeft: 0, paddingRight: 0 }}
-                            className={styles.tabPanel}
-                        >
+                        <TabPanel value='2' sx={{ paddingLeft: 0, paddingRight: 0 }}>
                             <Specifications vehicle={vehicle} />
                         </TabPanel>
 
-                        <TabPanel
-                            value='3'
-                            // sx={{ paddingLeft: 0, paddingRight: 0 }}
-                            className={styles.tabPanel}
-                        >
+                        <TabPanel value='3' sx={{ paddingLeft: 0, paddingRight: 0 }}>
                             <Variants vehicle={vehicle} variants={variants} />
                         </TabPanel>
 
-                        <TabPanel
-                            value='4'
-                            // sx={{ paddingLeft: 0, paddingRight: 0 }}
-                            className={styles.tabPanel}
-                        >
+                        <TabPanel value='4' sx={{ paddingLeft: 0, paddingRight: 0 }}>
                             <PriceList vehicle={vehicle} variants={variants} />
                         </TabPanel>
 
