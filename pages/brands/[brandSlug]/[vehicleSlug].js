@@ -88,10 +88,10 @@ const VehicleDetails = ({ vehicle, variants }) => {
                                 onChange={handleChange}
                                 variant="scrollable"
                             >
-                                <Tab label='Overview' value='1' className={styles.tabLabel} />
-                                <Tab label='Specifications' value='2' className={styles.tabLabel} />
-                                <Tab label='Variants' value='3' className={styles.tabLabel} />
-                                {vehicle.brand !== "Toyota" ? <Tab label='Price List' value='4' className={styles.tabLabel} /> : null}
+                                <Tab label='Overview' value='1' sx={{ fontWeight: '700', textTransform: 'none', fontSize: '15px' }} />
+                                <Tab label='Specifications' value='2' sx={{ fontWeight: '700', textTransform: 'none', fontSize: '15px' }} />
+                                <Tab label='Variants' value='3' sx={{ fontWeight: '700', textTransform: 'none', fontSize: '15px' }} />
+                                {vehicle.brand !== "Toyota" ? <Tab label='Price List' value='4' sx={{ fontWeight: '700', textTransform: 'none', fontSize: '15px' }} /> : null}
                             </TabList>
                         </Box>
 
