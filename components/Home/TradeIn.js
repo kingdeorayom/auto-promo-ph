@@ -20,12 +20,12 @@ const TradeIn = () => {
                     alt='Car'
                     width={550}
                     height={300}
-                    style={{ objectFit: 'contain' }}
+                    style={{ objectFit: 'contain', maxWidth: '100%' }}
                 />
             </Box>
             <Box>
                 <Typography fontWeight='700' display={{ xs: 'none', md: 'block' }}>{`Trade in your old car for a new one`}</Typography>
-                <Typography fontWeight='400' fontSize='14px' mb={1}>Let me bid on your vehicle and all you have to do is wait</Typography>
+                <Typography fontWeight='400' fontSize='14px' mt={2} mb={1}>Let me bid on your vehicle and all you have to do is wait</Typography>
 
                 <Stack direction='row' alignItems='center' mt={3} mb={2}>
                     <LocalOfferOutlinedIcon sx={{ color: 'royalblue', fontSize: '18px', marginRight: '10px' }} />
