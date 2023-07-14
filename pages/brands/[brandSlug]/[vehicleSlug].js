@@ -102,6 +102,7 @@ const VehicleDetails = ({ vehicle, variants }) => {
                         </TabPanel>
 
                         <TabPanel value='2' sx={{ paddingLeft: 0, paddingRight: 0 }}>
+                            {/* <Description vehicle={vehicle} /> */}
                             <Specifications vehicle={vehicle} />
                         </TabPanel>
 
