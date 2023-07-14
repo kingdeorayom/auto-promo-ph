@@ -85,15 +85,6 @@ const Contact = () => {
                         </Grid>
                         <Grid item xs={12} md={3}>
                             <Box className={styles.contactBox}>
-                                <EmailOutlinedIcon sx={{ fontSize: '50px', color: '#FF905E' }} />
-                                <Box ml={2}>
-                                    <Typography fontWeight='700'>Send me an email</Typography>
-                                    <Typography>someone@example.com</Typography>
-                                </Box>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={3}>
-                            <Box className={styles.contactBox}>
                                 <LocalPhoneOutlinedIcon sx={{ fontSize: '50px', color: '#5D5FC0' }} />
                                 <Box ml={2}>
                                     <Typography fontWeight='700'>Viber</Typography>
@@ -103,11 +94,20 @@ const Contact = () => {
                         </Grid>
                         <Grid item xs={12} md={3}>
                             <Box className={styles.contactBox}>
+                                <EmailOutlinedIcon sx={{ fontSize: '50px', color: '#FF905E' }} />
+                                <Box ml={2}>
+                                    <Typography fontWeight='700'>Send me an email</Typography>
+                                    <Typography>autopromoph@gmail.com</Typography>
+                                </Box>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                            <Box className={styles.contactBox}>
                                 <FacebookOutlinedIcon sx={{ fontSize: '50px', color: '#4267B2' }} />
                                 <Box ml={2}>
                                     <Typography fontWeight='700'>Facebook</Typography>
                                     <Link href='https://www.facebook.com/dhang.casten' target='_blank'>
-                                        <Typography className={styles.link}>Dhang Casten</Typography>
+                                        <Typography className={styles.link}>Auto Promo PH</Typography>
                                     </Link>
                                 </Box>
                             </Box>
