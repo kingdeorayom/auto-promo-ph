@@ -154,7 +154,7 @@ const InquiriesPage = () => {
                         </DialogTitle>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-description">
-                                This action is irreversible. Please be careful.
+                                This action is irreversible. Please proceed with caution.
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>

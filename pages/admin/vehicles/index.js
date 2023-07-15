@@ -223,7 +223,7 @@ const VehicleManagement = ({ vehicles }) => {
                         </DialogTitle>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-description">
-                                This action is irreversible. You will have to input all its details again if you want it added back. Please be careful.
+                                This action is irreversible. You will have to input all its details again if you want it added back. Please proceed with caution.
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
