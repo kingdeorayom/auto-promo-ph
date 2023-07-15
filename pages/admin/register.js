@@ -13,7 +13,7 @@ import { useRegister } from '@/hooks/useRegister';
 import Link from 'next/link';
 import nookies from 'nookies'
 import Image from 'next/image';
-import logo from '@/public/logo.svg'
+import logo_dark from '@/public/logo_dark.svg'
 
 export async function getServerSideProps(context) {
 
@@ -62,10 +62,10 @@ const RegistrationPage = () => {
             <Box className={styles.wrapper}>
                 <Box className={styles.formContainer}>
 
-                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', my: 3 }}>
                         <Link href='/'>
                             <Image
-                                src={logo}
+                                src={logo_dark}
                                 alt="Auto Promo PH"
                                 height={25}
                             />
