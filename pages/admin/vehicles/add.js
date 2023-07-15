@@ -46,6 +46,7 @@ import AirlineSeatReclineExtraOutlinedIcon from '@mui/icons-material/AirlineSeat
 import EventSeatOutlinedIcon from '@mui/icons-material/EventSeatOutlined';
 import GasMeterOutlinedIcon from '@mui/icons-material/GasMeterOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
+import { add_vehicle } from '@/data/validation/add_vehicle';
 
 export async function getServerSideProps(context) {
 
@@ -76,6 +77,7 @@ const AddVehicle = ({ vehicles }) => {
 
     const form = useForm({
         mode: 'onChange',
+        resolver: yupResolver(add_vehicle),
     })
 
     const { register, handleSubmit, formState, reset } = form
@@ -123,7 +125,19 @@ const AddVehicle = ({ vehicles }) => {
         if (data.image.length !== 0) {
             setErrorMessage(null)
         } else {
-            return setErrorMessage('Image is required. Please attach an image and try submitting again.')
+            return setErrorMessage('Main Image is required. Please attach an image and try submitting again.')
+        }
+
+        if (data.extraImages.length !== 0) {
+            setErrorMessage(null)
+        } else {
+            return setErrorMessage('Interior and Exterior Images are required. Please attach at least one image and try submitting again.')
+        }
+
+        if (data.colors.length !== 0) {
+            setErrorMessage(null)
+        } else {
+            return setErrorMessage('Images for vehicle colors are required. Please attach at least one image and try submitting again.')
         }
 
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
@@ -963,7 +977,7 @@ const AddVehicle = ({ vehicles }) => {
                             {
                                 errorMessage !== null ?
                                     <Alert severity="error" sx={{ my: 3 }}>
-                                        <AlertTitle>Oops!</AlertTitle>
+                                        <AlertTitle>Oops! There is an error adding this vehicle. Read the message below for more information.</AlertTitle>
                                         {errorMessage}
                                     </Alert> : null
                             }

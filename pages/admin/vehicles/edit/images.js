@@ -76,6 +76,18 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
             return setErrorMessage('Image is required. Please attach an image and try submitting again.')
         }
 
+        if (data.extraImages.length !== 0) {
+            setErrorMessage(null)
+        } else {
+            return setErrorMessage('Interior and Exterior Images are required. Please attach at least one image and try submitting again.')
+        }
+
+        if (data.colors.length !== 0) {
+            setErrorMessage(null)
+        } else {
+            return setErrorMessage('Images for vehicle colors are required. Please attach at least one image and try submitting again.')
+        }
+
         data['image'] = data.image[0]
 
         setIsUploading(true)
@@ -88,7 +100,7 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
                     reset()
                     Swal.fire(
                         'Vehicle images updated successfully',
-                        'Images you update may not immediately reflect on the page of vehicle, though this is very unlike to happen',
+                        'Images you update may not immediately reflect on the page of vehicle, though this is very unlikely to happen',
                         'success'
                     ).then(() => router.reload())
                 }
@@ -138,7 +150,7 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
                     <Box>
                         <Box>
                             <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>{`Edit images of ${vehicleDetails.name}`}</Typography>
-                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Images you update may not immediately reflect on the page of vehicle, though this is very unlike to happen</Typography>
+                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Images you update may not immediately reflect on the page of vehicle, though this is very unlikely to happen</Typography>
                         </Box>
 
                         <Alert severity="warning" sx={{ mt: 3, mb: 5 }}>Review the images you will upload before clicking the save button below</Alert>

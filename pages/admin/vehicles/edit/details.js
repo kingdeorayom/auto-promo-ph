@@ -45,6 +45,7 @@ import AirlineSeatReclineExtraOutlinedIcon from '@mui/icons-material/AirlineSeat
 import EventSeatOutlinedIcon from '@mui/icons-material/EventSeatOutlined';
 import GasMeterOutlinedIcon from '@mui/icons-material/GasMeterOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
+import { edit_vehicle } from '@/data/validation/edit_vehicle';
 
 export async function getServerSideProps(context) {
 
@@ -81,6 +82,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
 
     const form = useForm({
         mode: 'onChange',
+        resolver: yupResolver(edit_vehicle),
         defaultValues: {
             name: vehicleDetails.name,
             description: vehicleDetails.description,
@@ -167,7 +169,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                     reset()
                     Swal.fire(
                         'Vehicle details edited successfully',
-                        'Details you update may not immediately reflect on the details of vehicle, though this is very unlike to happen',
+                        'Details you update may not immediately reflect on the details of vehicle, though this is very unlikely to happen',
                         'success'
                     ).then(() => router.reload())
                 }
@@ -221,10 +223,10 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                     <Box>
                         <Box>
                             <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Edit {vehicleDetails.name}</Typography>
-                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Details you update may not immediately reflect on the details of vehicle, though this is very unlike to happen</Typography>
+                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Details you update may not immediately reflect on the details of vehicle, though this is very unlikely to happen</Typography>
                         </Box>
 
-                        <Alert severity="warning" sx={{ mt: 3, mb: 5 }}>Review the data you will input before clicking the save button below</Alert>
+                        <Alert severity="warning" sx={{ mt: 3, mb: 5 }}>Review the data you will input before clicking the save button below. Fields marked with red asterisk (*) are required and cannot be left blank or without any data with it.</Alert>
 
                     </Box>
 
@@ -966,7 +968,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                             {
                                 errorMessage !== null ?
                                     <Alert severity="error" sx={{ my: 3 }}>
-                                        <AlertTitle>Oops!</AlertTitle>
+                                        <AlertTitle>Oops! There is an error updating the details of this vehicle. Read the message below for more information.</AlertTitle>
                                         {errorMessage}
                                     </Alert> : null
                             }
