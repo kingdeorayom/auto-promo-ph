@@ -45,7 +45,7 @@ const Suggestion = ({ brand_slug, brand }) => {
                                                 name={vehicle.name}
                                                 unitPrice={vehicle.unitPrice}
                                                 fuelType={vehicle.fuelType}
-                                                transmission={vehicle.transmission}
+                                                transmissionType={vehicle.transmissionType}
                                                 bodyType={vehicle.bodyType}
                                                 description={vehicle.description}
                                             />

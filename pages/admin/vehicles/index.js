@@ -16,6 +16,10 @@ import { useState } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/router'
+import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
+import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import NoteAltOutlinedIcon from '@mui/icons-material/NoteAltOutlined';
 
 export async function getServerSideProps(context) {
 
@@ -82,6 +86,7 @@ const VehicleManagement = ({ vehicles }) => {
                                 underline="hover"
                                 color="inherit"
                                 href="/admin/dashboard"
+                                className={styles.breadcrumbLink}
                             >
                                 Dashboard
                             </Link>
@@ -150,19 +155,44 @@ const VehicleManagement = ({ vehicles }) => {
                                                 </Link>
                                                 <Typography mb={1} color='#808080' fontWeight='400'>PHP {setCurrency(vehicle.unitPrice)}</Typography>
                                                 <Typography color='#808080' mb={2} fontSize='14px' fontWeight='400' className={styles.truncate}>{vehicle.description}</Typography>
-                                                <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
-                                                    {/* <Link
+                                                <Box display={{ xs: 'block', md: 'flex' }} justifyContent='flex-start' alignItems='center'>
+                                                    <Link
                                                         href={{
-                                                            pathname: "/admin/vehicles/edit",
+                                                            pathname: "/admin/vehicles/edit/details",
                                                             query: {
                                                                 vehicleId: vehicle._id
                                                             }
                                                         }}
-                                                    > */}
-                                                    {/* <Button disabled size='small' variant="outlined" disableElevation color='primary' endIcon={<ArrowForwardIcon />}>Edit Details</Button> */}
-                                                    {/* </Link> */}
-                                                    <Typography fontSize='12px' color='error'>Editing will be available soon. For urgent need of editing details, contact the web administrator immediately.</Typography>
-                                                    <IconButton
+                                                    >
+                                                        <Button size='small' variant="outlined" disableElevation color='primary' sx={{ mx: .5, my: .5 }} endIcon={<NoteAltOutlinedIcon />}>Edit Details</Button>
+                                                    </Link>
+                                                    <Link
+                                                        href={{
+                                                            pathname: "/admin/vehicles/edit/images",
+                                                            query: {
+                                                                vehicleId: vehicle._id
+                                                            }
+                                                        }}
+                                                    >
+                                                        <Button size='small' variant="outlined" disableElevation color='primary' sx={{ mx: .5, my: .5 }} endIcon={<CollectionsOutlinedIcon />}>Edit Images</Button>
+                                                    </Link>
+                                                    <Button
+                                                        onClick={() => {
+                                                            handleDeleteDialogOpen()
+                                                            setSelectedVehicleId(vehicle._id)
+                                                            setSelectedVehicleName(vehicle.name)
+                                                        }}
+                                                        size='small'
+                                                        variant="outlined"
+                                                        disableElevation
+                                                        color='error'
+                                                        sx={{ mx: .5, my: .5 }}
+                                                        endIcon={<DeleteOutlineIcon />}
+                                                    >
+                                                        Delete this vehicle
+                                                    </Button>
+                                                    {/* <Typography fontSize='12px' color='error'>Editing will be available soon. For urgent need of editing details, contact the web administrator immediately.</Typography> */}
+                                                    {/* <IconButton
                                                         // onClick={() => handleDeleteVehicle(vehicle._id)}
                                                         onClick={() => {
                                                             handleDeleteDialogOpen()
@@ -171,7 +201,7 @@ const VehicleManagement = ({ vehicles }) => {
                                                         }}
                                                     >
                                                         <DeleteOutlineIcon color='error' />
-                                                    </IconButton>
+                                                    </IconButton> */}
                                                 </Box>
                                             </Box>
                                         </Stack>
@@ -193,7 +223,7 @@ const VehicleManagement = ({ vehicles }) => {
                         </DialogTitle>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-description">
-                                This action is irreversible. Please be careful.
+                                This action is irreversible. You will have to input all its details again if you want it added back. Please be careful.
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>

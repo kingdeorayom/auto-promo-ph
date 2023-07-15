@@ -42,7 +42,10 @@ const LoginPage = () => {
 
     const form = useForm({
         mode: 'onChange',
-        resolver: yupResolver(login_validation)
+        resolver: yupResolver(login_validation),
+        defaultValues: {
+            email: 'autopromoph@gmail.com'
+        }
     })
 
     const { register, handleSubmit, formState } = form

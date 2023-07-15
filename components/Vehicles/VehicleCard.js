@@ -10,9 +10,9 @@ import LocalGasStationOutlinedIcon from '@mui/icons-material/LocalGasStationOutl
 import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 
-const VehicleCard = ({ image, name, unitPrice, promo, fuelType, transmission, bodyType, description }) => {
+const VehicleCard = ({ image, name, unitPrice, promo, fuelType, transmissionType, bodyType, description }) => {
 
-    const shortHandTransmission = transmission === "Automatic, CVT" ? "CVT" : transmission === "Automatic, SAT" ? "SAT" : transmission === "Automatic, DCT" ? "DCT" : transmission === "Automatic, TCT" ? "TCT" : transmission === "Semi-Automatic" ? "Semi" : transmission === "Manual" ? "Manual" : null
+    const shortHandTransmission = transmissionType === "Automatic, CVT" ? "CVT" : transmissionType === "Automatic, SAT" ? "SAT" : transmissionType === "Automatic, DCT" ? "DCT" : transmissionType === "Automatic, TCT" ? "TCT" : transmissionType === "Semi-Automatic" ? "Semi" : transmissionType === "Manual" ? "Manual" : null
 
     return (
         <>

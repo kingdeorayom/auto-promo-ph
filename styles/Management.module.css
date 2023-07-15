@@ -54,3 +54,8 @@
     text-decoration-color: #1976d2;
     text-decoration-thickness: 2px;
 }
+
+.breadcrumbLink:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}

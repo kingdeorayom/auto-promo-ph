@@ -6,7 +6,6 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form'
 import AddIcon from '@mui/icons-material/Add';
@@ -49,8 +48,13 @@ import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined
 
 export async function getServerSideProps(context) {
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`);
-    const vehicles = await response.json();
+    const vehicleId = context.query.vehicleId
+
+    const vehiclesResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`);
+    const vehicles = await vehiclesResponse.json();
+
+    const vehicleDetailsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/${vehicleId}`);
+    const vehicleDetails = await vehicleDetailsResponse.json();
 
     const cookies = nookies.get(context)
 
@@ -66,51 +70,78 @@ export async function getServerSideProps(context) {
     return {
         props: {
             vehicles: vehicles,
+            vehicleDetails: vehicleDetails
         },
     };
 }
 
-const AddVehicle = ({ vehicles }) => {
+const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
 
     const router = useRouter()
 
     const form = useForm({
         mode: 'onChange',
+        defaultValues: {
+            name: vehicleDetails.name,
+            description: vehicleDetails.description,
+            brand: vehicleDetails.brand,
+            model: vehicleDetails.model,
+            bodyType: vehicleDetails.bodyType,
+            fuelType: vehicleDetails.fuelType,
+            year: vehicleDetails.year,
+
+            unitPrice: vehicleDetails.unitPrice,
+            netPrice: vehicleDetails.netPrice,
+            downpayment: vehicleDetails.downpayment,
+            amortization: vehicleDetails.amortization,
+
+            overallLength: vehicleDetails.overallLength,
+            overallWidth: vehicleDetails.overallWidth,
+            overallHeight: vehicleDetails.overallHeight,
+            wheelbase: vehicleDetails.wheelbase,
+            tread: vehicleDetails.tread,
+            minimumTurningRadius: vehicleDetails.minimumTurningRadius,
+            minimumGroundClearance: vehicleDetails.minimumGroundClearance,
+            approachAngle: vehicleDetails.approachAngle,
+            rampBreakoverAngle: vehicleDetails.rampBreakoverAngle,
+            departureAngle: vehicleDetails.departureAngle,
+
+            numberOfCylinders: vehicleDetails.numberOfCylinders,
+            numberOfValves: vehicleDetails.numberOfValves,
+            pistonDisplacement: vehicleDetails.pistonDisplacement,
+            maximumOutput: vehicleDetails.maximumOutput,
+            maximumTorque: vehicleDetails.maximumTorque,
+
+            transmissionType: vehicleDetails.transmissionType,
+            driveSystem: vehicleDetails.driveSystem,
+
+            steering: vehicleDetails.steering,
+            brakes: vehicleDetails.brakes,
+            suspension: vehicleDetails.suspension,
+            tyres: vehicleDetails.tyres,
+
+            seatingCapacity: vehicleDetails.seatingCapacity,
+            luggageCapacity: vehicleDetails.luggageCapacity,
+            fuelTankCapacity: vehicleDetails.fuelTankCapacity,
+
+            kerbWeight: vehicleDetails.kerbWeight,
+            grossWeight: vehicleDetails.grossWeight,
+
+        }
     })
 
     const { register, handleSubmit, formState, reset } = form
     const { errors } = formState
 
     const [errorMessage, setErrorMessage] = useState(null)
-    const [imagePreview, setImagePreview] = useState(null)
-    const [variants, setVariants] = useState([])
+    const [variants, setVariants] = useState(vehicleDetails.variants)
     const [isUploading, setIsUploading] = useState(false)
 
-    const convertToBase64 = (image) => {
-        const reader = new FileReader();
-        try {
-            reader.onloadend = () => {
-                setImagePreview(reader.result.toString())
-            }
-            reader.readAsDataURL(image)
-        } catch (error) {
-            setImagePreview(null)
-        }
-    }
-
     const addToVariants = (value) => {
-
         let data = {
             name: value.name,
             vehicle_slug: value.vehicle_slug,
         }
-
-        // let isVariantExisting = true
-
-        // if (isVariantExisting) {
-        //     return alert('Variant already added.')
-        // }
-
         setVariants(current => [...current, data])
     }
 
@@ -120,30 +151,22 @@ const AddVehicle = ({ vehicles }) => {
 
     const onSubmit = (data) => {
 
-        if (data.image.length !== 0) {
-            setErrorMessage(null)
-        } else {
-            return setErrorMessage('Image is required. Please attach an image and try submitting again.')
-        }
-
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
-        data['image'] = data.image[0]
         data['variants'] = variants
 
         console.log(data)
 
         setIsUploading(true)
 
-        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/vehicles`, data, { headers: { "Content-Type": "multipart/form-data" } })
+        axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/${vehicleDetails._id}`, data)
             .then((response) => {
-
-                if (response.status === 201) {
+                if (response.status === 200) {
                     setErrorMessage(null)
                     setIsUploading(false)
                     reset()
                     Swal.fire(
-                        'Vehicle added successfully',
+                        'Vehicle details edited successfully',
                         'Lorem ipsum',
                         'success'
                     ).then(() => router.reload())
@@ -154,10 +177,6 @@ const AddVehicle = ({ vehicles }) => {
                 setErrorMessage(error.response.data.message)
                 setIsUploading(false)
             });
-    }
-
-    const handleImageChange = (e) => {
-        convertToBase64(e.target.files[0])
     }
 
     const [isSlugDialogOpen, setIsSlugDialogOpen] = useState(false);
@@ -171,7 +190,7 @@ const AddVehicle = ({ vehicles }) => {
     return (
         <>
             <Head>
-                <title>Add a new vehicle | Auto Promo PH</title>
+                <title>Edit vehicle | Auto Promo PH</title>
                 <meta name="description" content="Welcome to Auto Promo PH" />
             </Head>
             <Layout>
@@ -183,6 +202,7 @@ const AddVehicle = ({ vehicles }) => {
                                 underline="hover"
                                 color="inherit"
                                 href="/admin/dashboard"
+                                className={styles.link}
                             >
                                 Dashboard
                             </Link>
@@ -190,19 +210,23 @@ const AddVehicle = ({ vehicles }) => {
                                 underline="hover"
                                 color="inherit"
                                 href="/admin/vehicles"
+                                className={styles.link}
                             >
                                 Manage your vehicles
                             </Link>
-                            <Typography color="primary" fontWeight='500'>Add a vehicle</Typography>
+                            <Typography color="primary" fontWeight='500'>Edit Details</Typography>
                         </Breadcrumbs>
                     </Box>
 
                     <Box>
-                        <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Add a new vehicle</Typography>
-                        <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Vehicles you add may not immediately appear on the list of vehicles, but this is unlikely to happen.</Typography>
-                    </Box>
+                        <Box>
+                            <Typography fontSize='2rem' variant="h2" fontWeight='700' mb={1} color='#343434'>Edit {vehicleDetails.name}</Typography>
+                            <Typography fontSize='1rem' variant="h3" lineHeight='1.5' color='secondary' mb={3}>Details you update may not immediately reflect on the details of vehicle, though this is very unlike to happen</Typography>
+                        </Box>
 
-                    <Alert severity="warning" sx={{ mt: 3, mb: 5 }}>Review the data you will input before clicking the save button below. Fields marked with red asterisk (*) are required and cannot be left blank or without any data with it. In case of error in details, you may edit through <strong>Vehicle Management</strong> section under <strong>Dashboard</strong>.</Alert>
+                        <Alert severity="warning" sx={{ mt: 3, mb: 5 }}>Review the data you will input before clicking the save button below</Alert>
+
+                    </Box>
 
                     <Box mb={3}>
                         <form
@@ -249,6 +273,21 @@ const AddVehicle = ({ vehicles }) => {
                                         }}
                                     />
                                 </Box>
+
+                                {/* <Box my={2} sx={{ pointerEvents: 'none' }}>
+                                    <Typography mb={2} fontWeight='700' color='#505050'>Brand <sup><span className={styles.disabled}>This cannot be changed</span></sup></Typography>
+                                    <TextField
+                                        type='text'
+                                        fullWidth
+                                        placeholder='e.g., Mirage G4'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><DashboardOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: 'brown' }} /></InputAdornment>,
+                                            sx: { borderRadius: 2, }
+                                        }}
+                                        {...register('brand')}
+                                        helperText={errors.brand?.message}
+                                    />
+                                </Box> */}
 
                                 <Box my={2}>
                                     <Typography mb={2} fontWeight='700' color='#505050'>Brand<sup><span className={styles.required}>*</span></sup></Typography>
@@ -307,6 +346,21 @@ const AddVehicle = ({ vehicles }) => {
                                         <MenuItem value='Utility'>Utility</MenuItem>
                                     </TextField>
                                 </Box>
+
+                                {/* <Box my={2} sx={{ pointerEvents: 'none' }}>
+                                    <Typography mb={2} fontWeight='700' color='#505050'>Body Type <sup><span className={styles.disabled}>This cannot be changed</span></sup></Typography>
+                                    <TextField
+                                        type='text'
+                                        fullWidth
+                                        placeholder='e.g., Mirage G4'
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position='start'><AirportShuttleOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#caa448' }} /></InputAdornment>,
+                                            sx: { borderRadius: 2, }
+                                        }}
+                                        {...register('bodyType')}
+                                        helperText={errors.bodyType?.message}
+                                    />
+                                </Box> */}
 
                                 <Box my={2}>
                                     <Typography mb={2} fontWeight='700' color='#505050'>Fuel Type<sup><span className={styles.required}>*</span></sup></Typography>
@@ -401,55 +455,6 @@ const AddVehicle = ({ vehicles }) => {
                                 <Box>
                                     <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
                                 </Box>
-
-                                <Typography mt={2} mb={1} fontWeight='700' color='#505050'>Main Image<sup><span className={styles.required}>*</span></sup></Typography>
-                                <input
-                                    type='file'
-                                    accept="image/png, image/jpeg, image/jpg, image/jfif"
-                                    {...register('image', {
-                                        onChange: handleImageChange
-                                    })}
-                                    name='image'
-                                    required
-                                />
-
-                                <Box sx={{ mt: 2, border: '1px solid #d3d3d3', width: '275px', height: '125px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                                    {
-                                        imagePreview !== null ?
-                                            <Image
-                                                src={imagePreview}
-                                                alt='Preview image'
-                                                width={250}
-                                                height={100}
-                                            /> :
-                                            <Typography color='#808080' fontSize='12px' mx={2}>The image you will attach will be previewed here. To change, simply choose another file using the file picker above.</Typography>
-                                    }
-                                </Box>
-
-                                <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image that will be uploaded.</Typography>
-
-
-                                <Typography mt={3} mb={1} fontWeight='700' color='#505050'>Interior and Exterior Images<sup><span className={styles.required}>*</span></sup></Typography>
-
-                                <input
-                                    type='file'
-                                    multiple
-                                    accept="image/png, image/jpeg, image/jpg, image/jfif"
-                                    {...register('extraImages')}
-                                    name='extraImages'
-                                    required
-                                />
-
-                                <Typography mt={4} mb={1} fontWeight='700' color='#505050'>Available Colors<sup><span className={styles.required}>*</span></sup></Typography>
-
-                                <input
-                                    type='file'
-                                    multiple
-                                    accept="image/png, image/jpeg, image/jpg, image/jfif"
-                                    {...register('colors')}
-                                    name='colors'
-                                    required
-                                />
 
                             </Box>
 
@@ -956,7 +961,7 @@ const AddVehicle = ({ vehicles }) => {
 
                             </Box>
 
-                            <Alert severity="warning" sx={{ mt: 3, mb: 3 }}>Review the data you input before clicking the save button below. Fields marked with red asterisk (*) are required and cannot be left blank or without any data with it. In case of error in details, you may edit through <strong>Vehicle Management</strong> section under <strong>Dashboard</strong>.</Alert>
+                            <Alert severity="warning" sx={{ mt: 3, mb: 3 }}>Review the data you input before clicking the save button below</Alert>
 
                             {
                                 errorMessage !== null ?
@@ -969,12 +974,13 @@ const AddVehicle = ({ vehicles }) => {
                             {
                                 isUploading ?
                                     <Box sx={{ my: 3 }}>
-                                        <Typography mb={2}>Uploading vehicle ...</Typography>
+                                        <Typography mb={2}>Updating vehicle details ...</Typography>
                                         <LinearProgress />
                                     </Box> : null
                             }
 
-                            <Box>
+
+                            <Box mt={3}>
                                 <Button
                                     type='submit'
                                     variant="contained"
@@ -983,7 +989,7 @@ const AddVehicle = ({ vehicles }) => {
                                     sx={{ mt: 2.5 }}
                                     disabled={isUploading}
                                 >
-                                    Add this vehicle
+                                    Save Changes
                                 </Button>
                             </Box>
                         </form>
@@ -1001,10 +1007,10 @@ const AddVehicle = ({ vehicles }) => {
                         <DialogContent>
                             <Typography mb={1} fontSize='.9rem' lineHeight={1.6}>In web, a URL slug refers to the end part of a URL after the backslash {'("/")'} that identifies a specific page or post. Each slug on your web page needs to be unique, and they provide readers and search engines alike with information about the contents of a web page or post. Having posts with same slug could result in unprecedented errors.</Typography>
 
-                            <Typography fontSize='.9rem' lineHeight={1.6}>In this website, each currently listed vehicle corresponds to a unique slug that belongs only to that record. For example, the <strong>Toyota Yaris 1.5 S CVT</strong> has a <span className={styles.slug}>URL slug</span> of:</Typography>
+                            <Typography fontSize='.9rem' lineHeight={1.6}>In this website, each currently listed vehicle corresponds to a unique slug that belongs only to that record. For example, the <strong>Mitsubishi Mirage G4</strong> has a <span className={styles.slug}>URL slug</span> of:</Typography>
 
                             <Box sx={{ border: '1px solid #d3d3d3', borderRadius: '5px', paddingX: '10px', paddingY: '7px', my: '20px' }}>
-                                <Typography fontSize='.9rem'>https://autopromo.ph/brands/toyota/<span className={styles.slug}>toyota-yaris-1-5-s-cvt</span></Typography>
+                                <Typography fontSize='.9rem'>https://autopromo.ph/brands/mitsubishi/<span className={styles.slug}>mitsubishi-mirage-g4</span></Typography>
                             </Box>
 
                             <Typography mb={1} fontSize='.9rem' lineHeight={1.6}>To make it short, the URL slug for the vehicle {"you're"} going to add <strong>must be unique.</strong></Typography>
@@ -1075,11 +1081,11 @@ const AddVehicle = ({ vehicles }) => {
                         </DialogActions>
                     </Dialog>
 
-                </Box >
+                </Box>
 
-            </Layout >
+            </Layout>
         </>
     )
 }
 
-export default AddVehicle
+export default EditVehicleDetails
