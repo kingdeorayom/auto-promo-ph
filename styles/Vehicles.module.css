@@ -81,3 +81,8 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
+
+.breadcrumbLink:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}

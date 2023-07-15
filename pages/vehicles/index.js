@@ -22,7 +22,7 @@ const AllVehiclesPage = () => {
                                 underline="hover"
                                 color="inherit"
                                 href="/"
-
+                                className={styles.breadcrumbLink}
                             >
                                 Explore
                             </Link>

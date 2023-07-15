@@ -1,5 +1,6 @@
 import { Box, Typography, Breadcrumbs } from '@mui/material';
 import Link from 'next/link';
+import styles from '@/styles/Details.module.css'
 
 const NavigationControl = ({ vehicle }) => {
     return (
@@ -9,6 +10,7 @@ const NavigationControl = ({ vehicle }) => {
                     underline="hover"
                     color="inherit"
                     href="/"
+                    className={styles.breadcrumbLink}
                 >
                     Explore
                 </Link>
@@ -16,6 +18,7 @@ const NavigationControl = ({ vehicle }) => {
                     underline="hover"
                     color="inherit"
                     href="/vehicles"
+                    className={styles.breadcrumbLink}
                 >
                     All Vehicles
                 </Link>

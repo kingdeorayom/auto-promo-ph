@@ -68,7 +68,7 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
             .then((response) => {
                 Swal.fire(
                     response.data.message,
-                    'Lorem ipsum',
+                    'It is no longer saved on the database',
                     'success'
                 ).then(() => router.push('/admin/inquiries'))
             })

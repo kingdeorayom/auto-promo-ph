@@ -103,3 +103,8 @@
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     padding:16px
 }
+
+.breadcrumbLink:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}

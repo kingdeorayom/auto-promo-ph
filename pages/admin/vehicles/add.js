@@ -144,7 +144,7 @@ const AddVehicle = ({ vehicles }) => {
                     reset()
                     Swal.fire(
                         'Vehicle added successfully',
-                        'Lorem ipsum',
+                        'It may not immediately appear on the list of vehicles, but this is unlikely to happen',
                         'success'
                     ).then(() => router.reload())
                 }
@@ -180,6 +180,7 @@ const AddVehicle = ({ vehicles }) => {
                     <Box mb={4}>
                         <Breadcrumbs separator=">" aria-label="breadcrumb">
                             <Link
+                                className={styles.link}
                                 underline="hover"
                                 color="inherit"
                                 href="/admin/dashboard"
@@ -187,6 +188,7 @@ const AddVehicle = ({ vehicles }) => {
                                 Dashboard
                             </Link>
                             <Link
+                                className={styles.link}
                                 underline="hover"
                                 color="inherit"
                                 href="/admin/vehicles"

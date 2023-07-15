@@ -63,7 +63,7 @@ const VehicleManagement = ({ vehicles }) => {
             .then((response) => {
                 Swal.fire(
                     `Successfully deleted ${vehicleName}`,
-                    'Lorem ipsum',
+                    'You will have to input all its details again if you want it added back',
                     'success'
                 ).then(() => router.reload())
             })
@@ -174,7 +174,7 @@ const VehicleManagement = ({ vehicles }) => {
                                                             }
                                                         }}
                                                     >
-                                                        <Button size='small' variant="outlined" disableElevation color='primary' sx={{ mx: .5, my: .5 }} endIcon={<CollectionsOutlinedIcon />}>Edit Images</Button>
+                                                        <Button size='small' variant="outlined" disableElevation color='success' sx={{ mx: .5, my: .5 }} endIcon={<CollectionsOutlinedIcon />}>Edit Images</Button>
                                                     </Link>
                                                     <Button
                                                         onClick={() => {

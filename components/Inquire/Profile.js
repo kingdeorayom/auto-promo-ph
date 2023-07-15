@@ -15,6 +15,7 @@ const Profile = () => {
                         underline="hover"
                         color="inherit"
                         href="/"
+                        className={styles.breadcrumbLink}
                     >
                         Explore
                     </Link>
@@ -22,6 +23,7 @@ const Profile = () => {
                         underline="hover"
                         color="inherit"
                         href="/vehicles"
+                        className={styles.breadcrumbLink}
                     >
                         Vehicles
                     </Link>

@@ -58,7 +58,7 @@ const InquiriesPage = () => {
             .then((response) => {
                 Swal.fire(
                     'Successfully deleted all inquiries.',
-                    'Lorem ipsum',
+                    'All inquiries are no longer saved on the database.',
                     'success'
                 ).then(() => router.push('/admin/inquiries'))
             })

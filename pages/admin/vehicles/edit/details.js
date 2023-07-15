@@ -167,7 +167,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                     reset()
                     Swal.fire(
                         'Vehicle details edited successfully',
-                        'Lorem ipsum',
+                        'Details you update may not immediately reflect on the details of vehicle, though this is very unlike to happen',
                         'success'
                     ).then(() => router.reload())
                 }

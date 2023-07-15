@@ -25,3 +25,8 @@
 .link {
     color: #1976d2;
 }
+
+.breadcrumbLink:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
