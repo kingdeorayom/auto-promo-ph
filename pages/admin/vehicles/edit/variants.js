@@ -59,10 +59,18 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
     const [isUploading, setIsUploading] = useState(false)
 
     const addToVariants = (value) => {
+
         let data = {
             name: value.name,
             vehicle_slug: value.vehicle_slug,
         }
+
+        let isVariantExisting = variants.some(variant => variant.vehicle_slug === data.vehicle_slug)
+
+        if (isVariantExisting) {
+            return alert('The skill you entered exists in your skill set.')
+        }
+
         setVariants(current => [...current, data])
     }
 
@@ -70,13 +78,9 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
         setVariants(oldValues => oldValues.filter((_, i) => i !== index))
     }
 
-    console.log(variants)
-
     const onSubmit = (data) => {
 
         data['variants'] = variants
-
-        console.log(data)
 
         setIsUploading(true)
 
