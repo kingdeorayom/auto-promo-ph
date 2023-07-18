@@ -20,6 +20,10 @@ import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import NoteAltOutlinedIcon from '@mui/icons-material/NoteAltOutlined';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
+import TextFieldsOutlinedIcon from '@mui/icons-material/TextFieldsOutlined';
+import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
+import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
 
 export async function getServerSideProps(context) {
 
@@ -164,7 +168,7 @@ const VehicleManagement = ({ vehicles }) => {
                                                             }
                                                         }}
                                                     >
-                                                        <Button size='small' variant="outlined" disableElevation color='primary' sx={{ mx: .5, my: .5 }} endIcon={<NoteAltOutlinedIcon />}>Edit Details</Button>
+                                                        <Button size='small' variant="outlined" disableElevation color='primary' sx={{ mx: .5, my: .5 }} endIcon={<TextSnippetOutlinedIcon />}>Edit Details</Button>
                                                     </Link>
                                                     <Link
                                                         href={{
@@ -175,6 +179,16 @@ const VehicleManagement = ({ vehicles }) => {
                                                         }}
                                                     >
                                                         <Button size='small' variant="outlined" disableElevation color='success' sx={{ mx: .5, my: .5 }} endIcon={<CollectionsOutlinedIcon />}>Edit Images</Button>
+                                                    </Link>
+                                                    <Link
+                                                        href={{
+                                                            pathname: "/admin/vehicles/edit/variants",
+                                                            query: {
+                                                                vehicleId: vehicle._id
+                                                            }
+                                                        }}
+                                                    >
+                                                        <Button size='small' variant="outlined" disableElevation color='warning' sx={{ mx: .5, my: .5 }} endIcon={<DashboardCustomizeOutlinedIcon />}>Edit Variants</Button>
                                                     </Link>
                                                     <Button
                                                         onClick={() => {

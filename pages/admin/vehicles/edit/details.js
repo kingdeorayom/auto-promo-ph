@@ -136,20 +136,20 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
     const { errors } = formState
 
     const [errorMessage, setErrorMessage] = useState(null)
-    const [variants, setVariants] = useState(vehicleDetails.variants)
+    // const [variants, setVariants] = useState(vehicleDetails.variants)
     const [isUploading, setIsUploading] = useState(false)
 
-    const addToVariants = (value) => {
-        let data = {
-            name: value.name,
-            vehicle_slug: value.vehicle_slug,
-        }
-        setVariants(current => [...current, data])
-    }
+    // const addToVariants = (value) => {
+    //     let data = {
+    //         name: value.name,
+    //         vehicle_slug: value.vehicle_slug,
+    //     }
+    //     setVariants(current => [...current, data])
+    // }
 
-    const removeVariant = (index) => {
-        setVariants(oldValues => oldValues.filter((_, i) => i !== index))
-    }
+    // const removeVariant = (index) => {
+    //     setVariants(oldValues => oldValues.filter((_, i) => i !== index))
+    // }
 
     const onSubmit = (data) => {
 
@@ -435,7 +435,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     />
                                 </Box>
 
-                                <Box my={2}>
+                                {/* <Box my={2}>
                                     <Typography mb={1} fontWeight='700' color='#505050'>Variants</Typography>
                                     <Typography mb={1} fontSize='14px' fontWeight='400'>Added variants:</Typography>
                                     {
@@ -456,7 +456,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
 
                                 <Box>
                                     <Button variant='outlined' size='small' onClick={handleVariantDialogOpen}>Add a variant</Button>
-                                </Box>
+                                </Box> */}
 
                             </Box>
 
@@ -1036,7 +1036,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                         </DialogActions>
                     </Dialog>
 
-                    <Dialog
+                    {/* <Dialog
                         open={isVariantDialogOpen}
                         onClose={handleVariantDialogClose}
                         aria-labelledby="alert-dialog-title"
@@ -1081,7 +1081,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                         <DialogActions>
                             <Button onClick={handleVariantDialogClose}>OK</Button>
                         </DialogActions>
-                    </Dialog>
+                    </Dialog> */}
 
                 </Box>
 

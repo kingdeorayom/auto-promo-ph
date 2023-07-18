@@ -234,7 +234,7 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
                             {
                                 isUploading ?
                                     <Box sx={{ my: 3 }}>
-                                        <Typography mb={2}>Updating vehicle images. Please wait... This could take a while depending on the images you uploaded.</Typography>
+                                        <Typography mb={2}>Updating vehicle images. Please wait... This could take a while depending on the images you uploaded and the speed of your internet connection.</Typography>
                                         <LinearProgress />
                                     </Box> : null
                             }
