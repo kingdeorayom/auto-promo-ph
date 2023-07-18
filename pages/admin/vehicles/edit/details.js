@@ -192,7 +192,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
     return (
         <>
             <Head>
-                <title>Edit vehicle | Auto Promo PH</title>
+                <title>Edit vehicle details | Auto Promo PH</title>
                 <meta name="description" content="Welcome to Auto Promo PH" />
             </Head>
             <Layout>
