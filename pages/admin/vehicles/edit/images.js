@@ -53,20 +53,20 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
     const { errors } = formState
 
     const [errorMessage, setErrorMessage] = useState(null)
-    const [imagePreview, setImagePreview] = useState(null)
+    // const [imagePreview, setImagePreview] = useState(null)
     const [isUploading, setIsUploading] = useState(false)
 
-    const convertToBase64 = (image) => {
-        const reader = new FileReader();
-        try {
-            reader.onloadend = () => {
-                setImagePreview(reader.result.toString())
-            }
-            reader.readAsDataURL(image)
-        } catch (error) {
-            setImagePreview(null)
-        }
-    }
+    // const convertToBase64 = (image) => {
+    //     const reader = new FileReader();
+    //     try {
+    //         reader.onloadend = () => {
+    //             setImagePreview(reader.result.toString())
+    //         }
+    //         reader.readAsDataURL(image)
+    //     } catch (error) {
+    //         setImagePreview(null)
+    //     }
+    // }
 
     const onSubmit = (data) => {
 
@@ -112,9 +112,9 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
             });
     }
 
-    const handleImageChange = (e) => {
-        convertToBase64(e.target.files[0])
-    }
+    // const handleImageChange = (e) => {
+    //     convertToBase64(e.target.files[0])
+    // }
 
     return (
         <>
@@ -174,13 +174,13 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
                                     type='file'
                                     accept="image/png, image/jpeg, image/jpg, image/jfif"
                                     {...register('image', {
-                                        onChange: handleImageChange
+                                        // onChange: handleImageChange
                                     })}
                                     name='image'
                                     required
                                 />
 
-                                <Box sx={{ mt: 2, border: '1px solid #d3d3d3', width: '275px', height: '125px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                                {/* <Box sx={{ mt: 2, border: '1px solid #d3d3d3', width: '275px', height: '125px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
                                     {
                                         imagePreview !== null ?
                                             <Image
@@ -193,7 +193,7 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
                                     }
                                 </Box>
 
-                                <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image that will be uploaded.</Typography>
+                                <Typography fontSize='12px' color='#808080' mt={2}>This is only a preview and does not reflect the actual quality of the image that will be uploaded.</Typography> */}
 
 
                                 <Typography mt={3} mb={1} fontWeight='700' color='#505050'>Interior and Exterior Images<sup><span className={styles.required}>*</span></sup></Typography>
@@ -207,7 +207,7 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
                                     required
                                 />
 
-                                <Typography mt={4} mb={1} fontWeight='700' color='#505050'>Available Colors<sup><span className={styles.required}>*</span></sup></Typography>
+                                <Typography mt={3} mb={1} fontWeight='700' color='#505050'>Available Colors<sup><span className={styles.required}>*</span></sup></Typography>
 
                                 <input
                                     type='file'
