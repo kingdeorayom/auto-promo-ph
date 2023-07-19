@@ -94,7 +94,7 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
                         'Vehicle variants updated successfully',
                         'Update may not immediately reflect on the page of vehicle, though this is very unlikely to happen',
                         'success'
-                    ).then(() => router.reload())
+                    )
                 }
 
             })
