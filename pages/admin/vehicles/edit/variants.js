@@ -68,7 +68,7 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
         let isVariantExisting = variants.some(variant => variant.vehicle_slug === data.vehicle_slug)
 
         if (isVariantExisting) {
-            return alert('The skill you entered exists in your skill set.')
+            return alert('The variant you selected is already added. Please select another.')
         }
 
         setVariants(current => [...current, data])
