@@ -90,7 +90,7 @@ const Specifications = ({ vehicle }) => {
             }
 
             {
-                vehicle.numberOfCylinders === '' && vehicle.numberOfValves === '' && vehicle.pistonDisplacement === '' && vehicle.maximumOutput === '' && vehicle.maximumTorque ?
+                vehicle.numberOfCylinders === '' && vehicle.numberOfValves === '' && vehicle.pistonDisplacement === '' && vehicle.maximumOutput === '' && vehicle.maximumTorque === '' ?
                     null :
                     <Box sx={{ border: '1px solid #d3d3d3', mb: '20px' }}>
                         <Box bgcolor='#404040' px={2} py={1}>
