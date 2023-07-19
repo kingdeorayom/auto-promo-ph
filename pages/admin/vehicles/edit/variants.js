@@ -177,7 +177,7 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
                                 </Box>
                                 <Divider sx={{ my: 2 }} />
 
-                                <Typography mt={3} mb={1} fontSize='14px' color='primary' fontWeight='700'>Added variants:</Typography>
+                                <Typography mt={3} mb={2} fontSize='14px' fontWeight='700'>Added variants:</Typography>
                                 {
                                     variants.length === 0 ?
                                         <Typography mt={3} mb={3} fontSize='14px' color='#808080' textAlign='center'>No variants added</Typography> :
@@ -186,8 +186,8 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
                                                 <Chip
                                                     key={index}
                                                     label={item.name}
-                                                    // variant='outlined'
-                                                    color='primary'
+                                                    variant='outlined'
+                                                    color='info'
                                                     sx={{ mx: .5, my: .5, borderRadius: 1, }}
                                                     onDelete={() => removeVariant(index)}
                                                 />
