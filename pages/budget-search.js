@@ -27,8 +27,8 @@ const BudgetSearchSlider = () => {
 
     const marks = [
         {
-            value: 700000,
-            label: '700K',
+            value: 600000,
+            label: '600K',
         },
         {
             value: 1000000,
@@ -71,7 +71,7 @@ const BudgetSearchSlider = () => {
                                 onChange={handleSliderChange}
                                 step={100000}
                                 marks={marks}
-                                min={700000}
+                                min={600000}
                                 max={2500000}
                                 sx={{ color: '#1f308a' }}
                             />
