@@ -15,6 +15,9 @@ import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import ScatterPlotOutlinedIcon from '@mui/icons-material/ScatterPlotOutlined';
 import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
 import ContactPhoneOutlinedIcon from '@mui/icons-material/ContactPhoneOutlined';
+import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
 
 const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
 
@@ -120,7 +123,52 @@ const Drawer = ({ router, isDrawerOpen, setIsDrawerOpen, isLoggedIn }) => {
                 </Box>
             </Link>
 
-            <Divider sx={{ my: 2 }} />
+            <Divider sx={{ mt: 2, mb: 3.5 }} />
+
+            {/* <Box mx={3} my={1}>
+                <Typography fontSize='13px' color='#808080' mb={2}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque necessitatibus amet nam magni aliquam recusandae molestiae. Eum natus debitis, odio qui animi non numquam, magnam neque commodi, autem sit ratione.</Typography>
+            </Box> */}
+
+            <Link href='/about'>
+                <Box className={router.pathname == '/about' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                    <Box display='flex' alignItems='center'>
+                        <InfoOutlinedIcon sx={{ mx: 3, color: '#5D5FC0' }} />
+                        <Box>
+                            <Typography fontSize='15px' fontWeight='700' mb={.5}>About</Typography>
+                            <Typography fontSize='13px' color='#808080'>Learn more about Auto Promo PH</Typography>
+                        </Box>
+                    </Box>
+                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                </Box>
+            </Link>
+
+            <Link href='/terms-and-conditions'>
+                <Box className={router.pathname == '/terms-and-conditions' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                    <Box display='flex' alignItems='center'>
+                        <TaskOutlinedIcon sx={{ mx: 3, color: 'brown' }} />
+                        <Box>
+                            <Typography fontSize='15px' fontWeight='700' mb={.5}>Terms and Conditions</Typography>
+                            <Typography fontSize='13px' color='#808080'>Read the Terms and Conditions on using Auto Promo PH</Typography>
+                        </Box>
+                    </Box>
+                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                </Box>
+            </Link>
+
+            <Link href='/privacy-policy'>
+                <Box className={router.pathname == '/privacy-policy' ? styles.navLinkContainer : styles.navLinkContainerUnselected}>
+                    <Box display='flex' alignItems='center'>
+                        <GppGoodOutlinedIcon sx={{ mx: 3, color: '#1976d2' }} />
+                        <Box>
+                            <Typography fontSize='15px' fontWeight='700' mb={.5}>Privacy Policy</Typography>
+                            <Typography fontSize='13px' color='#808080'>We care about our {"user's data and privacy"}. Read the privacy policy of Auto Promo PH</Typography>
+                        </Box>
+                    </Box>
+                    <ChevronRightIcon sx={{ marginRight: 2, color: '#808080' }} />
+                </Box>
+            </Link>
+
+            <Box mb={3} />
 
         </MuiDrawer>
     )

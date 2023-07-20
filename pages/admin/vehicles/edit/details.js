@@ -155,7 +155,6 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
 
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
-        // data['variants'] = variants
 
         console.log(data)
 
@@ -185,10 +184,6 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
     const [isSlugDialogOpen, setIsSlugDialogOpen] = useState(false);
     const handleSlugDialogOpen = () => setIsSlugDialogOpen(true)
     const handleSlugDialogClose = () => setIsSlugDialogOpen(false)
-
-    const [isVariantDialogOpen, setIsVariantDialogOpen] = useState(false);
-    const handleVariantDialogOpen = () => setIsVariantDialogOpen(true)
-    const handleVariantDialogClose = () => setIsVariantDialogOpen(false)
 
     return (
         <>
@@ -298,7 +293,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         select
                                         fullWidth
                                         label="Select Brand"
-                                        defaultValue=''
+                                        defaultValue={vehicleDetails.brand}
                                         inputProps={register('brand')}
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><DashboardOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: 'brown' }} /></InputAdornment>,
@@ -335,7 +330,8 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         select
                                         fullWidth
                                         label="Select Body Type"
-                                        defaultValue=''
+                                        // defaultValue=''
+                                        defaultValue={vehicleDetails.bodyType}
                                         inputProps={register('bodyType')}
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><AirportShuttleOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#caa448' }} /></InputAdornment>,
@@ -370,8 +366,9 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         select
                                         fullWidth
+                                        // defaultValue=''
+                                        defaultValue={vehicleDetails.fuelType}
                                         label="Select Fuel Type"
-                                        defaultValue=''
                                         inputProps={register('fuelType')}
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><LocalGasStationOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: 'crimson' }} /></InputAdornment>,
@@ -389,7 +386,8 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         select
                                         fullWidth
                                         label="Select Transmission Type"
-                                        defaultValue=''
+                                        // defaultValue=''
+                                        defaultValue={vehicleDetails.transmissionType}
                                         inputProps={register('transmissionType')}
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><SettingsOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#1976d2' }} /></InputAdornment>,

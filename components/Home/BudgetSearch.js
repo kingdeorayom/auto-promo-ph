@@ -68,7 +68,7 @@ const BudgetSearch = () => {
                                 marks={marks}
                                 min={600000}
                                 max={2500000}
-                                sx={{ color: '#1f308a' }}
+                                sx={{ color: '#28a745' }}
                             />
                         </Box>
                         <Box display='flex' justifyContent='flex-start' sx={{ mt: 3.5, mb: .5, }}>
