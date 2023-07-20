@@ -61,7 +61,8 @@ const InquiriesPage = () => {
                     text: 'All inquiries are no longer saved on the database.',
                     icon: 'success',
                     confirmButtonColor: '#1976d2'
-                }).then(() => router.push('/admin/inquiries'))
+                    // }).then(() => router.push('/admin/inquiries'))
+                }).then(() => router.reload())
             })
             .catch((error) => {
                 console.log(error)
