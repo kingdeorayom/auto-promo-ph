@@ -59,11 +59,12 @@ const InquiryForm = () => {
                 if (response.status === 201) {
                     setIsSending(false)
                     reset()
-                    Swal.fire(
-                        'Your message has been sent successfully.',
-                        'I will get back to you as soon as possible.',
-                        'success'
-                    )
+                    Swal.fire({
+                        title: 'Your message has been sent successfully',
+                        text: 'I will get back to you as soon as possible.',
+                        icon: 'success',
+                        confirmButtonColor: '#1976d2'
+                    })
                 }
             })
             .catch((error) => {

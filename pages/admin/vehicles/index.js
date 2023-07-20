@@ -65,11 +65,12 @@ const VehicleManagement = ({ vehicles }) => {
         setIsDeleteDialogOpen(false);
         axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/vehicles/${id}`)
             .then((response) => {
-                Swal.fire(
-                    `Successfully deleted ${vehicleName}`,
-                    'You will have to input all its details again if you want it added back',
-                    'success'
-                ).then(() => router.reload())
+                Swal.fire({
+                    title: `Successfully deleted ${vehicleName}`,
+                    text: 'You will have to input all its details again if you want it added back',
+                    icon: 'success',
+                    confirmButtonColor: '#1976d2'
+                }).then(() => router.reload())
             })
             .catch((error) => {
                 console.log(error)

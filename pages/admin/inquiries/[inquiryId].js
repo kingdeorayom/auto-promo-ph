@@ -66,11 +66,12 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
 
         axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/inquiries/${inquiry._id}`)
             .then((response) => {
-                Swal.fire(
-                    response.data.message,
-                    'It is no longer saved on the database',
-                    'success'
-                ).then(() => router.push('/admin/inquiries'))
+                Swal.fire({
+                    title: response.data.message,
+                    text: 'It is no longer saved on the database',
+                    icon: 'success',
+                    confirmButtonColor: '#1976d2'
+                }).then(() => router.push('/admin/inquiries'))
             })
             .catch((error) => {
                 console.log(error)

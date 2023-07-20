@@ -56,11 +56,12 @@ const InquiriesPage = () => {
         setIsDeleteDialogOpen(false);
         axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`)
             .then((response) => {
-                Swal.fire(
-                    'Successfully deleted all inquiries.',
-                    'All inquiries are no longer saved on the database.',
-                    'success'
-                ).then(() => router.push('/admin/inquiries'))
+                Swal.fire({
+                    title: 'Successfully deleted all inquiries.',
+                    text: 'All inquiries are no longer saved on the database.',
+                    icon: 'success',
+                    confirmButtonColor: '#1976d2'
+                }).then(() => router.push('/admin/inquiries'))
             })
             .catch((error) => {
                 console.log(error)

@@ -98,11 +98,12 @@ const EditVehicleImages = ({ vehicles, vehicleDetails }) => {
                     setErrorMessage(null)
                     setIsUploading(false)
                     reset()
-                    Swal.fire(
-                        'Vehicle images updated successfully',
-                        'Images you update may not immediately reflect on the page of vehicle, though this is very unlikely to happen',
-                        'success'
-                    ).then(() => router.reload())
+                    Swal.fire({
+                        title: 'Vehicle images updated successfully',
+                        text: 'Images you update may not immediately reflect on the page of vehicle, though this is very unlikely to happen',
+                        icon: 'success',
+                        confirmButtonColor: '#1976d2'
+                    }).then(() => router.reload())
                 }
 
             })

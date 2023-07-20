@@ -68,7 +68,13 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
         let isVariantExisting = variants.some(variant => variant.vehicle_slug === data.vehicle_slug)
 
         if (isVariantExisting) {
-            return alert('The variant you selected is already added. Please select another.')
+            // return alert('The variant you selected is already added. Please select another.')
+            return Swal.fire({
+                title: 'Oops!',
+                text: 'The variant you selected is already added. Please select another vehicle to add as variant.',
+                icon: 'error',
+                confirmButtonColor: '#1976d2'
+            })
         }
 
         setVariants(current => [...current, data])
@@ -90,11 +96,12 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
                     setErrorMessage(null)
                     setIsUploading(false)
                     reset()
-                    Swal.fire(
-                        'Vehicle variants updated successfully',
-                        'Update may not immediately reflect on the page of vehicle, though this is very unlikely to happen',
-                        'success'
-                    )
+                    Swal.fire({
+                        title: 'Vehicle variants updated successfully',
+                        text: 'Update may not immediately reflect on the page of vehicle, though this is very unlikely to happen',
+                        icon: 'success',
+                        confirmButtonColor: '#1976d2'
+                    })
                 }
 
             })
@@ -160,7 +167,7 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
                                 {/* <Typography mt={2} mb={1} fontWeight='700' color='#505050'>Main Image<sup><span className={styles.required}>*</span></sup></Typography> */}
                                 <Divider sx={{ my: 2 }} />
 
-                                <Typography my={2} fontSize='14px' fontWeight='700'>Choose from the vehicles below to add as a variant:</Typography>
+                                <Typography my={2} fontSize='14px' fontWeight='700' color='#505050'>Choose from the vehicles below to add as a variant:</Typography>
                                 <Box>
                                     {vehicles.map(item => {
                                         return (
@@ -177,7 +184,7 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
                                 </Box>
                                 <Divider sx={{ my: 2 }} />
 
-                                <Typography mt={3} mb={2} fontSize='14px' fontWeight='700'>Added variants:</Typography>
+                                <Typography mt={3} mb={2} fontSize='14px' fontWeight='700' color='#505050'>Added variants:</Typography>
                                 {
                                     variants.length === 0 ?
                                         <Typography mt={3} mb={3} fontSize='14px' color='#808080' textAlign='center'>No variants added</Typography> :
@@ -187,7 +194,7 @@ const EditVehicleVariants = ({ vehicles, vehicleDetails }) => {
                                                     key={index}
                                                     label={item.name}
                                                     variant='outlined'
-                                                    color='info'
+                                                    color='primary'
                                                     sx={{ mx: .5, my: .5, borderRadius: 1, }}
                                                     onDelete={() => removeVariant(index)}
                                                 />

@@ -156,11 +156,12 @@ const AddVehicle = ({ vehicles }) => {
                     setErrorMessage(null)
                     setIsUploading(false)
                     reset()
-                    Swal.fire(
-                        'Vehicle added successfully',
-                        'It may not immediately appear on the list of vehicles, but this is unlikely to happen',
-                        'success'
-                    ).then(() => router.reload())
+                    Swal.fire({
+                        title: 'Vehicle added successfully',
+                        text: 'It may not immediately appear on the list of vehicles, but this is unlikely to happen',
+                        icon: 'success',
+                        confirmButtonColor: '#1976d2'
+                    }).then(() => router.reload())
                 }
 
             })

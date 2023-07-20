@@ -167,11 +167,12 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                     setErrorMessage(null)
                     setIsUploading(false)
                     reset()
-                    Swal.fire(
-                        'Vehicle details edited successfully',
-                        'Details you update may not immediately reflect on the details of vehicle, though this is very unlikely to happen',
-                        'success'
-                    ).then(() => router.reload())
+                    Swal.fire({
+                        title: 'Vehicle details edited successfully',
+                        text: 'Details you update may not immediately reflect on the details of vehicle, though this is very unlikely to happen',
+                        icon: 'success',
+                        confirmButtonColor: '#1976d2'
+                    }).then(() => router.reload())
                 }
 
             })
