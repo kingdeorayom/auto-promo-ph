@@ -155,7 +155,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
 
         data['vehicle_slug'] = data.name.replace(/\W+/g, '-').toLowerCase();
         data['brand_slug'] = data.brand.charAt(0).toLowerCase() + data.brand.slice(1).toLowerCase()
-        data['variants'] = variants
+        // data['variants'] = variants
 
         console.log(data)
 
