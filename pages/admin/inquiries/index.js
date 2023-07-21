@@ -84,6 +84,7 @@ const InquiriesPage = () => {
                                 underline="hover"
                                 color="inherit"
                                 href="/admin/dashboard"
+                                className={styles.link}
                             >
                                 Dashboard
                             </Link>

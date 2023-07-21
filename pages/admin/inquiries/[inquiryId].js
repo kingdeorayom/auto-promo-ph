@@ -90,13 +90,14 @@ const ViewInquiry = ({ inquiry, vehicle }) => {
 
                     <Box mb={5}>
                         <Breadcrumbs separator=">" aria-label="breadcrumb">
-                            <Link underline="hover" color="inherit" href="/admin/dashboard">
+                            <Link underline="hover" color="inherit" href="/admin/dashboard" className={styles.link}>
                                 Dashboard
                             </Link>
                             <Link
                                 underline="hover"
                                 color="inherit"
                                 href="/admin/inquiries"
+                                className={styles.link}
                             >
                                 Inquiries
                             </Link>

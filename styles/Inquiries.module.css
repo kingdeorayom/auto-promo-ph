@@ -58,3 +58,8 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+.link:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
