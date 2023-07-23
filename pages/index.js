@@ -13,6 +13,8 @@ import BrandSearch from "@/components/Home/BrandSearch"
 import CarouselBanner from "@/components/Home/CarouselBanner"
 import Ratings from "@/components/Home/Ratings"
 import TradeIn from "@/components/Home/TradeIn"
+import Image from "next/image"
+import corporate from '@/public/corporate.png'
 
 export async function getStaticProps() {
 
@@ -37,11 +39,29 @@ const Home = ({ brands }) => {
       </Head>
       <Layout>
         <Box className={styles.welcome}>
-          <Box sx={{ textAlign: 'center', mt: 10, mb: 3, paddingLeft: '15px', paddingRight: '15px' }}>
-            <Welcome />
-            <SearchBox autoFocus={false} />
+          <Box
+            sx={{
+              mt: { xs: 7, md: 3 }, mb: 0, paddingLeft: '15px', paddingRight: '15px',
+              background: "linear-gradient(rgba(31,48,138,.9), rgba(31,48,138,.2)), url(https://static1.eyellowpages.ph/assets/yp_home_bg-8b8da4e918d8629254f2955c51da2e5c43be81ce031d3b417800e4991ff3d2e7.png) transparent no-repeat",
+            }}
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+          >
+            <Box textAlign='center'>
+              <Welcome />
+              <SearchBox autoFocus={false} />
+            </Box>
+            <Box display={{ xs: 'none', sm: 'block' }}>
+              <Image
+                src={corporate}
+                alt='Dhang Casten'
+                height={400}
+                style={{ aspectRatio: 1 }}
+              />
+            </Box>
           </Box>
-          <Box className='overlayBackground'></Box>
+          {/* <Box className='overlayBackground'></Box> */}
         </Box>
         <Box className={styles.wrapper}>
           <FeaturedVehicles isHome={true} hasSeeAll={true} />

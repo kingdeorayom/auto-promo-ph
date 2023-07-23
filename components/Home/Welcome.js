@@ -19,7 +19,7 @@ const Welcome = () => {
                 Find, Inquire, Buy &mdash; quick and super easy!
             </Typography>
 
-            <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#dadada'  >
+            <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#fff'  >
                 Streamline your car-buying experience with our effortless search
                 {/* Explore, or easily search for vehicles using our search field below */}
             </Typography>

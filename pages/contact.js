@@ -155,6 +155,7 @@ const Contact = () => {
                         </Box>
                     </Stack>
                 </Box>
+
                 {/* <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ width: '100%', maxWidth: 1280, margin: '50px auto 40px auto', paddingX: '15px' }}>
                     <Box sx={{ backgroundColor: '#f5f5f5', height: 200, width: 200, mx: 3 }} />
                     <Box sx={{ backgroundColor: '#f5f5f5', height: 200, width: 200, mx: 3 }} />

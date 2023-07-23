@@ -17,10 +17,29 @@ const Header = () => {
 
     const cookies = nookies.get()
 
+    // useEffect(() => {
+    //     setIsLoggedIn(cookies['auth_token'] === 'loggedIn')
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
+
+    const [toolbarClassName, setToolbarClassName] = useState(styles.toolbarTopMost)
+
+    const listenScrollEvent = (event) => {
+        if (window.scrollY < 73) {
+            return setToolbarClassName(styles.toolbarTopMost)
+        } else if (window.scrollY > 70) {
+            return setToolbarClassName(styles.toolbarBlur)
+        }
+    }
+
     useEffect(() => {
         setIsLoggedIn(cookies['auth_token'] === 'loggedIn')
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+
+        window.addEventListener('scroll', listenScrollEvent);
+
+        return () =>
+            window.removeEventListener('scroll', listenScrollEvent);
+    }, []);
 
     const router = useRouter()
 
@@ -32,13 +51,17 @@ const Header = () => {
     const withDashboardDisplay = { xs: 'none', lg: 'flex' }
     const withNoDashboardDisplay = { xs: 'none', md: 'flex' }
 
+
     return (
         <>
             <AppBar
                 position='sticky'
                 elevation={0}
+                // className={styles.header}
+                color="transparent"
+                sx={{ backdropFilter: "blur(5px)" }}
             >
-                <Toolbar className={styles.toolbar}>
+                <Toolbar className={toolbarClassName}>
                     <Box display={{ xs: 'flex', md: 'flex', lg: 'none' }}>
                         <IconButton onClick={() => setIsDrawerOpen(true)}>
                             <MenuIcon
