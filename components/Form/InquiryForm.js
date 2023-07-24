@@ -47,7 +47,7 @@ const InquiryForm = () => {
 
         setIsSending(true)
 
-        await emailjs.send('service_00x8du6', 'template_fh6lsi2', data, '_feim_H0vcS-Wc5_u')
+        await emailjs.send('service_k7m9p32', 'template_66nfdmn', data, 'KUSVxEthEnTgj3s1W')
             .then((result) => {
                 console.log(result)
             }, (error) => {
