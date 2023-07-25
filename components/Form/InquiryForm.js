@@ -47,7 +47,7 @@ const InquiryForm = () => {
 
         setIsSending(true)
 
-        await emailjs.send('service_k7m9p32', 'template_66nfdmn', data, 'KUSVxEthEnTgj3s1W')
+        await emailjs.send(process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID, process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID, data, process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY)
             .then((result) => {
                 console.log(result)
             }, (error) => {
