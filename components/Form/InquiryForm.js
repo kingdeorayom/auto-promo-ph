@@ -23,6 +23,7 @@ const InquiryForm = () => {
             const vehicle = await response.json();
             setVehicleName(vehicle.name)
         } catch (error) {
+            console.log(error)
         }
     }
 
