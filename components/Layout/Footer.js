@@ -33,7 +33,7 @@ const Footer = () => {
                     {/* <Typography fontSize='1.2rem' fontWeight='700' color='white'>Logo</Typography> */}
                 </Link>
                 <Stack direction='row' spacing={2}>
-                    <Link href='https://www.facebook.com/dhang.casten' target="_blank">
+                    <Link href='https://www.facebook.com/profile.php?id=100093458535215' target="_blank">
                         <IconButton className={styles.icon}>
                             <Image
                                 src={facebook_icon}

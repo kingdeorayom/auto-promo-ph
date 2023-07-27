@@ -12,10 +12,6 @@ import SearchSuggestions from '@/components/Search/SearchSuggestions'
 import Head from 'next/head'
 import { useSearchResults } from '@/hooks/useSearchResults'
 import { ListingContext } from '@/context/ListingContext'
-import styles from '@/styles/Vehicles.module.css'
-
-import searchStyles from '@/styles/Search.module.css'
-
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 

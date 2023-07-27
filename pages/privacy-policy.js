@@ -1,7 +1,6 @@
 import Layout from '@/layouts/Layout'
 import { Box, Divider, Typography } from '@mui/material'
 import Head from 'next/head'
-import React from 'react'
 import styles from '@/styles/Legal.module.css'
 import Link from 'next/link'
 
