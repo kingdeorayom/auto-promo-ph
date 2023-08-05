@@ -358,12 +358,15 @@ const AddVehicle = ({ vehicles }) => {
                                         }}
                                     >
                                         <MenuItem value='Automatic'></MenuItem>
+                                        <MenuItem value='Automatic, AT'>Automatic, AT</MenuItem>
+                                        <MenuItem value='Automatic, AMT'>Automatic, AMT</MenuItem>
                                         <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
                                         <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
                                         <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
                                         <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
                                         <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
                                         <MenuItem value='Manual'>Manual</MenuItem>
+                                        <MenuItem value='Dual Clutch'>Dual Clutch</MenuItem>
                                     </TextField>
                                 </Box>
 
