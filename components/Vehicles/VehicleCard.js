@@ -12,7 +12,7 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 
 const VehicleCard = ({ image, name, unitPrice, promo, fuelType, transmissionType, bodyType, description }) => {
 
-    const shortHandTransmission = transmissionType === "Automatic, CVT" ? "CVT" : transmissionType === "Automatic, SAT" ? "SAT" : transmissionType === "Automatic, DCT" ? "DCT" : transmissionType === "Automatic, TCT" ? "TCT" : transmissionType === "Semi-Automatic" ? "Semi" : transmissionType === "Manual" ? "Manual" : null
+    const shortHandTransmission = transmissionType === "Automatic, CVT" ? "CVT" : transmissionType === "Automatic, SAT" ? "SAT" : transmissionType === "Automatic, DCT" ? "DCT" : transmissionType === "Automatic, TCT" ? "TCT" : transmissionType === "Semi-Automatic" ? "Semi" : transmissionType === "Manual" ? "Manual" : transmissionType === "Automatic" ? "Auto" : null;
 
     return (
         <>

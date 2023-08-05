@@ -322,6 +322,7 @@ const AddVehicle = ({ vehicles }) => {
                                         <MenuItem value='Hatchback'>Hatchback</MenuItem>
                                         <MenuItem value='Van'>Van</MenuItem>
                                         <MenuItem value='Utility'>Utility</MenuItem>
+                                        <MenuItem value='Crossover'>Crossover</MenuItem>
                                     </TextField>
                                 </Box>
 
@@ -356,6 +357,7 @@ const AddVehicle = ({ vehicles }) => {
                                             sx: { borderRadius: 2, }
                                         }}
                                     >
+                                        <MenuItem value='Automatic'></MenuItem>
                                         <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
                                         <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
                                         <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
