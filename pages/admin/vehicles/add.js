@@ -107,11 +107,17 @@ const AddVehicle = ({ vehicles }) => {
             vehicle_slug: value.vehicle_slug,
         }
 
-        // let isVariantExisting = true
+        let isVariantExisting = variants.some(variant => variant.vehicle_slug === data.vehicle_slug)
 
-        // if (isVariantExisting) {
-        //     return alert('Variant already added.')
-        // }
+        if (isVariantExisting) {
+            // return Swal.fire({
+            //     title: 'Oops!',
+            //     text: 'The variant you selected is already added. Please select another vehicle to add as variant.',
+            //     icon: 'error',
+            //     confirmButtonColor: '#1976d2'
+            // })
+            return alert('The variant you selected is already added. Please select another vehicle to add as variant.')
+        }
 
         setVariants(current => [...current, data])
     }
