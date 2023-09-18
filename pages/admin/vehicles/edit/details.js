@@ -78,6 +78,8 @@ export async function getServerSideProps(context) {
 
 const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
 
+    console.log(vehicleDetails);
+
     const router = useRouter()
 
     const form = useForm({
@@ -394,12 +396,22 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                             sx: { borderRadius: 2, }
                                         }}
                                     >
+                                        {/* <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
+                                        <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
+                                        <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
+                                        <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
+                                        <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
+                                        <MenuItem value='Manual'>Manual</MenuItem> */}
+                                        <MenuItem value='Automatic'></MenuItem>
+                                        <MenuItem value='Automatic, AT'>Automatic, AT</MenuItem>
+                                        <MenuItem value='Automatic, AMT'>Automatic, AMT</MenuItem>
                                         <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
                                         <MenuItem value='Automatic, TCT'>Automatic, TCT</MenuItem>
                                         <MenuItem value='Automatic, SAT'>Automatic, SAT</MenuItem>
                                         <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
                                         <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
                                         <MenuItem value='Manual'>Manual</MenuItem>
+                                        <MenuItem value='Dual Clutch'>Dual Clutch</MenuItem>
                                     </TextField>
                                 </Box>
 

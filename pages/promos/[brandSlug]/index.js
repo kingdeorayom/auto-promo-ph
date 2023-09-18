@@ -45,7 +45,7 @@ export async function getStaticProps(context) {
             vehicles: vehicles,
             brand: brand
         },
-        revalidate: 10
+        revalidate: 5
     };
 }
 

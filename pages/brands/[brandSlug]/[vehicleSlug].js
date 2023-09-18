@@ -54,7 +54,7 @@ export async function getStaticProps(context) {
             vehicle: vehicle,
             variants: variants
         },
-        revalidate: 10
+        revalidate: 5
     };
 }
 
