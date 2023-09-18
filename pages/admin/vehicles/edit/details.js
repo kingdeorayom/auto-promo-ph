@@ -345,6 +345,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         <MenuItem value='Hatchback'>Hatchback</MenuItem>
                                         <MenuItem value='Van'>Van</MenuItem>
                                         <MenuItem value='Utility'>Utility</MenuItem>
+                                        <MenuItem value='Crossover'>Crossover</MenuItem>
                                     </TextField>
                                 </Box>
 
@@ -402,7 +403,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         <MenuItem value='Automatic, DCT'>Automatic, DCT</MenuItem>
                                         <MenuItem value='Semi-Automatic'>Semi-Automatic</MenuItem>
                                         <MenuItem value='Manual'>Manual</MenuItem> */}
-                                        <MenuItem value='Automatic'></MenuItem>
+                                        <MenuItem value='Automatic'>Automatic</MenuItem>
                                         <MenuItem value='Automatic, AT'>Automatic, AT</MenuItem>
                                         <MenuItem value='Automatic, AMT'>Automatic, AMT</MenuItem>
                                         <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>

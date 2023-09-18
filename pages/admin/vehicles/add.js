@@ -363,7 +363,7 @@ const AddVehicle = ({ vehicles }) => {
                                             sx: { borderRadius: 2, }
                                         }}
                                     >
-                                        <MenuItem value='Automatic'></MenuItem>
+                                        <MenuItem value='Automatic'>Automatic</MenuItem>
                                         <MenuItem value='Automatic, AT'>Automatic, AT</MenuItem>
                                         <MenuItem value='Automatic, AMT'>Automatic, AMT</MenuItem>
                                         <MenuItem value='Automatic, CVT'>Automatic, CVT</MenuItem>
