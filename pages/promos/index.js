@@ -6,6 +6,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import setCurrency from '@/utils/setCurrency'
 import AllVehicles from '@/components/Home/AllVehicles'
+import corporate from '@/public/corporate.png'
+import facebook_icon from '@/public/facebook_icon.svg'
+import viber_icon from '@/public/viber_icon.svg'
+import gmail_icon from '@/public/gmail_icon.svg'
 
 export async function getStaticProps() {
 
@@ -29,11 +33,59 @@ const Promos = ({ brands }) => {
                 <meta name="description" content="Welcome to Auto Promo PH" />
             </Head>
             <Layout>
-                <Box sx={{
+
+                <Box className={styles.welcome}>
+                    <Box
+                        sx={{
+                            mb: 0, paddingLeft: '15px', paddingRight: '15px',
+                            background: "linear-gradient(rgba(31,48,138,9), rgba(31,48,138,.2)), url(https://static1.eyellowpages.ph/assets/yp_home_bg-8b8da4e918d8629254f2955c51da2e5c43be81ce031d3b417800e4991ff3d2e7.png) transparent no-repeat",
+                        }}
+                        display='flex'
+                        justifyContent='center'
+                        alignItems='center'
+                    >
+                        <Box textAlign='center'>
+                            <Box mx={2} mb={4}>
+                                <Typography
+                                    fontSize='2rem'
+                                    variant="h1"
+
+                                    mt={2.5}
+                                    mb={1}
+                                    lineHeight={1}
+                                    fontWeight='800'
+                                    color='#ffffff'
+                                >
+                                    Exciting promos just for you
+                                </Typography>
+                                <Typography
+                                    fontSize='1rem'
+                                    variant="h3"
+                                    fontWeight='500'
+                                    lineHeight={1.5}
+                                    mt={3}
+                                    mb={1}
+                                    color='#ffffff'
+                                >
+                                    View promos offered by Auto Promo PH
+                                </Typography>
+                            </Box>
+
+                        </Box>
+                        <Box display={{ xs: 'none', sm: 'block' }}>
+                            <Image
+                                src={corporate}
+                                alt='Dhang Casten'
+                                height={400}
+                                style={{ aspectRatio: 1 }}
+                            />
+                        </Box>
+                    </Box>
+                </Box>
+
+                {/* <Box sx={{
                     width: '100%',
                     backgroundColor: '#1f308a',
-                    // paddingLeft: '15px',
-                    // paddingRight: '15px',
                     textAlign: 'center',
                 }}>
                     <Box
@@ -73,12 +125,11 @@ const Promos = ({ brands }) => {
                             </Typography>
                         </Box>
 
-                        {/* <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography> */}
-                        {/* <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography> */}
                     </Box>
                     <Box className='overlayBackground'></Box>
 
-                </Box>
+                </Box> */}
+
                 <Box
                     sx={{
                         width: '100%',

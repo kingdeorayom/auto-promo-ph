@@ -6,6 +6,7 @@ import VehicleCard from '@/components/Vehicles/VehicleCard';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/Brands.module.css';
+import corporate from '@/public/corporate.png'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
@@ -67,11 +68,60 @@ const Brand = ({ vehicles, brand }) => {
             </Head>
             <Layout>
 
-                <Box sx={{
+                <Box className={styles.welcome}>
+                    <Box
+                        sx={{
+                            mt: 5, mb: 0, paddingLeft: '15px', paddingRight: '15px',
+                            background: "linear-gradient(rgba(31,48,138,9), rgba(31,48,138,.2)), url(https://static1.eyellowpages.ph/assets/yp_home_bg-8b8da4e918d8629254f2955c51da2e5c43be81ce031d3b417800e4991ff3d2e7.png) transparent no-repeat",
+                        }}
+                        display='flex'
+                        justifyContent='center'
+                        alignItems='center'
+                    >
+                        <Box textAlign='center' sx={{
+                            maxWidth: '768px',
+                            margin: 'auto',
+                        }}>
+                            <Box mx={2} mb={4}>
+                                <Image
+                                    src={`${process.env.NEXT_PUBLIC_API_URL}${brand.logo}`}
+                                    width={90}
+                                    height={50}
+                                    unoptimized={true}
+                                    alt=''
+                                />
+                                <Typography
+                                    fontSize='2rem'
+                                    variant="h1"
+
+                                    mt={2.5}
+                                    mb={1}
+                                    lineHeight={1}
+                                    fontWeight='800'
+                                    color='#ffffff'
+                                >
+                                    {brand.name}
+                                </Typography>
+                                <Typography
+                                    fontSize='1rem'
+                                    variant="h3"
+                                    fontWeight='500'
+                                    lineHeight={1.5}
+                                    mt={3}
+                                    mb={1}
+                                    color='#ffffff'
+                                >
+                                    {brand.description}
+                                </Typography>
+                            </Box>
+
+                        </Box>
+                    </Box>
+                </Box>
+
+                {/* <Box sx={{
                     width: '100%',
                     backgroundColor: '#1f308a',
-                    // paddingLeft: '15px',
-                    // paddingRight: '15px',
                     textAlign: 'center',
                 }}>
                     <Box
@@ -117,11 +167,11 @@ const Brand = ({ vehicles, brand }) => {
                             </Typography>
                         </Box>
 
-                        {/* <Typography fontSize='2rem' variant="h1" fontWeight='700' mb={1} mt={2} color='#343434'>{brand.name}</Typography> */}
-                        {/* <Typography fontSize='1rem' variant="h3" lineHeight={1.5} mb={1} color='secondary'>{brand.description}</Typography> */}
                     </Box>
                     <Box className='overlayBackground'></Box>
-                </Box>
+                </Box> */}
+
+
 
                 <Box
                     sx={{

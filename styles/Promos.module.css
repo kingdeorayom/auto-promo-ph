@@ -11,3 +11,8 @@
     text-decoration-color: #1976d2;
     text-decoration-thickness: 1px;
 }
+
+.welcome {
+    width: 100%;
+    background-color: #1f308a;
+}
