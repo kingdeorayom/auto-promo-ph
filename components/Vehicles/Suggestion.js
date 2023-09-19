@@ -48,6 +48,7 @@ const Suggestion = ({ brand_slug, brand }) => {
                                                 transmissionType={vehicle.transmissionType}
                                                 bodyType={vehicle.bodyType}
                                                 description={vehicle.description}
+                                                model={vehicle.model}
                                             />
                                         </Link>
                                     </Grid>

@@ -37,6 +37,7 @@ const Variants = ({ vehicle, variants }) => {
                                             transmissionType={vehicle.transmissionType}
                                             bodyType={vehicle.bodyType}
                                             description={vehicle.description}
+                                            model={vehicle.model}
                                         />
                                     </Link>
                                 </Grid>

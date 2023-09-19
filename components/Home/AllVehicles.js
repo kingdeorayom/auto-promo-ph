@@ -81,6 +81,7 @@ const AllVehicles = ({ isHome, hasSeeAll }) => {
                                                 transmissionType={vehicle.transmissionType}
                                                 bodyType={vehicle.bodyType}
                                                 description={vehicle.description}
+                                                model={vehicle.model}
                                             />
                                         </Link>
                                     )
@@ -107,6 +108,7 @@ const AllVehicles = ({ isHome, hasSeeAll }) => {
                                                     transmissionType={vehicle.transmissionType}
                                                     bodyType={vehicle.bodyType}
                                                     description={vehicle.description}
+                                                    model={vehicle.model}
                                                 />
                                             </Link>
                                         </Grid>

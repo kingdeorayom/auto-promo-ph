@@ -24,17 +24,17 @@ const TradeIn = ({ vehicle }) => {
                 <Typography fontWeight='400' fontSize='14px' mt={2} mb={1}>Let me bid on your vehicle and all you have to do is wait</Typography>
 
                 <Stack direction='row' alignItems='center' mt={3} mb={2}>
-                    <LocalOfferOutlinedIcon sx={{ color: 'royalblue', fontSize: '18px', marginRight: '10px' }} />
+                    <LocalOfferOutlinedIcon sx={{ color: 'royalblue', fontSize: '18px', marginX: '10px' }} />
                     <Typography fontWeight='300' fontSize='14px'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</Typography>
                 </Stack>
                 <Divider />
                 <Stack direction='row' alignItems='center' mt={2} mb={2}>
-                    <LocalPhoneOutlinedIcon sx={{ color: '#fd8f52', fontSize: '18px', marginRight: '10px' }} />
+                    <LocalPhoneOutlinedIcon sx={{ color: '#fd8f52', fontSize: '18px', marginX: '10px' }} />
                     <Typography fontWeight='300' fontSize='14px'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</Typography>
                 </Stack>
                 <Divider />
                 <Stack direction='row' alignItems='center' mt={2} mb={2}>
-                    <CheckCircleOutlinedIcon sx={{ color: 'green', fontSize: '18px', marginRight: '10px' }} />
+                    <CheckCircleOutlinedIcon sx={{ color: 'green', fontSize: '18px', marginX: '10px' }} />
                     <Typography fontWeight='300' fontSize='14px'>Complete the process quickly within days.</Typography>
                 </Stack>
 

@@ -232,6 +232,7 @@ const BudgetSearchResults = () => {
                                                             name={vehicle.name}
                                                             unitPrice={vehicle.unitPrice}
                                                             description={vehicle.description}
+                                                            model={vehicle.model}
                                                         />
                                                     </Link>
                                                 </Grid>

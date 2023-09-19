@@ -9,10 +9,11 @@
 .imageBox {
     position: relative;
     margin: auto;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     overflow: hidden;
     height: 175px;
+    margin-bottom: 14px;
 }
 
 .imageBox .vehicleImage {
@@ -21,32 +22,45 @@
     width: 100%;
     height: 175px;
     transform: scale(1);
-    object-fit: contain;
+    object-fit: cover;
+    /* object-fit: contain; */
+    /* object-fit: fill; */
     margin-bottom: 10px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     max-width: 100%;
 }
 
+/* .imageBox:hover .vehicleImage {
+
+} */
+
+.card:hover .vehicleImage {
+    transform: scale(1.1);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
 
 .card:hover .title {
-    color: #1976d2;
+    color: #1f308a;
 }
 
 .card {
     border-radius: 15px;
-    background-color: #f5f8ff;
-    /* background-color: #fafafa; */
+    background-color: #ffffff;
     margin-left: 10px;
     margin-right: 10px;
+    box-shadow: 0 1px 4px 0 rgba(40,51,63,0.16);
+    /* padding-bottom: 5px; */
+    /* border:1px solid #d3d3d3; */
 }
 
 .details {
-    padding: 0 12px 15px 12px;
+    padding: 0 12px 14px 12px;
 }
 
 .card:hover{
-    transform: translate(0, -7px);
+    /* transform: translate(0, -7px); */
     transition: all 0.1s linear;
 }
 
@@ -60,6 +74,7 @@
     margin-top: 16px;
     margin-bottom: 16px;
     padding-top: 16px;
+    padding-bottom: 6px;
 }
 
 .allVehiclesCarousel {
@@ -74,6 +89,19 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #505050;
+    /* color: #1976d2; */
+    /* color: #1f308a; */
+}
+
+.model {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    margin-bottom: 4px;
 }
 
 .truncate {
