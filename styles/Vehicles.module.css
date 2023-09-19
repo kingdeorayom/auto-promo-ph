@@ -89,8 +89,8 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    /* margin-top: 2px; */
+    /* margin-bottom: 2px; */
     color: #505050;
     /* color: #1976d2; */
     /* color: #1f308a; */
@@ -101,7 +101,6 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-    margin-bottom: 4px;
 }
 
 .truncate {
