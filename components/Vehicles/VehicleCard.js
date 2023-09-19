@@ -46,7 +46,7 @@ const VehicleCard = ({ image, name, unitPrice, promo, fuelType, transmissionType
                         <Chip label={fuelType} variant="outlined" size='small' sx={chipStyle} />
                     </Stack>
 
-                    <Typography fontWeight='400' color='#808080' variant='h4' fontSize='.9rem' mb='6px' className={styles.model}>{model}</Typography>
+                    <Typography fontWeight='400' color='#808080' variant='h4' fontSize='.9rem' mb='4px' className={styles.model}>{model}</Typography>
                     <Typography fontWeight='700' color='#343434' variant='h4' fontSize='1rem' my='4px' className={styles.title}>{name}</Typography>
                     <Typography color='success.main' fontSize='14px' fontWeight='500'>₱ {useNumberFormatter(unitPrice)}</Typography>
                     {/* <Typography color='secondary' fontSize='14px'>Promo: ₱ {useNumberFormatter(promo)}</Typography> */}
