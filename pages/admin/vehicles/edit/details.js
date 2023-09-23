@@ -346,6 +346,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         <MenuItem value='Van'>Van</MenuItem>
                                         <MenuItem value='Utility'>Utility</MenuItem>
                                         <MenuItem value='Crossover'>Crossover</MenuItem>
+                                        <MenuItem value='MPV'>MPV</MenuItem>
                                     </TextField>
                                 </Box>
 
