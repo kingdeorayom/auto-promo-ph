@@ -331,6 +331,7 @@ const AddVehicle = ({ vehicles }) => {
                                         <MenuItem value='Utility'>Utility</MenuItem>
                                         <MenuItem value='Crossover'>Crossover</MenuItem>
                                         <MenuItem value='MPV'>MPV</MenuItem>
+                                        <MenuItem value='Minivan'>Minivan</MenuItem>
                                     </TextField>
                                 </Box>
 
