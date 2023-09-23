@@ -20,7 +20,7 @@ export async function getStaticProps() {
         props: {
             brands: brands,
         },
-        revalidate: 5
+        revalidate: 1
     };
 }
 
