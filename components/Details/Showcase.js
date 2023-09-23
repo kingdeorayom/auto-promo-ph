@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
 import setCurrency from '@/utils/setCurrency';
+import LocalGasStationOutlinedIcon from '@mui/icons-material/LocalGasStationOutlined';
 
 const Showcase = ({ vehicle }) => {
 
@@ -31,7 +32,7 @@ const Showcase = ({ vehicle }) => {
                 <Box>
                     <Typography fontSize='2.5rem' variant="h2" fontWeight='800' mb={1}>{vehicle.name}</Typography>
                     <Typography fontSize='1rem' variant="subtitle1" color='success.main' fontWeight='500'>₱ {setCurrency(vehicle.unitPrice)}</Typography>
-                    <Stack direction={'row'} spacing={2} mt={2} mb={.5} justifyContent='space-between'>
+                    <Stack direction={'row'} spacing={2} mt={3.5} mb={.5} justifyContent='space-between'>
                         <Stack direction='row' spacing={1}>
                             <WidgetsOutlinedIcon sx={{ fontSize: '18px', color: '#5D5FC0' }} />
                             <Typography fontWeight='500' fontSize='12px'>{vehicle.bodyType}</Typography>
@@ -42,9 +43,15 @@ const Showcase = ({ vehicle }) => {
                             <Typography fontWeight='500' fontSize='12px'>{vehicle.transmissionType}</Typography>
                         </Stack>
 
-                        <Stack direction='row' spacing={1}>
+                        {/* <Stack direction='row' spacing={1}>
                             <CalendarMonthOutlinedIcon sx={{ fontSize: '18px', color: 'darkgoldenrod' }} />
                             <Typography fontWeight='500' fontSize='12px'>{vehicle.year}</Typography>
+                        </Stack> */}
+
+                        <Stack direction='row' spacing={1}>
+                            {/* <CalendarMonthOutlinedIcon sx={{ fontSize: '18px', color: 'darkgoldenrod' }} /> */}
+                            <LocalGasStationOutlinedIcon sx={{ fontSize: '18px', color: '#47AE58' }} />
+                            <Typography fontWeight='500' fontSize='12px'>{vehicle.fuelType}</Typography>
                         </Stack>
                     </Stack>
                     <Link href={{ pathname: '/inquire', query: { q: vehicle.vehicle_slug } }}>
