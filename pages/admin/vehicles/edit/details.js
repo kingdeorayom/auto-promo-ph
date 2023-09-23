@@ -553,7 +553,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 3,695 mm'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><SpaceBarOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -568,7 +568,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 1,655 mm'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><WidthWideOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -583,7 +583,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 1,555 mm'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><HeightOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -598,7 +598,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 2,435 mm'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><FiberSmartRecordOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -613,7 +613,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 1,280 mm'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><AddRoadOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -628,7 +628,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 4.7 m'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><TurnSlightRightOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -643,7 +643,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 170 mm'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><LineWeightOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -658,7 +658,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 37 deg'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><TextRotationAngleupOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -673,7 +673,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 28 deg'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><AirlineSeatFlatAngledOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -688,7 +688,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1280 mm'
+                                        placeholder='e.g., 49 deg'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><CropSquareOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -713,7 +713,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 3 Cylinders'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><SettingsInputCompositeOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -728,7 +728,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 3 Valves'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><TuneOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -743,7 +743,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 1,996 cc'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><PrecisionManufacturingOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -758,7 +758,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 190hp @ 5,500rpm'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><ManageHistoryOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -773,7 +773,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 300Nm @ 1,500 - 4,000rpm'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><DynamicFormOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -798,7 +798,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 6-speed'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><DirectionsCarOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -823,7 +823,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 18-inch'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><SyncLockOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -838,7 +838,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., Ventilated Discs/Drums'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><RemoveRoadOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -853,7 +853,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., Double Wishbone/Leaf Springs'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><SettingsInputCompositeOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -868,7 +868,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 255/65 R18'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><FiberSmartRecordOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -893,7 +893,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 5 seats'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><AirlineSeatReclineExtraOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -908,7 +908,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 330 L'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><EventSeatOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -923,7 +923,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 80 L'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><GasMeterOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -948,7 +948,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 820 kg'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><FitnessCenterOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
@@ -963,7 +963,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     <TextField
                                         type='text'
                                         fullWidth
-                                        placeholder='e.g., 1,280 mm'
+                                        placeholder='e.g., 1,260 kg'
                                         InputProps={{
                                             startAdornment: <InputAdornment position='start'><DirectionsCarOutlinedIcon sx={{ marginLeft: .8, marginRight: .5, color: '#343434' }} /></InputAdornment>,
                                             sx: { borderRadius: 2, }
