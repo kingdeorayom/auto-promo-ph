@@ -348,6 +348,9 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         <MenuItem value='Crossover'>Crossover</MenuItem>
                                         <MenuItem value='MPV'>MPV</MenuItem>
                                         <MenuItem value='Minivan'>Minivan</MenuItem>
+                                        <MenuItem value='Coupe'>Coupe</MenuItem>
+                                        <MenuItem value='Convertible'>Convertible</MenuItem>
+                                        <MenuItem value='Pickup Truck'>Pickup Truck</MenuItem>
                                     </TextField>
                                 </Box>
 
