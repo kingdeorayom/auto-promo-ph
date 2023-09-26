@@ -106,7 +106,7 @@ const Specifications = ({ vehicle }) => {
                         {
                             vehicle.numberOfValves !== '' ?
                                 <Box className={styles.specificationItemBox}>
-                                    <Typography color='#505050' fontWeight='700' mr={'24px'}>Number of valves</Typography>
+                                    <Typography color='#505050' fontWeight='700' mr={'24px'}>Number of valves per cylinder</Typography>
                                     <Typography color='#343434' fontSize='14px' fontWeight='400' textAlign='end'>{vehicle.numberOfValves}</Typography>
                                 </Box> : null
                         }

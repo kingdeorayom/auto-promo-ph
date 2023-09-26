@@ -739,7 +739,7 @@ const AddVehicle = ({ vehicles }) => {
                                 </Box>
 
                                 <Box my={2}>
-                                    <Typography mb={1} fontWeight='700' color='#505050'>Number of Valves</Typography>
+                                    <Typography mb={1} fontWeight='700' color='#505050'>Number of valves per cylinder</Typography>
                                     <TextField
                                         type='text'
                                         fullWidth
