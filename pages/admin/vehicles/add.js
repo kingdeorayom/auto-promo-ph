@@ -336,6 +336,7 @@ const AddVehicle = ({ vehicles }) => {
                                         <MenuItem value='Convertible'>Convertible</MenuItem>
                                         <MenuItem value='Pickup Truck'>Pickup Truck</MenuItem>
                                         <MenuItem value='Commercial'>Commercial Vehicle</MenuItem>
+                                        <MenuItem value='Hybrid'>Hybrid</MenuItem>
                                     </TextField>
                                 </Box>
 
@@ -354,6 +355,8 @@ const AddVehicle = ({ vehicles }) => {
                                     >
                                         <MenuItem value='Diesel'>Diesel</MenuItem>
                                         <MenuItem value='Gasoline'>Gasoline</MenuItem>
+                                        <MenuItem value='Hybrid'>Hybrid</MenuItem>
+                                        <MenuItem value='Electric'>Electric</MenuItem>
                                     </TextField>
                                 </Box>
 

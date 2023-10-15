@@ -352,6 +352,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         <MenuItem value='Convertible'>Convertible</MenuItem>
                                         <MenuItem value='Pickup Truck'>Pickup Truck</MenuItem>
                                         <MenuItem value='Commercial'>Commercial Vehicle</MenuItem>
+                                        <MenuItem value='Hybrid'>Hybrid</MenuItem>
                                     </TextField>
                                 </Box>
 
@@ -386,6 +387,8 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                     >
                                         <MenuItem value='Diesel'>Diesel</MenuItem>
                                         <MenuItem value='Gasoline'>Gasoline</MenuItem>
+                                        <MenuItem value='Electric'>Electric</MenuItem>
+                                        <MenuItem value='Hybrid'>Hybrid</MenuItem>
                                     </TextField>
                                 </Box>
 
