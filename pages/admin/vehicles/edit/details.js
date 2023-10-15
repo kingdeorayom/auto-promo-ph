@@ -351,6 +351,7 @@ const EditVehicleDetails = ({ vehicles, vehicleDetails }) => {
                                         <MenuItem value='Coupe'>Coupe</MenuItem>
                                         <MenuItem value='Convertible'>Convertible</MenuItem>
                                         <MenuItem value='Pickup Truck'>Pickup Truck</MenuItem>
+                                        <MenuItem value='Commercial Vehicle'>Commercial Vehicle</MenuItem>
                                     </TextField>
                                 </Box>
 
