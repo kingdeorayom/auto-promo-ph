@@ -168,7 +168,7 @@ const AddVehicle = ({ vehicles }) => {
                         icon: 'success',
                         confirmButtonColor: '#1976d2'
                     })
-                    // .then(() => router.reload())
+                        .then(() => router.reload())
                 }
 
             })
