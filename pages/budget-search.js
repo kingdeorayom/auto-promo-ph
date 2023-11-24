@@ -46,6 +46,10 @@ const BudgetSearchSlider = () => {
             value: 2500000,
             label: '2.5M',
         },
+        {
+            value: 3000000,
+            label: '3M',
+        },
     ];
 
     return (
@@ -72,9 +76,9 @@ const BudgetSearchSlider = () => {
                                 step={100000}
                                 marks={marks}
                                 min={600000}
-                                max={2500000}
-                                // sx={{ color: '#1f308a' }}
-                                sx={{ color: '#28a745' }}
+                                max={3000000}
+                                sx={{ color: '#1f308a' }}
+                            // sx={{ color: '#28a745' }}
                             />
                         </Box>
                         <Box display='flex' justifyContent='center' sx={{ mt: 3.5, mb: .5, }}>

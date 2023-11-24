@@ -33,7 +33,7 @@ const Banner = () => {
                         At Auto Promo PH, {"you're in good hands!"}
                     </Typography>
                     <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#505050'  >
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit
+                        Get everything you need in one stop
                     </Typography>
                     <Link href='/contact'>
                         <Button startIcon={<LocalPhoneOutlinedIcon />} variant='contained' size='large' disableElevation sx={{ backgroundColor: '#1976d2', color: '#fafafa', borderRadius: 10, mt: 2, mb: 10, textTransform: "none", ':hover': { backgroundColor: '#1f308a' } }}>Contact Me</Button>

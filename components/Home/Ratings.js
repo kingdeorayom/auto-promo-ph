@@ -42,7 +42,7 @@ const Ratings = () => {
                     Transact with an expert trusted in the local community
                 </Typography>
                 <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#505050'  >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit
+                    With Auto Promo PH, we make sure that we can assist you will all your needs
                 </Typography>
             </Box>
             <Carousel
