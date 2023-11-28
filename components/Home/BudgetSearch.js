@@ -53,8 +53,8 @@ const BudgetSearch = () => {
                     // backgroundColor: '#f5f8ff',
                     border: '1px solid #d3d3d3',
                     padding: '5px 15px 23px 15px',
-                    borderRadius: '15px',
-                    // boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
+                    borderRadius: '5px',
+                    boxShadow: '0 1px 2px 0 rgba(36, 39, 44, 0.15)',
                     width: '100%',
                     // maxWidth: '1000px',
                 }}

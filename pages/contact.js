@@ -176,8 +176,8 @@ const Contact = () => {
                             <Typography color='#808080' fontWeight='300' mb={2}>Contact Me</Typography>
                             <Typography fontWeight='700' fontSize='3rem' lineHeight='52px' mb={2}>Dhang Casten</Typography>
                             <Typography fontWeight='500' color='#808080' mb={3}>Marketing Consultant</Typography>
-                            <Typography mb={2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet hic a natus fugiat officiis, harum enim asperiores consectetur, amet voluptas sed aliquid numquam reprehenderit in, labore quia animi aperiam eum!</Typography>
-                            <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet hic a natus fugiat officiis, harum enim asperiores consectetur, amet voluptas sed aliquid numquam reprehenderit in, labore quia animi aperiam eum!</Typography>
+                            <Typography mb={2}>{"Hello there! I'm Dhang Casten, your go-to Marketing Consultant in the dynamic world of vehicle sales. With a keen eye for market trends and a passion for crafting impactful strategies, I specialize in elevating the selling experience for both dealerships and individuals."}</Typography>
+                            <Typography>{"Navigating the ever-evolving landscape of vehicle sales requires more than just expertise; it demands a tailored approach. As a Marketing Consultant, I bring a wealth of experience to the table, ensuring that your vehicles not only meet the eyes of potential buyers but leave a lasting impression. Let's embark on a journey to boost your sales and create a compelling narrative for every vehicle in your inventory."}</Typography>
                             <Link href='/contact'>
                                 <Button startIcon={<LocalPhoneOutlinedIcon />} variant='contained' size='large' disableElevation sx={{ backgroundColor: '#1976d2', color: '#fafafa', borderRadius: 10, mt: 5, mb: 5, textTransform: "none", ':hover': { backgroundColor: '#1f308a' } }}>Contact Me</Button>
                             </Link>

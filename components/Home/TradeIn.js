@@ -29,12 +29,12 @@ const TradeIn = () => {
 
                 <Stack direction='row' alignItems='center' mt={3} mb={2}>
                     <LocalOfferOutlinedIcon sx={{ color: 'royalblue', fontSize: '18px', marginRight: '10px' }} />
-                    <Typography fontWeight='300' fontSize='14px'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</Typography>
+                    <Typography fontWeight='300' fontSize='14px'>Get the Best Value for Your Old Vehicle</Typography>
                 </Stack>
                 <Divider />
                 <Stack direction='row' alignItems='center' mt={2} mb={2}>
                     <LocalPhoneOutlinedIcon sx={{ color: '#fd8f52', fontSize: '18px', marginRight: '10px' }} />
-                    <Typography fontWeight='300' fontSize='14px'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</Typography>
+                    <Typography fontWeight='300' fontSize='14px'>Hassle-Free Bidding Process Await You</Typography>
                 </Stack>
                 <Divider />
                 <Stack direction='row' alignItems='center' mt={2} mb={2}>

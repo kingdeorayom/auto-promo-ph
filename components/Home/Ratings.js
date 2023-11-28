@@ -52,30 +52,25 @@ const Ratings = () => {
                 responsive={responsive}
                 className={styles.ratingsCarousel}
             >
-                <Box mx={1}>
+                <Box mx={1} sx={{ border: '1px solid #d3d3d3', borderRadius: '10px', boxShadow: '0 1px 10px 0 rgba(36, 39, 44, 0.15)', }} p={2}>
                     <Rating name="read-only" value={5} readOnly sx={{ mb: 2 }} />
                     <Typography fontWeight='700' mb={2}>Very easy to transact with</Typography>
-                    <Typography>Very easy to transact with. Super Agent! Unit was exactly as advertised. Very professional and reliable!</Typography>
+                    <Typography>Very easy to transact with us. Unit was exactly as advertised. Very professional and reliable!</Typography>
                 </Box>
-                <Box mx={1}>
+                <Box mx={1} sx={{ border: '1px solid #d3d3d3', borderRadius: '10px', boxShadow: '0 1px 10px 0 rgba(36, 39, 44, 0.15)', }} p={2}>
                     <Rating name="read-only" value={4} readOnly sx={{ mb: 2 }} />
                     <Typography fontWeight='700' mb={2}>Highly recommended car seller</Typography>
-                    <Typography>Highly Recommended Car Dealer! Trustworthy and very easy to deal with! Excellent service! No complains here this is our second time to buy a unit with</Typography>
+                    <Typography>Highly Recommended Car Dealer! Trustworthy and very easy to deal with! Excellent service! No complains here this is our second time to buy a unit with.</Typography>
                 </Box>
-                <Box mx={1}>
+                <Box mx={1} sx={{ border: '1px solid #d3d3d3', borderRadius: '10px', boxShadow: '0 1px 10px 0 rgba(36, 39, 44, 0.15)', }} p={2}>
                     <Rating name="read-only" value={5} readOnly sx={{ mb: 2 }} />
-                    <Typography fontWeight='700' mb={2}>Very easy to transact with</Typography>
-                    <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam et eligendi expedita aspernatur saepe delectus ratione! Omnis iusto facere officia sit optio adipisci aliquid labore minus, asperiores laborum cumque.</Typography>
+                    <Typography fontWeight='700' mb={2}>Exceptional Customer Service</Typography>
+                    <Typography>Outstanding service from start to finish. The agent went above and beyond to make sure I got the perfect car for my needs. Their attention to detail and commitment to customer satisfaction are truly commendable.</Typography>
                 </Box>
-                <Box mx={1}>
+                <Box mx={1} sx={{ border: '1px solid #d3d3d3', borderRadius: '10px', boxShadow: '0 1px 10px 0 rgba(36, 39, 44, 0.15)', }} p={2}>
                     <Rating name="read-only" value={5} readOnly sx={{ mb: 2 }} />
-                    <Typography fontWeight='700' mb={2}>Very easy to transact with</Typography>
-                    <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam et eligendi expedita aspernatur saepe delectus ratione! Omnis iusto facere officia sit optio adipisci aliquid labore minus, asperiores laborum cumque.</Typography>
-                </Box>
-                <Box mx={1}>
-                    <Rating name="read-only" value={4} readOnly sx={{ mb: 2 }} />
-                    <Typography fontWeight='700' mb={2}>Very easy to transact with</Typography>
-                    <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam et eligendi expedita aspernatur saepe delectus ratione! Omnis iusto facere officia sit optio adipisci aliquid labore minus, asperiores laborum cumque.</Typography>
+                    <Typography fontWeight='700' mb={2}>A Delightful Car Buying Experience</Typography>
+                    <Typography>The entire car buying experience was delightful. The dealership agent was incredibly knowledgeable and patient, answering all questions with a smile. From the test drive to the paperwork, everything was seamless. Would definitely recommend this dealership for their excellent service!</Typography>
                 </Box>
             </Carousel>
             {/* <Stack direction={{ xs: 'column' }} display='flex' justifyContent='space-around' alignItems='center' mt={5}>

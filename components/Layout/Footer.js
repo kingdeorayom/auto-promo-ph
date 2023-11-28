@@ -85,7 +85,7 @@ const Footer = () => {
                     <Grid item xs={12} md={6}>
                         <Box sx={{}}>
                             <Typography fontWeight='500' fontSize='.9rem' mb={2} color='white'>AUTO PROMO PH</Typography>
-                            <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quidem tempora deserunt saepe placeat dignissimos optio laborum facilis exercitationem alias. Consectetur dignissimos et deserunt reiciendis ea quisquam illo earum repudiandae.</Typography>
+                            <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>Built within the passion in Automotive Industry and Customer Satisfaction. Here, we make sure that you will get the best deals at the right price and at the right brand.</Typography>
                         </Box>
                     </Grid>
 
