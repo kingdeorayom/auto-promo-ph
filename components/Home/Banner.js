@@ -30,7 +30,7 @@ const Banner = () => {
                         color='#1f308a'
 
                     >
-                        At Auto Promo PH, get the latest wheels for the best deals.
+                        At Auto Promo PH, get the latest wheels for the best deals
                     </Typography>
                     <Typography fontSize='1.1rem' variant="h3" fontWeight='500' lineHeight={1.5} mb={2} color='#505050'  >
                         Get everything you need in one stop
