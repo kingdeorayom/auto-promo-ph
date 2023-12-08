@@ -69,22 +69,10 @@ const Ratings = () => {
                     <Typography>Would highly recommend for hassle free, easy and smooth transaction. With the wide variety of selection, Ms. Dhang will hand you the best deals for your dream car</Typography>
                 </Box>
                 <Box mx={1} sx={ratingBox} p={2}>
-                    <Typography fontWeight='700' color='#1f308a'>Andrea C.</Typography>
+                    <Typography fontWeight='700' color='#1f308a'>/Steven Wong</Typography>
                     <Typography fontWeight='700'>Highly recommended car seller</Typography>
                     <Rating name="read-only" value={5} readOnly sx={ratingWrapper} />
-                    <Typography>Highly Recommended Car Dealer! Trustworthy and very easy to deal with! Excellent service! No complains here this is our second time to buy a unit with.</Typography>
-                </Box>
-                <Box mx={1} sx={ratingBox} p={2}>
-                    <Typography fontWeight='700' color='#1f308a'>Andrea C.</Typography>
-                    <Typography fontWeight='700'>Exceptional Customer Service</Typography>
-                    <Rating name="read-only" value={5} readOnly sx={ratingWrapper} />
-                    <Typography>Outstanding service from start to finish. The agent went above and beyond to make sure I got the perfect car for my needs. Their attention to detail and commitment to customer satisfaction are truly commendable.</Typography>
-                </Box>
-                <Box mx={1} sx={ratingBox} p={2}>
-                    <Typography fontWeight='700' color='#1f308a'>Andrea C.</Typography>
-                    <Typography fontWeight='700'>A Delightful Car Buying Experience</Typography>
-                    <Rating name="read-only" value={5} readOnly sx={ratingWrapper} />
-                    <Typography>The entire car buying experience was delightful. The dealership agent was incredibly knowledgeable and patient, answering all questions with a smile. From the test drive to the paperwork, everything was seamless. Would definitely recommend this dealership for their excellent service!</Typography>
+                    <Typography>5 star for Ms.Dhang for guiding us all through out, from selecting the best promos, branches and also for a fast transaction. And Thank you for the after sales support. Your the best 🙏</Typography>
                 </Box>
             </Carousel>
         </Box>
