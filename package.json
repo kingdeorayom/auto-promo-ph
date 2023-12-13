@@ -1,5 +1,5 @@
 {
-  "name": "auto-promo-ph",
+  "name": "auto-promo-ph-v2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,33 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.11.0",
-    "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@fancyapps/ui": "^5.0.19",
-    "@hookform/resolvers": "^3.1.0",
-    "@mui/icons-material": "^5.11.16",
-    "@mui/lab": "^5.0.0-alpha.130",
-    "@mui/material": "^5.13.1",
-    "axios": "^1.4.0",
-    "dotenv": "^16.1.4",
-    "eslint": "8.40.0",
-    "eslint-config-next": "13.4.2",
-    "formik": "^2.4.1",
-    "moment": "^2.29.4",
-    "next": "13.4.2",
-    "nookies": "^2.5.2",
-    "numbro": "^2.3.6",
-    "react": "18.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "18.2.0",
-    "react-hook-form": "^7.44.3",
-    "react-multi-carousel": "^2.8.4",
-    "sass": "^1.63.2",
-    "sweetalert2": "^11.7.5",
-    "yup": "^1.2.0"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.0.4"
   },
   "devDependencies": {
-    "@hookform/devtools": "^4.3.1"
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4"
   }
 }
