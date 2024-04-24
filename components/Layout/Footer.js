@@ -1,39 +1,49 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Box, Divider, Grid, IconButton, Stack, Typography } from "@mui/material"
-import gmail_icon from '@/public/gmail_icon.svg'
-import viber_icon from '@/public/viber_icon.svg'
-import facebook_icon from '@/public/facebook_icon.svg'
-import styles from '@/styles/Footer.module.css'
-import logo_light from '@/public/logo_light.svg'
+import Link from "next/link";
+import Image from "next/image";
+import {
+    Box,
+    Divider,
+    Grid,
+    IconButton,
+    Stack,
+    Typography,
+} from "@mui/material";
+import gmail_icon from "@/public/gmail_icon.svg";
+import viber_icon from "@/public/viber_icon.svg";
+import facebook_icon from "@/public/facebook_icon.svg";
+import styles from "@/styles/Footer.module.css";
+import logo_light from "@/public/logo_light.svg";
 
 const Footer = () => {
     return (
-        <Box component='footer' className={styles.footer}>
-
+        <Box component="footer" className={styles.footer}>
             <Box
-                display='flex'
-                alignItems='center'
-                justifyContent='space-between'
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
                 mt={5}
                 sx={{
-                    borderBottom: '1px solid #808080',
-                    maxWidth: '1280px',
-                    margin: '0 auto',
+                    borderBottom: "1px solid #808080",
+                    maxWidth: "1280px",
+                    margin: "0 auto",
                     paddingY: 3,
-                    paddingX: 2
-                }}>
-                <Link href='/'>
+                    paddingX: 2,
+                }}
+            >
+                <Link href="/">
                     <Image
                         src={logo_light}
                         alt="Auto Promo PH"
                         height={20}
-                    // className={styles.logo}
+                        // className={styles.logo}
                     />
                     {/* <Typography fontSize='1.2rem' fontWeight='700' color='white'>Logo</Typography> */}
                 </Link>
-                <Stack direction='row' spacing={2}>
-                    <Link href='https://www.facebook.com/profile.php?id=100093458535215' target="_blank">
+                <Stack direction="row" spacing={2}>
+                    <Link
+                        href="https://www.facebook.com/profile.php?id=100093458535215"
+                        target="_blank"
+                    >
                         <IconButton className={styles.icon}>
                             <Image
                                 src={facebook_icon}
@@ -43,7 +53,7 @@ const Footer = () => {
                             />
                         </IconButton>
                     </Link>
-                    <Link href='https://www.viber.com/' target="_blank">
+                    <Link href="https://www.viber.com/" target="_blank">
                         <IconButton className={styles.icon}>
                             <Image
                                 src={viber_icon}
@@ -53,7 +63,10 @@ const Footer = () => {
                             />
                         </IconButton>
                     </Link>
-                    <Link href='mailto:dhangcasten@autopromo.ph' target="_blank">
+                    <Link
+                        href="mailto:dhangcasten@autopromo.ph"
+                        target="_blank"
+                    >
                         <IconButton className={styles.icon}>
                             <Image
                                 src={gmail_icon}
@@ -68,10 +81,10 @@ const Footer = () => {
 
             <Box
                 sx={{
-                    paddingTop: .1,
-                    maxWidth: '1280px',
-                    margin: '0 auto',
-                    paddingX: 5
+                    paddingTop: 0.1,
+                    maxWidth: "1280px",
+                    margin: "0 auto",
+                    paddingX: 5,
                 }}
             >
                 <Grid
@@ -79,77 +92,166 @@ const Footer = () => {
                     mt={1}
                     mb={4}
                     rowSpacing={3}
-                    columnSpacing={'60px'}
+                    columnSpacing={"60px"}
                 >
-
                     <Grid item xs={12} md={6}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' fontSize='.9rem' mb={2} color='white'>AUTO PROMO PH</Typography>
-                            <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>Built within the passion in Automotive Industry and Customer Satisfaction. Here, we make sure that you will get the best deals at the right price and at the right brand.</Typography>
+                            <Typography
+                                fontWeight="500"
+                                fontSize=".9rem"
+                                mb={2}
+                                color="white"
+                            >
+                                AUTO PROMO PH
+                            </Typography>
+                            <Typography
+                                className={styles.linkText}
+                                mb={1}
+                                color="#d3d3d3"
+                                fontSize=".9rem"
+                            >
+                                Built within the passion in Automotive Industry
+                                and Customer Satisfaction. Here, we make sure
+                                that you will get the best deals at the right
+                                price and at the right brand.
+                            </Typography>
                         </Box>
                     </Grid>
 
                     <Grid item xs={12} md={2}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' fontSize='.7rem' mb={3} color='white'>QUICK LINKS</Typography>
-                            <Link className={styles.link} href='/'>
-                                <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>Explore</Typography>
+                            <Typography
+                                fontWeight="500"
+                                fontSize=".7rem"
+                                mb={3}
+                                color="white"
+                            >
+                                QUICK LINKS
+                            </Typography>
+                            <Link className={styles.link} href="/">
+                                <Typography
+                                    className={styles.linkText}
+                                    mb={1}
+                                    color="#d3d3d3"
+                                    fontSize=".9rem"
+                                >
+                                    Explore
+                                </Typography>
                             </Link>
-                            <Link className={styles.link} href='/brands'>
-                                <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>Brands</Typography>
+                            <Link className={styles.link} href="/brands">
+                                <Typography
+                                    className={styles.linkText}
+                                    mb={1}
+                                    color="#d3d3d3"
+                                    fontSize=".9rem"
+                                >
+                                    Brands
+                                </Typography>
                             </Link>
-                            <Link className={styles.link} href='/promos'>
-                                <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>Promos</Typography>
+                            <Link className={styles.link} href="/promos">
+                                <Typography
+                                    className={styles.linkText}
+                                    mb={1}
+                                    color="#d3d3d3"
+                                    fontSize=".9rem"
+                                >
+                                    Promos
+                                </Typography>
                             </Link>
                         </Box>
                     </Grid>
 
                     <Grid item xs={12} md={2}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' fontSize='.7rem' mb={3} color='white'>OTHERS</Typography>
-                            <Link className={styles.link} href='/about'>
-                                <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>About</Typography>
+                            <Typography
+                                fontWeight="500"
+                                fontSize=".7rem"
+                                mb={3}
+                                color="white"
+                            >
+                                OTHERS
+                            </Typography>
+                            <Link className={styles.link} href="/about">
+                                <Typography
+                                    className={styles.linkText}
+                                    mb={1}
+                                    color="#d3d3d3"
+                                    fontSize=".9rem"
+                                >
+                                    About
+                                </Typography>
                             </Link>
-                            <Link className={styles.link} href='/terms-and-conditions'>
-                                <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>Terms and Conditions</Typography>
+                            <Link
+                                className={styles.link}
+                                href="/terms-and-conditions"
+                            >
+                                <Typography
+                                    className={styles.linkText}
+                                    mb={1}
+                                    color="#d3d3d3"
+                                    fontSize=".9rem"
+                                >
+                                    Terms and Conditions
+                                </Typography>
                             </Link>
-                            <Link className={styles.link} href='/privacy-policy'>
-                                <Typography className={styles.linkText} mb={1} color='#d3d3d3' fontSize='.9rem'>Privacy Policy</Typography>
+                            <Link
+                                className={styles.link}
+                                href="/privacy-policy"
+                            >
+                                <Typography
+                                    className={styles.linkText}
+                                    mb={1}
+                                    color="#d3d3d3"
+                                    fontSize=".9rem"
+                                >
+                                    Privacy Policy
+                                </Typography>
                             </Link>
                         </Box>
                     </Grid>
 
                     <Grid item xs={12} md={2}>
                         <Box sx={{}}>
-                            <Typography fontWeight='500' fontSize='.7rem' mb={3} color='white'>CONNECT WITH ME</Typography>
-                            <Typography mb={1} color='#d3d3d3' fontSize='.9rem'>Dhang Casten</Typography>
-                            <Typography mb={1} color='#d3d3d3' fontSize='.9rem'>+63 928 513 0117</Typography>
+                            <Typography
+                                fontWeight="500"
+                                fontSize=".7rem"
+                                mb={3}
+                                color="white"
+                            >
+                                CONNECT WITH ME
+                            </Typography>
+                            <Typography mb={1} color="#d3d3d3" fontSize=".9rem">
+                                Dhang Casten
+                            </Typography>
+                            <Typography mb={1} color="#d3d3d3" fontSize=".9rem">
+                                +63 908 866 0117
+                            </Typography>
                         </Box>
                     </Grid>
-
-                </Grid >
+                </Grid>
             </Box>
 
-            <Box component='footer'
+            <Box
+                component="footer"
                 sx={{
-                    backgroundColor: '#202020',
+                    backgroundColor: "#202020",
                     paddingX: 1,
                     paddingY: 2.5,
-                    borderTop: '1px solid #808080',
-                    display: 'flex',
-                    justifyContent: 'center',
+                    borderTop: "1px solid #808080",
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
-                    maxWidth: '1280px',
-                    margin: '0 auto'
+                    maxWidth: "1280px",
+                    margin: "0 auto",
                 }}
             >
-                <Typography fontSize='.8rem' color='#d3d3d3'>
+                <Typography fontSize=".8rem" color="#d3d3d3">
                     {`Copyright © Auto Promo PH ${new Date().getFullYear()}. All rights reserved. `}
                     {/* Developed by <Link href='https://github.com/kingdeorayom' target="_blank"><span className={styles.developer}>Serking</span></Link>. */}
                 </Typography>
             </Box>
         </Box>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;
